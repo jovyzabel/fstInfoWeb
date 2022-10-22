@@ -1,4 +1,52 @@
 @import "~bootstrap/dist/css/bootstrap";
 body {
     background-color: lightgray;
+    padding:0;
+    margin: 0;
 }
+/*header debut part*/ 
+.header-link{
+    color :rgb(0, 0, 0); 
+}
+.header-link:hover{
+   color:#b80924;
+   font-weight: 600;
+}
+.dropdown:hover{
+    color: #b80924;
+    font-weight: bold;       
+}
+.dropdown:hover .dropdown-menu{
+    display: block; 
+}
+.dropdown-item:hover{
+    color: #b80924;
+    font-weight: 600;
+}
+/*header end part*/
+/* footer debut part*/
+.footer-link{
+     color :rgb(134, 134, 134); 
+}
+.footer-link:hover{
+    color:#b80924;
+    font-weight: 600;
+}
+.text-subline {
+    position: relative;
+    height: 1px;
+    padding: 0;
+    background: #e5e5e5;
+    border: 50px;
+}
+.text-subline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1px;
+    width: 50px;
+    background: #b80924;
+}
+
+/* footer part end */
