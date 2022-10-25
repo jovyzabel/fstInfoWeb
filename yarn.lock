@@ -3117,6 +3117,11 @@ open@^8.0.9:
     is-docker "^2.1.1"
     is-wsl "^2.2.0"
 
+owljs@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/owljs/-/owljs-0.9.1.tgz#b9d2f127b14cc1ea7b2d7d3ad0c73eee3d69bdd0"
+  integrity sha512-CAnWms9rmpulSpaWFsCuQN454pDavHU+FNGS1KuhAogg/ecvEWj8L4/Z/imhC7UeBCEZG5ZB/i0ZFdtsHjlcSQ==
+
 p-limit@^2.0.0, p-limit@^2.2.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-2.3.0.tgz#3dd33c647a214fdfffd835933eb086da0dc21db1"

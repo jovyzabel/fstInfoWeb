@@ -1,23 +1,24 @@
 @import "~bootstrap/dist/css/bootstrap";
+
 body {
     background-color: lightgray;
     padding:0;
     margin: 0;
 }
 /*header debut part*/ 
+
 .header-link{
     color :rgb(0, 0, 0); 
 }
 .header-link:hover{
    color:#b80924;
    font-weight: 600;
-}
-.dropdown:hover{
-    color: #b80924;
-    font-weight: bold;       
+   border-bottom: 3px solid #b80924;
 }
 .dropdown:hover .dropdown-menu{
     display: block; 
+    color: #b80924;
+    font-weight: bold;
 }
 .dropdown-item:hover{
     color: #b80924;
