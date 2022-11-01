@@ -1,19 +1,30 @@
 @import "~bootstrap/dist/css/bootstrap";
 
 body {
-    background-color: lightgray;
-    padding:0;
-    margin: 0;
+    background-color: #FFF;
+    color: #000;
+    margin:0;
+    padding: 0;
 }
 /*header debut part*/ 
-
+.header-color{
+    background-color: #F6E9BD ;
+}
+.btn-color{
+    background-color: #b80924;
+    color: #FFF;
+}
 .header-link{
     color :rgb(0, 0, 0); 
 }
 .header-link:hover{
    color:#b80924;
    font-weight: 600;
-   border-bottom: 3px solid #b80924;
+   
+}
+header>div>div>ul>li:hover{
+    border-bottom: 3px solid #b80924;
+    background-color: #e5e5e515;
 }
 .dropdown:hover .dropdown-menu{
     display: block; 
@@ -49,5 +60,7 @@ body {
     width: 50px;
     background: #b80924;
 }
-
+.card:hover{
+    background-color: #e5e5e518;
+}
 /* footer part end */
