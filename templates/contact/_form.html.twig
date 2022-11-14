@@ -1,27 +1,23 @@
-<div class="container p-0">
-       <div class="d-flex justify-content-between justify-content-md-between gx-5">
-        <div class="col me-4">
-        <h3 class="essai"></h3>
-            <form action="" method="post">
-                <div class="row gx-2">
-                    <div class="col">
-                        <input type="text" name="name" placeholder="Entrez votre nom et votre prenoms" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" >
-                    </div>
-                    <div class="col">
-                        <input type="email" name="email" placeholder="Email@xxx.com"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"><br>
-                    </div>
+<div class="container">
+    <div class="row-sm d-md-flex flex-lg-row gx-5 ">
+        <div class="me-4 col-sm-12 col-lg-6">
+            <form action="" method="post" class="">
+    
+                <div class="col-md-12 mt-2">
+                    <input type="email" name="email" placeholder=" Votre adresse email" required class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"><br>
                 </div>
-                <div>
-                    <input type="text" name="objet" id="objet" class="form-control form-control-sm" aria-label=".form-control-sm example">
-                    <br><textarea name="message" id="msg" cols="70" rows="10" placeholder="Message" class="form-control mb-2"></textarea>
-                    <button class="btn btn-danger" type="submit">
+                
+                <div class="">
+                    <input type="text" name="objet" id="objet" placeholder="Objet du message"  class="form-control" aria-label=".form-control-sm example">
+                    <br><textarea name="message" required id="msg" cols="70" rows="10" placeholder="Contenu du message" class="form-control mb-2"></textarea>
+                    <button class="btn specifical-bg-1 text-light" type="submit">
                         Envoyez
                     </button>
                 </div>
             </form>
         </div>
-        <div class="vr ms-3"></div>
-        <div class="col">
+        {# <hr class="vr ms-3"></hr> #}
+        <div class="col-sm-12 col-lg-6">
              <aside class="px-3">
                 <h5>Socials</h5>
                 <hr class="featurette-divider">

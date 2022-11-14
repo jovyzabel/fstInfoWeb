@@ -1,4 +1,4 @@
-<header class="mb-1 .header-color" width="100%">
+<header class="mb-2 .header-color" width="100%">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a href="/" class="d-flex align-items-center mb-lg-0 text-dark text-decoration-none ">
@@ -6,15 +6,16 @@
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2  justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 header-link py-3 ">Accueil</a></li>
+          <li><a href="{{path('app_home')}}" class="nav-link px-2 header-link py-3 ">Accueil</a></li>
           <li><a href="#" class="nav-link px-2 header-link py-3">Actuallités</a></li>
-          <li><a href="#" class="nav-link px-2 header-link py-3">Contacts</a></li>
+          <li><a href="{{path('app_contact')}}" class="nav-link px-2 header-link py-3">Contacts</a></li>
           <li class="dropdown">
-                <a class="nav-link px-2 dropdown-toggle header-link py-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Présentation</a>
+                <a class="nav-link px-2 dropdown-toggle header-link py-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Parcours</a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Enseignants</a></li>
+                  <li><a class="dropdown-item" href="#">Présentation</a></li>
+                  <li><a class="dropdown-item" href="#">Corps enseignant</a></li>
                   <li><a class="dropdown-item" href="#">Programmes</a></li>
-                  <li><a class="dropdown-item" href="#">Historique</a></li>
+                  <li><a class="dropdown-item" href="#">Mot du responsable</a></li>
                 </ul>
           </li>
         </ul>
