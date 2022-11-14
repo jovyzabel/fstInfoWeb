@@ -1,10 +1,11 @@
 @import "~bootstrap/dist/css/bootstrap";
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
 body {
     background-color: #FFF;
     color: #000;
     margin:0;
     padding: 0;
+    font-family:'Roboto Slab', serif ;
 }
 /*header debut part*/ 
 .header-color{
@@ -57,10 +58,30 @@ header>div>div>ul>li:hover{
     top: 0;
     left: 0;
     height: 1px;
-    width: 50px;
     background: #b80924;
+    width: 50px;
 }
 .card:hover{
     background-color: #e5e5e518;
 }
 /* footer part end */
+/* typing part */
+/* .typing{
+    background-color: #050505;
+    color: #F6E9BD;
+    box-sizing: border-box;
+    height: 360px;
+    
+} */
+.specifical-bg-1{
+    background-color: #b80924;
+}
+.specifical-bg-2{
+    background-color: #F6E9BD;
+}
+.specifical-bg-3{
+    background-color: #2f0f55;
+}
+
+
+/*  */

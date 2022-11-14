@@ -3,10 +3,16 @@
 {% block title %}Contact{% endblock %}
 
 {% block body %}
-<main>
-    {% include "contact/_carousel.html.twig" %}
-    {% include "contact/_form.html.twig" %}
+<main  class="">
+    
+    {% include "contact/_carousel.html.twig" %} <br>   
+        
+    {% include "contact/_form.html.twig" %} <br>
+
+    {% include "contact/_map.html.twig" %} 
 
     <hr class="featurette-divider">
+
+    
 </main>
 {% endblock %}

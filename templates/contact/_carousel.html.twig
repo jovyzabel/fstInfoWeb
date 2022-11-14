@@ -1,5 +1,21 @@
-<section class="bg-danger">
-    <div>
-        <h1 class="text-center">Contacts</h1>
+<div class="">
+    {# <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="{{asset('img/3d-render-concept-of-old-telephone-3d-art-design-illustration.jpg')}}" width="1360" height="360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg> #}
+    <img src="{{asset('img/3d-render-concept-of-old-telephone-3d-art-design-illustration.jpg')}}" alt="" class="" width="100%" height="560px">
+</div>
+ <hr>
+
+    <div class="text-center col justify-content-between typing">
+        <h2 class="p-2">Entrer en contact</h2>
+            <span {{ stimulus_controller('symfony/ux-typed', {
+            strings: ['Ecrivez nous ', 'Géolocalisez nous ', 'Appelez nous '],
+            smartBackspace: true,
+            startDelay: 180,
+            backSpeed: 50,
+            backDelay: 200,
+            loop: true,
+            showCursor: true,
+            cursorChar: '|'
+        }) }}></span>                               
     </div>
-</section>
+
+   
