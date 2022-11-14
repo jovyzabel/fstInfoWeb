@@ -21,6 +21,10 @@ const $ = require('jquery');
 global.$ = global.jQuery = $;
 
 // start the Stimulus application
-import './bootstrap';
+
+import 'datatables.net-bs5';
+import 'datatables.net-responsive-bs5'
+
 import './counter'
+import './datatable'
 
