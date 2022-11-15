@@ -9,6 +9,7 @@
 import './styles/app.css';
 import './styles/galery.css';
 
+
 require("bootstrap");
 require("bootstrap-icons/font/bootstrap-icons.css");
 require("@fortawesome/fontawesome-free/css/all.min.css");

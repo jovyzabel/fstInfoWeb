@@ -85,5 +85,13 @@ header>div>div>ul>li:hover{
     background-color: #2f0f55;
 }
 
+/*  news page*/
 
-/*  */
+.hover-article a img {
+	opacity: 1;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.hover-article a:hover img {
+	opacity: .5;
+}
