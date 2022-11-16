@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Presentation
+{% endblock %}
+
+{% block body %}
+
+{{ include('parcours/_heading.html.twig',{'sub_link':'Admission'}) }}
+
+<div class="container">
+    <div>
+        <div class="">
+            <h1 class="my-3 py-3">Modalité d'admission / Conditions d'accès</h1>
+			<div class="row my-3">
+				<div class="col-sm-12 col-lg-6">
+					<p>
+						La condition requise pour s'inscrire au parcours Informatique de la 
+						Faculté de Science et Techniques est de valider la première année de 
+						licence Scientifique dans l'un des établissements de L'université 
+						Marien NGOUABI
+					</p>
+					<p>
+						Pour les étudiants en provenance d’une autre Université, il faut faire 
+						une demande de validation de vos semestres acquis en licence dans une 
+						autre université au niveau de la Scolarité
+					</p>
+					<p>
+						En cas de manque de ces titres requis pour un accès de droit mais qu'on 
+						fait valoir un autre diplôme, une autre formation et/ou des expériences 
+						personnelles et professionnelles équivalant à un Bac+1 et/ou Bac + 2. Il 
+						faut faire une demande d'equivalence des diplômes à la direction de 
+						l'établissement.
+					</p>
+				</div>
+
+				<div class="d-none d-md-none d-lg-block col-lg-6">
+					<img src=" {{asset('img/african_students_810x541.jpg')}} " class="img-fluid">
+				</div>	
+			</div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

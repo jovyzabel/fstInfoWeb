@@ -1,13 +1,22 @@
-
 <div class="container py-3 overflow-hidden">
   <div class="row gx-5 d-flex justify-content-center">
     <div class="col-6 col-sm-12 col-lg-6 lead">
-      <h3 class="">À propos du parcours informatique</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita laborum molestias blanditiis <br> doloribus itaque mollitia vero, <br> quo distinctio? Neque nam aut minima saepe voluptate beatae alias nemo unde obcaecati corporis?</p>
-      <a href="" class="btn btn-secondary"> En savoir plus</a>
+      <h3 class="">
+        À propos du parcours informatique
+      </h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
+        laborum molestias blanditiis <br /> doloribus itaque mollitia vero, <br />
+        quo distinctio? Neque nam aut minima saepe voluptate beatae alias nemo unde
+        obcaecati corporis?
+      </p>
+      <a href=" {{ path('app_parcours_presentation') }} "
+        class="btn btn-secondary">
+        En savoir plus
+      </a>
     </div>
-    <div class="col-6 col-sm-12 col-lg-6 ">
-      <img src="{{asset("logos/umnglogo2.png")}}" alt="" class="float-end">
+    <div class="col-6 col-sm-12 col-lg-6">
+      <img src="{{ asset('logos/umnglogo2.png') }}" alt="" class="float-end" />
     </div>
   </div>
-</div> 
+</div>
