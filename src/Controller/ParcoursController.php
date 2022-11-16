@@ -29,5 +29,19 @@ class ParcoursController extends AbstractController
         ]);
     }
 
+    #[Route('/parcours/programmes', name: 'app_parcours_programs')]
+    public function programs(): Response
+    {
+        return $this->render('parcours/programs.html.twig', [
+        ]);
+    }
+
+    #[Route('/parcours/admission', name: 'app_parcours_admission')]
+    public function admission(): Response
+    {
+        return $this->render('parcours/admission.html.twig', [
+        ]);
+    }
+
     
 }
