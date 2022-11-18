@@ -5,29 +5,26 @@
 {% block body %}
 <main class="overflow-hidden">
 
-  {% include "home/_carousel.html.twig" %}
+{% include "home/_carousel.html.twig" %}
 
-  {% include "home/_about.html.twig" %}
 
-    <hr class="featurette-divider">
-
-  {% include "home/_description.html.twig" %}
-   
-    <hr class="featurette-divider">
-
-  {% include "home/_statistic.html.twig" %}
-
-    {# <hr class="featurette-divider"> #}
-  {% include "home/_testimonial.html.twig" %}    
- 
-    {# <hr class="featurette-divider"> #}
-
-  {% include "home/_article.html.twig" %}
+{% include "home/_description.html.twig" %}
   
-    <hr class="featurette-divider bg-light">
-  
-  {% include "home/_galery.html.twig" %}
-  
-    <hr class="featurette-divider bg-light">
+	<hr class="featurette-divider">
+
+{% include "home/_statistic.html.twig" %}
+
+  {# <hr class="featurette-divider"> #}
+{% include "home/_testimonial.html.twig" %}    
+
+  {# <hr class="featurette-divider"> #}
+
+{% include "home/_news_grid.html.twig" %}
+
+	<hr class="featurette-divider bg-light">
+
+{% include "home/_galery.html.twig" %}
+
+	<hr class="featurette-divider bg-light">
 </main>
 {% endblock %}

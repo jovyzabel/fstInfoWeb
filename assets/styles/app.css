@@ -88,7 +88,7 @@ header>div>div>ul>li:hover{
     background-color: #F6E9BD;
 }
 .specifical-bg-3{
-    background-color: #2f0f55;
+    background-color: #0d2d62;
 }
 
 /*  news page*/
@@ -101,3 +101,4 @@ header>div>div>ul>li:hover{
 .hover-article a:hover img {
 	opacity: .5;
 }
+
