@@ -8,72 +8,167 @@
 
 <div class="container">
     <h1 class="my-5">Présentation du parcours</h1>
-    <div class="">
-        <div class="my-4">
-            <h2>Historique et contexte de creation</h2>
-            <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-8">
-                    <p>Odio officia assumenda doloremque nostrum a laudantium! Ducimus officia impedit, accusamus doloribus magni earum id ipsa libero hic quia! Veritatis ex saepe a. Laborum ad architecto quod repellat facilis debitis. Non magni corrupti sunt esse, tenetur laboriosam fugit odit itaque sequi assumenda adipisci molestiae id porro? Nihil consequatur quisquam nam quos similique quis, perferendis alias fugit.</p>
-                    <p>Molestiae necessitatibus esse eius incidunt voluptates, quod ullam nam rem perferendis corrupti expedita sequi veritatis enim quam? Harum alias deleniti, aliquam ipsum omnis illo, animi neque vero possimus excepturi eligendi aut? Optio impedit molestias recusandae velit eaque fuga, rerum voluptatum repellendus deserunt cumque minima placeat consectetur doloremque reiciendis quam inventore sed harum similique quos dolorem corporis ipsam enim unde! Quae quidem at reprehenderit magni quasi iure animi?</p>
+    <div class="row align-items-start">
+
+        <style>
+            @media (max-width: 991px) {
+                .tab-content>.tab-pane {
+                    display: block;
+                    opacity: 1;
+                }
+            }
+        </style>
+        <ul class="col-lg-4 nav nav-tabs nav-pills gx-2 d-none d-lg-block border-0 text-end mt-3" id="myTab" role="tablist" >
+            <li class="nav-item " role="presentation">
+                <a class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true"><h4>Historique et création</h4></a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link " id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false"><h4>Objectifs de la formation</h4></a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false"><h4>Spécificités de la formation</h4></a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="skills-tab" data-bs-toggle="tab" data-bs-target="#skills-tab-pane" type="button" role="tab" aria-controls="skills-tab-pane" aria-selected="false"><h4>Compétences visées</h4></a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="careers-tab" data-bs-toggle="tab" data-bs-target="#careers-tab-pane" type="button" role="tab" aria-controls="careers-tab-pane" aria-selected="false"><h4>Débouchés</h4></a>
+            </li>
+        </ul>
+        <div class="col-lg-8 tab-content accordion p-0" id="myTabContent">
+            <div class="tab-pane fade show active accordion-item border-0" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                <h2 class="accordion-header d-lg-none" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Historique et contexte de creation</button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show  d-lg-block" aria-labelledby="headingOne" data-bs-parent="#myTabContent">
+                    <div class="accordion-body mt-0">
+                        <div class="">
+                        <h2>Historique et contexte de creation</h2>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-8">
+                                <p>Odio officia assumenda doloremque nostrum a laudantium! Ducimus officia impedit, accusamus doloribus magni earum id ipsa libero hic quia! Veritatis ex saepe a. Laborum ad architecto quod repellat facilis debitis. Non magni corrupti sunt esse, tenetur laboriosam fugit odit itaque sequi assumenda adipisci molestiae id porro? Nihil consequatur quisquam nam quos similique quis, perferendis alias fugit.</p>
+                                <p>Molestiae necessitatibus esse eius incidunt voluptates, quod ullam nam rem perferendis corrupti expedita sequi veritatis enim quam? Harum alias deleniti, aliquam ipsum omnis illo, animi neque vero possimus excepturi eligendi aut? Optio impedit molestias recusandae velit eaque fuga, rerum voluptatum repellendus deserunt cumque minima placeat consectetur doloremque reiciendis quam inventore sed harum similique quos dolorem corporis ipsam enim unde! Quae quidem at reprehenderit magni quasi iure animi?</p>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <img src=" {{asset('img/logo.png')}} " alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <img src=" {{asset('img/logo.png')}} " alt="" width="360px">
+            </div>
+            <div class="tab-pane fade accordion-item border-0" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                <h2 class="accordion-header d-lg-none" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Objectifs de la formation
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse d-lg-block" aria-labelledby="headingTwo" data-bs-parent="#myTabContent">
+                    <div class="accordion-body">
+                        <div class="">
+                            <h2>Objectifs de la formation</h2>
+                            <div class="">
+                                <p>L’objectif de la licence Informatique de la faculté des sciences et Ttchnologies de l’Université de Lille est de fournir une solide formation générale en informatique. La spécialisation en informatique se fait progressivement dans le parcours tout en conservant en permanence une place aux enseignements des compétences transversales. La formation se conclut par un stage en entreprise de 3 mois.</p>
+                                <p>Vel voluptates quas porro sint deserunt architecto cum enim minus nobis quasi, at nisi quos velit, voluptas voluptatum fugiat ex consequatur necessitatibus impedit itaque quaerat fugit voluptatibus, maxime ducimus! A, dicta! Dignissimos saepe sed veritatis omnis sapiente voluptate autem corrupti, ullam consequatur deserunt eum voluptatem enim itaque temporibus quasi fugiat doloremque tenetur, voluptates amet. Itaque autem repellat exercitationem, nisi, ad modi minima at ut excepturi mollitia nulla dicta blanditiis veniam tenetur perferendis. Veniam, earum maiores corporis culpa esse accusamus laborum deserunt laudantium!</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="my-4">
-            <h2>Objectifs de la formation</h2>
-            <div class="">
-                <p>L’objectif de la licence Informatique de la faculté des sciences et Ttchnologies de l’Université de Lille est de fournir une solide formation générale en informatique. La spécialisation en informatique se fait progressivement dans le parcours tout en conservant en permanence une place aux enseignements des compétences transversales. La formation se conclut par un stage en entreprise de 3 mois.</p>
-                <p>Vel voluptates quas porro sint deserunt architecto cum enim minus nobis quasi, at nisi quos velit, voluptas voluptatum fugiat ex consequatur necessitatibus impedit itaque quaerat fugit voluptatibus, maxime ducimus! A, dicta! Dignissimos saepe sed veritatis omnis sapiente voluptate autem corrupti, ullam consequatur deserunt eum voluptatem enim itaque temporibus quasi fugiat doloremque tenetur, voluptates amet. Itaque autem repellat exercitationem, nisi, ad modi minima at ut excepturi mollitia nulla dicta blanditiis veniam tenetur perferendis. Veniam, earum maiores corporis culpa esse accusamus laborum deserunt laudantium!</p>
+            <div class="tab-pane fade accordion-item border-0" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+                <h2 class="accordion-header d-lg-none" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Spécificités de la formation
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse d-lg-block" aria-labelledby="headingThree" data-bs-parent="#myTabContent">
+                    <div class="accordion-body">
+                        <div class="">
+                            <h2>Spécificités de la formation</h2>
+                            <div class="">
+                                <p>L’ensemble des formations du département informatique offre un environnement d’études de qualité pour réussir ses études en informatique :</p>
+                                <ul>
+                                    <li>forte employabilité à l’issue de la formation ;</li>
+                                    <li>forte interaction avec le milieu professionnel : stages, alternance ;</li>
+                                    <li>une formation à la recherche et à l’innovation ;</li>
+                                    <li>750 étudiants dont plus de 100 alternants ;</li>
+                                    <li>un parc de 450 PC récents ;</li>
+                                    <li>des droits d’inscriptions faibles.</li>
+                                </ul>
+
+                                <p>Les 70 enseignants/chercheurs membres du Centre de recherche en Informatique et Automatique de Lille (CRIStAL) et du centre de recherche Inria Lille - Nord Europe forment un corps enseignant hautement qualifié que viennent compléter plus de 25 intervenants issus du monde de l’entreprise.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="my-4">
-            <h2>Spécificités de la formation</h2>
-            <div class="">
-                <p>L’ensemble des formations du département informatique offre un environnement d’études de qualité pour réussir ses études en informatique :</p>
-                <ul>
-                    <li>forte employabilité à l’issue de la formation ;</li>
-                    <li>forte interaction avec le milieu professionnel : stages, alternance ;</li>
-                    <li>une formation à la recherche et à l’innovation ;</li>
-                    <li>750 étudiants dont plus de 100 alternants ;</li>
-                    <li>un parc de 450 PC récents ;</li>
-                    <li>des droits d’inscriptions faibles.</li>
-                </ul>
+            <div class="tab-pane fade accordion-item border-0" id="skills-tab-pane" role="tabpanel" aria-labelledby="skills-tab" tabindex="0">
+                <h2 class="accordion-header d-lg-none" id="headingSkills">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSkills" aria-expanded="false" aria-controls="collapseSkills">
+                    Compétences visées
+                    </button>
+                </h2>
+                <div id="collapseSkills" class="accordion-collapse collapse d-lg-block" aria-labelledby="headingSkills" data-bs-parent="#myTabContent">
+                    <div class="accordion-body">
+                        <div class="">
+                            <h2>Compétences visées</h2>
+                            <div class="">
+                                <p>Une formation scientifique</p>
+                                <p>
+                                    L’informatique est une science dont les applications sont nombreuses. L’apprentissage des concepts fondamentaux va donc de pair avec leur mise en pratique et un tiers des enseignements est consacré à des travaux dirigés sur ordinateur. Les thèmes abordés couvrent l’essentiel des champs de l’informatique :
+                                </p>
 
-                <p>Les 70 enseignants/chercheurs membres du Centre de recherche en Informatique et Automatique de Lille (CRIStAL) et du centre de recherche Inria Lille - Nord Europe forment un corps enseignant hautement qualifié que viennent compléter plus de 25 intervenants issus du monde de l’entreprise.</p>
+                                <ul>
+                                    <li>programmation : orientée objet avec Java, en C++,Python, paradigmes fonctionnels et logiques ;</li>
+                                    <li>principes théoriques : algorithmique, automates et langages formels ;</li>
+                                    <li>bases de données ;</li>
+                                    <li>technologies du web ;</li>
+                                    <li>réseaux et système.</li>
+                                </ul>
+
+                            </div>
+
+                            <div class="">
+                                <p>Et ouverte sur l'entreprise</p>
+                                <p>
+                                    Cette formation scientifique s’accompagne de l’acquisition de compétences transversales indispensables à toute activité professionnelle future : acquisition de méthodes de travail, connaissance de l’entreprise,  communication écrite et orale ; accompagnement de l’étudiant dans l’élaboration d’un projet professionnel et de formation, découverte des métiers et des différents domaines disciplinaires.
+                                </p>
+                            </div>       
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="my-4">
-            <h2>Compétences visées</h2>
-            <div class="">
-                <p>Une formation scientifique</p>
-                <p>
-                    L’informatique est une science dont les applications sont nombreuses. L’apprentissage des concepts fondamentaux va donc de pair avec leur mise en pratique et un tiers des enseignements est consacré à des travaux dirigés sur ordinateur. Les thèmes abordés couvrent l’essentiel des champs de l’informatique :
-                </p>
-
-                <ul>
-                    <li>programmation : orientée objet avec Java, en C, paradigmes fonctionnels et logiques ;</li>
-                    <li>principes théoriques : algorithmique, automates et langages formels ;</li>
-                    <li>bases de données ;</li>
-                    <li>technologies du web ;</li>
-                    <li>réseaux et système.</li>
-                </ul>
-
+            <div class="tab-pane fade accordion-item border-0" id="careers-tab-pane" role="tabpanel" aria-labelledby="careers-tab" tabindex="0">
+                <h2 class="accordion-header d-lg-none" id="headingCareers">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCareers" aria-expanded="false" aria-controls="collapseCareers">
+                    Débouchés
+                    </button>
+                </h2>
+                <div id="collapseCareers" class="accordion-collapse collapse d-lg-block" aria-labelledby="headingCareers" data-bs-parent="#myTabContent">
+                    <div class="accordion-body">
+                        <div class="">
+                            <h2>Débouchés</h2>
+                            <div class="">
+                                <p>La formation en Informatique offre la possiblité de travailler dans plusieurs domaines des TIC</p>
+                                
+                                <ul>
+                                    <li>Administration systemes et réseaux</li>
+                                    <li>Administration et architecture de bases de données</li>
+                                    <li>Analyse et conception des Systemes d'informations</li>
+                                    <li>Architecture réseaux</li>
+                                    <li>Développement mobile</li>
+                                    <li>Développement web</li>
+                                    <li>Gestion de projet informatique</li>
+                                    <li>Maitrise d'oeuvre et maitrise d'ouvrage</li>
+                                    <li>Webmaster</li>
+                                </ul>
+                            </div>       
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="">
-                <p>Et ouverte sur l'entreprise</p>
-                <p>
-                    Cette formation scientifique s’accompagne de l’acquisition de compétences transversales indispensables à toute activité professionnelle future : acquisition de méthodes de travail, connaissance de l’entreprise, anglais, communication écrite et orale ; accompagnement de l’étudiant dans l’élaboration d’un projet professionnel et de formation, découverte des métiers et des différents domaines disciplinaires.
-                </p>
-            </div>
-
             
         </div>
-
-        
     </div>
     
 </div>

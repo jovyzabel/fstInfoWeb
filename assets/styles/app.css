@@ -102,3 +102,33 @@ header>div>div>ul>li:hover{
 	opacity: .5;
 }
 
+#myTab li a {
+    text-decoration: none;
+    background-color: #fff;
+    color: #191919;
+}
+
+button.accordion-button {
+    background-color: #ffffff;
+    color: #b80924;
+    font-size: large;
+    font-weight: bold;
+}
+
+button.accordion-button:focus, #myTab li a:hover {
+    color: #b80924;
+    background-color: #ffffff;
+}
+
+.accordion-button.collapsed::after {
+
+    background: \2b;
+
+}
+
+.accordion-button:not(.collapsed)::after {
+
+    background: \f068;
+
+}
+
