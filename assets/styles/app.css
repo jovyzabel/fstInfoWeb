@@ -36,9 +36,7 @@ header>div>div>ul>li:hover{
     background-color: #e5e5e515;
 }
 .dropdown:hover .dropdown-menu{
-    display: block; 
-    color: #b80924;
-    font-weight: bold;
+    
 }
 .dropdown-item:hover{
     color: #b80924;
@@ -120,15 +118,12 @@ button.accordion-button:focus, #myTab li a:hover {
     background-color: #ffffff;
 }
 
-.accordion-button.collapsed::after {
 
-    background: \2b;
+@media only screen and (min-width: 992px) {
 
+    li.nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+        color: #b80924;
+        font-weight: bold;
+    }
 }
-
-.accordion-button:not(.collapsed)::after {
-
-    background: \f068;
-
-}
-
