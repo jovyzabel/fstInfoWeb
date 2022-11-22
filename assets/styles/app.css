@@ -35,9 +35,7 @@ header>div>div>ul>li:hover{
     border-bottom: 3px solid #b80924;
     background-color: #e5e5e515;
 }
-.dropdown:hover .dropdown-menu{
-    
-}
+
 .dropdown-item:hover{
     color: #b80924;
     font-weight: 600;
