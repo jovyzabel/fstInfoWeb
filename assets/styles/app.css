@@ -35,11 +35,7 @@ header>div>div>ul>li:hover{
     border-bottom: 3px solid #b80924;
     background-color: #e5e5e515;
 }
-.dropdown:hover .dropdown-menu{
-    display: block; 
-    color: #b80924;
-    font-weight: bold;
-}
+
 .dropdown-item:hover{
     color: #b80924;
     font-weight: 600;
@@ -102,3 +98,30 @@ header>div>div>ul>li:hover{
 	opacity: .5;
 }
 
+#myTab li a {
+    text-decoration: none;
+    background-color: #fff;
+    color: #191919;
+}
+
+button.accordion-button {
+    background-color: #ffffff;
+    color: #b80924;
+    font-size: large;
+    font-weight: bold;
+}
+
+button.accordion-button:focus, #myTab li a:hover {
+    color: #b80924;
+    background-color: #ffffff;
+}
+
+
+@media only screen and (min-width: 992px) {
+
+    li.nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+        color: #b80924;
+        font-weight: bold;
+    }
+}

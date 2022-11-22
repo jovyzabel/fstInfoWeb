@@ -1,77 +1,96 @@
-<header class="mb-2 .header-color" width="100%">
+<nav class="navbar navbar-expand-lg">
     <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a href="{{ path('app_home') }} "
-                class="d-flex align-items-center mb-lg-0 text-dark text-decoration-none">
-            <img src="{{ asset('img/logo.png') }}"
-                alt="Parcours_informatique"
-                class="rounded-circle"
-                width="90" />
-            </a>
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li>
-                    <a href="{{ path('app_home') }}"
-                        class="nav-link px-2 header-link py-3">
-                    Accueil
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ path('app_news') }}"
-                        class="nav-link px-2 header-link py-3">
-                    Actualités
-                    </a>
-                </li>
-                <li class="dropdown">
-                    <a class="nav-link px-2 dropdown-toggle header-link py-3"
-                        href="#"
-                        role="button"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                    Parcours
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a class="dropdown-item"
-                                href=" {{ path('app_parcours_presentation') }} ">
-                            Présentation
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item"
-                                href=" {{ path('app_parcours_chief_word') }}">
-                            Mot du responsable
-                            </a>
-                        </li>
-                        <li><a class="dropdown-item" href="{{path('app_parcours_admission')}}">Admissions</a></li>
-                        <li><a class="dropdown-item" href="{{path('app_parcours_programs')}}">Programmes</a></li>
-                        <li>
-                            <a class="dropdown-item"
-                                href="{{ path('app_parcours_teachers') }}">
-                            Corps enseignant
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"
-                        class="nav-link px-2 header-link py-3">
-                    Alumni
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ path('app_contact') }}"
-                        class="nav-link px-2 header-link py-3">
-                    Contacts
-                    </a>
-                </li>
-                
-            </ul>
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                <input type="search"
-                    class="form-control"
-                    placeholder="Rechercher..."
-                    aria-label="Search" />
-            </form>
+        <button class="d-lg-none d-sm-block navbar-toogler btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasHeader" aria-controls="offcanvasHeader">
+            <span class="fa-solid fa-bars"></span>
+        </button>
+
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasHeader" aria-labelledby="offcanvasHeaderLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasHeaderLabel">Menu</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="d-lg-flex flex-wrap justify-content-center">
+                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                    <img src="{{ asset('img/logo large Parcours Informatique.png') }}"
+                        alt="Parcours_informatique"
+                        class=""
+                        height="70" />
+                </a>
+                <ul class="navbar-nav">
+                    <li>
+                        <a href="{{ path('app_home') }}"
+                            class="nav-link px-2 header-link py-3">
+                        Accueil
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_news') }}"
+                            class="nav-link px-2 header-link py-3">
+                        Actualités
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="nav-link px-2 dropdown-toggle header-link py-3"
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                        Parcours
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item"
+                                    href=" {{ path('app_parcours_presentation') }} ">
+                                Présentation
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item"
+                                    href=" {{ path('app_parcours_chief_word') }}">
+                                Mot du responsable
+                                </a>
+                            </li>
+                            <li><a class="dropdown-item" href="{{path('app_parcours_admission')}}">Admissions</a></li>
+                            <li><a class="dropdown-item" href="{{path('app_parcours_programs')}}">Programmes</a></li>
+                            <li>
+                                <a class="dropdown-item"
+                                    href="{{ path('app_parcours_teachers') }}">
+                                Corps enseignant
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="nav-link px-2 header-link py-3">
+                        Alumni
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_contact') }}"
+                            class="nav-link px-2 header-link py-3">
+                        Contacts
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="nav-link px-2 header-link py-3"
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </a>
+                        <form class="m-0 col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 dropdown-menu" role="search">
+                            <input type="search"
+                                class="form-control dropdown-item py-0 my-0"
+                                placeholder="Rechercher..."
+                                aria-label="Search" />
+                        </form>
+
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-</header>
+</nav>
