@@ -3,21 +3,23 @@
     <div class="row gx-5">
         <div class="col-lg-7">
             <div class="row gy-5 mb-3 justify-content-lg-start">
-
+                {% for article in articles %}
+                    
                 <div class="col-md-6 col-sm-12">
                     <div class="card ms-3 shadow-sm rounded-0 border border-0">
                         <img src="{{asset('logos/1559392319600.jfif')}}" class="card-img-top rounded-0 " alt="...">
                         <div class="card-body">
                             <h5 class="card-title">
-                                <a href="{{path('app_news_show')}}" style="color: #b80924;" class="text-decoration-none">Card title</a>
+                                <a href="{{path('app_news_show')}}" style="color: #b80924;" class="text-decoration-none">{{article.title}}</a>
                             </h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text">{{article.content}}</p>
                             <i class="fa-regular fa-calendar-days"></i><em> 3 days ago</em>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
 
-                <div class="col-md-6 col-sm-12">
+                {# <div class="col-md-6 col-sm-12">
                     <div class="card ms-3 shadow-sm rounded-0 border border-0">
                         <img src="{{asset('img/colorful.png')}}" class="card-img-top rounded-0" alt="...">
                         <div class="card-body">
@@ -72,8 +74,8 @@
                             <i class="fa-regular fa-calendar-days"></i><em> 3 days ago</em>
                         </div>
                     </div>
-                </div>
-                
+                </div> #}
+                {{ knp_pagination_render(articles) }}
             </div>
             
         </div>
