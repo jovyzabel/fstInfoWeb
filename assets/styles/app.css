@@ -31,6 +31,9 @@ p, ul>li {
    font-weight: 600;
    
 }
+.color-text{
+    color:#b80924;
+ }
 header>div>div>ul>li:hover{
     border-bottom: 3px solid #b80924;
     background-color: #e5e5e515;
@@ -80,11 +83,15 @@ header>div>div>ul>li:hover{
 .specifical-bg-1{
     background-color: #b80924;
 }
+.specifical-bg-1:hover{
+    background-color: #2f0f55;
+}
+
 .specifical-bg-2{
     background-color: #F6E9BD;
 }
 .specifical-bg-3{
-    background-color: #0d2d62;
+    background-color: #2f0f55;
 }
 
 /*  news page*/
