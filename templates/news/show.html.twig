@@ -1,11 +1,15 @@
 {% extends "base.html.twig" %}
 
+{% block title %}
+    {{article.title}}
+{% endblock %}
+
 {% block body %}
 
 <div class="mb-4 specifical-bg-1 p-5">
     <h1 class="p-5 text-center text-white fs-1">Actualités</h1>
     <div class="text-center">
-        <p class="text-light"><a href="{{path('app_home')}}" class="text-decoration-none text-white">Accueil</a> / <a href="" class="text-decoration-none text-white">Actualités</a> / <a href="" class="text-decoration-none text-muted">titre de l'article</a></p>
+        <p class="text-light"><a href="{{path('app_home')}}" class="text-decoration-none text-white">Accueil</a> / <a href="" class="text-decoration-none text-white">Actualités</a> / <a href="" class="text-decoration-none text-muted">{{article.title}}</a></p>
     </div>
 </div>
 
@@ -13,28 +17,21 @@
     <div class="row gx-5">
         <div class="col-md-12 col-lg-8">
             <div class="">
-                <h2 class="text-bold">Exemple d'article</h2>
+                <h2 class="text-bold">{{article.title}}</h2>
                 <hr class="text-subline">
                 <div class="">
                     <ul class="list-inline">
-                        <li><i class="bi bi-clock-fill"></i><span class=""> Il y a 2 jours</span></li>
-                        <li><i class="bi bi-person-fill"></i><span class=""> Ronald Austin</span></li>
+                        <li><i class="bi bi-clock-fill"></i><span class="">Publié le {{article.createdAt |date('d/m/Y')}} </span></li>
+                        <li><i class="bi bi-person-fill"></i><span class=""> {{article.account.email}}</span></li>
                     </ul>
                 </div>
                 <div class="offset-top-30">
-                    <img class="img-fluid" src=" {{asset('img/Depositphotos_183838210_XL.png')}} ">
+                    <img class="img-fluid" src=" {{article.image}} ">
                     <div class="offset-top-30">
-                        <p>Most community college students qualify for need-based aid, experts say. Many community colleges offer promise programs, which offer tuition-free awards to eligible students – mainly to students with Pell grant eligibility. For one Massachusetts teen choosing between a two-year or four-year college, cost was the deciding factor.</p>
+                        {{article.content}}
                     </div>
-                    <p>Estime had hoped to attend Smith College, but says the school costs too much, at more than $45,000 a year for tuition and fees. The liberal arts major enrolled in Holyoke Community College last fall and plans to transfer to nearby Smith or the University of Massachusetts–Amherst for her junior year, depending on the financial aid award. Estime, in the meantime, has managed to keep her debt under $2,000, paying for college with private scholarships, Pell grants and a small loan.</p>
                 </div>
-                <div class="">
-                    <img class="img-fluid" src="{{asset('img/Depositphotos_183838210_XL.png')}}" alt="">
-                    <div class="offset-top-30">
-                        <p>But those are just three ways to pay for community college. Here are some ways to pay for community college other than working part or full time.</p>
-                    </div>
-                    <p>Pell grants: Pell grants function like vouchers for students to pay for higher education-related expenses, covering items such as books, transportation or tuition. Awards are based on financial need to students who have not earned a bachelor's degree. More than two-thirds of Pell grants go to families making less than $50,000, according to Columbia University's Community College Research Center at Teachers College. These awards are also contingent on the student's household size.</p>
-                </div>
+
                 <div class="offset-top-30 row my-3">
                     <div class="col-sm-12 col-lg-6">
                         <div class="text-center">
@@ -89,35 +86,9 @@
                         </form>
                     </div>
                 </div>
-                <div>
-                    <h5>Archives</h5>
-                    <div class="text-subline"></div>
-                    <div class="p-3">
-                        <div class="row gx-5">
-                            <div class="col-6">
-                                <ul class="list-style-type-square">
-                                    <li><a href="#" class="text-decoration-none text-muted">Nov 2019</a></li>
-                                    <li><a href="#" class="text-decoration-none text-muted">Dec 2019</a></li>
-                                    <li><a href="#" class="text-decoration-none text-muted">Jan 2020</a></li>
-                                    <li><a href="#" class="text-decoration-none text-muted">Fev 2020</a></li>
-                                    <li><a href="#" class="text-decoration-none text-muted">Sept 2020</a></li>
-                                    <li><a href="#" class="text-decoration-none text-muted">Oct 2020</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-6">
-                                <ul class="list-style-square">
-                                    <li><a href="#" class="text-decoration-none text-muted">Nov 2020</a></li>
-                                    <li><a href="#" class="text-decoration-none text-muted">Dec 2020</a></li>
-                                    <li><a href="#" class="text-decoration-none text-muted">Jan 2021</a></li>
-                                    <li><a href="#" class="text-decoration-none text-muted">Fev 2021</a></li>
-                                    <li><a href="#" class="text-decoration-none text-muted">Mar 2021</a></li>
-                                    <li><a href="#" class="text-decoration-none text-muted">Avr 2021</a></li>
-                                </ul>
-                            </div>
-                                
-                        </div>
-                    </div>
-                </div>    
+
+                {% include "news/_latest_news.html.twig" %}
+
                 <div>
                     <h5>Galery</h5>
                     <div class="text-subline"></div>
