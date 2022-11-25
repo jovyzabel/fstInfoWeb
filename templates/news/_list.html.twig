@@ -1,86 +1,31 @@
 <br>
 <div class="container">
     <div class="row gx-5">
-        <div class="col-lg-7">
+        <div class="col-lg-8">
             <div class="row gy-5 mb-3 justify-content-lg-start">
                 {% for article in articles %}
                     
                 <div class="col-md-6 col-sm-12">
                     <div class="card ms-3 shadow-sm rounded-0 border border-0">
-                        <img src="{{asset('logos/1559392319600.jfif')}}" class="card-img-top rounded-0 " alt="...">
+                        <img src="{{article.image}}" class="card-img-top rounded-0 " alt="...">
                         <div class="card-body">
                             <h5 class="card-title">
-                                <a href="{{path('app_news_show')}}" style="color: #b80924;" class="text-decoration-none">{{article.title}}</a>
+                                <a href="{{path('app_news_show', {'slug': article.slug})}}" style="color: #b80924;" class="text-decoration-none">{{article.title}}</a>
                             </h5>
-                            <p class="card-text">{{article.content}}</p>
+                            <p class="card-text">{{article.content | u.truncate(100, '...', false)}}</p>
                             <i class="fa-regular fa-calendar-days"></i><em> 3 days ago</em>
                         </div>
                     </div>
                 </div>
                 {% endfor %}
-
-                {# <div class="col-md-6 col-sm-12">
-                    <div class="card ms-3 shadow-sm rounded-0 border border-0">
-                        <img src="{{asset('img/colorful.png')}}" class="card-img-top rounded-0" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <a href="{{path('app_news_show')}}" style="color: #b80924;" class="text-decoration-none">Card title</a>
-                            </h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <i class="fa-regular fa-calendar-days"></i><em> 3 days ago</em>
-                        </div>
-                    </div>
+                <div class="col">
+                    {{ knp_pagination_render(articles) }}
                 </div>
-
-                <div class="col-md-6 col-sm-12">
-                    <div class="card ms-3 shadow-sm rounded-0 border border-0">
-                        <img src="{{asset('img/colorful.png')}}" class="card-img-top rounded-0" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="{{path('app_news_show')}}" style="color: #b80924;" class="text-decoration-none">Card title</a></h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <i class="fa-regular fa-calendar-days"></i><em> 3 days ago</em>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-sm-12">
-                    <div class="card ms-3 shadow-sm rounded-0 border border-0">
-                        <img src="{{asset('img/colorful.png')}}" class="card-img-top rounded-0" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="{{path('app_news_show')}}" style="color: #b80924;" class="text-decoration-none">Card title</a></h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <i class="fa-regular fa-calendar-days"></i><em> 3 days ago</em>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-sm-12">
-                    <div class="card ms-3 shadow-sm rounded-0 border border-0">
-                        <img src="{{asset('img/colorful.png')}}" class="card-img-top rounded-0" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="{{path('app_news_show')}}" style="color: #b80924;" class="text-decoration-none">Card title</a></h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <i class="fa-regular fa-calendar-days"></i><em> 3 days ago</em>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-sm-12">
-                    <div class="card ms-3 shadow-sm rounded-0 border border-0">
-                        <img src="{{asset('img/colorful.png')}}" class="card-img-top rounded-0" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="{{path('app_news_show')}}" style="color: #b80924;" class="text-decoration-none">Card title</a></h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <i class="fa-regular fa-calendar-days"></i><em> 3 days ago</em>
-                        </div>
-                    </div>
-                </div> #}
-                {{ knp_pagination_render(articles) }}
             </div>
             
         </div>
 
-        <div class="col-lg-5">
+        <div class="col-lg-4">
             <aside>
                 <div>
                     <h5>Recherche</h5>
@@ -99,35 +44,8 @@
                     </div>
                 </div>
 
-                <div>
-                    <h5>Archives</h5>
-                    <div class="text-subline"></div>
-                    <div class="p-3">
-                        <div class="row gx-5">
-                            <div class="col-6">
-                                <ul class="list-style-type-square">
-                                    <li><a href="#" class="text-decoration-none text-muted">Nov 2019</a></li>
-                                    <li><a href="#" class="text-decoration-none text-muted">Dec 2019</a></li>
-                                    <li><a href="#" class="text-decoration-none text-muted">Jan 2020</a></li>
-                                    <li><a href="#" class="text-decoration-none text-muted">Fev 2020</a></li>
-                                    <li><a href="#" class="text-decoration-none text-muted">Sept 2020</a></li>
-                                    <li><a href="#" class="text-decoration-none text-muted">Oct 2020</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-6">
-                                <ul class="list-style-square">
-                                    <li><a href="#" class="text-decoration-none text-muted">Nov 2020</a></li>
-                                    <li><a href="#" class="text-decoration-none text-muted">Dec 2020</a></li>
-                                    <li><a href="#" class="text-decoration-none text-muted">Jan 2021</a></li>
-                                    <li><a href="#" class="text-decoration-none text-muted">Fev 2021</a></li>
-                                    <li><a href="#" class="text-decoration-none text-muted">Mar 2021</a></li>
-                                    <li><a href="#" class="text-decoration-none text-muted">Avr 2021</a></li>
-                                </ul>
-                            </div>
-                                  
-                        </div>
-                    </div>
-                </div>    
+                {% include "news/_latest_news.html.twig" %}
+                
                 <div>
                     <h5>Galery</h5>
                     <div class="text-subline"></div>

@@ -7,6 +7,7 @@ use App\Entity\Tag;
 use App\Entity\Account;
 use App\Entity\Article;
 use App\Entity\Category;
+use DateTimeImmutable;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -38,8 +39,10 @@ class AppFixtures extends Fixture
                 $article = new Article();
                 $article->setTitle($faker->sentence());
                 $article->setContent($faker->paragraphs(3, true));
+                $article->setImage($faker->imageUrl(640, 480, 'animals',true, 'dogs', true));
                 $article->setAccount($account);
                 $article->addCategory($category);
+                $article->setCreatedAt(new DateTimeImmutable());
                 
                 
                 $manager->persist($article);
