@@ -39,7 +39,6 @@ class AppFixtures extends Fixture
                 $article = new Article();
                 $article->setTitle($faker->sentence());
                 $article->setContent($faker->paragraphs(3, true));
-                $article->setImage($faker->imageUrl(640, 480, 'animals',true, 'dogs', true));
                 $article->setAccount($account);
                 $article->addCategory($category);
                 $article->setCreatedAt(new DateTimeImmutable());

@@ -26,7 +26,9 @@
                     </ul>
                 </div>
                 <div class="offset-top-30">
-                    <img class="img-fluid" src=" {{article.image}} ">
+                    {% if article.featuredImage %}
+                        <img src="{{article.featuredImage.filename}}" class="card-img-top rounded-0" alt="...">
+                    {% endif %}
                     <div class="offset-top-30">
                         {{article.content}}
                     </div>

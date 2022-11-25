@@ -15,6 +15,17 @@ p, ul>li {
     color: rgb(86,86,86);
 }
 
+.item-title {
+    font-family:'Roboto Slab', serif ;
+    color: #b80924;
+    
+}
+.item-title:hover {
+    font-family:'Roboto Slab', serif ;
+    color: #2f0f55;
+    
+}
+
 /*header debut part*/ 
 .header-color{
     background-color: #F6E9BD ;
@@ -71,15 +82,7 @@ header>div>div>ul>li:hover{
 .card:hover{
     background-color: #e5e5e518;
 }
-/* footer part end */
-/* typing part */
-/* .typing{
-    background-color: #050505;
-    color: #F6E9BD;
-    box-sizing: border-box;
-    height: 360px;
-    
-} */
+
 .specifical-bg-1{
     background-color: #b80924;
 }

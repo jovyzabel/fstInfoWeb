@@ -7,7 +7,9 @@
                     
                 <div class="col-md-6 col-sm-12">
                     <div class="card ms-3 shadow-sm rounded-0 border border-0">
-                        <img src="{{article.image}}" class="card-img-top rounded-0 " alt="...">
+                        {% if article.featuredImage %}
+                        <img src="{{article.featuredImage.filename}}" class="card-img-top rounded-0" alt="...">
+                        {% endif %}
                         <div class="card-body">
                             <h5 class="card-title">
                                 <a href="{{path('app_news_show', {'slug': article.slug})}}" style="color: #b80924;" class="text-decoration-none">{{article.title}}</a>
@@ -43,27 +45,8 @@
                         </form>
                     </div>
                 </div>
-
-                <div>
-                    <h5>Informations recentes</h5>
-                    <div class="text-subline"></div>
-                    <div class="p-3">
-                        <div class="row gx-5">
-                            <div class="col-12">
-                                <h6><a href="" class="text-decoration-none color-text ">Lorem ipsum dolor sit.</a></h6>
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta!</p>
-                                <h6><a href="" class="text-decoration-none color-text">Lorem ipsum dolor sit.</a></h6>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas!</p> 
-                                <h6><a href="" class="text-decoration-none color-text">Lorem ipsum dolor sit.</a></h6>
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta!</p>
-                                <h6><a href="" class="text-decoration-none color-text">Lorem ipsum dolor sit.</a></h6>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas!</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>    
-                {% include "news/_latest_news.html.twig" %}
-                
+  
+                {% include "news/_latest_news.html.twig" %}        
 
                 <div>
                     <h5>Galery</h5>
