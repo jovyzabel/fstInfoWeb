@@ -2,18 +2,19 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\UE;
 use Faker\Factory;
 use App\Entity\Tag;
+use DateTimeImmutable;
+use PHPUnit\Util\Test;
 use App\Entity\Account;
 use App\Entity\Article;
-use App\Entity\Category;
 use App\Entity\Subject;
 use App\Entity\Teacher;
-use App\Entity\UE;
-use DateTimeImmutable;
+use App\Entity\Category;
+use App\Entity\Semester;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use PHPUnit\Util\Test;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AppFixtures extends Fixture
@@ -61,38 +62,51 @@ class AppFixtures extends Fixture
             }
         }
 
-        $level = ['L2', 'L3'];
+        for($n=1; $n<5; $n++ ) {
 
-        for ($i=0; $i < 3; $i++) { 
+            $semester = new Semester();
+            $semester->setLabel('Semestre '.$n)
+                ->setCode('S'.$n);
             
-            $ue = new UE();
-            $ue->setLabel("Unité d'enseignement - ".$i);
-
-            for ($j=0; $j < 3; $j++) { 
-                $subject = new Subject();
-                $subject->setLabel('matiere - '.$j)
-                    ->setDescription($faker->paragraph())
-                    ->setLevel($level[array_rand($level)]);
-
-                $manager->persist($subject);
-                
-                $teacher = new Teacher();
-                $teacher->setDiploma("Docteur en informatique")
-                    ->setPlaceOfAcquisition("FST - UMNG, Brazzaville")
-                    ->setName($faker->lastName())
-                    ->setFirstName($faker->firstName())
-                    ->addTeachedSubject($subject);
-                
-                $manager->persist($teacher);
-                
-                $ue->addSubject($subject);
-                
+            if ($n <3) {
+                $semester->setLevel('L2');    
+            }else {
+                $semester->setLevel('L3');
             }
-            $manager->persist($ue);
+    
+            for ($i=0; $i < 3; $i++) { 
+                
+                $ue = new UE();
+                $ue->setLabel("Unité d'enseignement - ".$i)
+                    ->setCode('UE'.$i.$n);
+    
+                for ($j=0; $j < 3; $j++) { 
+                    $subject = new Subject();
+                    $subject->setLabel('matiere - '.$j)
+                        ->setDescription($faker->paragraph());
+    
+                    $manager->persist($subject);
+                    
+                    $teacher = new Teacher();
+                    $teacher->setDiploma("Docteur en informatique")
+                        ->setPlaceOfAcquisition("FST - UMNG, Brazzaville")
+                        ->setName($faker->lastName())
+                        ->setFirstName($faker->firstName())
+                        ->addTeachedSubject($subject);
+                    
+                    $manager->persist($teacher);
+                    
+                    $ue->addSubject($subject);
+                    
+                }
+                $manager->persist($ue);
+
+                $semester->addUe($ue);
+            }
+
+            $manager->persist($semester);        
         }
 
-        
-        
 
         $manager->flush();
     }

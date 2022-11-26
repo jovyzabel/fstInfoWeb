@@ -26,9 +26,6 @@ class Subject
     #[ORM\ManyToOne(inversedBy: 'teachedSubjects')]
     private ?Teacher $teacher = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $level = null;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -78,18 +75,6 @@ class Subject
     public function setTeacher(?Teacher $teacher): self
     {
         $this->teacher = $teacher;
-
-        return $this;
-    }
-
-    public function getLevel(): ?string
-    {
-        return $this->level;
-    }
-
-    public function setLevel(string $level): self
-    {
-        $this->level = $level;
 
         return $this;
     }
