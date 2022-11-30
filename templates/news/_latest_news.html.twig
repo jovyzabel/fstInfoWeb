@@ -7,9 +7,9 @@
         {% for article in latest_articles %}
             <li class="mb-3">
                 <div>
-                    <h4>
-                        <a href="{{path('app_news_show', {'slug': article.slug})}}" class="text-decoration-none text-muted">{{article.title}}</a>
-                    </h4>
+                    <h5>
+                        <a href="{{path('app_news_show', {'slug': article.slug})}}" class="text-decoration-none item-title">{{article.title}}</a>
+                    </h5>
                     <div class="row">
                         <div class="col"><p><i class="fa-solid fa-calendar-days"></i>{{article.createdAt | date('d/m/Y')}}</p></div>
                         <div class="col"><p>{{article.account.email}}</p></div>

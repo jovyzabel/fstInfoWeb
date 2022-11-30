@@ -7,7 +7,9 @@
 		{% for article in articles %}		
 		<div class="col-sm-12 col-md-6 col-lg-4">
 			<div class="card shadow-sm rounded-0 border-0">
-				<img src="{{article.image}}" class="card-img-top rounded-0" alt="...">
+			{% if article.featuredImage %}
+				<img src="{{article.featuredImage.filename}}" class="card-img-top rounded-0" alt="...">
+			{% endif %}
 				<div class="card-body">
 					<h5 class="card-title"><a href="{{path('app_news_show', {'slug': article.slug})}}" style="color: #b80924;" class="text-decoration-none">{{article.title}}</a></h5>
 					<p class="card-text">{{article.content | u.truncate(100, '...', false)}}</p>

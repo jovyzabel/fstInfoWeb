@@ -7,9 +7,13 @@ use App\Entity\Tag;
 use App\Entity\Account;
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Entity\Subject;
+use App\Entity\Teacher;
+use App\Entity\UE;
 use DateTimeImmutable;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use PHPUnit\Util\Test;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AppFixtures extends Fixture
@@ -22,6 +26,7 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $faker = Factory::create("fr_FR");
+
         $account = new Account();
         $account->setEmail("yolsern@gmail.com");
         $account->setPassword($this->hasher->hashPassword($account,'thiago'));
@@ -39,7 +44,6 @@ class AppFixtures extends Fixture
                 $article = new Article();
                 $article->setTitle($faker->sentence());
                 $article->setContent($faker->paragraphs(3, true));
-                $article->setImage($faker->imageUrl(640, 480, 'animals',true, 'dogs', true));
                 $article->setAccount($account);
                 $article->addCategory($category);
                 $article->setCreatedAt(new DateTimeImmutable());
@@ -55,6 +59,36 @@ class AppFixtures extends Fixture
                 $manager->persist($tag);
                 
             }
+        }
+
+        $level = ['L2', 'L3'];
+
+        for ($i=0; $i < 3; $i++) { 
+            
+            $ue = new UE();
+            $ue->setLabel("Unité d'enseignement - ".$i);
+
+            for ($j=0; $j < 3; $j++) { 
+                $subject = new Subject();
+                $subject->setLabel('matiere - '.$j)
+                    ->setDescription($faker->paragraph())
+                    ->setLevel($level[array_rand($level)]);
+
+                $manager->persist($subject);
+                
+                $teacher = new Teacher();
+                $teacher->setDiploma("Docteur en informatique")
+                    ->setPlaceOfAcquisition("FST - UMNG, Brazzaville")
+                    ->setName($faker->lastName())
+                    ->setFirstName($faker->firstName())
+                    ->addTeachedSubject($subject);
+                
+                $manager->persist($teacher);
+                
+                $ue->addSubject($subject);
+                
+            }
+            $manager->persist($ue);
         }
 
         
