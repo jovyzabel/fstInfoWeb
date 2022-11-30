@@ -76,7 +76,7 @@
                     <h5>Recherche</h5>
                     <div class="text-subline"></div>
                     <div class="p-3">
-                        <form action="" method="get">
+                        {# <form action="" method="get">
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" placeholder="barre de recherche" aria-label="barre de recherche" aria-describedby="basic-addon2" width="100%">
                                 <span class="input-group-text btn specifical-bg-1" id="">
@@ -85,7 +85,19 @@
                                     </button>
                                 </span>
                             </div>
-                        </form>
+                        </form> #}
+
+                         {{ form_start(form) }}
+                            <div class="input-group mb-3">
+                            {{ form_row(form.searchText, {'label':false, 'attr': {'class':'form-control', 'height':'100%'}}) }}
+                    
+                                    <button class="input-group-text btn specifical-bg-1" type="submit">
+                                        <i class="fa-solid fa-search text-white"></i>
+                                    </button>
+                    
+                             </div>
+                            {{ form_end(form, {render_rest:false}) }}
+
                     </div>
                 </div>
 

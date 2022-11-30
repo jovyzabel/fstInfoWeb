@@ -11,7 +11,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 #[ORM\HasLifecycleCallbacks]
-#[ORM\Index(name: 'search_idx', columns: ['title', 'content'], flags: ['fulltext'])]
+#[ORM\Index(name: 'search_index', columns: ['title', 'content'], flags: ['fulltext'])]
 class Article
 {
     #[ORM\Id]
