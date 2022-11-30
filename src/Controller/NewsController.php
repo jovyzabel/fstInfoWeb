@@ -28,6 +28,15 @@ class NewsController extends AbstractController
             'latest_articles' => $this->articleRepository->findBy([], ['createdAt' => 'ASC'], 6)
         ]);
     }
+    // link to search
+    #[Route('/news/search', name: 'app_news_search', methods: ['GET'])]
+    public function search(Request $request , PaginatorInterface $paginator): Response
+    {
+        
+        return $this->render('news/search_result.html.twig', [
+            
+        ]);
+    }
 
     #[Route('/news/{slug}', name: 'app_news_show', methods: ['GET'])]
     public function show(Article $article): Response

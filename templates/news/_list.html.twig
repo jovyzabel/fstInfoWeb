@@ -34,9 +34,9 @@
                         <form action="" method="get">
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" placeholder="barre de recherche" aria-label="barre de recherche" aria-describedby="basic-addon2" width="100%">
-                                <span class="input-group-text btn btn-color" id="">
-                                    <button class="btn specifical-bg-1" type="submit">
-                                        <i class="fa-solid fa-search text-white"></i>
+                                <span class="input-group-text btn specifical-bg-1" id="">
+                                    <button class="btn" type="submit">
+                                        <a href="{{ path('app_news_search') }}"><i class="fa-solid fa-search text-white"></i></a>
                                     </button>
                                 </span>
                             </div>
@@ -45,23 +45,7 @@
                 </div>
 
                 <div>
-                    <h5>Informations recentes</h5>
-                    <div class="text-subline"></div>
-                    <div class="p-3">
-                        <div class="row gx-5">
-                            <div class="col-12">
-                                <h6><a href="" class="text-decoration-none color-text ">Lorem ipsum dolor sit.</a></h6>
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta!</p>
-                                <h6><a href="" class="text-decoration-none color-text">Lorem ipsum dolor sit.</a></h6>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas!</p> 
-                                <h6><a href="" class="text-decoration-none color-text">Lorem ipsum dolor sit.</a></h6>
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta!</p>
-                                <h6><a href="" class="text-decoration-none color-text">Lorem ipsum dolor sit.</a></h6>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas!</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>    
+                       
                 {% include "news/_latest_news.html.twig" %}
                 
 

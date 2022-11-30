@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recherche{% endblock %}
+
+{% block body %}
+<div class="mb-4 specifical-bg-1 p-5">
+    <h1 class="p-5 text-center text-white fs-1">Recherche</h1>
+    <div class="text-center">
+        <p class="text-light"><a href="{{path('app_home')}}" class="text-decoration-none text-white">Accueil</a> / <a href="" class="text-decoration-none text-muted">Actualités</a></p>
+    </div>
+</div>
+
+<section class="">
+        <div class="container">
+          <div class="row">
+          <div class="col-md-2"></div>
+            <div class="col-md-8 justify-content-center">
+              <!-- RD Search Form-->
+              <form class="form-search" action="search-results.html" method="GET">
+               <div class="input-group">
+                <input type="text" class="form-control" placeholder="barre de recherche" aria-label="barre de recherche" aria-describedby="basic-addon2" width="100%">
+                <span class="input-group-text" id="">
+                    <button class="btn" type="submit">
+                        <a href=""><i class="fa-solid fa-search text-dark"></i></a>
+                    </button>
+                </span>
+            </div>
+              </form>
+              <div class="">
+              
+                <div class=""></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+<hr>
+{% endblock %}
