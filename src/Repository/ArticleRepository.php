@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Data\SearchNews;
 use App\Entity\Article;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -38,6 +39,47 @@ class ArticleRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+
+   public function findBysearch(SearchNews $searchNews): array
+   {
+    $query = $this->createQueryBuilder('a');
+        if (!empty($searchNews->searchText)) {
+            $query->andWhere('MATCH_AGAINST(a.title, a.content) AGAINST(:searchText boolean)>0')
+                ->setParameter('searchText', $searchNews->searchText);
+
+        }
+        
+        if (!empty($searchNews->categories)) {
+            foreach ($searchNews->categories as $category) {
+                $query->andWhere(':category MEMBER OF a.categories')
+                ->setParameter('category', $category);
+                
+            }
+
+        }
+
+        if (!empty($searchNews->tags)) {
+            foreach ($searchNews->tags as $tag ) {
+                $query->andWhere(':tag MEMBER OF a.tags')
+                ->setParameter('tag', $tag);
+                
+            }
+
+        }
+        if (!empty($searchNews->minDate)) {
+            $query->andWhere('a.createdAt >= :minDate')
+                ->setParameter('minDate', $searchNews->minDate);
+                
+            
+
+        }
+        
+           return $query->orderBy('a.createdAt', 'DESC')
+           ->getQuery()
+           ->getResult()
+       ;
+   }
+    
 
 //    /**
 //     * @return Article[] Returns an array of Article objects

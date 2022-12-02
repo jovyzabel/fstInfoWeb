@@ -6,11 +6,14 @@ use Cocur\Slugify\Slugify;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ArticleRepository;
+use DateTimeImmutable;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 #[ORM\HasLifecycleCallbacks]
+#[ORM\Index(name: 'search_index', columns: ['title', 'content'], flags: ['fulltext'])]
 class Article
 {
     #[ORM\Id]
@@ -48,10 +51,12 @@ class Article
         $this->category = new ArrayCollection();
         $this->tag = new ArrayCollection();
     }
-
+    
     #[ORM\PrePersist]
     public function prePersist(){
         $this->slug = (new Slugify())->slugify($this->title);
+        $this->createdAt = new DateTimeImmutable();
+
     }
 
     public function getId(): ?int
