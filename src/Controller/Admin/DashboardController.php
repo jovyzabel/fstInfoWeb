@@ -12,9 +12,14 @@ use App\Entity\Teacher;
 use App\Entity\Category;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
+use EasyCorp\Bundle\EasyAdminBundle\Config\UserMenu;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -49,14 +54,31 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Comptes Utilisateur', 'fa fa-user',Account::class);
-        yield MenuItem::linkToCrud('Articles', 'fa fa-home',Article::class);
-        yield MenuItem::linkToCrud('Media', 'fa fa-media',Media::class);
-        yield MenuItem::linkToCrud('Enseignants', 'fa fa-person',Teacher::class);
+        yield MenuItem::linkToCrud('Comptes Utilisateur', 'fa fa-users',Account::class);
+        yield MenuItem::subMenu('Actualités', 'fa fa-file-text')->setSubItems([
+            MenuItem::linkToCrud('Articles', 'fa fa-newspaper',Article::class),
+            MenuItem::linkToCrud('Tags', 'fa fa-tags',Tag::class),
+            MenuItem::linkToCrud('Categories', 'fa fa-bars-staggered',Category::class),
+
+        ]);
+        yield MenuItem::linkToCrud('Media', 'fa fa-photo-film',Media::class);
+        yield MenuItem::linkToCrud('Enseignants', 'fa fa-people-roof',Teacher::class);
         yield MenuItem::linkToCrud('Matières', 'fa fa-book',Subject::class);
-        yield MenuItem::linkToCrud('Tags', 'fa fa-home',Tag::class);
-        yield MenuItem::linkToCrud('Categories', 'fa fa-home',Category::class);
         yield MenuItem::linkToCrud('UE', 'fa fa-books',UE::class);
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
+
+    public function configureUserMenu(UserInterface $user): UserMenu
+    {
+        return parent::configureUserMenu($user)
+            ->setMenuItems([
+                MenuItem::linkToRoute('profile', 'fa fa-user', 'app_user_profile')
+            ]);
+    }
+
+    public function configureActions(): Actions
+    {
+        return parent::configureActions()->add(Crud::PAGE_INDEX, Action::DETAIL);
+    }
+
 }

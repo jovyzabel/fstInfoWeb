@@ -105,6 +105,6 @@ class UE
 
     public function __toString()
     {
-        return $this->email;
+        return $this->label;
     }
 }
