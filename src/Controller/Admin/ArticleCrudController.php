@@ -26,6 +26,8 @@ class ArticleCrudController extends AbstractCrudController
             TextField::new('title'),
             AssociationField::new('featuredImage'),
             TextEditorField::new('content'),
+            AssociationField::new('category'),
+            AssociationField::new('tag'),
             SlugField::new('slug')->setTargetFieldName('title')->onlyOnForms()
         ];
     }

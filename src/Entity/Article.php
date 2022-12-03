@@ -26,8 +26,8 @@ class Article
 
     #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'articles')]
     private Collection $category;
-
-    #[ORM\OneToMany(mappedBy: 'article', targetEntity: Tag::class)]
+    
+    #[ORM\ManyToMany(targetEntity: Tag::class, inversedBy: 'articles')]
     private Collection $tag;
 
     #[ORM\ManyToOne(inversedBy: 'articles')]
@@ -124,7 +124,6 @@ class Article
     {
         if (!$this->tag->contains($tag)) {
             $this->tag->add($tag);
-            $tag->setArticle($this);
         }
 
         return $this;
@@ -132,13 +131,7 @@ class Article
 
     public function removeTag(Tag $tag): self
     {
-        if ($this->tag->removeElement($tag)) {
-            // set the owning side to null (unless already changed)
-            if ($tag->getArticle() === $this) {
-                $tag->setArticle(null);
-            }
-        }
-
+        $this->tag->removeElement($tag);
         return $this;
     }
 
