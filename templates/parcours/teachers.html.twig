@@ -21,12 +21,12 @@
             <tbody>
             {% for teacher in teachers %}
 
-                {% set levels = [] %}
+                {# {% set levels = [] %} #}
                 {% set subjects = [] %}
 
                 {% for subject in teacher.teachedSubjects %}
                     {% set subjects = subjects|merge([subject]) %}
-                    {% set levels = levels|merge([subject.level]) %}
+                    {# {% set levels = levels|merge([subject.level]) %} #}
                 {% endfor %}
 
                 <tr>
@@ -34,7 +34,7 @@
                     <td>{{teacher.diploma}}</td>
                     <td>{{teacher.placeOfacquisition}}</td>
                     <td>{{subjects | join(' ')}}</td>
-                    <td>{{levels | join(' ')}}</td>
+                    <td>{#{levels | join(' ')}#}Niveau</td>
                         
                 </tr>
 

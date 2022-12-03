@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\SemesterRepository;
 use App\Repository\TeacherRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -32,9 +33,10 @@ class ParcoursController extends AbstractController
     }
 
     #[Route('/parcours/programmes', name: 'app_parcours_programs')]
-    public function programs(): Response
+    public function programs(SemesterRepository $semesterRepository): Response
     {
         return $this->render('parcours/programs.html.twig', [
+            'semesters' => $semesterRepository->findAll(),
         ]);
     }
 
