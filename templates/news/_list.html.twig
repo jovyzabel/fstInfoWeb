@@ -8,7 +8,7 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="card ms-3 shadow-sm rounded-0 border border-0">
                         {% if article.featuredImage %}
-                        <img src="{{article.featuredImage.filename}}" class="card-img-top rounded-0" alt="...">
+                        <img src="{{asset('uploads/images/news/' ~ article.featuredImage.filename)}}" class="card-img-top rounded-0" alt="...">
                         {% endif %}
                         <div class="card-body">
                             <h5 class="card-title">
@@ -60,29 +60,7 @@
                 <div>
                        
                 {% include "news/_latest_news.html.twig" %}
-                
-                <div>
-                    <h5>Galery</h5>
-                    <div class="text-subline"></div>
-                    <div class="p-2">
-                        <div class="d-flex ">
-                            <div class="hover-article"><a href="{{asset('img/sofware-developer-thinking-while-touching-beard-while-typing-on-laptop-sitting-at-desk-with-multiple-screens-parsing-code-focused-database-admin-working-with-team-coding-in-the-background.jpg')}}" class=""><img src="{{asset('img/sofware-developer-thinking-while-touching-beard-while-typing-on-laptop-sitting-at-desk-with-multiple-screens-parsing-code-focused-database-admin-working-with-team-coding-in-the-background.jpg')}}" class="img-thumbnail" alt="..." ></a></div>
-                            <div class="hover-article"><a href="{{asset('img/closeup-portrait-of-black-african-american-man-working-on-computer-in-living-room-smiling-at-camera-remote-internet-online-web-manager-working-from-home-keeping-social-distance.jpg')}}" class=""><img src="{{asset('img/closeup-portrait-of-black-african-american-man-working-on-computer-in-living-room-smiling-at-camera-remote-internet-online-web-manager-working-from-home-keeping-social-distance.jpg')}}" class="img-thumbnail" alt="..." ></a></div>
-                        </div>
-                        <div class="d-flex ">
-                            <div class="hover-article"><a href="" class=""><img src="{{asset('img/sofware-developer-thinking-while-touching-beard-while-typing-on-laptop-sitting-at-desk-with-multiple-screens-parsing-code-focused-database-admin-working-with-team-coding-in-the-background.jpg')}}" class="img-thumbnail" alt="..." ></a></div>
-                            <div class="hover-article"><a href="" class=""><img src="{{asset('img/closeup-portrait-of-black-african-american-man-working-on-computer-in-living-room-smiling-at-camera-remote-internet-online-web-manager-working-from-home-keeping-social-distance.jpg')}}" class="img-thumbnail" alt="..." ></a></div>
-                        </div>
-                        <div class="d-flex ">
-                            <div class="hover-article"><a href="" class=""><img src="{{asset('img/closeup-portrait-of-black-african-american-man-working-on-computer-in-living-room-smiling-at-camera-remote-internet-online-web-manager-working-from-home-keeping-social-distance.jpg')}}" class="img-thumbnail" alt="..." ></a></div>
-                            <div class="hover-article"><a href="" class=""><img src="{{asset('img/sofware-developer-thinking-while-touching-beard-while-typing-on-laptop-sitting-at-desk-with-multiple-screens-parsing-code-focused-database-admin-working-with-team-coding-in-the-background.jpg')}}" class="img-thumbnail" alt="..." ></a></div>
-                        </div>
-                        <div class="d-flex ">
-                            <div class="hover-article"><a href="" class=""><img src="{{asset('img/sofware-developer-thinking-while-touching-beard-while-typing-on-laptop-sitting-at-desk-with-multiple-screens-parsing-code-focused-database-admin-working-with-team-coding-in-the-background.jpg')}}" class="img-thumbnail" alt="..." ></a></div>
-                            <div class="hover-article"><a href="" class=""><img src="{{asset('img/closeup-portrait-of-black-african-american-man-working-on-computer-in-living-room-smiling-at-camera-remote-internet-online-web-manager-working-from-home-keeping-social-distance.jpg')}}" class="img-thumbnail" alt="..." ></a></div>
-                        </div>
-                    </div>
-                </div>    
+                    
                 <div>
                     <h5>Categories</h5>
                     <div class="text-subline"></div>

@@ -27,7 +27,7 @@
                 </div>
                 <div class="offset-top-30">
                     {% if article.featuredImage %}
-                        <img src="{{article.featuredImage.filename}}" class="card-img-top rounded-0" alt="...">
+                        <img src="{{asset('uploads/images/news/' ~ article.featuredImage.filename)}}" class="card-img-top rounded-0" alt="...">
                     {% endif %}
                     <div class="offset-top-30">
                         {{article.content}}
