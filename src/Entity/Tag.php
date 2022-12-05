@@ -2,8 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\TagRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\TagRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 #[ORM\Entity(repositoryClass: TagRepository::class)]
 class Tag
@@ -16,10 +18,14 @@ class Tag
     #[ORM\Column(length: 255)]
     private ?string $label = null;
 
-    #[ORM\ManyToOne(inversedBy: 'tag')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Article $article = null;
+    #[ORM\ManyToMany(targetEntity: Article::class, inversedBy: 'tags')]
+    private ?Collection $articles = null;
 
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+        
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -37,14 +43,19 @@ class Tag
         return $this;
     }
 
-    public function getArticle(): ?Article
+    public function getArticles(): ?Article
     {
-        return $this->article;
+        return $this->articles;
     }
 
-    public function setArticle(?Article $article): self
+    public function addArticle(Article $article): self
     {
-        $this->article = $article;
+        // dd($article);
+        if (!$this->articles->contains($article)) {
+            
+            $this->articles->add($article);
+            $article->addTag($this);
+        }
 
         return $this;
     }

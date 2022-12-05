@@ -25,10 +25,10 @@ class Article
     private ?string $title = null;
 
     #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'articles')]
-    private Collection $category;
+    private Collection $categories;
 
-    #[ORM\OneToMany(mappedBy: 'article', targetEntity: Tag::class)]
-    private Collection $tag;
+    #[ORM\ManyToMany(mappedBy: 'articles', targetEntity: Tag::class)]
+    private Collection $tags;
 
     #[ORM\ManyToOne(inversedBy: 'articles')]
     #[ORM\JoinColumn(nullable: false)]
@@ -48,8 +48,8 @@ class Article
 
     public function __construct()
     {
-        $this->category = new ArrayCollection();
-        $this->tag = new ArrayCollection();
+        $this->categories = new ArrayCollection();
+        $this->tags = new ArrayCollection();
     }
     
     #[ORM\PrePersist]
@@ -91,15 +91,15 @@ class Article
     /**
      * @return Collection<int, Category>
      */
-    public function getCategory(): Collection
+    public function getCategories(): Collection
     {
-        return $this->category;
+        return $this->categories;
     }
 
     public function addCategory(Category $category): self
     {
-        if (!$this->category->contains($category)) {
-            $this->category->add($category);
+        if (!$this->categories->contains($category)) {
+            $this->categories->add($category);
         }
 
         return $this;
@@ -107,7 +107,7 @@ class Article
 
     public function removeCategory(Category $category): self
     {
-        $this->category->removeElement($category);
+        $this->categories->removeElement($category);
 
         return $this;
     }
@@ -115,16 +115,16 @@ class Article
     /**
      * @return Collection<int, Tag>
      */
-    public function getTag(): Collection
+    public function getTags(): Collection
     {
-        return $this->tag;
+        return $this->tags;
     }
 
     public function addTag(Tag $tag): self
     {
-        if (!$this->tag->contains($tag)) {
-            $this->tag->add($tag);
-            $tag->setArticle($this);
+        if (!$this->tags->contains($tag)) {
+            $this->tags->add($tag);
+            $tag->addArticle($this);
         }
 
         return $this;
@@ -132,12 +132,7 @@ class Article
 
     public function removeTag(Tag $tag): self
     {
-        if ($this->tag->removeElement($tag)) {
-            // set the owning side to null (unless already changed)
-            if ($tag->getArticle() === $this) {
-                $tag->setArticle(null);
-            }
-        }
+        $this->tags->removeElement($tag) ;
 
         return $this;
     }
