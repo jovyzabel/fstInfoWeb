@@ -49,18 +49,16 @@ class AppFixtures extends Fixture
                 $article->setContent($faker->paragraphs(3, true));
                 $article->setAccount($account);
                 $article->addCategory($category);
+
                 $article->setCreatedAt(new DateTimeImmutable());
                 
-                
-                $manager->persist($article);
-
                 $tag = new Tag();
                 $tag->setLabel("Tag ".$i);
-                $tag->setArticle($article);
-
-    
+                $article->addTag($tag);
                 $manager->persist($tag);
                 
+                $manager->persist($article);
+    
             }
         }
 
