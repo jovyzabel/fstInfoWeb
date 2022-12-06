@@ -3,7 +3,10 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Teacher;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 
 class TeacherCrudController extends AbstractCrudController
 {
@@ -12,14 +15,16 @@ class TeacherCrudController extends AbstractCrudController
         return Teacher::class;
     }
 
-    /*
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+            IdField::new('id')->onlyOnIndex(),
+            TextField::new('name'),
+            TextField::new('firstName'),
+            TextField::new('diploma'),
+            TextField::new('placeOfAcquisition'),
+            AssociationField::new('teachedSubjects')
         ];
     }
-    */
+
 }

@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
+use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\MediaRepository;
-use Vich\UploaderBundle\Entity\File;
+use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 #[ORM\Entity(repositoryClass: MediaRepository::class)]
 #[Vich\Uploadable]
@@ -28,10 +29,15 @@ class Media
     private ?\DateTimeImmutable $createdAt = null;
 
     #[Vich\UploadableField(mapping: 'news_featured_images', fileNameProperty: 'filename')]
-    private ?string $file = null;
+    private ?File $file = null;
 
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updatedAt = null;
+
+    public function __construct()
+    {
+        $this->createdAt = new DateTimeImmutable();
+    }
 
     public function getId(): ?int
     {
@@ -55,7 +61,7 @@ class Media
         return $this->filename;
     }
 
-    public function setFilename(string $filename): self
+    public function setFilename(?string $filename): self
     {
         $this->filename = $filename;
 
@@ -113,5 +119,10 @@ class Media
         $this->updatedAt = $updatedAt;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }

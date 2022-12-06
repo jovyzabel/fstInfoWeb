@@ -29,8 +29,10 @@ class AppFixtures extends Fixture
         $faker = Factory::create("fr_FR");
 
         $account = new Account();
-        $account->setEmail("yolsern@gmail.com");
-        $account->setPassword($this->hasher->hashPassword($account,'thiago'));
+        $account->setEmail("yolsern@gmail.com")
+            ->setPassword($this->hasher
+            ->hashPassword($account,'thiago'))
+            ->setRoles(['ROLE_ADMIN']);
         
         $manager->persist($account);
 
@@ -47,7 +49,9 @@ class AppFixtures extends Fixture
                 $article->setContent($faker->paragraphs(3, true));
                 $article->setAccount($account);
                 $article->addCategory($category);
+
                 $article->setCreatedAt(new DateTimeImmutable());
+
 
                 $manager->persist($article);
                 
@@ -59,6 +63,8 @@ class AppFixtures extends Fixture
                 $manager->persist($tag);
    
                 
+                $manager->persist($article);
+    
             }
         }
 

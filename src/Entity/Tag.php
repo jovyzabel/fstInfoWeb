@@ -43,6 +43,7 @@ class Tag
         return $this;
     }
 
+
     public function getArticles(): ?Article
     {
         return $this->articles;
@@ -55,6 +56,7 @@ class Tag
             
             $this->articles->add($article);
             $article->addTag($this);
+
         }
 
         return $this;

@@ -26,12 +26,12 @@ class NewsController extends AbstractController
         $form = $this->createForm(SearchNewsType::class, $dataSearch);
 
         $form->handleRequest($request);
-        $data = $this->articleRepository->findAll();
+        $data = $this->articleRepository->findBy([], ['createdAt' => 'DESC'],);
         $articles = $paginator->paginate($data, $request->query->getInt('page', 1),6);
 
         return $this->render('news/index.html.twig', [
             'articles' => $articles,
-            'latest_articles' => $this->articleRepository->findBy([], ['createdAt' => 'ASC'], 5),
+            'latest_articles' => $this->articleRepository->findBy([], ['createdAt' => 'DESC'], 5),
             'form' => $form->createView()
         ]);
     }

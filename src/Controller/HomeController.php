@@ -15,7 +15,7 @@ class HomeController extends AbstractController
     public function index(Request $request, ArticleRepository $articleRepository, PaginatorInterface $paginator): Response
     {
         return $this->render('home/index.html.twig', [
-            'articles' => $articleRepository->findBy([], ['createdAt' => 'ASC'], 6),
+            'articles' => $articleRepository->findBy([], ['createdAt' => 'DESC'], 6),
 
         ]);
     }
