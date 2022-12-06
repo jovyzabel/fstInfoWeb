@@ -32,6 +32,7 @@ class AccountCrudController extends AbstractCrudController
                 ->setChoices([
                     'Administrateur' => 'ROLE_ADMIN',
                     'Redacteur' => 'ROLE_REDACTOR',
+                    'Moderateur' => 'ROLE_MODERATOR'
                 ]),
         ];
     }
