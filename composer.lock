@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a03477e567311e974b8cfcd8b25b33f7",
+    "content-hash": "7afab7b508778919588a8d40aa8f6a68",
     "packages": [
         {
             "name": "beberlei/doctrineextensions",
@@ -7482,16 +7482,16 @@
         },
         {
             "name": "symfony/ux-typed",
-            "version": "v2.4.0",
+            "version": "v2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/ux-typed.git",
-                "reference": "11263c1788c2a7700aabc8606eb005752f3d6ea0"
+                "reference": "f829a49b449f7f29dc3cec089a3396508dfdeb2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/ux-typed/zipball/11263c1788c2a7700aabc8606eb005752f3d6ea0",
-                "reference": "11263c1788c2a7700aabc8606eb005752f3d6ea0",
+                "url": "https://api.github.com/repos/symfony/ux-typed/zipball/f829a49b449f7f29dc3cec089a3396508dfdeb2b",
+                "reference": "f829a49b449f7f29dc3cec089a3396508dfdeb2b",
                 "shasum": ""
             },
             "conflict": {
@@ -7524,7 +7524,7 @@
                 "symfony-ux"
             ],
             "support": {
-                "source": "https://github.com/symfony/ux-typed/tree/v2.4.0"
+                "source": "https://github.com/symfony/ux-typed/tree/v2.6.1"
             },
             "funding": [
                 {
@@ -7540,7 +7540,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-07-04T12:52:51+00:00"
+            "time": "2022-11-22T21:09:47+00:00"
         },
         {
             "name": "symfony/validator",

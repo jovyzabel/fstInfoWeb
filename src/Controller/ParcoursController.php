@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Repository\TeacherRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -24,10 +26,12 @@ class ParcoursController extends AbstractController
     }
 
     #[Route('/parcours/enseignants', name: 'app_parcours_teachers')]
-    public function teachers(TeacherRepository $teacherRepository): Response
+    public function teachers(TeacherRepository $teacherRepository, PaginatorInterface $paginator, Request $request): Response
     {
+        $data = $teacherRepository->findAll();
+        $teachers = $paginator->paginate($data, $request->query->getInt('page',1),6);
         return $this->render('parcours/teachers.html.twig', [
-            'teachers' => $teacherRepository->findAll(),
+            'teachers' => $teachers,
         ]);
     }
 
