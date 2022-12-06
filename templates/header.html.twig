@@ -24,12 +24,6 @@
                         Accueil
                         </a>
                     </li>
-                    <li>
-                        <a href="{{ path('app_news') }}"
-                            class="nav-link px-2 header-link py-3">
-                        Actualités
-                        </a>
-                    </li>
                     <li class="dropdown">
                         <a class="nav-link px-2 dropdown-toggle header-link fs-5 py-3"
                             href="#"
@@ -51,8 +45,7 @@
                                 Mot du responsable
                                 </a>
                             </li>
-                            <li><a class="dropdown-item" href="{{path('app_parcours_admission')}}">Admissions</a></li>
-                            <li><a class="dropdown-item" href="{{path('app_parcours_programs')}}">Programmes</a></li>
+                            <li><a class="dropdown-item header-link" href="{{path('app_parcours_programs')}}">Programmes</a></li>
                             <li>
                                 <a class="dropdown-item header-link"
                                     href="{{ path('app_parcours_teachers') }}">
@@ -62,18 +55,18 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="{{path('app_parcours_admission')}}" class="nav-link px-2 header-link py-3">
+                        <a href="{{path('app_admission')}}" class="nav-link px-2 header-link fs-5 py-3">
                             Admission
                         </a>
                     </li>
                     <li>
                         <a href="{{ path('app_news') }}"
-                            class="nav-link px-2 header-link py-3">
+                            class="nav-link px-2 header-link fs-5 py-3">
                         Actualités
                         </a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="{{path('app_alumni')}}"
                             class="nav-link px-2 header-link fs-5 py-3">
                         Alumni
                         </a>
