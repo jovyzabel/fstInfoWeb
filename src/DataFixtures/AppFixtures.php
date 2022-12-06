@@ -56,18 +56,9 @@ class AppFixtures extends Fixture
                 
                 $tag = new Tag();
                 $tag->setLabel("Tag ".$i);
-<<<<<<< HEAD
                 $tag->addArticle($article);
 
-
-=======
->>>>>>> bd8b471 (dynamisation de la date dans les cartes d'articles, Affichage dynamique des categories, Ajout du role Moderator dans la liste des roles)
                 $manager->persist($tag);
-   
-                
-                $article->addTag($tag);
-                
-                $manager->persist($article);
     
             }
         }
