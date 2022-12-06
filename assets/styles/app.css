@@ -1,6 +1,16 @@
 @import "~bootstrap/dist/css/bootstrap";
 @import "~datatables.net-bs5/css/dataTables.bootstrap5.min.css";
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap'); */
+
+@font-face {
+    font-family: 'Roboto Slab';
+    src: url('./fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf') format('ttf');
+  }
+@font-face {
+    font-family:'Rufina';
+    src: url('./fonts/Rufina/Rufina-Bold.ttf') format('ttf'),
+         url('./fonts/Rufina/Rufina-Regular.ttf') format('ttf');
+  }
 
 body {
     background-color: #FFF;
@@ -10,7 +20,7 @@ body {
 }
 
 p, ul>li {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto slab', sans-serif;
     font-size: 17px;
     color: rgb(86,86,86);
 }
@@ -39,7 +49,9 @@ p, ul>li {
     color: #FFF;
 }
 .header-link{
-    color :rgb(0, 0, 0); 
+    color :#2f0f55;
+    font-family: 'Roboto slab'; 
+   
 }
 .header-link:hover{
    color:#b80924;
@@ -48,6 +60,9 @@ p, ul>li {
 }
 .color-text{
     color:#b80924;
+ }
+ .text-color-2{
+    color:#2f0f55;
  }
 header>div>div>ul>li:hover{
     border-bottom: 3px solid #b80924;
@@ -97,8 +112,14 @@ header>div>div>ul>li:hover{
 .specifical-bg-2{
     background-color: #F6E9BD;
 }
+.specifical-bg-3-testimonial{
+    background-color: #2f0f55;
+}
 .specifical-bg-3{
     background-color: #2f0f55;
+}
+.specifical-bg-3:hover{
+    background-color: #b80924;
 }
 
 /*  news page*/

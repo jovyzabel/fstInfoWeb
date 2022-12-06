@@ -11,26 +11,21 @@
             </div>
             <div class="d-lg-flex flex-wrap justify-content-center">
                 <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                    <img src="{{ asset('img/logo large Parcours Informatique.png') }}"
+                    <img src="{{ asset('logos/2014-05-20.jpg') }}"
                         alt="Parcours_informatique"
                         class=""
                         height="70" />
+                    <span class="fs-4 lh-1 text-color-2 fw-bold">Parcours <br> Informatique</span>
                 </a>
                 <ul class="navbar-nav">
                     <li>
                         <a href="{{ path('app_home') }}"
-                            class="nav-link px-2 header-link py-3">
+                            class="nav-link px-2 header-link fs-5 py-3">
                         Accueil
                         </a>
                     </li>
-                    <li>
-                        <a href="{{ path('app_news') }}"
-                            class="nav-link px-2 header-link py-3">
-                        Actualités
-                        </a>
-                    </li>
                     <li class="dropdown">
-                        <a class="nav-link px-2 dropdown-toggle header-link py-3"
+                        <a class="nav-link px-2 dropdown-toggle header-link fs-5 py-3"
                             href="#"
                             role="button"
                             data-bs-toggle="dropdown"
@@ -39,41 +34,51 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item"
+                                <a class="dropdown-item header-link"
                                     href=" {{ path('app_parcours_presentation') }} ">
                                 Présentation
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item"
+                                <a class="dropdown-item header-link"
                                     href=" {{ path('app_parcours_chief_word') }}">
                                 Mot du responsable
                                 </a>
                             </li>
-                            <li><a class="dropdown-item" href="{{path('app_parcours_admission')}}">Admissions</a></li>
-                            <li><a class="dropdown-item" href="{{path('app_parcours_programs')}}">Programmes</a></li>
+                            <li><a class="dropdown-item header-link" href="{{path('app_parcours_programs')}}">Programmes</a></li>
                             <li>
-                                <a class="dropdown-item"
+                                <a class="dropdown-item header-link"
                                     href="{{ path('app_parcours_teachers') }}">
-                                Corps enseignant
+                                    Corps enseignant
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#"
-                            class="nav-link px-2 header-link py-3">
+                        <a href="{{path('app_admission')}}" class="nav-link px-2 header-link fs-5 py-3">
+                            Admission
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_news') }}"
+                            class="nav-link px-2 header-link fs-5 py-3">
+                        Actualités
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{path('app_alumni')}}"
+                            class="nav-link px-2 header-link fs-5 py-3">
                         Alumni
                         </a>
                     </li>
                     <li>
                         <a href="{{ path('app_contact') }}"
-                            class="nav-link px-2 header-link py-3">
+                            class="nav-link px-2 header-link fs-5 py-3">
                         Contacts
                         </a>
                     </li>
                     <li class="dropdown">
-                        <a class="nav-link px-2 header-link py-3"
+                        <a class="nav-link px-2 header-link fs-5 py-3"
                             href="#"
                             role="button"
                             data-bs-toggle="dropdown"

@@ -1026,7 +1026,7 @@
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
 
-"@symfony/ux-typed@file:vendor/symfony/ux-typed/Resources/assets":
+"@symfony/ux-typed@file:vendor/symfony/ux-typed/assets":
   version "1.0.0"
 
 "@symfony/webpack-encore@^4.0.0":
