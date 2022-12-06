@@ -2,13 +2,14 @@
 
 namespace App\Controller;
 
-use App\Repository\SemesterRepository;
+use App\Repository\AlumniRepository;
 use App\Repository\TeacherRepository;
+use App\Repository\SemesterRepository;
 use Knp\Component\Pager\PaginatorInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ParcoursController extends AbstractController
 {
@@ -44,12 +45,11 @@ class ParcoursController extends AbstractController
         ]);
     }
 
-    #[Route('/parcours/admission', name: 'app_parcours_admission')]
+    #[Route('/admission', name: 'app_admission')]
     public function admission(): Response
     {
         return $this->render('parcours/admission.html.twig', [
         ]);
     }
-
     
 }
