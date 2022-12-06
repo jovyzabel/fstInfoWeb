@@ -115,6 +115,9 @@ header>div>div>ul>li:hover{
 .specifical-bg-3{
     background-color: #2f0f55;
 }
+.specifical-bg-3:hover{
+    background-color: #b80924;
+}
 
 /*  news page*/
 
