@@ -10,15 +10,23 @@ use App\Entity\Article;
 use App\Entity\Subject;
 use App\Entity\Teacher;
 use App\Entity\Category;
+use App\Entity\Semester;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
+use EasyCorp\Bundle\EasyAdminBundle\Config\UserMenu;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 
 class DashboardController extends AbstractDashboardController
 {
     #[Route('/admin', name: 'admin')]
+    #[IsGranted('ROLE_USER')]
     public function index(): Response
     {
         // return parent::index();
@@ -49,14 +57,34 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Comptes Utilisateur', 'fa fa-user',Account::class);
-        yield MenuItem::linkToCrud('Articles', 'fa fa-home',Article::class);
-        yield MenuItem::linkToCrud('Media', 'fa fa-media',Media::class);
-        yield MenuItem::linkToCrud('Enseignants', 'fa fa-person',Teacher::class);
-        yield MenuItem::linkToCrud('Matières', 'fa fa-book',Subject::class);
-        yield MenuItem::linkToCrud('Tags', 'fa fa-home',Tag::class);
-        yield MenuItem::linkToCrud('Categories', 'fa fa-home',Category::class);
-        yield MenuItem::linkToCrud('UE', 'fa fa-books',UE::class);
+        yield MenuItem::linkToCrud('Comptes Utilisateur', 'fa fa-users',Account::class)->setPermission('ROLE_ADMIN');
+        yield MenuItem::subMenu('Actualités', 'fa fa-file-text')->setSubItems([
+            MenuItem::linkToCrud('Articles', 'fa fa-newspaper',Article::class),
+            MenuItem::linkToCrud('Tags', 'fa fa-tags',Tag::class),
+            MenuItem::linkToCrud('Categories', 'fa fa-bars-staggered',Category::class),
+
+        ])->setPermission('ROLE_USER');
+        yield MenuItem::subMenu('Parcours', 'fa fa-file-text')->setSubItems([
+            MenuItem::linkToCrud('Enseignants', 'fa fa-people-roof',Teacher::class),
+            MenuItem::linkToCrud('Semestres', 'fa fa-books',Semester::class),
+            MenuItem::linkToCrud('Unités d\'enseignements', 'fa fa-books',UE::class),
+            MenuItem::linkToCrud('Matières', 'fa fa-book',Subject::class),
+        ])->setPermission('ROLE_USER');
+        yield MenuItem::linkToCrud('Media', 'fa fa-photo-film',Media::class)->setPermission('ROLE_USER');
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
+
+    public function configureUserMenu(UserInterface $user): UserMenu
+    {
+        return parent::configureUserMenu($user)
+            ->setMenuItems([
+                MenuItem::linkToRoute('profile', 'fa fa-user', 'app_user_profile')
+            ]);
+    }
+
+    public function configureActions(): Actions
+    {
+        return parent::configureActions()->add(Crud::PAGE_INDEX, Action::DETAIL);
+    }
+
 }

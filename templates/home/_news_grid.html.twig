@@ -1,26 +1,49 @@
-
 <!-- news section -->
 <div class="container mb-5">
-	<div class="row g-4 mb-3">
-		<h2 class="text-center">Actualités récentes</h2>
-		
-		{% for article in articles %}		
-		<div class="col-sm-12 col-md-6 col-lg-4">
-			<div class="card shadow-sm rounded-0 border-0">
-			{% if article.featuredImage %}
-				<img src="{{article.featuredImage.filename}}" class="card-img-top rounded-0" alt="...">
-			{% endif %}
-				<div class="card-body">
-					<h5 class="card-title"><a href="{{path('app_news_show', {'slug': article.slug})}}" style="color: #b80924;" class="text-decoration-none">{{article.title}}</a></h5>
-					<p class="card-text">{{article.content | u.truncate(100, '...', false)}}</p>
-					<i class="fa-regular fa-calendar-days"></i><em> 3 days ago</em>
-				</div>
-			</div>
-		</div>
-		{% endfor %}
+  <div class="row g-4 mb-3">
+    <h2 class="text-center">
+      Actualités récentes
+    </h2>
 
-		<div class="text-center mt-3">
-			<a href="{{path('app_news')}}" class="btn btn-danger rounded-pill">Toutes les actualités <i class="ms-3 fa-solid fa-arrow-right"></i></a>
-		</div>
-	</div>
+    {% for article in articles %}
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="card shadow-sm rounded-0 border-0">
+          {% if article.featuredImage %}
+            <img src="{{
+              asset(
+                'uploads/images/news/' ~ article.featuredImage.filename
+              )
+              }}"
+              class="card-img-top rounded-0"
+              alt="..." />
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">
+              <a href="{{
+                path(
+                  'app_news_show',
+                  {
+                    slug: article.slug
+                  }
+                )
+                }}"
+                class="text-decoration-none item-title">
+                {{ article.title }}
+              </a>
+            </h5>
+            <p class="card-text">
+              {{ article.content|u.truncate(100, '...', false) }}
+            </p>
+            <i class="fa-regular fa-calendar-days"></i><em>3 days ago</em>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+
+    <div class="text-center mt-3">
+      <a href="{{ path('app_news') }}" class="btn specifical-bg-1 rounded-pill text-white">
+        Toutes les actualités <i class="ms-3 fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
 </div>

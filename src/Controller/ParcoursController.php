@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\SemesterRepository;
 use App\Repository\TeacherRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -36,9 +37,10 @@ class ParcoursController extends AbstractController
     }
 
     #[Route('/parcours/programmes', name: 'app_parcours_programs')]
-    public function programs(): Response
+    public function programs(SemesterRepository $semesterRepository): Response
     {
         return $this->render('parcours/programs.html.twig', [
+            'semesters' => $semesterRepository->findAll(),
         ]);
     }
 

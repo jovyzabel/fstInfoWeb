@@ -36,6 +36,10 @@ p, ul>li {
     
 }
 
+.text-color-2 {
+    color: #2f0f55;
+}
+
 /*header debut part*/ 
 .header-color{
     background-color: #F6E9BD ;

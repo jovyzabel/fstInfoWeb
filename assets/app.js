@@ -9,7 +9,6 @@
 import './styles/app.css';
 import './styles/galery.css';
 
-
 require("bootstrap");
 require("bootstrap-icons/font/bootstrap-icons.css");
 require("@fortawesome/fontawesome-free/css/all.min.css");
@@ -23,8 +22,10 @@ global.$ = global.jQuery = $;
 
 // start the Stimulus application
 
+
 import 'datatables.net-bs5';
 import 'datatables.net-responsive-bs5'
+
 
 import './counter'
 import './datatable'
