@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\TagRepository;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 #[ORM\Entity(repositoryClass: TagRepository::class)]
 class Tag
@@ -17,9 +18,14 @@ class Tag
     #[ORM\Column(length: 255)]
     private ?string $label = null;
 
-    #[ORM\ManyToMany(targetEntity: Article::class, mappedBy: 'tag')]
+    #[ORM\ManyToMany(targetEntity: Article::class, inversedBy: 'tags')]
     private ?Collection $articles = null;
 
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+        
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -37,28 +43,20 @@ class Tag
         return $this;
     }
 
-    /**
-     * @return Collection<int, Article>
-     */
-    public function getArticles(): Collection
+
+    public function getArticles(): ?Article
     {
         return $this->articles;
     }
 
     public function addArticle(Article $article): self
     {
+        // dd($article);
         if (!$this->articles->contains($article)) {
+            
             $this->articles->add($article);
             $article->addTag($this);
-        }
 
-        return $this;
-    }
-
-    public function removeArticle(Article $article): self
-    {
-        if ($this->articles->removeElement($article)) {
-            $article->removeTag($this);
         }
 
         return $this;

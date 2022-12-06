@@ -51,11 +51,17 @@ class AppFixtures extends Fixture
                 $article->addCategory($category);
 
                 $article->setCreatedAt(new DateTimeImmutable());
+
+
+                $manager->persist($article);
                 
                 $tag = new Tag();
                 $tag->setLabel("Tag ".$i);
-                $article->addTag($tag);
+                $tag->addArticle($article);
+
+
                 $manager->persist($tag);
+   
                 
                 $manager->persist($article);
     
