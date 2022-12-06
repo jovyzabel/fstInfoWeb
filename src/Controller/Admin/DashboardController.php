@@ -6,6 +6,7 @@ use App\Entity\UE;
 use App\Entity\Tag;
 use App\Entity\Media;
 use App\Entity\Account;
+use App\Entity\Alumni;
 use App\Entity\Article;
 use App\Entity\Subject;
 use App\Entity\Teacher;
@@ -65,11 +66,14 @@ class DashboardController extends AbstractDashboardController
 
         ])->setPermission('ROLE_USER');
         yield MenuItem::subMenu('Parcours', 'fa fa-file-text')->setSubItems([
-            MenuItem::linkToCrud('Enseignants', 'fa fa-people-roof',Teacher::class),
             MenuItem::linkToCrud('Semestres', 'fa fa-books',Semester::class),
             MenuItem::linkToCrud('Unités d\'enseignements', 'fa fa-books',UE::class),
             MenuItem::linkToCrud('Matières', 'fa fa-book',Subject::class),
-        ])->setPermission('ROLE_USER');
+            ])->setPermission('ROLE_USER');
+
+        yield MenuItem::linkToCrud('Enseignants', 'fa fa-people-roof',Teacher::class);
+        yield MenuItem::linkToCrud('Alumni', 'fa fa-people-roof',Alumni::class);
+
         yield MenuItem::linkToCrud('Media', 'fa fa-photo-film',Media::class)->setPermission('ROLE_USER');
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }

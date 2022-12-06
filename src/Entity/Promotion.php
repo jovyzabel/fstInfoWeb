@@ -16,9 +16,6 @@ class Promotion
     #[ORM\Column(length: 255)]
     private ?string $label = null;
 
-    #[ORM\ManyToOne(inversedBy: 'promotion')]
-    private ?Alumni $alumnies = null;
-
     public function getId(): ?int
     {
         return $this->id;

@@ -25,7 +25,7 @@ class Person
     #[ORM\Column(length: 255)]
     private ?string $avatarName = null;
 
-    #[Vich\UploadableField(mapping: 'person_avatars', fileNameProperty: 'filename')]
+    #[Vich\UploadableField(mapping: 'person_avatars', fileNameProperty: 'avatarName')]
     private ?File $avatarFile = null;
 
     #[ORM\Column]
@@ -97,7 +97,7 @@ class Person
         return $this;
     }
 
-    public function getAvatarName():string
+    public function getAvatarName():?string
     {
         return $this->avatarName;
     }
