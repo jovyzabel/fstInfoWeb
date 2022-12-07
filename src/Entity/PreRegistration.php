@@ -15,9 +15,15 @@ class PreRegistration
 
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
-
+    
     #[ORM\Column(length: 255)]
     private ?string $status = null;
+
+    #[ORM\OneToOne(mappedBy: 'preRegistration', cascade: ['persist', 'remove'])]
+    private ?Student $student = null;
+
+    #[ORM\OneToOne(inversedBy: 'preRegistration', cascade: ['persist', 'remove'])]
+    private ?Folder $folder = null;
 
     public function getId(): ?int
     {
@@ -44,6 +50,40 @@ class PreRegistration
     public function setStatus(string $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getStudent(): ?Student
+    {
+        return $this->student;
+    }
+
+    public function setStudent(?Student $student): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($student === null && $this->student !== null) {
+            $this->student->setPreRegistration(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($student !== null && $student->getPreRegistration() !== $this) {
+            $student->setPreRegistration($this);
+        }
+
+        $this->student = $student;
+
+        return $this;
+    }
+
+    public function getFolder(): ?Folder
+    {
+        return $this->folder;
+    }
+
+    public function setFolder(?Folder $folder): self
+    {
+        $this->folder = $folder;
 
         return $this;
     }
