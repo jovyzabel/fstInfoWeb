@@ -6,7 +6,6 @@ use App\Entity\UE;
 use Faker\Factory;
 use App\Entity\Tag;
 use DateTimeImmutable;
-use PHPUnit\Util\Test;
 use App\Entity\Account;
 use App\Entity\Article;
 use App\Entity\Subject;
@@ -59,11 +58,7 @@ class AppFixtures extends Fixture
                 $tag->setLabel("Tag ".$i);
                 $tag->addArticle($article);
 
-
                 $manager->persist($tag);
-   
-                
-                $manager->persist($article);
     
             }
         }

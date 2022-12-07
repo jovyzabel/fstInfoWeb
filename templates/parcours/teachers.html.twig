@@ -7,41 +7,27 @@
 {{ include('parcours/_heading.html.twig',{'sub_link':'Corps enseignant'}) }}
 
 <div class="container">
-    <div>
-        <table id="teachers-list" class="table table-striped" style="width:100%">
-            <thead>
-                <tr>
-                    <th>Noms et Prénoms</th>
-                    <th>Diplômes et grade</th>
-                    <th>Lieu d'obtention</th>
-                    <th>Disciplines enseignées</th>
-                    <th>Niveau d'intervention</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for teacher in teachers %}
 
-                {# {% set levels = [] %} #}
-                {% set subjects = [] %}
-
-                {% for subject in teacher.teachedSubjects %}
-                    {% set subjects = subjects|merge([subject]) %}
-                    {# {% set levels = levels|merge([subject.level]) %} #}
-                {% endfor %}
-
-                <tr>
-                    <td>{{teacher}}</td>
-                    <td>{{teacher.diploma}}</td>
-                    <td>{{teacher.placeOfacquisition}}</td>
-                    <td>{{subjects | join(' ')}}</td>
-                    <td>{#{levels | join(' ')}#}Niveau</td>
-                        
-                </tr>
-
-            {% endfor %}
-            </tbody>
-        </table>
-
-    </div>
+<div class="row g-5">
+    {% for teacher in teachers %}
+        <div class="col-md-6 col-sm-12">
+            <div class="card border border-0 shadow-sm mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="..." class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{teacher}}</h5>
+                            <p class="card-text">{{teacher.diploma}}</p>
+                            <p class="card-text"><a href="" class=""><small> Plus de details </small></a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    <div class="col text-color-2"> {{knp_pagination_render(teachers)}}</div>
+</div>
 </div>
 {% endblock %}
