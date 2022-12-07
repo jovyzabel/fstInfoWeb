@@ -14,8 +14,9 @@
                     <img src="{{ asset('logos/2014-05-20.jpg') }}"
                         alt="Parcours_informatique"
                         class=""
-                        height="70" />
-                    <span class="fs-4 lh-1 text-color-2 fw-bold">Parcours <br> Informatique</span>
+                        height="70"
+                    />
+                    <span class="fs-4 lh-1 text-color-2 fw-bold ms-2">Parcours <br> Informatique</span>
                 </a>
                 <ul class="navbar-nav">
                     <li>
@@ -23,6 +24,57 @@
                             class="nav-link px-2 header-link fs-5 py-3">
                         Accueil
                         </a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="nav-link px-2 dropdown-toggle header-link fs-5 py-3"
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                        A propos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item header-link"
+                                    href=" {{ path('app_parcours_presentation') }} ">
+                                Présentation
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item header-link"
+                                    href=" {{ path('app_parcours_chief_word') }}">
+                                Mot du responsable
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link px-2 header-link fs-5 py-3" href="#" data-bs-toggle="dropdown">Parcours</a>
+                        <div class="dropdown-menu dropdown-large border-0 shadow">
+                            <div class="row g-3">
+                                <div class="col-lg-4">
+                                    <h5 class="title">Licence</h5>
+                                    <ul class="list-unstyled">
+                                        <li><a href="#" class="text-decoration-none header-link">Submenu item </a></li>
+                                        <li><a href="#" class="text-decoration-none header-link">Submenu item </a></li>
+                                    </ul>
+                                </div><!-- end col-3 -->
+                                <div class="col-lg-4">
+                                    <h5 class="title">Master</h5>
+                                    <ul class="list-unstyled">
+                                        <li><a href="#" class="text-decoration-none header-link">Submenu item </a></li>
+                                        <li><a href="#" class="text-decoration-none header-link">Submenu item </a></li>
+                                    </ul>
+                                </div><!-- end col-3 -->
+                                <div class="col-lg-4">
+                                    <h5 class="title">Doctorat d'entreprise</h5>
+                                    <ul class="list-unstyled">
+                                        <li><a href="#" class="text-decoration-none header-link">Submenu item </a></li>
+                                        <li><a href="#" class="text-decoration-none header-link">Submenu item </a></li>
+                                    </ul>
+                                </div>
+                            </div><!-- end row -->
+                        </div> <!-- dropdown-large.// -->
                     </li>
                     <li class="dropdown">
                         <a class="nav-link px-2 dropdown-toggle header-link fs-5 py-3"
@@ -57,6 +109,11 @@
                     <li>
                         <a href="{{path('app_admission')}}" class="nav-link px-2 header-link fs-5 py-3">
                             Admission
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{path('app_parcours_teachers')}}" class="nav-link px-2 header-link fs-5 py-3">
+                            Enseignants
                         </a>
                     </li>
                     <li>
