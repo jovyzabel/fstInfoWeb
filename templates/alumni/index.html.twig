@@ -4,30 +4,30 @@
 
 {% block body %}
 
-{{ include('parcours/_heading.html.twig',{'sub_link':'Alumni'}) }}
+{{ include('alumni/_heading.html.twig',{'sub_link':'alumni'}) }}
 
-<div class="container">
-
-<div class="row g-5">
-    {% for alumni in alumnies %}
-        <div class="col-md-6 col-sm-12">
-            <div class="card border border-0 shadow-sm mb-3">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="..." class="img-fluid rounded-start" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">{#{teacher}#}</h5>
-                            <p class="card-text">{#{teacher.diploma}#}</p>
-                            <p class="card-text"><a href="" class=""><small> Plus de details </small></a></p>
+<div class="bg-light">
+    <div class="container">
+        <div class="row g-4">
+            {% for alumni in alumnies %}
+                <div class="col-md-4 mb-5 mb-md-0">
+                    <div class="text-center shadow p-3">
+                        <div class="d-flex justify-content-center mb-4">
+                            <img src="{{asset('uploads/images/avatars/' ~ alumni.avatarName)}}"
+                            class="rounded-circle shadow-1-strong" width="170" height="170" />
                         </div>
+                        <h5 class="mb-3">{{alumni}}</h5>
+                        <h6 class="text-primary mb-3">{{alumni.profil}}</h6>
+                        <p class="">
+                            <i class="fas fa-quote-left pe-2"></i> {{alumni.testimonial}}
+                        </p>
                     </div>
                 </div>
-            </div>
+
+            {% endfor %}
+            <div class="col text-color-2"> {{knp_pagination_render(alumnies)}}</div>
         </div>
-    {% endfor %}
-    <div class="col text-color-2"> {{knp_pagination_render(alumnies)}}</div>
+    </div>
 </div>
-</div>
+
 {% endblock %}
