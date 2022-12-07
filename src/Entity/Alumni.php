@@ -22,7 +22,7 @@ class Alumni extends Person
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $testimonial = null;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\ManyToOne(inversedBy: 'alumnis')]
     private ?Promotion $promotion = null;
 
     public function getId(): ?int

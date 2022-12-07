@@ -41,13 +41,6 @@ class AlumniCrudController extends AbstractCrudController
         ];
     }
 
-    public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void
-    {
-        if (!$entityInstance instanceof Person) return;
-        $entityInstance->setCreatedAt(new DateTimeImmutable());
-        parent::persistEntity($entityManager, $entityInstance);
-    }
-
     public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void
     {
         if (!$entityInstance instanceof Person) return;

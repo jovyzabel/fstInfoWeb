@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\PersonRepository;
+use DateTimeImmutable;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
@@ -33,6 +34,10 @@ class Person
 
     #[ORM\Column]
     private ?\DateTimeImmutable $updatedAt = null;
+
+    public function __construct( ){
+        $this->createdAt = new DateTimeImmutable();
+    }
 
     public function getId(): ?int
     {

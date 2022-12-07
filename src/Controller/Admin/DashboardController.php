@@ -11,6 +11,7 @@ use App\Entity\Article;
 use App\Entity\Subject;
 use App\Entity\Teacher;
 use App\Entity\Category;
+use App\Entity\Promotion;
 use App\Entity\Semester;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -73,6 +74,7 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::linkToCrud('Enseignants', 'fa fa-people-roof',Teacher::class);
         yield MenuItem::linkToCrud('Alumni', 'fa fa-people-roof',Alumni::class);
+        yield MenuItem::linkToCrud('Promotions', 'fa fa-people-roof',Promotion::class);
 
         yield MenuItem::linkToCrud('Media', 'fa fa-photo-film',Media::class)->setPermission('ROLE_USER');
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
