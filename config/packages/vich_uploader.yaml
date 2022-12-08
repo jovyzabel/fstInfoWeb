@@ -22,6 +22,19 @@ vich_uploader:
             inject_on_load: false
             delete_on_update: true
             delete_on_remove: true
+        
+        enrolement_documents:
+            uri_prefix: /uploads/images/documents
+            upload_destination: '%kernel.project_dir%/public/uploads/images/documents'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
+
+        
+
+
     #mappings:
     #    products:
     #        uri_prefix: /images/products

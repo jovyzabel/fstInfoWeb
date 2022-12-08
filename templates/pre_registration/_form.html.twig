@@ -1,0 +1,30 @@
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+{{ form_start(form) }}
+    <div class="row">
+        <div class="col-md-6">
+            {{ form_row(form.student.name) }}
+            {{ form_row(form.student.firstName) }}
+            {{ form_row(form.student.birthDay) }}
+            {{ form_row(form.student.birthPlace) }}
+            {{ form_row(form.student.civility) }}
+            {{ form_row(form.student.sexe) }}
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form.student.telephone) }}
+            {{ form_row(form.student.email) }}  
+            {{ form_row(form.student.address) }} 
+            {{ form_row(form.folder.attestationOfValidationFile) }} 
+            {{ form_row(form.folder.degreeFile) }} 
+            {{ form_row(form.folder.bulletinFile) }} 
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form.folder.letter) }} 
+            {{ form_row(form.student.avatarFile) }} 
+            
+        </div>
+    </div>
+    
+   
+
+    <button class="btn specifical-bg-3 text-white">{{ button_label|default('Soumettre') }}</button>
+{{ form_end(form) }}
