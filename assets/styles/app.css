@@ -168,5 +168,7 @@ button.accordion-button:focus, #myTab li a:hover {
 @media all and (min-width: 992px) {
     .dropdown-large {
         min-width: 900px;
+        position: relative;
+        left: -400px;
     }
 }
