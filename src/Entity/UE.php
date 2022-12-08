@@ -27,6 +27,9 @@ class UE
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $code = null;
 
+    #[ORM\ManyToOne(inversedBy: 'ues')]
+    private ?SemesterUes $semesterUes = null;
+
     public function __construct()
     {
         $this->subjects = new ArrayCollection();
@@ -106,5 +109,17 @@ class UE
     public function __toString()
     {
         return $this->label;
+    }
+
+    public function getSemesterUes(): ?SemesterUes
+    {
+        return $this->semesterUes;
+    }
+
+    public function setSemesterUes(?SemesterUes $semesterUes): self
+    {
+        $this->semesterUes = $semesterUes;
+
+        return $this;
     }
 }
