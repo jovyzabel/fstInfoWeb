@@ -15,6 +15,7 @@ class PreRegistration
 
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
+
     
     #[ORM\Column(length: 255)]
     private ?string $status = null;
@@ -24,6 +25,11 @@ class PreRegistration
 
     #[ORM\OneToOne(inversedBy: 'preRegistration', cascade: ['persist', 'remove'])]
     private ?Folder $folder = null;
+
+
+    #[ORM\Column(length: 255)]
+    private ?string $status = null;
+
 
     public function getId(): ?int
     {
@@ -53,6 +59,7 @@ class PreRegistration
 
         return $this;
     }
+<
 
     public function getStudent(): ?Student
     {
@@ -87,4 +94,5 @@ class PreRegistration
 
         return $this;
     }
+
 }
