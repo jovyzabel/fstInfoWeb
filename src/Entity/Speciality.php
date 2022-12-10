@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\SpecialityRepository;
 use Doctrine\Common\Collections\Collection;
@@ -34,6 +35,10 @@ class Speciality
 
     #[ORM\OneToMany(mappedBy: 'speciality', targetEntity: Semester::class)]
     private Collection $semesters;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Groups(['get_formation_cycles'])]
+    private ?string $description = null;
 
     public function __construct()
     {
@@ -126,5 +131,17 @@ class Speciality
     public function __toString()
     {
         return $this->label;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
     }
 }

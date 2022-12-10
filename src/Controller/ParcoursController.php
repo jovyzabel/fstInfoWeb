@@ -56,8 +56,8 @@ class ParcoursController extends AbstractController
     #[Route('/specialites/{slug}', name: 'app_speciality')]
     public function speciality(Speciality $speciality): Response
     {
-        dd($speciality);
-        return $this->render('parcours/admission.html.twig', [
+        return $this->render('parcours/speciality.html.twig', [
+            'speciality' => $speciality,
         ]);
     }
     
