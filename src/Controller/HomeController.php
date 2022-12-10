@@ -27,7 +27,7 @@ class HomeController extends AbstractController
     #[Route('/specialites', name: 'app_specialities_list', methods: ['GET'])]
     public function coursesList(Request $request): JsonResponse
     {
-        return $this->json($this->formationCycleRepository->findAll(),200,[],['groups' => 'get_formation_cyles']);
+        return $this->json($this->formationCycleRepository->findAll(),200,[],['groups' => 'get_formation_cycles']);
     }
 
     

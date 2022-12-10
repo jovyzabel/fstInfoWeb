@@ -14,27 +14,30 @@ class Speciality
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups([
-    'get_formation_cyles'])]
+    #[Groups(['get_formation_cycles'])]
     private ?int $id = null;
 
-    #[Groups(['get_formation_cyles'])]
+    #[Groups(['get_formation_cycles'])]
     #[ORM\Column(length: 255)]
     private ?string $label = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['get_formation_cyles'])]
+    #[Groups(['get_formation_cycles'])]
     private ?string $code = null;
-
-    #[ORM\OneToMany(mappedBy: 'speciality', targetEntity: SemesterUes::class)]
-    private Collection $semesterUes;
 
     #[ORM\ManyToOne(inversedBy: 'specialities')]
     private ?FormationCycle $formationCycle = null;
 
+    #[ORM\Column(length: 255)]
+    #[Groups(['get_formation_cycles'])]
+    private ?string $slug = null;
+
+    #[ORM\OneToMany(mappedBy: 'speciality', targetEntity: Semester::class)]
+    private Collection $semesters;
+
     public function __construct()
     {
-        $this->semesterUes = new ArrayCollection();
+        $this->semesters = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -66,36 +69,6 @@ class Speciality
         return $this;
     }
 
-    /**
-     * @return Collection<int, SemesterUes>
-     */
-    public function getSemesterUes(): Collection
-    {
-        return $this->semesterUes;
-    }
-
-    public function addSemesterUe(SemesterUes $semesterUe): self
-    {
-        if (!$this->semesterUes->contains($semesterUe)) {
-            $this->semesterUes->add($semesterUe);
-            $semesterUe->setSpeciality($this);
-        }
-
-        return $this;
-    }
-
-    public function removeSemesterUe(SemesterUes $semesterUe): self
-    {
-        if ($this->semesterUes->removeElement($semesterUe)) {
-            // set the owning side to null (unless already changed)
-            if ($semesterUe->getSpeciality() === $this) {
-                $semesterUe->setSpeciality(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function getFormationCycle(): ?FormationCycle
     {
         return $this->formationCycle;
@@ -106,5 +79,52 @@ class Speciality
         $this->formationCycle = $formationCycle;
 
         return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Semester>
+     */
+    public function getSemesters(): Collection
+    {
+        return $this->semesters;
+    }
+
+    public function addSemester(Semester $semester): self
+    {
+        if (!$this->semesters->contains($semester)) {
+            $this->semesters->add($semester);
+            $semester->setSpeciality($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSemester(Semester $semester): self
+    {
+        if ($this->semesters->removeElement($semester)) {
+            // set the owning side to null (unless already changed)
+            if ($semester->getSpeciality() === $this) {
+                $semester->setSpeciality(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->label;
     }
 }

@@ -14,19 +14,19 @@ class FormationCycle
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['get_formation_cyles'])]
+    #[Groups(['get_formation_cycles'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['get_formation_cyles'])]
+    #[Groups(['get_formation_cycles'])]
     private ?string $label = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['get_formation_cyles'])]
+    #[Groups(['get_formation_cycles'])]
     private ?string $code = null;
 
     #[ORM\OneToMany(mappedBy: 'formationCycle', targetEntity: Speciality::class)]
-    #[Groups(['get_formation_cyles'])]
+    #[Groups(['get_formation_cycles'])]
     private Collection $specialities;
 
     public function __construct()
@@ -91,5 +91,10 @@ class FormationCycle
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->label;
     }
 }
