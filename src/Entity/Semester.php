@@ -14,18 +14,18 @@ class Semester
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
+    
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?SemesterType $semesterType = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $label = null;
-
-    #[ORM\OneToMany(mappedBy: 'semester', targetEntity: UE::class)]
+    #[ORM\OneToMany(mappedBy: 'semester', targetEntity: UE::class, cascade: ['persist', 'remove'])]
     private Collection $ues;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $level = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
     private ?string $code = null;
+
+    #[ORM\ManyToOne(inversedBy: 'semesters')]
+    private ?Speciality $speciality = null;
 
     public function __construct()
     {
@@ -35,18 +35,6 @@ class Semester
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getLabel(): ?string
-    {
-        return $this->label;
-    }
-
-    public function setLabel(string $label): self
-    {
-        $this->label = $label;
-
-        return $this;
     }
 
     /**
@@ -79,18 +67,6 @@ class Semester
         return $this;
     }
 
-    public function getLevel(): ?string
-    {
-        return $this->level;
-    }
-
-    public function setLevel(?string $level): self
-    {
-        $this->level = $level;
-
-        return $this;
-    }
-
     public function getCode(): ?string
     {
         return $this->code;
@@ -102,9 +78,33 @@ class Semester
 
         return $this;
     }
-
+    
+    public function getSemesterType(): ?SemesterType
+    {
+        return $this->semesterType;
+    }
+    
+    public function setSemesterType(?SemesterType $semesterType): self
+    {
+        $this->semesterType = $semesterType;
+        
+        return $this;
+    }
+    
+    public function getSpeciality(): ?Speciality
+    {
+        return $this->speciality;
+    }
+    
+    public function setSpeciality(?Speciality $speciality): self
+    {
+        $this->speciality = $speciality;
+        
+        return $this;
+    }
+    
     public function __toString()
     {
-        return $this->label;
+        return $this->code;
     }
 }

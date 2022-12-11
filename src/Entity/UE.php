@@ -21,7 +21,7 @@ class UE
     #[ORM\Column(length: 255)]
     private ?string $label = null;
 
-    #[ORM\ManyToOne(inversedBy: 'ues')]
+    #[ORM\ManyToOne(inversedBy: 'ues', cascade: ['persist', 'remove'])]
     private ?Semester $semester = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -107,4 +107,5 @@ class UE
     {
         return $this->label;
     }
+
 }

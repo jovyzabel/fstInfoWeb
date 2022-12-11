@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Speciality;
 use App\Repository\AlumniRepository;
 use App\Repository\TeacherRepository;
 use App\Repository\SemesterRepository;
@@ -51,5 +52,14 @@ class ParcoursController extends AbstractController
         return $this->render('parcours/admission.html.twig', [
         ]);
     }
+    
+    #[Route('/specialites/{slug}', name: 'app_speciality')]
+    public function speciality(Speciality $speciality): Response
+    {
+        return $this->render('parcours/speciality.html.twig', [
+            'speciality' => $speciality,
+        ]);
+    }
+    
     
 }
