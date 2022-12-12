@@ -40,6 +40,15 @@ class Speciality
     #[Groups(['get_formation_cycles'])]
     private ?string $description = null;
 
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $goals = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $targetedSkills = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $careers = null;
+
     public function __construct()
     {
         $this->semesters = new ArrayCollection();
@@ -141,6 +150,42 @@ class Speciality
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getGoals(): ?string
+    {
+        return $this->goals;
+    }
+
+    public function setGoals(?string $goals): self
+    {
+        $this->goals = $goals;
+
+        return $this;
+    }
+
+    public function getTargetedSkills(): ?string
+    {
+        return $this->targetedSkills;
+    }
+
+    public function setTargetedSkills(?string $targetedSkills): self
+    {
+        $this->targetedSkills = $targetedSkills;
+
+        return $this;
+    }
+
+    public function getCareers(): ?string
+    {
+        return $this->careers;
+    }
+
+    public function setCareers(?string $careers): self
+    {
+        $this->careers = $careers;
 
         return $this;
     }

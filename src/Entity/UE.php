@@ -27,6 +27,9 @@ class UE
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $code = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?float $credits = null;
+
     public function __construct()
     {
         $this->subjects = new ArrayCollection();
@@ -106,6 +109,18 @@ class UE
     public function __toString()
     {
         return $this->label;
+    }
+
+    public function getCredits(): ?float
+    {
+        return $this->credits;
+    }
+
+    public function setCredits(?float $credits): self
+    {
+        $this->credits = $credits;
+
+        return $this;
     }
 
 }

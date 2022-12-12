@@ -26,6 +26,9 @@ class Subject
     #[ORM\ManyToOne(inversedBy: 'teachedSubjects')]
     private ?Teacher $teacher = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?float $credits = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -82,5 +85,17 @@ class Subject
     public function __toString()
     {
         return $this->label;
+    }
+
+    public function getCredits(): ?float
+    {
+        return $this->credits;
+    }
+
+    public function setCredits(?float $credits): self
+    {
+        $this->credits = $credits;
+
+        return $this;
     }
 }
