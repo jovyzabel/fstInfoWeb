@@ -27,6 +27,8 @@ class SpecialityCrudController extends AbstractCrudController
             TextField::new('code'),
             AssociationField::new('formationCycle'),
             TextEditorField::new('goals')->setFormType(CKEditorType::class),
+            TextEditorField::new('targetedSkills')->setFormType(CKEditorType::class),
+            TextEditorField::new('careers')->setFormType(CKEditorType::class),
             SlugField::new('slug')->setTargetFieldName('label')->onlyOnForms(),
             // TextEditorField::new('description'),
         ];

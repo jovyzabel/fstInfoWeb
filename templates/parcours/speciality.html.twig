@@ -21,7 +21,7 @@
 		{% endif %}
 
 		{% if speciality.goals %}
-		<div class="">
+		<div class="row">
 			<h3>Objectfs de la formation</h3>
 			<div>{{speciality.goals |raw}}</div>
 		</div>
@@ -30,10 +30,7 @@
 		{% if speciality.targetedSkills %}
 		<div class="">
 			<h3>Compétences visées</h3>
-			<div>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id autem commodi modi quaerat neque, aspernatur ad porro sint fugit consectetur doloribus qui odit tempore a, amet, quibusdam corrupti expedita non?</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sint nobis pariatur odio in aliquid nam ipsam debitis. Dolor temporibus tempora ea recusandae repellendus consectetur et nam error doloribus quo.</p>
-			</div>
+			<div>{{speciality.targetedSkills |raw}}</div>
 		</div>
 		{% endif %}
 
@@ -88,10 +85,7 @@
 		{% if speciality.careers %}
 		<div class="">
 			<h3>Carrières après formation</h3>
-			<div>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id autem commodi modi quaerat neque, aspernatur ad porro sint fugit consectetur doloribus qui odit tempore a, amet, quibusdam corrupti expedita non?</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sint nobis pariatur odio in aliquid nam ipsam debitis. Dolor temporibus tempora ea recusandae repellendus consectetur et nam error doloribus quo.</p>
-			</div>
+			<div>{{speciality.careers |raw}}</div>
 		</div>
 		{% endif %}
 	
