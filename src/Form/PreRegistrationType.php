@@ -18,7 +18,7 @@ class PreRegistrationType extends AbstractType
         $builder
             ->add('student', StudentType::class)        
             ->add('folder', FolderType::class)
-        ;
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

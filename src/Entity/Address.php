@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\AddressRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: AddressRepository::class)]
 class Address
@@ -20,6 +21,12 @@ class Address
     private ?int $street_number = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Length(min: 2,)]
+    #[Assert\Regex([
+        'pattern' => '/\d/',
+        'match' => false,
+        'message' => 'Entrez un lieu exact',
+    ]),]
     private ?string $quater_name = null;
 
     #[ORM\Column(length: 255, nullable: true)]

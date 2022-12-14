@@ -29,7 +29,7 @@ class PreRegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            dd($preRegistration);
+            
             $preRegistrationRepository->save($preRegistration, true);
 
             return $this->redirectToRoute('app_pre_registration_index', [], Response::HTTP_SEE_OTHER);

@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\PreRegistrationRepository;
+use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\PreRegistrationRepository;
 
 #[ORM\Entity(repositoryClass: PreRegistrationRepository::class)]
 class PreRegistration
@@ -26,10 +27,11 @@ class PreRegistration
     #[ORM\OneToOne(inversedBy: 'preRegistration', cascade: ['persist', 'remove'])]
     private ?Folder $folder = null;
 
-
-    #[ORM\Column(length: 255)]
-    private ?string $status = null;
-
+    public function __construct()
+    {
+        $this->createdAt = new DateTimeImmutable();
+        $this->status = '';
+    }
 
     public function getId(): ?int
     {
@@ -59,7 +61,7 @@ class PreRegistration
 
         return $this;
     }
-<
+
 
     public function getStudent(): ?Student
     {
