@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\PersonRepository;
 use DateTimeImmutable;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
@@ -15,9 +16,29 @@ class Person
 {
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Veuillez entrer votre Nom')]
+    #[Assert\Length(min: 2,
+        max: 50,
+        minMessage: 'Votre nom doit avoir au moins {{ limit }} caractères',
+    )]
+    #[Assert\Regex([
+        'pattern' => '/\d/',
+        'match' => false,
+        'message' => 'Votre prénom ne doit pas contenir un nombre',
+    ]),]
     protected ?string $name = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank()]
+    #[Assert\Length(min: 2,
+        max: 50,
+        minMessage: 'Votre nom doit avoir au moins {{ limit }} caractères',
+    )]
+    #[Assert\Regex([
+        'pattern' => '/\d/',
+        'match' => false,
+        'message' => 'Votre prénom ne doit pas contenir un nombre',
+    ]),]
     protected ?string $firstName = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
@@ -37,6 +58,7 @@ class Person
 
 
     #[ORM\Column(length: 40)]
+    #[Assert\Choice(['Monsieur', 'Madame'])]
     private ?string $civility = null;
 
     #[ORM\Column(length: 40)]

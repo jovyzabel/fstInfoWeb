@@ -4,7 +4,6 @@ namespace App\Form;
 
 use App\Entity\Folder;
 use Symfony\Component\Form\AbstractType;
-use Symfony\UX\Dropzone\Form\DropzoneType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,7 +16,7 @@ class FolderType extends AbstractType
     {
         $builder
             ->add('attestationOfValidationFile', FileType::class, [
-                'label' => 'Attestation de validation ou Equivalent (pdf)',
+                'label' => 'Attestion de validation L1 ou Equivalent',
                 'mapped' => false,
                 'required' => true,
                 'constraints' => [
@@ -25,14 +24,15 @@ class FolderType extends AbstractType
                         'maxSize' => '2048k',
                         'mimeTypes' => [
                             'application/pdf',
-                            'application/x-pdf',
+                            'application/x-pdf'
                         ],
-                        'mimeTypesMessage' => "Vous ne pouvez inclure qu'un fichier PDF",
+                        'mimeTypesMessage' => "Vous ne pouvez inclure qu'un fichier pdf",
                     ])
                 ],
             ])
+            
             ->add('degreeFile',FileType::class, [
-                'label' => 'Dernier diplome obtenu (pdf)',
+                'label' => 'Dernier diplome obtenu',
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [
@@ -40,14 +40,14 @@ class FolderType extends AbstractType
                         'maxSize' => '2048k',
                         'mimeTypes' => [
                             'application/pdf',
-                            'application/x-pdf',
+                            'application/x-pdf'
                         ],
-                        'mimeTypesMessage' => "Vous ne pouvez inclure qu'un fichier PDF",
+                        'mimeTypesMessage' => "Vous ne pouvez inclure qu'un fichier pdf",
                     ])
                 ],
             ])
             ->add('bulletinFile',FileType::class, [
-                'label' => 'Relevés de notes (pdf)',
+                'label' => 'Relevés de notes',
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [
@@ -55,13 +55,17 @@ class FolderType extends AbstractType
                         'maxSize' => '2048k',
                         'mimeTypes' => [
                             'application/pdf',
-                            'application/x-pdf',
+                            'application/x-pdf'
                         ],
-                        'mimeTypesMessage' => "Vous ne pouvez inclure qu'un fichier PDF",
+                        'mimeTypesMessage' => "Vous ne pouvez inclure qu'un fichier pdf",
                     ])
                 ],
             ])
-            ->add('letter',TextareaType::class)
+            ->add('letter',TextareaType::class, [
+                'attr' => ['rows' => '5'
+                            
+                ]
+            ])
         ;
     }
 

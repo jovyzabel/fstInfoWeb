@@ -1,26 +1,30 @@
 {% form_theme form 'bootstrap_5_layout.html.twig' %}
 {{ form_start(form) }}
     <div class="row">
-        <div class="col-md-6">
-            {{ form_row(form.student.name) }}
-            {{ form_row(form.student.firstName) }}
+        <div class="col-md-4">
+            {{ form_row(form.student.name, {'attr': {'novalidate': 'novalidate'}}) }}
+            {{ form_row(form.student.firstName , {'attr': {'novalidate': 'novalidate'}}) }}
             {{ form_row(form.student.birthDay) }}
             {{ form_row(form.student.birthPlace) }}
-            {{ form_row(form.student.civility) }}
-            {{ form_row(form.student.sexe) }}
+            {{ form_row(form.student.civility, {'attr': {'novalidate': 'novalidate'}})  }}
+            {{ form_row(form.student.email , {'attr': {'novalidate': 'novalidate'}}) }}  
+            
         </div>
-        <div class="col-md-6">
-            {{ form_row(form.student.telephone) }}
-            {{ form_row(form.student.email) }}  
-            {{ form_row(form.student.address) }} 
+        <div class="col-md-4">
+            {{ form_row(form.student.address.street_name) }} 
+            {{ form_row(form.student.address.street_number) }} 
+            {{ form_row(form.student.address.quater_name) }} 
+            {{ form_row(form.student.address.city) }} 
+            {{ form_row(form.student.telephone , {'attr': {'novalidate': 'novalidate'}}) }}
+            {{ form_row(form.student.address.country) }} 
+        </div>
+        
+        <div class="col-md-4">
             {{ form_row(form.folder.attestationOfValidationFile) }} 
             {{ form_row(form.folder.degreeFile) }} 
             {{ form_row(form.folder.bulletinFile) }} 
-        </div>
-        <div class="col-md-6">
-            {{ form_row(form.folder.letter) }} 
             {{ form_row(form.student.avatarFile) }} 
-            
+            {{ form_row(form.folder.letter) }} 
         </div>
     </div>
     

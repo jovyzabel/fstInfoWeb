@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\StudentRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: StudentRepository::class)]
 class Student extends Person
@@ -18,12 +19,25 @@ class Student extends Person
     private ?\DateTimeInterface $birthDay = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\Length(min: 2,)]
+    #[Assert\Regex([
+        'pattern' => '/\d/',
+        'match' => false,
+        'message' => 'Entrez un lieu exact',
+    ]),]
     private ?string $birthPlace = null;
 
     #[ORM\Column(length: 40)]
+    #[Assert\Length(
+        min: 9,
+        max: 9,  
+        exactMessage: 'Vous numéro ne doit contenir que {{ limit }} chiffres',
+    )]
     private ?string $telephone = null;
-
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Email(
+        message :" la {{ value }} de votre Email n'est pas correct "    
+    )]
     private ?string $email = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]

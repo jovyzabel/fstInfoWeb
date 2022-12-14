@@ -5,34 +5,42 @@ namespace App\Entity;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\FolderRepository;
-use Vich\UploaderBundle\Entity\File;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: FolderRepository::class)]
+#[Vich\Uploadable]
 class Folder
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
-    #[Vich\UploadableField(mapping: 'enrolement_documents', fileNameProperty: 'attestationOfValidation')]
-    private ?File $attestationOfValidationFile = null;
-
+    
     #[ORM\Column(length: 255)]
     private ?string $attestationOfValidation = null;
 
+    #[Assert\File(
+        maxSize: '1024k',
+        mimeTypes: ['application/pdf', 'application/x-pdf'],
+        mimeTypesMessage: 'Please upload a valid PDF',
+    )]
+    #[Vich\UploadableField(mapping: 'enrolement_documents', fileNameProperty: 'attestationOfValidation')]
+    private ?File $attestationOfValidationFile = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $degree = null;
+    
     #[Vich\UploadableField(mapping: 'enrolement_documents', fileNameProperty: 'degree')]
     private ?File $degreeFile = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $degree = null;
+    private ?string $bulletin = null;
+    
 
     #[Vich\UploadableField(mapping: 'enrolement_documents', fileNameProperty: 'bulletin')]
     private ?File $bulletinFile = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $bulletin = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $letter = null;
@@ -111,7 +119,7 @@ class Folder
 
     public function setBulletinFile(?File $bulletinFile = null): void
     {
-        $this->degreeFile = $bulletinFile;
+        $this->bulletinFile = $bulletinFile;
 
         if (null !== $bulletinFile) {
             // It is required that at least one field changes if you are using doctrine
