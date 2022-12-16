@@ -17,19 +17,31 @@ document.addEventListener("DOMContentLoaded", function(){
     
         $.each(licenceSpecialities, function(index,licenceSpecialities){
             $('#licenceItems').append(
-                `<li><a href="${myurl+'/'+licenceSpecialities.slug}" class="text-decoration-none header-link">${licenceSpecialities.label}</a></li>`
+                `<li>
+                    <a href="${myurl+'/'+licenceSpecialities.slug}" class="text-decoration-none header-link">
+                        ${licenceSpecialities.label}
+                    </a>
+                </li>`
             )
         })
 
         $.each(masterSpecialities, function(index,masterSpecialities){
             $('#masterItems').append(
-                `<li><a href="${myurl+'/'+masterSpecialities.slug}" class="text-decoration-none header-link">${masterSpecialities.label}</a></li>`
+                `<li>
+                    <a href="${myurl+'/'+masterSpecialities.slug}" class="text-decoration-none header-link">
+                        ${masterSpecialities.label}
+                    </a>
+                </li>`
             )
         })
 
         $.each(doctoratSpecialities, function(index,doctoratSpecialities){
             $('#doctoratItems').append(
-                `<li><a href="${myurl+'/'+doctoratSpecialities.slug}" class="text-decoration-none header-link">${doctoratSpecialities.label}</a></li>`
+                `<li>
+                    <a href="${myurl+'/'+doctoratSpecialities.slug}" class="text-decoration-none header-link">
+                        ${doctoratSpecialities.label}
+                    </a>
+                </li>`
             )
         })
 

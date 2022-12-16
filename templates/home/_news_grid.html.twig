@@ -32,7 +32,7 @@
               </a>
             </h5>
             <p class="card-text">
-              {{ article.content|u.truncate(100, '...', false) }}
+              {{ article.content|raw|u.truncate(100, '...', false) }}
             </p>
             <i class="fa-regular fa-calendar-days"></i><em>3 days ago</em>
           </div>
