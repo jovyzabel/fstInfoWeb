@@ -8,12 +8,7 @@ fos_ck_editor:
     default_config: main_config
     configs:
         main_config:
-            toolbar: 
-                - name: "styles"
-                - items: ['Bold', 'Italic', 'Underline', 'Strike', 'Blockquote', '-', 'Link', '-', 'RemoveFormat', '-', 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'Table', '-', 'Styles', 'Format', '-', 'TextColor', 'BGColor',]
-
-        redaction_config:
-            filebrowserBrowseRoute: elfinder
-            filebrowserBrowseRouteParameters: []
-
-        
+            filebrowserImageBrowseRoute: file_manager
+            filebrowserImageBrowseRouteParameters:
+                conf: images
+                module: ckeditor

@@ -4,6 +4,8 @@ namespace App\Controller\Admin;
 
 use App\Entity\Article;
 use Doctrine\ORM\EntityManagerInterface;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -25,9 +27,9 @@ class ArticleCrudController extends AbstractCrudController
             IdField::new('id')->onlyOnIndex(),
             TextField::new('title'),
             AssociationField::new('featuredImage'),
-            TextEditorField::new('content'),
-            AssociationField::new('category'),
-            AssociationField::new('tag'),
+            TextEditorField::new('content')->setFormType(CKEditorType::class),
+            AssociationField::new('categories'),
+            AssociationField::new('tags'),
             SlugField::new('slug')->setTargetFieldName('title')->onlyOnForms()
         ];
     }
@@ -36,5 +38,10 @@ class ArticleCrudController extends AbstractCrudController
         if (!$entityInstance instanceof Article) return;
         $entityInstance->setAccount($this->getUser());
         parent::persistEntity($entityManager, $entityInstance);
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig');
     }
 }

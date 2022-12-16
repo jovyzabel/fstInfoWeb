@@ -30,7 +30,7 @@
                         <img src="{{asset('uploads/images/news/' ~ article.featuredImage.filename)}}" class="card-img-top rounded-0" alt="...">
                     {% endif %}
                     <div class="offset-top-30">
-                        {{article.content}}
+                        {{article.content|raw}}
                     </div>
                 </div>
 
