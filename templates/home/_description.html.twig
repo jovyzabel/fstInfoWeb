@@ -1,11 +1,10 @@
 <div class="container marketing ">
     <!-- START THE FEATURETTES -->
-    <br>
-    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-		<div class="col-md-6 col-sm-12 col-lg-4">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5" data-sal="fade" style="--sal-duration: 2.5s; --sal-delay: 0.5s;">
+		<div class="col-md-6 col-sm-12 col-lg-4" data-sal="slide-left">
 			<img src="{{asset('logos/2014-05-20.jpg')}}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes">
 		</div>
-		<div class="col-lg-8">
+		<div class="col-lg-8" data-sal="slide-right">
 			<h2 class="display-5 fw-bold lh-1 mb-3">À propos du parcours</h2>
         	<div class="text-subline mb-3"></div>
 
@@ -16,7 +15,7 @@
 				conservant en permanence une place aux enseignements des compétences transversales. La 
 				formation se conclut par un stage en entreprise de 3 mois.</p>
 			<div class="d-grid gap-2 d-md-flex justify-content-md-start">
-				<a href=" {{ path('app_parcours_presentation') }} " class="btn specifical-bg-3 text-light btn-lg px-4 me-md-2">
+				<a href=" {{ path('app_parcours_presentation') }} " class="btn rounded-pill shadow specifical-bg-3 text-light btn-lg px-4 me-md-2">
 					En savoir plus
 				</a>
 			</div>
@@ -34,7 +33,7 @@
 			<h2 class="display-6 fw-bold lh-1 mb-3">Partenaires</h2>
         	<div class="text-subline mb-3"></div>
 
-			<div class="swiper owl-carousel">
+			<div class="swiper owl-carousel" data-sal="slide-up" style="--sal-duration: 2.5s; --sal-delay: 0.5s;">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
 						<div class="card">

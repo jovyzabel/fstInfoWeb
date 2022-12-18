@@ -15,12 +15,12 @@ require("@fortawesome/fontawesome-free/css/all.min.css");
 require("@fortawesome/fontawesome-free/js/all.js");
 
 import 'datatables.net-bs5';
-import 'datatables.net-responsive-bs5'
+import 'datatables.net-responsive-bs5';
 
 
-import './counter'
-import './datatable'
-import './dropdown_large'
-
-import './owl_carousel'
+import './counter';
+import './datatable';
+import './dropdown_large';
+import './animations';
+import './owl_carousel';
 
