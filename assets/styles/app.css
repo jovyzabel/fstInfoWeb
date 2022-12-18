@@ -72,13 +72,30 @@ p, ul>li {
     background: #e5e5e5;
     border: 50px;
 }
+
+.content-devider{
+    padding-right: initial;
+    padding-left: initial;
+    font-size: 0;
+    text-align: center;
+    position: relative;
+}
+
+.content-devider-line{
+    margin: auto;
+    opacity: 100%;
+    border-top-width: 4px;
+    border-top-style: solid;
+    border-top-color: #0d2d62;
+}
+
 .text-subline::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    height: 1px;
-    background: #b80924;
+    height: 3px;
+    background: #2f0f55;
     width: 50px;
 }
 .card:hover{
@@ -124,14 +141,51 @@ p, ul>li {
 
 button.accordion-button {
     background-color: #ffffff;
-    color: #b80924;
+    color: #2f0f55;
     font-size: large;
     font-weight: bold;
 }
 
 button.accordion-button:focus, #myTab li a:hover {
-    color: #b80924;
+    color: #2f0f55;
     background-color: #ffffff;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.swiper-slide {
+    text-align: center;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    display: none;
 }
 
 
