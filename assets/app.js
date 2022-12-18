@@ -22,3 +22,5 @@ import './counter'
 import './datatable'
 import './dropdown_large'
 
+import './owl_carousel'
+

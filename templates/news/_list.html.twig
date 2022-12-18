@@ -14,7 +14,9 @@
                             <h5 class="card-title">
                                 <a href="{{path('app_news_show', {'slug': article.slug})}}" class="text-decoration-none item-title">{{article.title}}</a>
                             </h5>
-                            <p class="card-text">{{article.content | u.truncate(100, '...', false)}}</p>
+                            <p class="card-text">
+                                {{ article.content|striptags|u.truncate(150, '...', false)|raw }}
+                            </p>
                             <p class="text-color-2">
                                 <i class="fa-regular fa-calendar-days"></i><em> Du {{article.createdAt | date('d-m-Y')}}</em>
                             </p>
@@ -80,3 +82,4 @@
                    
     </div>
 </div>
+
