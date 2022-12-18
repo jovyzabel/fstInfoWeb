@@ -22,7 +22,8 @@ class SubjectCrudController extends AbstractCrudController
             IdField::new('id')->onlyOnIndex(),
             TextField::new('label'),
             TextareaField::new('description'),
-            AssociationField::new('ue')
+            AssociationField::new('ue'),
+            AssociationField::new('teacher')
 
         ];
     }

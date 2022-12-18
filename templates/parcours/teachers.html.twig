@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Presentation{% endblock %}
+{% block title %}Parcours Informatique - Enseignants{% endblock %}
 
 {% block body %}
 
@@ -14,14 +14,14 @@
             <div class="card border border-0 shadow-sm mb-3">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="..." class="img-fluid rounded-start" alt="...">
+                        <img src="{{asset('uploads/images/avatars/' ~ teacher.avatarName)}}" class="img-fluid rounded-start" alt="..." height="170">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title">{{teacher}}</h5>
                             <p class="card-text">{{teacher.diploma}}</p>
                             <p class="card-text">
-                                <a href="" class="btn rounded-circle shadow specifical-bg-3 text-white">
+                                <a href="{{path('app_parcours_teacher_show', {'id': teacher.id})}}" class="btn rounded-circle shadow specifical-bg-3 text-white">
                                     <i class="fa fa-arrow-right"></i>
                                 </a>
                             </p>

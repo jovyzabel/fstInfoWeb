@@ -63,50 +63,43 @@ class AppFixtures extends Fixture
             }
         }
 
-        for($n=1; $n<5; $n++ ) {
-
-            $semester = new Semester();
-            $semester->setLabel('Semestre '.$n)
-                ->setCode('S'.$n);
+        for ($j=0; $j < 3; $j++) { 
             
-            if ($n <3) {
-                $semester->setLevel('L2');    
-            }else {
-                $semester->setLevel('L3');
-            }
-    
-            for ($i=0; $i < 3; $i++) { 
-                
-                $ue = new UE();
-                $ue->setLabel("Unité d'enseignement - ".$i)
-                    ->setCode('UE'.$i.$n);
-    
-                for ($j=0; $j < 3; $j++) { 
-                    $subject = new Subject();
-                    $subject->setLabel('matiere - '.$j)
-                        ->setDescription($faker->paragraph());
-    
-                    $manager->persist($subject);
-                    
-                    $teacher = new Teacher();
-                    $teacher->setDiploma("Docteur en informatique")
-                        ->setPlaceOfAcquisition("FST - UMNG, Brazzaville")
-                        ->setName($faker->lastName())
-                        ->setFirstName($faker->firstName())
-                        ->addTeachedSubject($subject);
-                    
-                    $manager->persist($teacher);
-                    
-                    $ue->addSubject($subject);
-                    
-                }
-                $manager->persist($ue);
-
-                $semester->addUe($ue);
-            }
-
-            $manager->persist($semester);        
+            $teacher = new Teacher();
+            $teacher
+                ->setDiploma("Docteur en informatique")
+                ->setCreatedAt(new DateTimeImmutable())
+                ->setCivility('Monsieur')
+                ->setAvatarName($faker->imageUrl)
+                ->setPlaceOfAcquisition("FST - UMNG, Brazzaville")
+                ->setName($faker->lastName())
+                ->setFirstName($faker->firstName());
+            
+            $manager->persist($teacher);
         }
+        // for($n=1; $n<5; $n++ ) {
+
+        //     $semester = new Semester();
+        //     $semester->setCode('S'.$n);
+            
+    
+        //     for ($i=0; $i < 3; $i++) { 
+                
+        //         $ue = new UE();
+        //         $ue->setLabel("Unité d'enseignement - ".$i)
+        //             ->setCode('UE'.$i.$n);
+    
+                    
+        //             $ue->addSubject($subject);
+                    
+        //         }
+        //         $manager->persist($ue);
+
+        //         $semester->addUe($ue);
+        //     }
+
+        //     $manager->persist($semester);        
+        // }
 
 
         $manager->flush();

@@ -3,10 +3,16 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Teacher;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
 class TeacherCrudController extends AbstractCrudController
 {
@@ -19,12 +25,27 @@ class TeacherCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->onlyOnIndex(),
+            TextField::new('avatarFile')->setFormType(VichImageType::class)->onlyOnForms(),
+            ImageField::new('avatarName')   
+                ->setBasePath('/uploads/images/avatars')
+                ->setUploadDir('/public/uploads/images/avatars')
+                ->hideOnForm(),
+                
             TextField::new('name'),
             TextField::new('firstName'),
             TextField::new('diploma'),
             TextField::new('placeOfAcquisition'),
-            AssociationField::new('teachedSubjects')
+            TextEditorField::new('description')->setFormType(CKEditorType::class),
+            AssociationField::new('teachedSubjects'),
+
+            DateTimeField::new('createdAt')->hideOnForm(),
+            DateTimeField::new('updatedAt')->hideOnForm(),
         ];
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig');
     }
 
 }

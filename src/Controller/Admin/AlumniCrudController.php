@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use DateTime;
 use App\Entity\Alumni;
 use App\Entity\Person;
 use DateTimeImmutable;
@@ -44,7 +45,7 @@ class AlumniCrudController extends AbstractCrudController
     public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void
     {
         if (!$entityInstance instanceof Person) return;
-        $entityInstance->setUpdatedAt(new DateTimeImmutable());
+        $entityInstance->setUpdatedAt(new DateTime());
         parent::updateEntity($entityManager, $entityInstance);
     }
 
