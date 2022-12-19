@@ -55,8 +55,9 @@ class StudentType extends AbstractType
                             'image/jpeg'
                         ],
                         'mimeTypesMessage' => "Vous ne pouvez inclure qu'un fichier png ou jpeg",
-                    ])
-                ],
+                        ])
+                    ],
+                'attr' => ['id' => 'file-ip-1', 'onchange'=>'showPreview(event)'],
             ])
             
         ;
