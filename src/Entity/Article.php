@@ -46,6 +46,9 @@ class Article
     #[ORM\ManyToOne]
     private ?Media $featuredImage = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?bool $isOnCarousel = null;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -188,5 +191,17 @@ class Article
     public function __toString()
     {
         return $this->title;
+    }
+
+    public function isIsOnCarousel(): ?bool
+    {
+        return $this->isOnCarousel;
+    }
+
+    public function setIsOnCarousel(?bool $isOnCarousel): self
+    {
+        $this->isOnCarousel = $isOnCarousel;
+
+        return $this;
     }
 }
