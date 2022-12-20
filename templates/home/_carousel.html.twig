@@ -1,4 +1,4 @@
-<div id="myCarousel" class="carousel slide overflow-hidden" data-bs-ride="carousel">
+{# <div id="myCarousel" class="carousel slide overflow-hidden" data-bs-ride="carousel">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
@@ -44,4 +44,45 @@
 		<span class="carousel-control-next-icon" aria-hidden="true"></span>
 		<span class="visually-hidden">Next</span>
     </button>
+</div> #}
+
+<div class="swiper headerCarousel bg-primary">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide bg-primary">
+            <img src="{{asset('img/school-tools-with-calculator.png')}}" width="100%"/>
+            <div class="container">
+                <div class="carousel-caption text-start">
+                    <h1>Example headline.</h1>
+                    <p class="text-light lead">Some representative placeholder content for the first slide of the carousel.</p>
+                    <p><a class="btn specifical-bg-3 text-light btn-lg" href="#">En savoir plus</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide bg-secondary">
+            <img src="{{asset('img/colorful.png')}}" width="100%"/>
+            <div class="container">
+                <div class="carousel-caption text-start">
+                    <h1>Another example headline.</h1>
+                    <p class="text-light lead">Some representative placeholder content for the second slide of the carousel.</p>
+                    <p><a class="btn specifical-bg-3 text-light btn-lg" href="#">Learn more</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide bg-success">
+            <img src="{{asset('img/blue-schoolchild-backpack-on-table.png')}}" width="100%"/>
+            <div class="container">
+                <div class="carousel-caption text-start">
+                    <h1>One more for good measure.</h1>
+                    <p class="text-light lead">Some representative placeholder content for the third slide of this carousel.</p>
+                    <p><a class="btn specifical-bg-3 text-light btn-lg" href="#">Browse gallery</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide bg-warning">Slide 4</div>
+        <div class="swiper-slide bg-dark">Slide 5</div>
+        <div class="swiper-slide bg-danger">Slide 6</div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination text-center"></div>
 </div>
