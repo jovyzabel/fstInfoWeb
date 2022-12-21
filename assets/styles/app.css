@@ -12,13 +12,6 @@
          url('./fonts/Rufina/Rufina-Regular.ttf') format('ttf');
   }
 
-body {
-    background-color: #FFF;
-    margin:0;
-    padding: 0;
-    font-family:'Roboto Slab', serif ;
-}
-
 p, ul>li {
     font-family: 'Roboto slab', sans-serif;
     font-size: 17px;
@@ -49,14 +42,12 @@ p, ul>li {
     color: #FFF;
 }
 .header-link{
-    color :#2f0f55;
-    font-family: 'Roboto slab'; 
+    color :#0e0e0e;
+    font-weight: bold;
    
 }
 .header-link:hover{
-   color:#b80924;
-   font-weight: 600;
-   
+   color:#2f0f55;   
 }
 .color-text{
     color:#b80924;
@@ -64,15 +55,7 @@ p, ul>li {
  .text-color-2{
     color:#2f0f55;
  }
-header>div>div>ul>li:hover{
-    border-bottom: 3px solid #b80924;
-    background-color: #e5e5e515;
-}
 
-.dropdown-item:hover{
-    color: #b80924;
-    font-weight: 600;
-}
 /*header end part*/
 /* footer debut part*/
 .footer-link{
@@ -89,13 +72,30 @@ header>div>div>ul>li:hover{
     background: #e5e5e5;
     border: 50px;
 }
+
+.content-devider{
+    padding-right: initial;
+    padding-left: initial;
+    font-size: 0;
+    text-align: center;
+    position: relative;
+}
+
+.content-devider-line{
+    margin: auto;
+    opacity: 100%;
+    border-top-width: 4px;
+    border-top-style: solid;
+    border-top-color: #0d2d62;
+}
+
 .text-subline::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    height: 1px;
-    background: #b80924;
+    height: 3px;
+    background: #2f0f55;
     width: 50px;
 }
 .card:hover{
@@ -141,22 +141,75 @@ header>div>div>ul>li:hover{
 
 button.accordion-button {
     background-color: #ffffff;
-    color: #b80924;
+    color: #2f0f55;
     font-size: large;
     font-weight: bold;
 }
 
 button.accordion-button:focus, #myTab li a:hover {
-    color: #b80924;
+    color: #2f0f55;
     background-color: #ffffff;
 }
 
+.swiper {
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-@media only screen and (min-width: 992px) {
+
+.swiper-slide {
+    text-align: center;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    display: none;
+}
+
+
+/* @media only screen and (min-width: 992px) {
 
     li.nav-item.dropdown:hover .dropdown-menu {
         display: block;
         color: #b80924;
         font-weight: bold;
+    }
+} */
+
+.dropdown-large {
+    padding: 1rem;
+}
+
+@media all and (min-width: 992px) {
+    .dropdown-large {
+        min-width: 900px;
+        right: auto;
+        left: 50%;
+        -webkit-transform: translate(-50%, 0);
+        -o-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+
     }
 }

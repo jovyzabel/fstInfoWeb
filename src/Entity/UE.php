@@ -21,11 +21,14 @@ class UE
     #[ORM\Column(length: 255)]
     private ?string $label = null;
 
-    #[ORM\ManyToOne(inversedBy: 'ues')]
+    #[ORM\ManyToOne(inversedBy: 'ues', cascade: ['persist', 'remove'])]
     private ?Semester $semester = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $code = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?float $credits = null;
 
     public function __construct()
     {
@@ -107,4 +110,17 @@ class UE
     {
         return $this->label;
     }
+
+    public function getCredits(): ?float
+    {
+        return $this->credits;
+    }
+
+    public function setCredits(?float $credits): self
+    {
+        $this->credits = $credits;
+
+        return $this;
+    }
+
 }

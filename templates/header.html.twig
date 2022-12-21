@@ -14,23 +14,18 @@
                     <img src="{{ asset('logos/2014-05-20.jpg') }}"
                         alt="Parcours_informatique"
                         class=""
-                        height="70" />
-                    <span class="fs-4 lh-1 text-color-2 fw-bold">Parcours <br> Informatique</span>
+                        height="70"
+                    />
+                    <span class="fs-4 lh-1 text-color-2 fw-bold ms-2">Parcours <br> Informatique</span>
                 </a>
                 <ul class="navbar-nav">
-                    <li>
-                        <a href="{{ path('app_home') }}"
-                            class="nav-link px-2 header-link fs-5 py-3">
-                        Accueil
-                        </a>
-                    </li>
                     <li class="dropdown">
-                        <a class="nav-link px-2 dropdown-toggle header-link fs-5 py-3"
+                        <a class="nav-link px-2 dropdown-toggle header-link py-3"
                             href="#"
                             role="button"
                             data-bs-toggle="dropdown"
                             aria-expanded="false">
-                        Parcours
+                        A propos
                         </a>
                         <ul class="dropdown-menu">
                             <li>
@@ -45,40 +40,59 @@
                                 Mot du responsable
                                 </a>
                             </li>
-                            <li><a class="dropdown-item header-link" href="{{path('app_parcours_programs')}}">Programmes</a></li>
-                            <li>
-                                <a class="dropdown-item header-link"
-                                    href="{{ path('app_parcours_teachers') }}">
-                                    Corps enseignant
-                                </a>
-                            </li>
                         </ul>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a id="coursesMenu" class="nav-link dropdown-toggle px-2 header-link py-3" href="{{path('app_specialities_list')}}" data-bs-toggle="dropdown">
+                            Parcours
+                        </a>
+                        <div class="dropdown-menu dropdown-large border-0">
+                            <div class="row g-3 px-5">
+                                <div class="col-lg-4">
+                                    <h5 class="title fw-bold">Licence</h5>
+                                    <ul id="licenceItems" class="list-unstyled text-muted"></ul>
+                                </div><!-- end col-3 -->
+                                <div class="col-lg-4">
+                                    <h5 class="title fw-bold">Master</h5>
+                                    <ul id="masterItems" class="list-unstyled text-muted"></ul>
+                                </div><!-- end col-3 -->
+                                <div class="col-lg-4">
+                                    <h5 class="title fw-bold">Doctorat d'entreprise</h5>
+                                    <ul id="doctoratItems" class="list-unstyled text-muted"></ul>
+                                </div>
+                            </div><!-- end row -->
+                        </div> <!-- dropdown-large.// -->
+                    </li>
                     <li>
-                        <a href="{{path('app_admission')}}" class="nav-link px-2 header-link fs-5 py-3">
+                        <a href="{{path('app_admission')}}" class="nav-link px-2 header-link py-3">
                             Admission
                         </a>
                     </li>
                     <li>
+                        <a href="{{path('app_parcours_teachers')}}" class="nav-link px-2 header-link py-3">
+                            Enseignants
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{ path('app_news') }}"
-                            class="nav-link px-2 header-link fs-5 py-3">
+                            class="nav-link px-2 header-link py-3">
                         Actualités
                         </a>
                     </li>
                     <li>
                         <a href="{{path('app_alumni')}}"
-                            class="nav-link px-2 header-link fs-5 py-3">
+                            class="nav-link px-2 header-link py-3">
                         Alumni
                         </a>
                     </li>
                     <li>
                         <a href="{{ path('app_contact') }}"
-                            class="nav-link px-2 header-link fs-5 py-3">
+                            class="nav-link px-2 header-link py-3">
                         Contacts
                         </a>
                     </li>
                     <li class="dropdown">
-                        <a class="nav-link px-2 header-link fs-5 py-3"
+                        <a class="nav-link px-2 header-link py-3"
                             href="#"
                             role="button"
                             data-bs-toggle="dropdown"

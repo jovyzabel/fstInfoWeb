@@ -1,9 +1,12 @@
 <!-- news section -->
 <div class="container mb-5">
-  <div class="row g-4 mb-3">
-    <h2 class="text-center">
+  <div class="row g-4 mb-3" data-sal="slide-up" style="--sal-duration: 2s; --sal-delay: 0.5s;">
+    <h2 class="text-center display-6 fw-bold lh-1 mb-3">
       Actualités récentes
     </h2>
+    <div class="content-devider">
+      <hr class="content-devider-line" style="max-width:100%;width:50px;">
+    </div>
 
     {% for article in articles %}
       <div class="col-sm-12 col-md-6 col-lg-4">
@@ -32,7 +35,7 @@
               </a>
             </h5>
             <p class="card-text">
-              {{ article.content|u.truncate(100, '...', false) }}
+              {{ article.content|striptags|u.truncate(150, '...', false)|raw }}
             </p>
             <i class="fa-regular fa-calendar-days"></i><em>3 days ago</em>
           </div>

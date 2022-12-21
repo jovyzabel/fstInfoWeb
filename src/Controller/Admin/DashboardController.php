@@ -5,14 +5,18 @@ namespace App\Controller\Admin;
 use App\Entity\UE;
 use App\Entity\Tag;
 use App\Entity\Media;
-use App\Entity\Account;
 use App\Entity\Alumni;
+use App\Entity\Account;
 use App\Entity\Article;
 use App\Entity\Subject;
 use App\Entity\Teacher;
 use App\Entity\Category;
-use App\Entity\Promotion;
 use App\Entity\Semester;
+use App\Entity\Promotion;
+use App\Entity\Speciality;
+use App\Entity\SemesterUes;
+use App\Entity\SemesterType;
+use App\Entity\FormationCycle;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
@@ -67,8 +71,11 @@ class DashboardController extends AbstractDashboardController
 
         ])->setPermission('ROLE_USER');
         yield MenuItem::subMenu('Parcours', 'fa fa-file-text')->setSubItems([
+            MenuItem::linkToCrud('Cycles de formation', 'fa fa-books',FormationCycle::class),
+            MenuItem::linkToCrud('Specialités', 'fa fa-books',Speciality::class),
             MenuItem::linkToCrud('Semestres', 'fa fa-books',Semester::class),
-            MenuItem::linkToCrud('Unités d\'enseignements', 'fa fa-books',UE::class),
+            MenuItem::linkToCrud('Type de semestre', 'fa fa-books',SemesterType::class),
+            MenuItem::linkToCrud('UEs', 'fa fa-books',UE::class),
             MenuItem::linkToCrud('Matières', 'fa fa-book',Subject::class),
             ])->setPermission('ROLE_USER');
 

@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Speciality;
+use App\Entity\Teacher;
 use App\Repository\AlumniRepository;
 use App\Repository\TeacherRepository;
 use App\Repository\SemesterRepository;
@@ -37,6 +39,15 @@ class ParcoursController extends AbstractController
         ]);
     }
 
+    #[Route('/enseignants/{id}', name: 'app_parcours_teacher_show')]
+    public function teacher(Teacher $teacher): Response
+    {
+        return $this->render('parcours/teacher.html.twig', [
+            'teacher' => $teacher,
+        ]);
+    }
+
+    
     #[Route('/parcours/programmes', name: 'app_parcours_programs')]
     public function programs(SemesterRepository $semesterRepository): Response
     {
@@ -51,5 +62,14 @@ class ParcoursController extends AbstractController
         return $this->render('parcours/admission.html.twig', [
         ]);
     }
+    
+    #[Route('/specialites/{slug}', name: 'app_speciality')]
+    public function speciality(Speciality $speciality): Response
+    {
+        return $this->render('parcours/speciality.html.twig', [
+            'speciality' => $speciality,
+        ]);
+    }
+    
     
 }

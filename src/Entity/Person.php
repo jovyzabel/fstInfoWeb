@@ -2,12 +2,14 @@
 
 namespace App\Entity;
 
+use DateTime;
+use DateTimeImmutable;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\PersonRepository;
-use DateTimeImmutable;
-use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 #[ORM\MappedSuperclass()]
@@ -48,21 +50,21 @@ class Person
     private ?string $avatarName = null;
 
     #[Vich\UploadableField(mapping: 'person_avatars', fileNameProperty: 'avatarName')]
-    private ?File $avatarFile = null;
+    protected ?File $avatarFile = null;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $createdAt = null;
+    protected ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $updatedAt = null;
+    protected ?DateTime $updatedAt = null;
 
 
     #[ORM\Column(length: 40)]
     #[Assert\Choice(['Monsieur', 'Madame'])]
     private ?string $civility = null;
 
-    #[ORM\Column(length: 40)]
-    private ?string $sexe = null;
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $description = null;
 
     public function __construct( ){
         $this->createdAt = new DateTimeImmutable();
@@ -126,7 +128,7 @@ class Person
 
         if (null !== $avatarFile) {
 
-            $this->updatedAt = new \DateTimeImmutable();
+            $this->updatedAt = new \DateTime();
         }
 
         return $this;
@@ -156,12 +158,12 @@ class Person
         return $this;
     }
 
-    public function getUpdatedAt(): ?\DateTimeImmutable
+    public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(\DateTimeImmutable $updatedAt): self
+    public function setUpdatedAt(\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
 
@@ -180,15 +182,16 @@ class Person
         return $this;
     }
 
-    public function getSexe(): ?string
+    public function getDescription(): ?string
     {
-        return $this->sexe;
+        return $this->description;
     }
 
-    public function setSexe(string $sexe): self
+    public function setDescription(?string $description): self
     {
-        $this->sexe = $sexe;
+        $this->description = $description;
 
         return $this;
     }
+
 }
