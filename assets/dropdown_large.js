@@ -9,12 +9,10 @@ document.addEventListener("DOMContentLoaded", function(){
     const myurl = $('#coursesMenu').attr('href');
     $.get( { url: myurl, method: "GET", dataType : "json",} )
     .done(function (response) {
-        licenceSpecialities = response[0]['specialities'];
-        masterSpecialities = response[1]['specialities'];
-        doctoratSpecialities = response[2]['specialities'];
+        licenceSpecialities = findFormationCycle(response,'licence') ? findFormationCycle(response,'licence').specialities : null;
+        masterSpecialities = findFormationCycle(response,'master') ? findFormationCycle(response,'master').specialities : null;
+        doctoratSpecialities = findFormationCycle(response,'doctorat') ? findFormationCycle(response,'doctorat').specialities : null;
 
-        console.log(myurl)
-    
         $.each(licenceSpecialities, function(index,licenceSpecialities){
             $('#licenceItems').append(
                 `<li>
@@ -48,6 +46,13 @@ document.addEventListener("DOMContentLoaded", function(){
     
     })
 });
+
+const findFormationCycle = function (formaionCycles, label) {
+    const formationCycleReturned = formaionCycles.find(function(formationCycle, index){
+        return formationCycle.label.toLowerCase() === label.toLowerCase()
+    });
+    return formationCycleReturned;
+}
 
 $("#coursesMenu").on('mouseenter',function(event){        
     event.preventDefault() ;

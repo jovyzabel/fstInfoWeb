@@ -162,8 +162,6 @@ button.accordion-button:focus, #myTab li a:hover {
 
 .swiper-slide {
     text-align: center;
-    background: #fff;
-
     /* Center slide text vertically */
     display: -webkit-box;
     display: -ms-flexbox;
