@@ -149,7 +149,7 @@
       } 
 
 </style>
-{{ form_start(form) }}
+{{ form_start(form, {'id': 'preregistration'}) }}
 <div class="progressbar">
     <div class="progress" id="progress"></div>
     
@@ -157,86 +157,93 @@
       class="progress-step progress-step-active"
       data-title="Identité"
     ></div>
-    <div class="progress-step" data-title="Contacts"></div>
-    <div class="progress-step" data-title="Adresses"></div>
+    <div class="progress-step" data-title="References"></div>
     <div class="progress-step" data-title="Dossier"></div>
+    <div class="progress-step" data-title="Validation"></div>
 </div>
   <!-- Steps -->
 <div class="row justify-content-evenly">
-    <div class="col-md-12">
+    <div class="">
         <div class="form-step form-step-active">
-            <div class="inputs-group tab d-flex row gx-3">
+            <div class="inputs-group d-flex row gx-3">
               <div class="col-md-4">
-                <div class="d-flex justify-content-center">
-                  <img id="file-ip-1-preview" width="180px" height="180px" class="border border-0 rounded-circle">
+                <div class="d-flex justify-content-center py-3">
+                  <img src="{{asset('img/user-128.png')}}" id="file-ip-1-preview" width="220px" height="220px" class="bg-secondary border border-0 rounded-3">
                 </div> 
-                {{ form_row(form.student.avatarFile, {'attr': {'novalidate': 'novalidate'}}) }}
               </div>
               <div class="col-md-4">
+                {{ form_row(form.student.avatarFile, {'attr': {'novalidate': 'novalidate'}}) }}
                 {{ form_row(form.student.name, {'attr': {'novalidate': 'novalidate'}}) }}
                 {{ form_row(form.student.firstName , {'attr': {'novalidate': 'novalidate'}}) }}
-                {{ form_row(form.student.civility, {'attr': {'novalidate': 'novalidate'}})  }}
               </div>
               <div class="col-md-4">
                 {{ form_row(form.student.birthDay) }}
                 {{ form_row(form.student.birthPlace) }} 
-                <div class="py-4">
-                  <a href="#" class="btn btn-next  ml-auto">Suivant</a>
-                </div>
+                {{ form_row(form.student.civility, {'attr': {'novalidate': 'novalidate'}})  }}
               </div>
+            </div>
+            <div class=" w-25 float-end">
+              <a href="#" class="btn btn-next ml-auto">Suivant</a>
             </div>
         </div>
     </div>
 </div>
 <div class="row d-flex justify-content-evenly">
-    <div class="col-md-5">
+    <div class="">
         <div class="form-step">
-          <div class="inputs-group tab">
+          <div class="inputs-group d-flex row gx-3">
+            <div class="col-md-4">
               {{ form_row(form.student.email , {'attr': {'novalidate': 'novalidate'}}) }} 
               {{ form_row(form.student.telephone , {'attr': {'novalidate': 'novalidate'}}) }}
+            </div>
+            <div class="col-md-4">
+              {{ form_row(form.student.address.city) }}
+              {{ form_row(form.student.address.country) }} 
+            </div>
+            <div class="col-md-4 row gx-1">
+              <div class="col-md-2">
+                {{ form_row(form.student.address.street_number) }} 
+              </div>
+              <div class="col-md-10">
+                {{ form_row(form.student.address.street_name) }} 
+              </div>
+              {{ form_row(form.student.address.quater_name) }} 
+            </div>
+          
           </div>
-          <div class="inputs-group tab">
-            {{ form_row(form.student.address.city) }}
-            {{ form_row(form.student.address.country) }} 
-          </div>
-          <div class="btns-group">
-            <a href="#" class="btn btn-prev">Previous</a>
-            <a href="#" class="btn btn-next">Next</a>
+          <div class="btns-group w-25 float-end">
+            <a href="#" class="btn btn-prev">Precedent</a>
+            <a href="#" class="btn btn-next">Suivant</a>
           </div>
         </div>
     </div>
     
 </div>
 <div class="row d-flex justify-content-evenly">
-    <div class="col-md-5">
+    <div class="">
         <div class="form-step">
-          <div class="inputs-group tab">
-              {{ form_row(form.student.address.street_name) }} 
-              {{ form_row(form.student.address.street_number) }} 
+          <div class="inputs-group d-flex row gx-3">
+              {{ form_row(form.folder.attestationOfValidationFile) }} 
+              {{ form_row(form.folder.degreeFile) }} 
+              {{ form_row(form.folder.bulletinFile) }} 
+              {{ form_row(form.folder.letter) }}
           </div>
-          <div class="inputs-group tab">
-              {{ form_row(form.student.address.quater_name) }} 
+          <div class="inputs-group">
           </div>
-          <div class="btns-group">
-            <a href="#" class="btn btn-prev">Previous</a>
-            <a href="#" class="btn btn-next">Next</a>
+          <div class="btns-group w-25 float-end">
+            <a href="#" class="btn btn-prev">Precedent</a>
+            <a href="#" class="btn btn-next" id="lastNext">Suivant</a>
           </div>
         </div>
     </div>
 </div>
 <div class="row d-flex justify-content-evenly">
-    <div class="col-md-5">
+    <div class="col-md-8">
         <div class="form-step">
-          <div class="inputs-group tab">
-              {{ form_row(form.folder.attestationOfValidationFile) }} 
-              {{ form_row(form.folder.degreeFile) }} 
-              {{ form_row(form.folder.bulletinFile) }} 
+          <div class="" id="recap">
           </div>
-          <div class="inputs-group tab">
-              {{ form_row(form.folder.letter) }}
-          </div>
-          <div class="btns-group">
-            <a href="#" class="btn btn-prev">Previous</a>
+          <div class="btns-group w-25 float-end">
+            <a href="#" class="btn btn-prev">Precedent</a>
             <button class="btn specifical-bg-3 text-white ">{{ button_label|default('Soumettre') }}</button> 
           </div>
         </div>
@@ -303,6 +310,36 @@
         preview.style.display = "block";
       }
     }
-   
 
+    // getting
+
+    const lNext = document.querySelector('#lastNext');
+    lNext.addEventListener("click", (e)=>{
+      let x = document.getElementsByClassName("sumup");
+      if( x[0].value !=="" && x[1].value !==""){
+        let recap = document.getElementById('recap');
+        recap.innerHTML = '<tr> <td>Nom: </td> <td>'+x[0].value+'</td> <td>Prenom </td><td>'+x[1].value+'</td></tr>';
+      }
+      else{
+        console.log(x);
+      }
+      
+      
+    })
+    
+    
+    /*function getValues(){
+      if (x[1].value !== "" && x[2].value !== "") {
+        let recap = document.querySelector('.recap');
+        recap.innerHTML = '<tr> <td>Nom</td> <td>'+x[1].value+'</td> <td>Position </td><td>'+x[2].value+'</td></tr>';
+      } else {
+        let recap1 = document.querySelector('.recap');
+        recap1.style.color = 'black';
+        recap1.style.background = 'red';
+    
+        recap1.innerHTML='<h2> Remplissez tout les champs !</h2>';
+      }
+      var x = document.getElementById('name').value;
+      document.getElementById('recap').innerText = x;
+    }*/
 </script>
