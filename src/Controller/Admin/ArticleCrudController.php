@@ -12,6 +12,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 
 class ArticleCrudController extends AbstractCrudController
 {
@@ -30,6 +31,7 @@ class ArticleCrudController extends AbstractCrudController
             TextEditorField::new('content')->setFormType(CKEditorType::class),
             AssociationField::new('categories'),
             AssociationField::new('tags'),
+            BooleanField::new('isOnCarousel'),
             SlugField::new('slug')->setTargetFieldName('title')->onlyOnForms()
         ];
     }

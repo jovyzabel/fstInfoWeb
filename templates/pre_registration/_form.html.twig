@@ -163,6 +163,7 @@
 </div>
   <!-- Steps -->
 <div class="row justify-content-evenly">
+
     <div class="">
         <div class="form-step form-step-active">
             <div class="inputs-group d-flex row gx-3">
@@ -175,15 +176,21 @@
                 {{ form_row(form.student.avatarFile, {'attr': {'novalidate': 'novalidate'}}) }}
                 {{ form_row(form.student.name, {'attr': {'novalidate': 'novalidate'}}) }}
                 {{ form_row(form.student.firstName , {'attr': {'novalidate': 'novalidate'}}) }}
+
+   
               </div>
               <div class="col-md-4">
                 {{ form_row(form.student.birthDay) }}
                 {{ form_row(form.student.birthPlace) }} 
+
                 {{ form_row(form.student.civility, {'attr': {'novalidate': 'novalidate'}})  }}
               </div>
             </div>
             <div class=" w-25 float-end">
               <a href="#" class="btn btn-next ml-auto">Suivant</a>
+
+              </div>
+
             </div>
         </div>
     </div>
@@ -310,6 +317,7 @@
         preview.style.display = "block";
       }
     }
+
 
     // getting
 
