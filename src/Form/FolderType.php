@@ -17,6 +17,8 @@ class FolderType extends AbstractType
         $builder
             ->add('attestationOfValidationFile', FileType::class, [
                 'label' => 'Attestion de validation L1 ou Equivalent',
+                'attr' => ['class' => 'rounded-0 sumup bg-light',
+                            'placeholder' => 'Choisissez un fichier pdf'],
                 'mapped' => false,
                 'required' => true,
                 'constraints' => [
@@ -33,6 +35,7 @@ class FolderType extends AbstractType
             
             ->add('degreeFile',FileType::class, [
                 'label' => 'Dernier diplome obtenu',
+                'attr'=>['class' => 'rounded-0 sumup bg-light'],
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [
@@ -48,6 +51,7 @@ class FolderType extends AbstractType
             ])
             ->add('bulletinFile',FileType::class, [
                 'label' => 'Relevés de notes',
+                'attr'=>['class' => 'rounded-0 sumup bg-light'],
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [
@@ -62,8 +66,8 @@ class FolderType extends AbstractType
                 ],
             ])
             ->add('letter',TextareaType::class, [
-                'attr' => ['rows' => '5'
-                            
+                'attr' => ['rows' => '5',
+                           'class' => 'rounded-0 sumup' 
                 ]
             ])
         ;

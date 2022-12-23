@@ -11,6 +11,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class StudentType extends AbstractType
@@ -19,12 +21,19 @@ class StudentType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                "label" => "Nom"
+                "label" => "Nom",
+                'attr' => ['id'=>'name','class'=>'rounded-0 sumup',
+                    'placeholder' => 'Entrez votre nom de famille ici',
+                    'id'=> 'lname'],
             ])
             ->add('firstName' , TextType::class, [
-                "label" => "Prénom"
+                "label" => "Prénom",
+                'attr' => ['class'=>'rounded-0 sumup',
+                    'placeholder' => 'Entrez votre prenom ici',
+                    'id'=> 'fname'],
             ])
             ->add('civility', ChoiceType::class, [
+                'attr'=> ['class'=>'rounded-0 sumup'],
                 'label'=> 'Civilité',
                 'choices' => [
                     'Monsieur' => 1,
@@ -33,14 +42,24 @@ class StudentType extends AbstractType
                 
             ])
             ->add('birthDay',DateType::class, [
+                "attr"=> ['class'=>'rounded-0 sumup'],
                 "label" => "Date de Naissance",
                 "widget" => "single_text"
             ])
             ->add('birthPlace', TextType::class, [
-                "label" => "Lieu de naissance"
+                "label" => "Lieu de naissance",
+                'attr' => ['class'=>'rounded-0 sumup',
+                    'placeholder' => 'Entrez votre ville de naissance ici'],
             ])
-            ->add('telephone')  
-            ->add('email')
+            ->add('telephone', TelType::class, [
+                'attr' => ['class'=>'rounded-0 sumup',
+                    'placeholder' => 'Entrez un numéro à 9 chiffres ici'],
+            ])  
+            ->add('email', EmailType::class,
+            [
+                'attr' => ['class'=>'rounded-0 sumup',
+                    'placeholder' => 'Entrez votre adresse email ici'],
+            ])
             ->add('address', AddressType::class)
             ->add('avatarFile', FileType::class, [
                 'label' => 'Avatar',
@@ -57,7 +76,9 @@ class StudentType extends AbstractType
                         'mimeTypesMessage' => "Vous ne pouvez inclure qu'un fichier png ou jpeg",
                         ])
                     ],
-                'attr' => ['id' => 'file-ip-1', 'onchange'=>'showPreview(event)'],
+
+                'attr' => ['class'=>'rounded-0 sumup bg-secondary','id' => 'file-ip-1', 'onchange'=>'showPreview(event)'],
+
             ])
             
         ;

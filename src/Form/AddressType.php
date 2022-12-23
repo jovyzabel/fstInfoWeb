@@ -17,18 +17,28 @@ class AddressType extends AbstractType
     {
         $builder
             ->add('street_name', TextType::class,[
-                'label' => 'Rue'
+                'label' => 'Rue',
+                'attr' => ['class' => 'rounded-0 sumup',
+                    'placeholder' => 'Nom de la ruelle'],
             ])
             ->add('street_number', IntegerType::class,[
-                'label' => 'Numero'
+                'label' => 'Numero',
+                'attr' => ['class' => 'rounded-0 sumup',]
             ])
             ->add('quater_name', TextType::class, [
-                'label' => 'Quartier'
+                'label' => 'Quartier',
+                'attr' => ['class' => 'rounded-0 sumup',
+                    'placeholder' => 'Nom du quartier'],
+                ])
+                ->add('city',  TextType::class, [
+                    'label' => 'Ville',
+                    'attr' => ['class' => 'rounded-0 sumup',
+                        'placeholder' => 'Nom de la ville de résidence'],
+                
             ])
-            ->add('city',  TextType::class, [
-                'label' => 'Ville'
+            ->add('country', CountryType::class,[
+                'attr'=>['class' => 'rounded-0 sumup']
             ])
-            ->add('country', CountryType::class)
         ;
     }
 
