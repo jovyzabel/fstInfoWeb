@@ -27,7 +27,7 @@
                             aria-expanded="false">
                         A propos
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu border-0">
                             <li>
                                 <a class="dropdown-item header-link"
                                     href=" {{ path('app_parcours_presentation') }} ">
@@ -38,6 +38,12 @@
                                 <a class="dropdown-item header-link"
                                     href=" {{ path('app_parcours_chief_word') }}">
                                 Mot du responsable
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item header-link"
+                                    href="{{ path('app_news') }}">
+                                Actualités
                                 </a>
                             </li>
                         </ul>
@@ -69,14 +75,14 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{path('app_parcours_teachers')}}" class="nav-link px-2 header-link py-3">
-                            Enseignants
+                        <a href="{{ path('app_pre_registration_new') }}"
+                            class="nav-link px-2 header-link py-3">
+                        Préinscription
                         </a>
                     </li>
                     <li>
-                        <a href="{{ path('app_news') }}"
-                            class="nav-link px-2 header-link py-3">
-                        Actualités
+                        <a href="{{path('app_parcours_teachers')}}" class="nav-link px-2 header-link py-3">
+                            Enseignants
                         </a>
                     </li>
                     <li>
@@ -88,7 +94,7 @@
                     <li>
                         <a href="{{ path('app_contact') }}"
                             class="nav-link px-2 header-link py-3">
-                        Contacts
+                        Contact
                         </a>
                     </li>
                     <li class="dropdown">

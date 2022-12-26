@@ -20,7 +20,7 @@ class HomeController extends AbstractController
     {    
         return $this->render('home/index.html.twig', [
             'articles' => $articleRepository->findBy([], ['createdAt' => 'DESC'], 6),
-            'carousel_items' => $articleRepository->findBy(['isOnCarousel' => true],['createdAt' => 'DESC'],)
+            'carousel_items' => $articleRepository->findBy(['isOnCarousel' => true],['createdAt' => 'DESC'], 3)
             
         ]);
     }
