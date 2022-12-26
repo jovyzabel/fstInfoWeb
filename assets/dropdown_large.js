@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function(){
         $.each(doctoratSpecialities, function(index,doctoratSpecialities){
             $('#doctoratItems').append(
                 `<li>
-                    <a href="${myurl+'/'+doctoratSpecialities.slug}" class="text-decoration-none header-link">
+                    <a href="${myurl+'/'+doctoratSpecialities.slug}" class="text-decoration-none header-link text-muted">
                         ${doctoratSpecialities.label}
                     </a>
                 </li>`
