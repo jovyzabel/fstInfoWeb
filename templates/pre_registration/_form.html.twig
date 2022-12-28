@@ -172,13 +172,13 @@
                   <img src="{{asset('img/user-128.png')}}" id="file-ip-1-preview" width="220px" height="220px" class="bg-secondary border border-0 rounded-3">
                 </div> 
               </div>
+
               <div class="col-md-4">
                 {{ form_row(form.student.avatarFile, {'attr': {'novalidate': 'novalidate'}}) }}
                 {{ form_row(form.student.name, {'attr': {'novalidate': 'novalidate'}}) }}
                 {{ form_row(form.student.firstName , {'attr': {'novalidate': 'novalidate'}}) }}
-
-   
               </div>
+
               <div class="col-md-4">
                 {{ form_row(form.student.birthDay) }}
                 {{ form_row(form.student.birthPlace) }} 
@@ -186,10 +186,9 @@
                 {{ form_row(form.student.civility, {'attr': {'novalidate': 'novalidate'}})  }}
               </div>
             </div>
-            <div class=" w-25 float-end">
+            <div class="float-end">
               <a href="#" class="btn btn-next ml-auto">Suivant</a>
-
-              </div>
+            </div>
 
             </div>
         </div>
@@ -218,7 +217,7 @@
             </div>
           
           </div>
-          <div class="btns-group w-25 float-end">
+          <div class="btns-group float-end">
             <a href="#" class="btn btn-prev">Precedent</a>
             <a href="#" class="btn btn-next">Suivant</a>
           </div>

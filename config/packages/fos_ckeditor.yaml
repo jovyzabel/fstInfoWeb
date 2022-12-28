@@ -6,9 +6,14 @@ twig:
 
 fos_ck_editor:
     default_config: main_config
+
     configs:
         main_config:
             filebrowserImageBrowseRoute: file_manager
             filebrowserImageBrowseRouteParameters:
                 conf: images
                 module: ckeditor
+        
+        lite_config:
+            toolbar:
+                - { name: "styles", items: ['FontSize','Bold', 'Italic', 'Underline', 'Strike', '-', 'Link', '-', 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Styles','Font', '-', 'TextColor', 'BGColor',] }
