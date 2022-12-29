@@ -194,12 +194,12 @@ button.accordion-button:focus, #myTab li a:hover {
 } */
 
 .dropdown-large {
-    padding: 1rem;
+    padding: .5rem;
 }
 
 @media all and (min-width: 992px) {
     .dropdown-large {
-        min-width: 900px;
+        min-width: 992px;
         right: auto;
         left: 50%;
         -webkit-transform: translate(-50%, 0);
