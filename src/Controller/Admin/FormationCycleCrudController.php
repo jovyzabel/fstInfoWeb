@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\FormationCycle;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class FormationCycleCrudController extends AbstractCrudController
@@ -18,7 +19,13 @@ class FormationCycleCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->onlyOnIndex(),
-            TextField::new('label'),
+            ChoiceField::new('label')
+                ->setChoices([
+                    'Licence' => 'Licence',
+                    'Master' => 'Master',
+                    'Doctorat' => 'Doctorat',
+                    'Certification' => 'Certification'
+                ]),
             TextField::new('code'),
         ];
     }

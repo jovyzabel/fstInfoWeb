@@ -55,16 +55,15 @@ class Person
     #[ORM\Column]
     protected ?\DateTimeImmutable $createdAt = null;
 
-    #[ORM\Column]
-    protected ?DateTime $updatedAt = null;
-
-
     #[ORM\Column(length: 40)]
     #[Assert\Choice(['Monsieur', 'Madame'])]
     private ?string $civility = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $updatedAt = null;
 
     public function __construct( ){
         $this->createdAt = new DateTimeImmutable();
