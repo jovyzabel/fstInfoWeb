@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Erreur - Accès interdit{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <div class="">
+                <h1>Accès interdit</h1>
+                <p class="text-muted">
+                    Vous n'êtes pas autorisé à consulter cette page.
+                    Vérifiez vos droits d'accès auprès de l'administrateur.
+                </p>
+                <p class="text-muted">Cliquez sur le bouton Retour pour revenir à la page précédente</p>
+            </div>
+            <div class="mt-5">
+                <a href="{{ path('app_home') }}" class="btn rounded-pill btn-danger">Retour</a>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="">
+                <img src="{{asset('img/404.png')}}" class="img-fluid" alt="">
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
