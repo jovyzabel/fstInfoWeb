@@ -36,6 +36,9 @@ class FormationCycle
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Media $featuredImage = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $slug = null;
+
     public function __construct()
     {
         $this->specialities = new ArrayCollection();
@@ -125,6 +128,18 @@ class FormationCycle
     public function setFeaturedImage(?Media $featuredImage): self
     {
         $this->featuredImage = $featuredImage;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

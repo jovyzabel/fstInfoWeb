@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\FormationCycle;
 use App\Entity\Speciality;
 use App\Entity\Teacher;
 use App\Repository\AlumniRepository;
@@ -58,25 +59,27 @@ class ParcoursController extends AbstractController
     #[Route('/cycles-de-formation', name: 'app_formation_cycles')]
     public function formationCycles(FormationCycleRepository $formationCycleRepository): Response
     {
-        $licences = $formationCycleRepository->findOneBy(['label' => 'Licence']);
-        $masters = $formationCycleRepository->findOneBy(['label' => 'Master']);
-        $doctorats = $formationCycleRepository->findOneBy(['label' => 'Doctorat']);
-        $certifications = $formationCycleRepository->findOneBy(['label' => 'Certification']);
+        $licence = $formationCycleRepository->findOneBy(['label' => 'Licence']);
+        $master = $formationCycleRepository->findOneBy(['label' => 'Master']);
+        $doctorat = $formationCycleRepository->findOneBy(['label' => 'Doctorat']);
+        $certification = $formationCycleRepository->findOneBy(['label' => 'Certification']);
         return $this->render('parcours/formation_cycles.html.twig', [
-            'licences' => $licences,
-            'masters' => $masters,
-            'doctorats' => $doctorats,
-            'certifications' => $certifications,
+            'licence' => $licence,
+            'master' => $master,
+            'doctorat' => $doctorat,
+            'certification' => $certification,
         ]);
     }
 
-    #[Route('/cycles-de-formation/{slug}', name: 'app_formation_cycle')]
-    public function formationCycle(): Response
+    #[Route('/specialites/{slug}', name: 'app_formation_cycle')]
+    public function formationCycle(FormationCycle $formationCycle): Response
     {
-        return $this->render('parcours/formation_cycle.html.twig', []);
+        return $this->render('parcours/formation_cycle.html.twig', [
+            'formation_cycle' => $formationCycle,
+        ]);
     }
     
-    #[Route('/specialites/{slug}', name: 'app_speciality')]
+    #[Route('/specialites/{formation_cycle_slug}/{slug}', name: 'app_speciality')]
     public function speciality(Speciality $speciality): Response
     {
         return $this->render('parcours/speciality.html.twig', [

@@ -14,19 +14,22 @@ document.addEventListener("DOMContentLoaded", function(){
         doctoratSpecialities = findFormationCycle(response,'doctorat') ? findFormationCycle(response,'doctorat').specialities : null;
 
         $.each(licenceSpecialities, function(index,licenceSpecialities){
+            parentUrl  = $('#licenceItems').prev().children().eq(0).attr('href');
+            console.log();
             $('#licenceItems').append(
                 `<li>
-                    <a href="${myurl+'/'+licenceSpecialities.slug}" class="text-decoration-none header-link">
+                    <a href="${parentUrl+'/'+licenceSpecialities.slug}" class="text-decoration-none header-link">
                         ${licenceSpecialities.label}
                     </a>
                 </li>`
-            )
+            );
         })
 
         $.each(masterSpecialities, function(index,masterSpecialities){
+            parentUrl  = $('#masterItems').prev().children().eq(0).attr('href');
             $('#masterItems').append(
                 `<li>
-                    <a href="${myurl+'/'+masterSpecialities.slug}" class="text-decoration-none header-link">
+                    <a href="${parentUrl+'/'+masterSpecialities.slug}" class="text-decoration-none header-link">
                         ${masterSpecialities.label}
                     </a>
                 </li>`
@@ -34,9 +37,10 @@ document.addEventListener("DOMContentLoaded", function(){
         })
 
         $.each(doctoratSpecialities, function(index,doctoratSpecialities){
+            parentUrl  = $('#licenceItems').prev().children().eq(0).attr('href');
             $('#doctoratItems').append(
                 `<li>
-                    <a href="${myurl+'/'+doctoratSpecialities.slug}" class="text-decoration-none header-link text-muted">
+                    <a href="${parentUrl+'/'+doctoratSpecialities.slug}" class="text-decoration-none header-link">
                         ${doctoratSpecialities.label}
                     </a>
                 </li>`

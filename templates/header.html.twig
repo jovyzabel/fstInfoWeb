@@ -50,25 +50,25 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a id="coursesMenu" href="{{path('app_specialities_list')}}" style="display:none"></a>
-                        <a class="nav-link dropdown-toggle px-2 header-link py-3" href="{{path('app_formation_cycles')}}" data-bs-hover="dropdown">
+                        <a class="nav-link dropdown-toggle px-2 header-link py-3" href="{{path('app_formation_cycles')}}" data-bs-toggle="dropdown">
                             Parcours
                         </a>
                         <div class="dropdown-menu dropdown-large border-0">
                             <div class="row">
                                 <div class="col-lg-3 mb-md-3">
-                                    <h5 class="title fw-bold">Licence</h5>
-                                    <ul id="licenceItems" class="list-unstyled"></ul>
-                                </div>
-                                <div class="col-lg-3 mb-md-3">
-                                    <h5 class="title fw-bold">Master</h5>
-                                    <ul id="masterItems" class="list-unstyled"></ul>
-                                </div>
-                                <div class="col-lg-3 mb-md-3">
-                                    <h5 class="title fw-bold">Doctorat d'entreprise</h5>
+                                    <h5 class="title fw-bold"><a href="{{path('app_formation_cycle', {'slug': 'doctorat'})}}" class="text-dark text-decoration-none">Doctorat</a></h5>
                                     <ul id="doctoratItems" class="list-unstyled"></ul>
                                 </div>
                                 <div class="col-lg-3 mb-md-3">
-                                    <h5 class="title fw-bold">Certifications</h5>
+                                    <h5 class="title fw-bold"><a href="{{path('app_formation_cycle', {'slug': 'master'})}}" class="text-dark text-decoration-none">Master</a></h5>
+                                    <ul id="masterItems" class="list-unstyled"></ul>
+                                </div>
+                                <div class="col-lg-3 mb-md-3">
+                                    <h5 class="title fw-bold"><a href="{{path('app_formation_cycle', {'slug': 'licence'})}}" class="text-dark text-decoration-none">Licence</a></h5>
+                                    <ul id="licenceItems" class="list-unstyled"></ul>
+                                </div>
+                                <div class="col-lg-3 mb-md-3">
+                                    <h5 class="title fw-bold"><a href="{{path('app_formation_cycle', {'slug': 'certification'})}}" class="text-dark text-decoration-none">Certifications</a></h5>
                                     <ul id="doctoratItems" class="list-unstyled"></ul>
                                 </div>
                             </div><!-- end row -->
