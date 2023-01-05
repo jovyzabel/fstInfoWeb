@@ -7,6 +7,7 @@ use App\Entity\Tag;
 use App\Entity\Media;
 use App\Entity\Alumni;
 use App\Entity\Account;
+use App\Entity\AppOption;
 use App\Entity\Article;
 use App\Entity\Subject;
 use App\Entity\Teacher;
@@ -85,6 +86,9 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::linkToCrud('Media', 'fa fa-photo-film',Media::class)->setPermission('ROLE_USER');
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
+        yield MenuItem::subMenu('Parametres', 'fa fa-gear')->setSubItems([
+            MenuItem::linkToCrud('Général', 'fa fa-gear', AppOption::class),
+        ])->setPermission('ROLE_ADMIN');
     }
 
     public function configureUserMenu(UserInterface $user): UserMenu
