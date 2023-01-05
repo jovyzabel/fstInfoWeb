@@ -22,15 +22,15 @@ class StudentType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 "label" => "Nom",
-                'attr' => ['id'=>'name','class'=>'rounded-0 sumup',
+                'attr' => ['class'=>'rounded-0 sumup',
                     'placeholder' => 'Entrez votre nom de famille ici',
-                    'id'=> 'lname'],
+                    ],
             ])
             ->add('firstName' , TextType::class, [
                 "label" => "Prénom",
                 'attr' => ['class'=>'rounded-0 sumup',
                     'placeholder' => 'Entrez votre prenom ici',
-                    'id'=> 'fname'],
+                    ],
             ])
             ->add('civility', ChoiceType::class, [
                 'attr'=> ['class'=>'rounded-0 sumup'],
@@ -76,7 +76,7 @@ class StudentType extends AbstractType
                         'mimeTypesMessage' => "Vous ne pouvez inclure qu'un fichier png ou jpeg",
                         ])
                     ],
-                'attr' => ['class'=>'rounded-0 sumup bg-secondary','id' => 'file-ip-1', 'onchange'=>'showPreview(event)'],
+                'attr' => ['class'=>'rounded-0 sumup bg-light','id' => 'file-ip-1', 'onchange'=>'showPreview(event)'],
             ])
             
         ;

@@ -18,6 +18,7 @@ class Address
     private ?string $street_name = null;
 
     #[ORM\Column(nullable: true)]
+    #[Assert\Positive]
     private ?int $street_number = null;
 
     #[ORM\Column(length: 255, nullable: true)]

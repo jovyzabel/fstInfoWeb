@@ -18,19 +18,20 @@ class FolderType extends AbstractType
             ->add('attestationOfValidationFile', FileType::class, [
                 'label' => 'Attestion de validation L1 ou Equivalent',
                 'attr' => ['class' => 'rounded-0 sumup bg-light',
-                            'placeholder' => 'Choisissez un fichier pdf'],
+                            'placeholder' => 'Choisissez un fichier pdf',
+                            'id' => 'attestation'],
                 'mapped' => false,
                 'required' => true,
-                'constraints' => [
-                    new File([
-                        'maxSize' => '2048k',
-                        'mimeTypes' => [
-                            'application/pdf',
-                            'application/x-pdf'
-                        ],
-                        'mimeTypesMessage' => "Vous ne pouvez inclure qu'un fichier pdf",
-                    ])
-                ],
+                // 'constraints' => [
+                //     new File([
+                //         'maxSize' => '2048k',
+                //         'mimeTypes' => [
+                //             'application/pdf',
+                //             'application/x-pdf'
+                //         ],
+                //         'mimeTypesMessage' => "Vous ne pouvez inclure qu'un fichier pdf",
+                //     ])
+                // ],
             ])
             
             ->add('degreeFile',FileType::class, [
@@ -38,32 +39,32 @@ class FolderType extends AbstractType
                 'attr'=>['class' => 'rounded-0 sumup bg-light'],
                 'mapped' => false,
                 'required' => false,
-                'constraints' => [
-                    new File([
-                        'maxSize' => '2048k',
-                        'mimeTypes' => [
-                            'application/pdf',
-                            'application/x-pdf'
-                        ],
-                        'mimeTypesMessage' => "Vous ne pouvez inclure qu'un fichier pdf",
-                    ])
-                ],
+                // 'constraints' => [
+                //     new File([
+                //         'maxSize' => '2048k',
+                //         'mimeTypes' => [
+                //             'application/pdf',
+                //             'application/x-pdf'
+                //         ],
+                //         'mimeTypesMessage' => "Vous ne pouvez inclure qu'un fichier pdf",
+                //     ])
+                // ],
             ])
             ->add('bulletinFile',FileType::class, [
                 'label' => 'Relevés de notes',
                 'attr'=>['class' => 'rounded-0 sumup bg-light'],
                 'mapped' => false,
                 'required' => false,
-                'constraints' => [
-                    new File([
-                        'maxSize' => '2048k',
-                        'mimeTypes' => [
-                            'application/pdf',
-                            'application/x-pdf'
-                        ],
-                        'mimeTypesMessage' => "Vous ne pouvez inclure qu'un fichier pdf",
-                    ])
-                ],
+                // 'constraints' => [
+                //     new File([
+                //         'maxSize' => '2048k',
+                //         'mimeTypes' => [
+                //             'application/pdf',
+                //             'application/x-pdf'
+                //         ],
+                //         'mimeTypesMessage' => "Vous ne pouvez inclure qu'un fichier pdf",
+                //     ])
+                // ],
             ])
             ->add('letter',TextareaType::class, [
                 'attr' => ['rows' => '5',
