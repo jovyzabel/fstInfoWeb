@@ -6,8 +6,10 @@ use App\Entity\UE;
 use App\Entity\Tag;
 use App\Entity\Media;
 use App\Entity\Alumni;
+use App\Entity\Folder;
 use App\Entity\Account;
 use App\Entity\Article;
+use App\Entity\Student;
 use App\Entity\Subject;
 use App\Entity\Teacher;
 use App\Entity\Category;
@@ -17,6 +19,7 @@ use App\Entity\Speciality;
 use App\Entity\SemesterUes;
 use App\Entity\SemesterType;
 use App\Entity\FormationCycle;
+use App\Entity\PreRegistration;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
@@ -78,6 +81,12 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('UEs', 'fa fa-books',UE::class),
             MenuItem::linkToCrud('Matières', 'fa fa-book',Subject::class),
             ])->setPermission('ROLE_USER');
+
+        yield MenuItem::subMenu('Préinscriptions', 'fa fa-file')->setSubItems([
+            MenuItem::linkToCrud('Candidatures','fa fa-pencil', PreRegistration::class),
+            MenuItem::linkToCrud('Etudiants','fa fa-user', Student::class),
+            MenuItem::linkToCrud('Dossiers','fa fa-file', Folder::class),
+        ]);
 
         yield MenuItem::linkToCrud('Enseignants', 'fa fa-people-roof',Teacher::class);
         yield MenuItem::linkToCrud('Alumni', 'fa fa-people-roof',Alumni::class);

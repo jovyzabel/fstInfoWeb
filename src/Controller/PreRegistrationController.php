@@ -29,6 +29,7 @@ class PreRegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            dd($preRegistration, $form);
             
             $preRegistrationRepository->save($preRegistration, true);
 

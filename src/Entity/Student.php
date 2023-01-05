@@ -30,7 +30,7 @@ class Student extends Person
     #[ORM\Column(length: 40)]
     #[Assert\Length(
         min: 9,
-        max: 9,  
+        max: 15,  
         exactMessage: 'Vous numéro ne doit contenir que {{ limit }} chiffres',
     )]
     private ?string $telephone = null;

@@ -49,6 +49,11 @@ p, ul>li {
 .header-link:hover{
    color:#2f0f55;   
 }
+.header-link:hover{
+    background-color:#2f0f55;
+    color: #fff ;   
+    box-shadow: #0e0e0e 2px 3px;
+ }
 .color-text{
     color:#b80924;
  }

@@ -96,5 +96,8 @@ class PreRegistration
 
         return $this;
     }
-
+    function __toString()
+    {
+        return "Préinscription";
+    }
 }
