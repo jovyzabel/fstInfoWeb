@@ -15,28 +15,42 @@ class AppOption
     #[ORM\Column]
     private ?int $id = null;
 
+    #[ORM\Column]
+    private ?bool $isPreEnrollPeriod = null;
+
+    #[ORM\Column]
+    private ?bool $displayCISCOOnCarousel = null;
+
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $label = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $name = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $value = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $type = null;
-
-    public function __construct(string $label, string $name, string $value, ?string $type = null){
-        $this->label = $label;
-        $this->name = $name;
-        $this->value = $value;
-        $this->type = $type;
-    }
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function isIsPreEnrollPeriod(): ?bool
+    {
+        return $this->isPreEnrollPeriod;
+    }
+
+    public function setIsPreEnrollPeriod(bool $isPreEnrollPeriod): self
+    {
+        $this->isPreEnrollPeriod = $isPreEnrollPeriod;
+
+        return $this;
+    }
+
+    public function isDisplayCISCOOnCarousel(): ?bool
+    {
+        return $this->displayCISCOOnCarousel;
+    }
+
+    public function setDisplayCISCOOnCarousel(bool $displayCISCOOnCarousel): self
+    {
+        $this->displayCISCOOnCarousel = $displayCISCOOnCarousel;
+
+        return $this;
     }
 
     public function getLabel(): ?string
@@ -51,44 +65,4 @@ class AppOption
         return $this;
     }
 
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): self
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    public function getValue(): ?string
-    {
-        return $this->value;
-    }
-
-    public function setValue(string $value): self
-    {
-        $this->value = $value;
-
-        return $this;
-    }
-
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    public function setType(string $type): self
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    public function __toString(): string
-    {
-        return $this->value ?? '';
-    }
 }
