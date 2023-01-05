@@ -1,4 +1,4 @@
-<div id="myCarousel" class="carousel slide overflow-hidden" data-bs-ride="carousel">
+{# <div id="myCarousel" class="carousel slide overflow-hidden" data-bs-ride="carousel">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
@@ -44,4 +44,30 @@
 		<span class="carousel-control-next-icon" aria-hidden="true"></span>
 		<span class="visually-hidden">Next</span>
     </button>
+</div> #}
+
+<div class="swiper headerCarousel bg-primary">
+    <div class="swiper-wrapper">
+        {% for item in carousel_items %}
+        <div class="swiper-slide bg-primary">
+            <img src="{{asset('uploads/images/news/' ~ item.featuredImage.filename)}}" width="100%"/>
+            <div class="container">
+                <div class="carousel-caption text-start">
+                    <h3 class="h1">{{item.title}}</h3>
+                    <p class="text-light lead">{{ item.content|striptags|u.truncate(50, '...', false)|raw }}</p>
+                    <p>
+                        <a class="btn specifical-bg-3 text-light btn-lg rounded-pill" href="{{path('app_news_show',{slug: item.slug})}}">En savoir plus</a>
+                    </p>
+                </div>
+            </div>
+        </div>     
+        {% endfor %}
+
+        {# <div class="swiper-slide bg-warning">Slide 4</div>
+        <div class="swiper-slide bg-dark">Slide 5</div>
+        <div class="swiper-slide bg-danger">Slide 6</div> #}
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
 </div>

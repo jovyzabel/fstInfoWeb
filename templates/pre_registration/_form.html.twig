@@ -163,6 +163,7 @@
 </div>
   <!-- Steps -->
 <div class="row justify-content-evenly">
+
     <div class="">
         <div class="form-step form-step-active">
             <div class="inputs-group d-flex row gx-3">
@@ -173,17 +174,33 @@
               </div>
               <div class="col-md-4">
                 {{ form_row(form.student.avatarFile, {'attr': {'novalidate': 'novalidate'}}) }}
+<<<<<<< HEAD
                 {{ form_row(form.student.name, {'attr': {'novalidate': 'novalidate'}}) }} <span class="span"></span>
                 {{ form_row(form.student.firstName , {'attr': {'novalidate': 'novalidate'}}) }} <span></span>
+=======
+                {{ form_row(form.student.name, {'attr': {'novalidate': 'novalidate'}}) }}
+                {{ form_row(form.student.firstName , {'attr': {'novalidate': 'novalidate'}}) }}
+
+   
+>>>>>>> 03f9a247a417b4b8416c89f03b3bc0746eb0ebea
               </div>
               <div class="col-md-4">
                 {{ form_row(form.student.birthDay) }}
                 {{ form_row(form.student.birthPlace) }} 
+
                 {{ form_row(form.student.civility, {'attr': {'novalidate': 'novalidate'}})  }}
               </div>
             </div>
+<<<<<<< HEAD
             <div class=" w-20 float-end">
               <a href="#" class="btn btn-next ml-auto firstNext">Suivant</a>
+=======
+            <div class=" w-25 float-end">
+              <a href="#" class="btn btn-next ml-auto">Suivant</a>
+
+              </div>
+
+>>>>>>> 03f9a247a417b4b8416c89f03b3bc0746eb0ebea
             </div>
         </div>
     </div>
@@ -337,6 +354,7 @@
       }
     }
 
+<<<<<<< HEAD
     /* getting
     /*const firstNext = document.querySelector('.firstNext');
     firstNext.addEventListener("click", (e)=>{
@@ -418,6 +436,10 @@
         errorDisplay("telephone","",true);
     }
     }
+=======
+
+    // getting
+>>>>>>> 03f9a247a417b4b8416c89f03b3bc0746eb0ebea
 
     const cityChecker = (value) =>{
       if( value.length > 0 && value.length < 2 || value.length > 30){

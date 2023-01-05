@@ -1,23 +1,20 @@
-import Swiper, {Navigation, Autoplay} from "swiper";
+import Swiper, {Navigation, Autoplay, Pagination, EffectFade} from "swiper";
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination'
 
 const swiper = new Swiper('.owl-carousel', {
-    modules: [ Navigation, Autoplay ],
+    modules: [ Autoplay, ],
     slidesPerView: 1,
-    spaceBetween: 10,
+    spaceBetween: 5,
     loop: true,
+    grabCursor: true,
     autoplay: {
         delay: 3000,
         disableOnInteraction: false,
     },
     keyboard: {
         enabled: true,
-    },
-    grabCursor: true,
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
     },
     breakpoints: {
     // when window width is >= 320px
@@ -32,9 +29,41 @@ const swiper = new Swiper('.owl-carousel', {
     },
     // when window width is >= 640px
     992: {
-      slidesPerView: 5,
+      slidesPerView: 4,
       spaceBetween: 15
-    }}
+    },
+
+    1200: {
+      slidesPerView: 5,
+      spaceBetween: 5
+    },
+  }
+
 })
+
+const carousel = new Swiper('.headerCarousel', {
+  modules: [ Navigation, Pagination, Autoplay, EffectFade ],
+  slidesPerView: 1,
+  // effect: "fade",
+  loop: true,
+  grabCursor: true,
+  autoplay: {
+    delay: 3800,
+    disableOnInteraction: true,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  // fadeEffect: {
+
+  //   crossFade: true
+  // },
+})
+
 document.addEventListener("DOMContentLoaded", function(){
 })

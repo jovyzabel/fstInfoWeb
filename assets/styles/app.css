@@ -156,6 +156,7 @@ button.accordion-button:focus, #myTab li a:hover {
     background-color: #ffffff;
 }
 
+/* Swiper js */
 .swiper {
     width: 100%;
     height: 100%;
@@ -187,10 +188,6 @@ button.accordion-button:focus, #myTab li a:hover {
     display: block;
     width: 100%;
     object-fit: cover;
-}
-
-.swiper-button-next, .swiper-button-prev {
-    display: none;
 }
 
 

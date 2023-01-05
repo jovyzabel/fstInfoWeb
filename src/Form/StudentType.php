@@ -76,7 +76,13 @@ class StudentType extends AbstractType
                         'mimeTypesMessage' => "Vous ne pouvez inclure qu'un fichier png ou jpeg",
                         ])
                     ],
+<<<<<<< HEAD
                 'attr' => ['class'=>'rounded-0 sumup bg-light','id' => 'file-ip-1', 'onchange'=>'showPreview(event)'],
+=======
+
+                'attr' => ['class'=>'rounded-0 sumup bg-secondary','id' => 'file-ip-1', 'onchange'=>'showPreview(event)'],
+
+>>>>>>> 03f9a247a417b4b8416c89f03b3bc0746eb0ebea
             ])
             
         ;
