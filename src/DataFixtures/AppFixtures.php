@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use DateTime;
 use App\Entity\UE;
 use Faker\Factory;
 use App\Entity\Tag;

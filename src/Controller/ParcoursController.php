@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\FormationCycle;
 use App\Entity\Speciality;
 use App\Entity\Teacher;
 use App\Repository\AlumniRepository;
+use App\Repository\FormationCycleRepository;
 use App\Repository\TeacherRepository;
 use App\Repository\SemesterRepository;
 use Knp\Component\Pager\PaginatorInterface;
@@ -45,25 +47,39 @@ class ParcoursController extends AbstractController
         return $this->render('parcours/teacher.html.twig', [
             'teacher' => $teacher,
         ]);
-    }
-
+    }    
     
-    #[Route('/parcours/programmes', name: 'app_parcours_programs')]
-    public function programs(SemesterRepository $semesterRepository): Response
-    {
-        return $this->render('parcours/programs.html.twig', [
-            'semesters' => $semesterRepository->findAll(),
-        ]);
-    }
-
     #[Route('/admission', name: 'app_admission')]
     public function admission(): Response
     {
         return $this->render('parcours/admission.html.twig', [
         ]);
     }
+
+    #[Route('/cycles-de-formation', name: 'app_formation_cycles')]
+    public function formationCycles(FormationCycleRepository $formationCycleRepository): Response
+    {
+        $licence = $formationCycleRepository->findOneBy(['label' => 'Licence']);
+        $master = $formationCycleRepository->findOneBy(['label' => 'Master']);
+        $doctorat = $formationCycleRepository->findOneBy(['label' => 'Doctorat']);
+        $certification = $formationCycleRepository->findOneBy(['label' => 'Certification']);
+        return $this->render('parcours/formation_cycles.html.twig', [
+            'licence' => $licence,
+            'master' => $master,
+            'doctorat' => $doctorat,
+            'certification' => $certification,
+        ]);
+    }
+
+    #[Route('/specialites/{slug}', name: 'app_formation_cycle')]
+    public function formationCycle(FormationCycle $formationCycle): Response
+    {
+        return $this->render('parcours/formation_cycle.html.twig', [
+            'formation_cycle' => $formationCycle,
+        ]);
+    }
     
-    #[Route('/specialites/{slug}', name: 'app_speciality')]
+    #[Route('/specialites/{formation_cycle_slug}/{slug}', name: 'app_speciality')]
     public function speciality(Speciality $speciality): Response
     {
         return $this->render('parcours/speciality.html.twig', [
@@ -73,3 +89,11 @@ class ParcoursController extends AbstractController
     
     
 }
+
+    // #[Route('/parcours/programmes', name: 'app_parcours_programs')]
+    // public function programs(SemesterRepository $semesterRepository): Response
+    // {
+    //     return $this->render('parcours/programs.html.twig', [
+    //         'semesters' => $semesterRepository->findAll(),
+    //     ]);
+    // }

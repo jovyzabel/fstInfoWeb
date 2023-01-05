@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos spécialités de {% endblock %}
+
+{% block body %}
+
+{{ include('parcours/_heading.html.twig',{'sub_link':'programmes academiques'}) }}
+
+<div class="container">
+
+	<div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    	<div class="col-10 col-sm-8 col-lg-6">
+    		<img src="bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes">
+    	</div>
+    	<div class="col-lg-6">
+			<h1 class="display-5 fw-bold lh-1 mb-3">No spécialités de {{formation_cycle.label}}</h1>
+			<p class="lead">
+				{{ formation_cycle.description ? formation_cycle.description : 'Acquérir des compétences professionnelles et de leadership spécialisées pour faire passer votre carrière au niveau supérieur avec un diplôme supérieur.' }}
+			</p>
+			<div class="d-grid gap-2 d-md-flex justify-content-md-start">
+				<button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Postuler</button>
+			</div>
+    	</div>
+    </div>
+
+	<div class="py-5">
+		{% for speciality in formation_cycle.specialities %}
+		<div class="row featurette">
+			<div class="col-md-7 order-md-2">
+				<h2 class="featurette-heading fw-normal lh-1">{{speciality.label}}</h2>
+				<p class="lead">
+					{{ speciality.description ? formation_cycle.description : 'Acquérir des compétences professionnelles et de leadership spécialisées pour faire passer votre carrière au niveau supérieur avec un diplôme supérieur.' }}
+				</p>
+				<div class="list-unstyled">
+				{% if speciality.targetedSkills %}
+					{{targeted_skill|raw}}					
+				{% endif %}
+				</div>
+				<a type="button" class="btn btn-primary btn-lg px-4 me-md-2">Postuler</a>
+			</div>
+			<div class="col-md-5 order-md-1">
+				<svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+			</div>
+		</div>	
+		{% endfor %}
+			
+	</div>
+</div>
+
+{% endblock %}

@@ -1,73 +1,72 @@
-{# <div id="myCarousel" class="carousel slide overflow-hidden" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
-    </div>
-    <div class="carousel-inner">
-        <div class="carousel-item">
-            <img src="{{asset('img/school-tools-with-calculator.png')}}" alt='slide' width="100%" height="580px" aria-hidden="true" focusable="false"/>
-            <div class="container">
-                <div class="carousel-caption text-start">
-                    <h1>Example headline.</h1>
-                    <p class="text-light lead">Some representative placeholder content for the first slide of the carousel.</p>
-                    <p><a class="btn specifical-bg-3 text-light btn-lg" href="#">En savoir plus</a></p>
-                </div>
-            </div>
-        </div>
-        <div class="carousel-item active carousel-item-start">
-            <img src="{{asset('img/colorful.png')}}" alt='slide' width="100%" height="580px" aria-hidden="true" focusable="false"/>
-            <div class="container">
-                <div class="carousel-caption text-start">
-                    <h1>Another example headline.</h1>
-                    <p class="text-light lead">Some representative placeholder content for the second slide of the carousel.</p>
-                    <p><a class="btn specifical-bg-3 text-light btn-lg" href="#">Learn more</a></p>
-                </div>
-            </div>
-        </div>
-        <div class="carousel-item carousel-item-next carousel-item-start">
-            <img src="{{asset('img/blue-schoolchild-backpack-on-table.png')}}" alt='slide' width="100%" height="580px" aria-hidden="true" focusable="false"/>
-            <div class="container">
-                <div class="carousel-caption text-start">
-                    <h1>One more for good measure.</h1>
-                    <p class="text-light lead">Some representative placeholder content for the third slide of this carousel.</p>
-                    <p><a class="btn specifical-bg-3 text-light btn-lg" href="#">Browse gallery</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-		<span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-		<span class="carousel-control-next-icon" aria-hidden="true"></span>
-		<span class="visually-hidden">Next</span>
-    </button>
-</div> #}
 
 <div class="swiper headerCarousel bg-primary">
     <div class="swiper-wrapper">
-        {% for item in carousel_items %}
-        <div class="swiper-slide bg-primary">
-            <img src="{{asset('uploads/images/news/' ~ item.featuredImage.filename)}}" width="100%"/>
-            <div class="container">
-                <div class="carousel-caption text-start">
-                    <h3 class="h1">{{item.title}}</h3>
-                    <p class="text-light lead">{{ item.content|striptags|u.truncate(50, '...', false)|raw }}</p>
-                    <p>
-                        <a class="btn specifical-bg-3 text-light btn-lg rounded-pill" href="{{path('app_news_show',{slug: item.slug})}}">En savoir plus</a>
-                    </p>
+
+        <div class="swiper-slide specifical-bg-3-testimonial">
+            <div class="mx-auto text-center">
+                <img src="https://via.placeholder.com/1400x580.png" height="580px"> <!-- center this image within the column -->
+                <div class="container">
+                    <div class="carousel-caption text-center">
+                        <h3 class="h1">Préinscription en ligne</h3>
+                            <p class="text-light lead h1">Accedez  simplement et facilement à notre parcours en vous préinscrivant en ligne</p>
+                        <p>
+                            <a class="btn specifical-bg-1 text-light btn-lg rounded-pill" href="">Postuler</a>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>     
+        </div>
+
+        {% for item in carousel_items %}
+        <div class="swiper-slide specifical-bg-3-testimonial">
+            <div class="mx-auto text-center">
+                <img src="{{asset('uploads/images/news/' ~ item.featuredImage.filename)}}" height="580px"> <!-- center this image within the column -->
+                <div class="container">
+                    <div class="carousel-caption text-center">
+                        <h3 class="h1">{{item.title}}</h3>
+                        <p class="text-light lead">{{ item.content|striptags|u.truncate(50, '...', false)|raw }}</p>
+                        <p>
+                            <a class="btn specifical-bg-1 text-light btn-lg rounded-pill" href="{{path('app_news_show',{slug: item.slug})}}">Lire la suite</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
         {% endfor %}
 
-        {# <div class="swiper-slide bg-warning">Slide 4</div>
-        <div class="swiper-slide bg-dark">Slide 5</div>
-        <div class="swiper-slide bg-danger">Slide 6</div> #}
+        <div class="swiper-slide specifical-bg-3-testimonial">
+            <div class="mx-auto text-center">
+                <img src="https://via.placeholder.com/1600x600.png" height="580px"> <!-- center this image within the column -->
+                <div class="container">
+                    <div class="carousel-caption text-start">
+                        <h3 class="h1">Missions du parcours</h3>
+                            <p class="text-light lead h1">Nous accompagnons les étudiant.e.s vers la réussite dans le cadre d’une formation qui donne des clés d’orientation et d’insertion professionnelle...</p>
+                        <p>
+                            <a class="btn specifical-bg-1 text-light btn-lg rounded-pill" href="">Decouvrez plus</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper-slide specifical-bg-3-testimonial">
+            <div class="mx-auto text-center">
+                <img src="{{asset('img/cisco_netacad_banner.png')}}" height="580px"> <!-- center this image within the column -->
+                <div class="container">
+                    <div class="carousel-caption text-start">
+                        {# <h3 class="h1">Academie locale CISCO</h3>
+                        <p class="text-light lead h1">Nous accompagnons les étudiant.e.s vers la réussite dans le cadre d’une formation qui donne des clés d’orientation et d’insertion professionnelle...</p>
+                        <p> #}
+                            <a class="btn specifical-bg-1 text-light btn-lg rounded-pill" href="">Decouvrez plus</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
     <div class="swiper-pagination"></div>
 </div>
+

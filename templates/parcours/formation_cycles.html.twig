@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos cycles de formation{% endblock %}
+
+{% block body %}
+
+{{ include('parcours/_heading.html.twig',{'sub_link':'programmes academiques'}) }}
+
+<div class="container">
+
+	<div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    	<div class="col-10 col-sm-8 col-lg-6">
+    		<img src="bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes">
+    	</div>
+    	<div class="col-lg-6">
+			<h1 class="display-5 fw-bold lh-1 mb-3">Nos Cycles de formation</h1>
+			<p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+			<div class="d-grid gap-2 d-md-flex justify-content-md-start">
+				<button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Postuler</button>
+			</div>
+    	</div>
+    </div>
+
+	<div class="py-5">
+		<div class="row g-5 featurette py-5">
+			<div class="col-md-7 col-lg-6 order-md-2">
+				<h2 class="featurette-heading fw-bold lh-1">Nos spécialités de Doctorat</h2>
+				<p class="lead">
+				{{ doctorat.description ? doctorat.description : 'Acquérir des compétences professionnelles et de leadership spécialisées pour faire passer votre carrière au niveau supérieur avec un diplôme supérieur.' }}
+				</p>
+				<ul class="list-unstyled">
+				{% if doctorat.specialities %}
+					{% for speciality in doctorat.specialities %}
+					<li>
+						<h3><a class="text-decoration-none header-link" href="{{path('app_speciality', {'slug': speciality.slug})}}">{{speciality.label}}</a></h3>
+					</li>
+					{% endfor %}
+					
+				{% endif %}
+				</ul>
+			</div>
+			<div class="col-md-5 col-lg-6 order-md-1">
+				<svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded" width="1000" height="1000" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+			</div>
+		</div>
+		<div class="row g-5 flex-lg-row-reverse featurette py-5">
+			<div class="col-md-7 col-lg-6 order-md-2">
+				<h2 class="featurette-heading fw-bold lh-1">Nos spécialités de Master</h2>
+				<p class="lead">
+				{{ master.description ? master.description : 'Acquérir des compétences professionnelles et de leadership spécialisées pour faire passer votre carrière au niveau supérieur avec un diplôme supérieur.' }}
+				</p>
+				<ul class="list-unstyled">
+				{% if master.specialities %}
+					{% for speciality in master.specialities %}
+					<li>
+						<h3><a class="text-decoration-none header-link" href="{{path('app_speciality', {'slug': speciality.slug})}}">{{speciality.label}}</a></h3>
+					</li>
+					{% endfor %}
+					
+				{% endif %}
+				
+			</div>
+			<div class="col-md-5 col-lg-6 order-md-1">
+				<svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded" width="1000" height="1000" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+			</div>
+		</div>
+		<div class="row g-5 featurette py-5">
+			<div class="col-md-7 col-lg-6 order-md-2">
+				<h2 class="featurette-heading fw-bold lh-1">Nos spécialités de Licence</h2>
+				<p class="lead">
+				{{ licence.description ? licence.description : 'Acquérir des compétences professionnelles et de leadership spécialisées pour faire passer votre carrière au niveau supérieur avec un diplôme supérieur.' }}
+				</p>
+				<ul class="list-unstyled">
+				{% if licence.specialities %}
+					{% for speciality in licence.specialities %}
+					<li>
+						<h3><a class="text-decoration-none header-link" href="{{path('app_speciality', {'slug': speciality.slug})}}">{{speciality.label}}</a></h3>
+					</li>
+					{% endfor %}
+					
+				{% endif %}
+			</div>
+			<div class="col-md-5 col-lg-6 order-md-1">
+				<svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded" width="1000" height="1000" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+			</div>
+		</div>
+		<div class="row g-5 flex-lg-row-reverse featurette py-5">
+			<div class="col-md-7 col-lg-6 order-md-2">
+				<h2 class="featurette-heading fw-bold lh-1">Nos Certifications</h2>
+				<p class="lead">
+				{{ certification.description ? certification.description : 'Acquérir des compétences professionnelles et de leadership spécialisées pour faire passer votre carrière au niveau supérieur avec un diplôme supérieur.' }}
+				</p>
+				<ul class="list-unstyled">
+				{% if certification.specialities %}
+					{% for speciality in certification.specialities %}
+					<li>
+						<h3><a class="text-decoration-none header-link" href="{{path('app_speciality', {'slug': speciality.slug})}}">{{speciality.label}}</a></h3>
+					</li>
+					{% endfor %}
+					
+				{% endif %}
+			</div>
+			<div class="col-md-5 col-lg-6 order-md-1">
+				<svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded" width="1000" height="1000" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+			</div>
+		</div>
+		
+	</div>
+		
+</div>
+
+{% endblock %}

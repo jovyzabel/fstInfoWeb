@@ -172,18 +172,16 @@
                   <img src="{{asset('img/user-128.png')}}" id="file-ip-1-preview" width="220px" height="220px" class="bg-light border border-0 rounded-3">
                 </div> 
               </div>
+
               <div class="col-md-4">
                 {{ form_row(form.student.avatarFile, {'attr': {'novalidate': 'novalidate'}}) }}
-<<<<<<< HEAD
+
                 {{ form_row(form.student.name, {'attr': {'novalidate': 'novalidate'}}) }} <span class="span"></span>
                 {{ form_row(form.student.firstName , {'attr': {'novalidate': 'novalidate'}}) }} <span></span>
-=======
-                {{ form_row(form.student.name, {'attr': {'novalidate': 'novalidate'}}) }}
-                {{ form_row(form.student.firstName , {'attr': {'novalidate': 'novalidate'}}) }}
 
-   
->>>>>>> 03f9a247a417b4b8416c89f03b3bc0746eb0ebea
+
               </div>
+
               <div class="col-md-4">
                 {{ form_row(form.student.birthDay) }}
                 {{ form_row(form.student.birthPlace) }} 
@@ -191,17 +189,11 @@
                 {{ form_row(form.student.civility, {'attr': {'novalidate': 'novalidate'}})  }}
               </div>
             </div>
-<<<<<<< HEAD
+
             <div class=" w-20 float-end">
               <a href="#" class="btn btn-next ml-auto firstNext">Suivant</a>
-=======
-            <div class=" w-25 float-end">
-              <a href="#" class="btn btn-next ml-auto">Suivant</a>
 
-              </div>
-
->>>>>>> 03f9a247a417b4b8416c89f03b3bc0746eb0ebea
-            </div>
+     
         </div>
     </div>
 </div>
@@ -228,6 +220,7 @@
             </div>
           
           </div>
+
           <div class="btns-group w-20 float-end">
             <a href="#" class="btn btn-prev">Precedent</a>
             <a href="#" class="btn btn-next secondNext">Suivant</a>
@@ -354,7 +347,7 @@
       }
     }
 
-<<<<<<< HEAD
+
     /* getting
     /*const firstNext = document.querySelector('.firstNext');
     firstNext.addEventListener("click", (e)=>{
@@ -436,10 +429,7 @@
         errorDisplay("telephone","",true);
     }
     }
-=======
 
-    // getting
->>>>>>> 03f9a247a417b4b8416c89f03b3bc0746eb0ebea
 
     const cityChecker = (value) =>{
       if( value.length > 0 && value.length < 2 || value.length > 30){

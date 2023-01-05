@@ -9,26 +9,27 @@ document.addEventListener("DOMContentLoaded", function(){
     const myurl = $('#coursesMenu').attr('href');
     $.get( { url: myurl, method: "GET", dataType : "json",} )
     .done(function (response) {
-        licenceSpecialities = response[0]['specialities'];
-        masterSpecialities = response[1]['specialities'];
-        doctoratSpecialities = response[2]['specialities'];
+        licenceSpecialities = findFormationCycle(response,'licence') ? findFormationCycle(response,'licence').specialities : null;
+        masterSpecialities = findFormationCycle(response,'master') ? findFormationCycle(response,'master').specialities : null;
+        doctoratSpecialities = findFormationCycle(response,'doctorat') ? findFormationCycle(response,'doctorat').specialities : null;
 
-        console.log(myurl)
-    
         $.each(licenceSpecialities, function(index,licenceSpecialities){
+            parentUrl  = $('#licenceItems').prev().children().eq(0).attr('href');
+            console.log();
             $('#licenceItems').append(
                 `<li>
-                    <a href="${myurl+'/'+licenceSpecialities.slug}" class="text-decoration-none header-link">
+                    <a href="${parentUrl+'/'+licenceSpecialities.slug}" class="text-decoration-none header-link">
                         ${licenceSpecialities.label}
                     </a>
                 </li>`
-            )
+            );
         })
 
         $.each(masterSpecialities, function(index,masterSpecialities){
+            parentUrl  = $('#masterItems').prev().children().eq(0).attr('href');
             $('#masterItems').append(
                 `<li>
-                    <a href="${myurl+'/'+masterSpecialities.slug}" class="text-decoration-none header-link">
+                    <a href="${parentUrl+'/'+masterSpecialities.slug}" class="text-decoration-none header-link">
                         ${masterSpecialities.label}
                     </a>
                 </li>`
@@ -36,9 +37,10 @@ document.addEventListener("DOMContentLoaded", function(){
         })
 
         $.each(doctoratSpecialities, function(index,doctoratSpecialities){
+            parentUrl  = $('#licenceItems').prev().children().eq(0).attr('href');
             $('#doctoratItems').append(
                 `<li>
-                    <a href="${myurl+'/'+doctoratSpecialities.slug}" class="text-decoration-none header-link">
+                    <a href="${parentUrl+'/'+doctoratSpecialities.slug}" class="text-decoration-none header-link">
                         ${doctoratSpecialities.label}
                     </a>
                 </li>`
@@ -48,6 +50,13 @@ document.addEventListener("DOMContentLoaded", function(){
     
     })
 });
+
+const findFormationCycle = function (formaionCycles, label) {
+    const formationCycleReturned = formaionCycles.find(function(formationCycle, index){
+        return formationCycle.label.toLowerCase() === label.toLowerCase()
+    });
+    return formationCycleReturned;
+}
 
 $("#coursesMenu").on('mouseenter',function(event){        
     event.preventDefault() ;

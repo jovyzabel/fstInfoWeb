@@ -1,25 +1,27 @@
 <div class="container">
     <div class="row-sm d-md-flex flex-lg-row gx-5 ">
-        <div class="me-4 col-sm-12 col-lg-6">
-            <form action="" method="post" class="">
-    
+        <div class="col-sm-12 col-lg-6">
+            {{ form_start(form) }}    
                 <div class="col-md-12 mt-2">
-                    <input type="email" name="email" placeholder=" Votre adresse email" required class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"><br>
+                    {{ form_row(form.fullName, {'attr':{'class':'form-control mb-3'}}) }}
+                    {{ form_row(form.email, {'attr':{'class':'form-control mb-3'}}) }}
                 </div>
                 
-                <div class="">
-                    <input type="text" name="objet" id="objet" placeholder="Objet du message"  class="form-control" aria-label=".form-control-sm example">
-                    <br><textarea name="message" required id="msg" cols="70" rows="10" placeholder="Contenu du message" class="form-control mb-2"></textarea>
-                    <button class="btn specifical-bg-1 text-light" type="submit">
-                        Envoyez
-                    </button>
+                <div class="mb-3">
+                    {{ form_row(form.object, {'attr':{'class':'form-control mb-3'}}) }}
+
+                    
+                    {{ form_row(form.content) }}
                 </div>
-            </form>
+                <button class="btn specifical-bg-1 text-light" type="submit">
+                    Envoyez
+                </button>
+            {{ form_end(form) }}
         </div>
-        {# <hr class="vr ms-3"></hr> #}
+
         <div class="col-sm-12 col-lg-6">
              <aside class="px-3">
-                <h5>Socials</h5>
+                <h5>Médias sociaux</h5>
                 <hr class="featurette-divider">
                 <ul class="list-group list-group-horizontal">
                     <li class="list-group-item"><a href="#" class="text-decoration-none text-dark"><i class="fa-brands fa-facebook rounded"></i></a></li>

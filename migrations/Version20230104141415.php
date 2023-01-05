@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20221220205706 extends AbstractMigration
+final class Version20230104141415 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,12 +20,12 @@ final class Version20221220205706 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE article ADD is_on_carousel TINYINT(1) DEFAULT NULL');
+        $this->addSql('ALTER TABLE app_option CHANGE value value VARCHAR(255) DEFAULT NULL');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE article DROP is_on_carousel');
+        $this->addSql('ALTER TABLE app_option CHANGE value value VARCHAR(255) NOT NULL');
     }
 }

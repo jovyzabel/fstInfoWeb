@@ -27,7 +27,7 @@
                             aria-expanded="false">
                         A propos
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu border-0">
                             <li>
                                 <a class="dropdown-item header-link"
                                     href=" {{ path('app_parcours_presentation') }} ">
@@ -40,25 +40,36 @@
                                 Mot du responsable
                                 </a>
                             </li>
+                            <li>
+                                <a class="dropdown-item header-link"
+                                    href="{{ path('app_news') }}">
+                                Actualités
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a id="coursesMenu" class="nav-link dropdown-toggle px-2 header-link py-3" href="{{path('app_specialities_list')}}" data-bs-toggle="dropdown">
+                        <a id="coursesMenu" href="{{path('app_specialities_list')}}" style="display:none"></a>
+                        <a class="nav-link dropdown-toggle px-2 header-link py-3" href="{{path('app_formation_cycles')}}" data-bs-toggle="dropdown">
                             Parcours
                         </a>
                         <div class="dropdown-menu dropdown-large border-0">
-                            <div class="row g-3 px-5">
-                                <div class="col-lg-4">
-                                    <h5 class="title fw-bold">Licence</h5>
-                                    <ul id="licenceItems" class="list-unstyled text-muted"></ul>
-                                </div><!-- end col-3 -->
-                                <div class="col-lg-4">
-                                    <h5 class="title fw-bold">Master</h5>
-                                    <ul id="masterItems" class="list-unstyled text-muted"></ul>
-                                </div><!-- end col-3 -->
-                                <div class="col-lg-4">
-                                    <h5 class="title fw-bold">Doctorat d'entreprise</h5>
-                                    <ul id="doctoratItems" class="list-unstyled text-muted"></ul>
+                            <div class="row">
+                                <div class="col-lg-3 mb-md-3">
+                                    <h5 class="title fw-bold"><a href="{{path('app_formation_cycle', {'slug': 'doctorat'})}}" class="text-dark text-decoration-none">Doctorat</a></h5>
+                                    <ul id="doctoratItems" class="list-unstyled"></ul>
+                                </div>
+                                <div class="col-lg-3 mb-md-3">
+                                    <h5 class="title fw-bold"><a href="{{path('app_formation_cycle', {'slug': 'master'})}}" class="text-dark text-decoration-none">Master</a></h5>
+                                    <ul id="masterItems" class="list-unstyled"></ul>
+                                </div>
+                                <div class="col-lg-3 mb-md-3">
+                                    <h5 class="title fw-bold"><a href="{{path('app_formation_cycle', {'slug': 'licence'})}}" class="text-dark text-decoration-none">Licence</a></h5>
+                                    <ul id="licenceItems" class="list-unstyled"></ul>
+                                </div>
+                                <div class="col-lg-3 mb-md-3">
+                                    <h5 class="title fw-bold"><a href="{{path('app_formation_cycle', {'slug': 'certification'})}}" class="text-dark text-decoration-none">Certifications</a></h5>
+                                    <ul id="doctoratItems" class="list-unstyled"></ul>
                                 </div>
                             </div><!-- end row -->
                         </div> <!-- dropdown-large.// -->
@@ -69,14 +80,14 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{path('app_parcours_teachers')}}" class="nav-link px-2 header-link py-3">
-                            Enseignants
+                        <a href="{{ path('app_pre_registration_new') }}"
+                            class="nav-link px-2 header-link py-3">
+                        Préinscription
                         </a>
                     </li>
                     <li>
-                        <a href="{{ path('app_news') }}"
-                            class="nav-link px-2 header-link py-3">
-                        Actualités
+                        <a href="{{path('app_parcours_teachers')}}" class="nav-link px-2 header-link py-3">
+                            Enseignants
                         </a>
                     </li>
                     <li>
@@ -88,7 +99,7 @@
                     <li>
                         <a href="{{ path('app_contact') }}"
                             class="nav-link px-2 header-link py-3">
-                        Contacts
+                        Contact
                         </a>
                     </li>
                     <li class="dropdown">

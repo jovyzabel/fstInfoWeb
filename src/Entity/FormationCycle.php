@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
 use App\Repository\FormationCycleRepository;
@@ -28,6 +29,15 @@ class FormationCycle
     #[ORM\OneToMany(mappedBy: 'formationCycle', targetEntity: Speciality::class)]
     #[Groups(['get_formation_cycles'])]
     private Collection $specialities;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $description = null;
+
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Media $featuredImage = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $slug = null;
 
     public function __construct()
     {
@@ -96,5 +106,41 @@ class FormationCycle
     public function __toString()
     {
         return $this->label;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getFeaturedImage(): ?Media
+    {
+        return $this->featuredImage;
+    }
+
+    public function setFeaturedImage(?Media $featuredImage): self
+    {
+        $this->featuredImage = $featuredImage;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
     }
 }
