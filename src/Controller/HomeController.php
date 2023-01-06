@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\AppOptionRepository;
 use App\Repository\ArticleRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use App\Repository\FormationCycleRepository;
@@ -16,11 +17,12 @@ class HomeController extends AbstractController
     public function __construct(private FormationCycleRepository $formationCycleRepository){}
 
     #[Route('/', name: 'app_home')]
-    public function index(Request $request, ArticleRepository $articleRepository, PaginatorInterface $paginator): Response
+    public function index(Request $request, ArticleRepository $articleRepository, AppOptionRepository $appOptionRepository, PaginatorInterface $paginator): Response
     {    
         return $this->render('home/index.html.twig', [
             'articles' => $articleRepository->findBy([], ['createdAt' => 'DESC'], 6),
-            'carousel_items' => $articleRepository->findBy(['isOnCarousel' => true],['createdAt' => 'DESC'], 3)
+            'carousel_items' => $articleRepository->findBy(['isOnCarousel' => true],['createdAt' => 'DESC'], 3),
+            'options' => $appOptionRepository->findOneBy(['label' => 'app']),
             
         ]);
     }
