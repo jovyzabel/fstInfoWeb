@@ -47,10 +47,10 @@ class Person
     protected ?Account $account = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $avatarName = null;
+    private ?string $pictureName = null;
 
-    #[Vich\UploadableField(mapping: 'person_avatars', fileNameProperty: 'avatarName')]
-    protected ?File $avatarFile = null;
+    #[Vich\UploadableField(mapping: 'person_pictures', fileNameProperty: 'pictureName')]
+    protected ?File $pictureFile = null;
 
     #[ORM\Column]
     protected ?\DateTimeImmutable $createdAt = null;
@@ -67,12 +67,6 @@ class Person
 
     public function __construct( ){
         $this->createdAt = new DateTimeImmutable();
-    }
-
-
-    public function getId(): ?int
-    {
-        return $this->id;
     }
 
     public function getName(): ?string
@@ -116,16 +110,16 @@ class Person
         return $this->name .' '.$this->firstName;
     }
 
-    public function getAvatarFile()
+    public function getPictureFile()
     {
-        return $this->avatarFile;
+        return $this->pictureFile;
     }
 
-    public function setAvatarFile(File $avatarFile)
+    public function setPictureFile(File $pictureFile)
     {
-        $this->avatarFile = $avatarFile;
+        $this->pictureFile = $pictureFile;
 
-        if (null !== $avatarFile) {
+        if (null !== $pictureFile) {
 
             $this->updatedAt = new \DateTime();
         }
@@ -133,14 +127,14 @@ class Person
         return $this;
     }
 
-    public function getAvatarName():?string
+    public function getPictureName():?string
     {
-        return $this->avatarName;
+        return $this->pictureName;
     }
 
-    public function setAvatarName($avatarName):self
+    public function setPictureName($pictureName):self
     {
-        $this->avatarName = $avatarName;
+        $this->pictureName = $pictureName;
 
         return $this;
     }

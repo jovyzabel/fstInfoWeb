@@ -1,14 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nouvelle préinscription{% endblock %}
+{% block title %}New PreRegistration{% endblock %}
 
 {% block body %}
+    <h1>Create new PreRegistration</h1>
 
-    <div class="container">
-    
-        <h1>Prendre une préinscription</h1>
+    {{ include('pre_registration/_form.html.twig') }}
 
-        {{ include('pre_registration/_form.html.twig') }}
-
-    </div>
+    <a href="{{ path('app_pre_registration_index') }}">back to list</a>
 {% endblock %}

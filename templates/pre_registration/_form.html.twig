@@ -1,78 +1,46 @@
 {% form_theme form 'bootstrap_5_layout.html.twig' %}
+
 <style>
-    :root {
-        --primary-color: #2f0f55;
-      }
+
+:root {
+    --primary-color: #2f0f55;
+}   
+/* Progressbar */
+.progressbar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    counter-reset: step;
+    margin: 2rem 0 4rem;
+}
       
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-      }
+.progressbar::before,
+.progress {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    background-color: #dcdcdc;
+    z-index: -1;
+ }
       
-    
-      /* Global Stylings */
-      label {
-        display: block;
-        margin-bottom: 0.5rem;
-      }
+.progress {
+    background-color: var(--primary-color);
+    width: 0%;
+    transition: 0.3s;
+}
       
-      input {
-        display: block;
-        width: 100%;
-        padding: 0.75rem;
-        border: 1px solid #ccc;
-        border-radius: 0.25rem;
-      }
-      
-      .width-50 {
-        width: 50%;
-      }
-      
-      .ml-auto {
-        margin-left: auto;
-      }
-      
-      .text-center {
-        text-align: center;
-      }
-      
-      /* Progressbar */
-      .progressbar {
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        counter-reset: step;
-        margin: 2rem 0 4rem;
-      }
-      
-      .progressbar::before,
-      .progress {
-        content: "";
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        height: 4px;
-        width: 100%;
-        background-color: #dcdcdc;
-        z-index: -1;
-      }
-      
-      .progress {
-        background-color: var(--primary-color);
-        width: 0%;
-        transition: 0.3s;
-      }
-      
-      .progress-step {
-        width: 2.1875rem;
-        height: 2.1875rem;
-        background-color: #dcdcdc;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+.progress-step {
+    width: 2.1875rem;
+    height: 2.1875rem;
+    background-color: #dcdcdc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
       
       .progress-step::before {
         counter-increment: step;
@@ -149,104 +117,133 @@
       } 
 
 </style>
-{{ form_start(form, {'id': 'preregistration'}) }}
+<div class="container">
+
+{{ form_start(form) }}
+
 <div class="progressbar">
     <div class="progress" id="progress"></div>
-    
     <div
       class="progress-step progress-step-active"
-      data-title="Identité"
+      data-title="Informations personnelles"
     ></div>
-    <div class="progress-step" data-title="References"></div>
-    <div class="progress-step" data-title="Dossier"></div>
-    <div class="progress-step" data-title="Validation"></div>
+    <div class="progress-step" data-title="Adresse"></div>
+    <div class="progress-step" data-title="Choix de formation"></div>
+    <div class="progress-step" data-title="Récapitulatif"></div>
 </div>
   <!-- Steps -->
 <div class="row justify-content-evenly">
 
     <div class="">
         <div class="form-step form-step-active">
-            <div class="inputs-group d-flex row gx-3">
-              <div class="col-md-4">
-                <div class="d-flex justify-content-center py-3">
-                  <img src="{{asset('img/user-128.png')}}" id="file-ip-1-preview" width="220px" height="220px" class="bg-light border border-0 rounded-3">
-                </div> 
-              </div>
+            <div class="inputs-group row gx-3">
+                <div class="col-md-12 col-lg-4">
+                    <div class="d-flex justify-content-center py-3">
+                        <img src="{{asset('img/user-128.png')}}" id="file-ip-1-preview" width="220px" height="220px" class="bg-light border border-0 rounded-3">
+                    </div> 
+                </div>
 
-              <div class="col-md-4">
-                {{ form_row(form.student.avatarFile, {'attr': {'novalidate': 'novalidate'}}) }}
+                <div class="col-md-6 col-lg-8">
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{ form_row(form.student.pictureFile) }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form_row(form.student.name) }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form_row(form.student.firstName) }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form_row(form.student.birthDay) }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form_row(form.student.birthPlace) }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form_row(form.student.civility) }}
+                        </div>
+                        
+                        {# <div class="col-md-6">
+                            {{ form_row(form.student.address) }}
+                        </div> #}
 
-                {{ form_row(form.student.name, {'attr': {'novalidate': 'novalidate'}}) }} <span class="span"></span>
-                {{ form_row(form.student.firstName , {'attr': {'novalidate': 'novalidate'}}) }} <span></span>
-
-
-              </div>
-
-              <div class="col-md-4">
-                {{ form_row(form.student.birthDay) }}
-                {{ form_row(form.student.birthPlace) }} 
-
-                {{ form_row(form.student.civility, {'attr': {'novalidate': 'novalidate'}})  }}
-              </div>
+                    </div>
+                </div>
             </div>
 
             <div class=" w-20 float-end">
-              <a href="#" class="btn btn-next ml-auto firstNext">Suivant</a>
-
-     
+                <a href="#" class="btn btn-next ml-auto firstNext">Suivant</a>
+            </div>
         </div>
     </div>
-</div>
-<div class="row d-flex justify-content-evenly">
-    <div class="">
-        <div class="form-step">
-          <div class="inputs-group d-flex row gx-3">
-            <div class="col-md-4">
-              {{ form_row(form.student.email , {'attr': {'novalidate': 'novalidate'}}) }} 
-              {{ form_row(form.student.telephone , {'attr': {'novalidate': 'novalidate'}}) }}
-            </div>
-            <div class="col-md-4">
-              {{ form_row(form.student.address.city) }}
-              {{ form_row(form.student.address.country) }} 
-            </div>
-            <div class="col-md-4 row gx-2">
-              <div class="col-md-3">
-                {{ form_row(form.student.address.street_number) }} 
-              </div>
-              <div class="col-md-9">
-                {{ form_row(form.student.address.street_name) }} 
-              </div>
-              {{ form_row(form.student.address.quater_name) }} 
-            </div>
-          
-          </div>
+    <div class="justify-content-evenly">
+        <div class="">
+            <div class="form-step">
+                <div class="inputs-group row gx-3">
+                    <div class="col-lg-4 col-md-6">
+                        {{ form_row(form.student.telephone) }}
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        {{ form_row(form.student.email) }}
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        {{ form_row(form.student.address.city) }}
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        {{ form_row(form.student.address.country) }}
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="row">
+                             <div class="col-3">
+                                {{ form_row(form.student.address.street_number) }} 
+                            </div>
+                            <div class="col-9">
+                                {{ form_row(form.student.address.street_name) }} 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        {{ form_row(form.student.address.quater_name) }}
+                    </div>
+                </div>
 
-          <div class="btns-group w-20 float-end">
-            <a href="#" class="btn btn-prev">Precedent</a>
-            <a href="#" class="btn btn-next secondNext">Suivant</a>
-          </div>
+                <div class="btns-group w-20 float-end">
+                    <a href="#" class="btn btn-prev">Precedent</a>
+                    <a href="#" class="btn btn-next secondNext">Suivant</a>
+                </div>
+            </div>
         </div>
-    </div>
     
-</div>
-<div class="row d-flex justify-content-evenly">
-    <div class="">
-        <div class="form-step">
-          <div class="inputs-group d-flex row gx-3">
-              {{ form_row(form.folder.attestationOfValidationFile) }} 
-              {{ form_row(form.folder.degreeFile) }} 
-              {{ form_row(form.folder.bulletinFile) }} 
-              {{ form_row(form.folder.letter) }}
-          </div>
-          <div class="inputs-group">
-          </div>
-          <div class="btns-group w-20 float-end">
-            <a href="#" class="btn btn-prev">Precedent</a>
-            <a href="#" class="btn btn-next" id="lastNext">Suivant</a>
-          </div>
+    </div>
+    <div class="justify-content-evenly">
+        <div class="">
+            <div class="form-step">
+                <div class="inputs-group row">
+                    <div class="col-12">
+                        {{ form_row(form.speciality) }}
+                    </div>
+                    <div class="col-12">
+                        <ul class="documents list-unstyled", 
+                            data-index="{{ form.folder.documents|length > 0 ? form.folder.documents|last.vars.name + 1 : 0 }}"
+                            data-prototype="{{ form_widget(form.folder.documents.vars.prototype)|e('html_attr') }}"
+                        >
+                        {{ form_row(form.folder.documents) }}
+                        
+                        </ul>
+                        <button type="button" class="btn shadow add_item_link" data-collection-holder-class="documents">Add a document</button>
+            
+                    </div>
+                </div>
+            <div class="inputs-group">
+            </div>
+                <div class="btns-group w-20 float-end">
+                    <a href="#" class="btn btn-prev">Precedent</a>
+                    <a href="#" class="btn btn-next" id="lastNext">Suivant</a>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 <div class="row d-flex justify-content-evenly shadow mb-3">
     <div class="col-md-12">
         <div class="form-step">
@@ -261,51 +258,65 @@
     </div>
 
 </div>
-    
+
 {{ form_end(form) }}
-<script type="text/javascript">
-    const prevBtns = document.querySelectorAll(".btn-prev");
-    const nextBtns = document.querySelectorAll(".btn-next");
-    const progress = document.getElementById("progress");
-    const formSteps = document.querySelectorAll(".form-step");
-    const progressSteps = document.querySelectorAll(".progress-step");
-    const secondNext = document.querySelector(".secondNext");
+</div>
 
-    let formStepsNum = 0;
+<script>
 
-    nextBtns.forEach((btn) => {
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const addTagFormDeleteLink = (item) => {
+        const removeFormButton = document.createElement('button');
+        removeFormButton.innerText = 'Delete this tag';
+
+        item.append(removeFormButton);
+
+        removeFormButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            // remove the li for the tag form
+            item.remove();
+        });
+    }
+
+    const addFormToCollection = (e) => {
+        const collectionHolder = document.querySelector('.' + e.currentTarget.dataset.collectionHolderClass);
+
+        const item = document.createElement('li');
+        item.innerHTML = collectionHolder.dataset.prototype.replace(/__name__/g,collectionHolder.dataset.index);
+
+        collectionHolder.appendChild(item);
+        addTagFormDeleteLink(item);
+
+        collectionHolder.dataset.index++;
+    };
+
+    document.querySelectorAll('ul.documents li').forEach((document) => {
+        addTagFormDeleteLink(document)
+    })
+
+    document.querySelectorAll('.add_item_link')
+    .forEach(btn => {
+        btn.addEventListener("click", addFormToCollection)
+    });
+})
+
+const prevBtns = document.querySelectorAll(".btn-prev");
+const nextBtns = document.querySelectorAll(".btn-next");
+const progress = document.getElementById("progress");
+const formSteps = document.querySelectorAll(".form-step");
+const progressSteps = document.querySelectorAll(".progress-step");
+const secondNext = document.querySelector(".secondNext");
+let formStepsNum = 0;
+nextBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-      let x = document.getElementsByClassName("sumup");
-
-       if(x[1].value ==""){
-      
-          x[1].style.borderColor = 'red';
-        
-      }
-       if(x[2].value ==""){
-      
-          x[2].style.borderColor = 'red';
-        
-      }
-       if(x[3].value ==""){
-      
-          x[3].style.borderColor = 'red';
-        
-      }
-       if(x[4].value ==""){
-      
-          x[4].style.borderColor = 'red';
-      }
-      else if(x[1].value !=="" && x[2].value !=="" && x[3].value !=="" && x[4].value !==""){  
-      
         formStepsNum++;
         updateFormSteps();
         updateProgressbar();
-      }
-      
-    });
-    });
-
+  
+});
+});
     prevBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
         formStepsNum--;
@@ -313,16 +324,13 @@
         updateProgressbar();
     });
     });
-
     function updateFormSteps() {
     formSteps.forEach((formStep) => {
         formStep.classList.contains("form-step-active") &&
         formStep.classList.remove("form-step-active");
     });
-
     formSteps[formStepsNum].classList.add("form-step-active");
     }
-
     function updateProgressbar() {
     progressSteps.forEach((progressStep, idx) => {
         if (idx < formStepsNum + 1) {
@@ -331,13 +339,10 @@
         progressStep.classList.remove("progress-step-active");
         }
     });
-
     const progressActive = document.querySelectorAll(".progress-step-active");
-
     progress.style.width =
         ((progressActive.length - 1) / (progressSteps.length - 1)) * 100 + "%";
     }
-
     function showPreview(event){
       if(event.target.files.length > 0){
         var src = URL.createObjectURL(event.target.files[0]);
@@ -346,224 +351,4 @@
         preview.style.display = "block";
       }
     }
-
-
-    /* getting
-    /*const firstNext = document.querySelector('.firstNext');
-    firstNext.addEventListener("click", (e)=>{
-      let x = document.getElementsByClassName("sumup");
-      if(x[1].value ==""){
-        x[1].style.borderColor = 'red';
-      }
-    })*/
-    /* inputs checking */ 
-    //const inputs = document.querySelectorAll('input[type ="text"], input[type = "email"], input[type = "tel"],  input[type = "number"]');
-    
-    
-    
-    /*const errorDisplay = (tag, message, valid)=>{
-      const container = document.querySelector("#pre_registration_student_"+tag);
-      
-      if(!valid){
-        container.style.border= 'solid 1px red';
-      }
-      else if (valid){
-        container.style.border= 'solid 1px green';
-      }
-    };
-    const nameChecker = (value) =>{
-      if( value.length > 0 && value.length < 2 || value.length > 30){
-          errorDisplay("name","Le nom doit comporté entre 2 à 30 lettres",false)
-      }
-      else if(!value.match(/^[a-zA-Zéèêë{}-]*$/) ){
-        errorDisplay("name","aucun caractère spécial autorisé !",false);
-    }
-      else if(value.length == 0){
-        errorDisplay("name","",false);
-    }
-      else{
-        errorDisplay("name","",true);
-    }
-    }
-    const firstNameChecker = (value) =>{
-      if( value.length > 0 && value.length < 2 || value.length > 35){
-          errorDisplay("fisrtName","Le nom doit comporté entre 2 à 35 lettres",false)
-      }
-      else if(!value.match(/^[a-zA-Zéèêë{}-]*$/) ){
-        errorDisplay("firstName","aucun caractère spécial autorisé !",false);
-    }
-      else{
-        errorDisplay("firstName","",true);
-    }
-    }
-    const birthPlaceChecker = (value) =>{
-      if( value.length > 0 && value.length < 2 || value.length > 45){
-          errorDisplay("birthPlace","Le lieu doit comporté entre 2 à 45 lettres",false)
-      }
-      else if(!value.match(/^[a-zA-Zéèêë0-9{}-]*$/) ){
-        errorDisplay("birthPlace","aucun caractère spécial autorisé !",false);
-    }
-      else{
-        errorDisplay("birthPlace","",true);
-    }
-    }
-    const emailChecker = (value) =>{
-      if( value.length > 0 && value.length < 2 || value.length > 45){
-          errorDisplay("email","L'email doit comporté entre 6 à 45 lettres",false)
-      }
-      else if(!value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) ){
-        errorDisplay("email","aucun caractère spécial autorisé !",false);
-    }
-      else{
-        errorDisplay("email","",true);
-    }
-    }
-    const telChecker = (value) =>{
-      if( value.length !== 9){
-          errorDisplay("telephone"," le telephone doit comporté 9 chiffres",false)
-      }
-      else if(!value.match(/^[0-9]*$/) ){
-        errorDisplay("telephone","aucun caractère spécial autorisé !",false);
-    }
-      else{
-        errorDisplay("telephone","",true);
-    }
-    }
-
-
-    const cityChecker = (value) =>{
-      if( value.length > 0 && value.length < 2 || value.length > 30){
-          errorDisplay("address_city","L'adresse' doit comporté entre 2 à 30 lettres",false)
-      }
-      else if(!value.match(/^[a-zA-Zéèêë{}-]*$/) ){
-        errorDisplay("address_city","aucun caractère spécial autorisé !",false);
-    }
-      else if(value.length == 0){
-        errorDisplay("address_city","",false);
-    }
-      else{
-        errorDisplay("address_city","",true);
-    }
-    }
-    const numberChecker = (value) =>{
-      if(!value.match(/^[1-9]\d*$/g) ){
-        //errorDisplay("address_street_number","aucun caractère spécial autorisé !",false);
-    }
-      else{
-        //errorDisplay("address_street_number","",true);
-    }
-    }
-
-    inputs.forEach((input)=>{
-      input.addEventListener("input", (e) => {
-        switch(e.target.id){
-          case "pre_registration_student_name":
-            nameChecker(e.target.value);
-            break;
-          case "pre_registration_student_firstName":
-            firstNameChecker(e.target.value);
-            break;
-          case "pre_registration_student_birthPlace":
-            birthPlaceChecker(e.target.value);
-            break;
-          case "pre_registration_student_email":
-            emailChecker(e.target.value);
-            break;
-          case "pre_registration_student_telephone":
-            telChecker(e.target.value);
-            break;
-          case "pre_registration_student_address_city":
-            cityChecker(e.target.value);
-            break;
-          case "pre_registration_student_address_street_number":
-            cityChecker(e.target.value);
-            break;
-
-          default:
-            null;
-            
-        }
-      })
-    })
-// file checking /[a-zA-Z0-9_-]\.jpg/g
-
- // let files  = document.querySelectorAll('input[type="file"]');
-  let file  = document.getElementById('pre_registration_folder_attestationOfValidationFile');
-  
-  file.addEventListener('input', (e)=>{
-    let val = e.target.value;
-    if(val.match(/[a-zA-Z0-9_-]\.pdf/g) ) {
-      file.style.borderColor = 'green';
-    }
-    else {
-      file.style.borderColor = '#b80924';
-      alert('choissisez une fichier au format pdf');
-    }
-  })
-  
-  let avatar  = document.getElementById('pre_registration_student_avatarFile');
-
-  avatar.addEventListener('input', (e)=>{
-    let val = e.target.value;
-    if(val.match(/[a-zA-Z0-9_-]\.jpg/g) || val.match(/[a-zA-Z0-9_-]\.jpeg/g) || val.match(/[a-zA-Z0-9_-]\.png/g) ) {
-      file.style.borderColor = 'green';
-    }
-    else {
-      file.style.borderColor = '#b80924';
-      alert('choissisez une image de format jpg, jpeg ou png');
-    }
-  })
-
-
-
-
-
-
-   /*document.getElementById('pre_registration_student_name').addEventListener('input', (e) => { 
-      if(e.target.value.length < 2 || e.target.value.length > 30){
-        document.getElementById('pre_registration_student_name').style.transition= '0.4';
-        document.getElementById('pre_registration_student_name').style.border= 'solid 1.5px red';
-      }
-      else if(e.target.value.length > 2 || e.target.value.length < 30){
-        document.getElementById('pre_registration_student_name').style.transition= '0.4';
-        document.getElementById('pre_registration_student_name').style.border= 'solid 1.5px green';
-      }
-    })*/ 
-//
-
-/*
-    const lNext = document.querySelector('#lastNext');
-    lNext.addEventListener("click", (e)=>{
-      let x = document.getElementsByClassName("sumup");
-      if(x[1].value !=="" && x[2].value !=="" && x[3].value !=="" && x[4].value !=="" && x[6].value !=="" && x[7].value !=="" && x[8].value !==""&& x[10].value > 0 && x[12].value !=="" && x[13].value !==""&& x[16].value !=="")
-      {
-        let recap = document.getElementById('recap');
-        recap.innerHTML = "<div class='d-flex'><div class='col-md-4 py-2'><ul><li class='list-group-item'><strong>Nom: </strong>"+x[1].value+"</li><li class='list-group-item'><strong>Prénom: </strong>"+x[2].value+"</li> <li class='list-group-item'><strong>Date de Naissance: </strong>"+x[3].value+"</li>  <li class='list-group-item'><strong>Lieu de Naissance: </strong>"+x[4].value+"</li><li class='list-group-item'><strong>Civilité: </strong>"+x[5].value+"</li></ul></div><div class='col-md-4 py-2 '> <ul><li class='list-group-item'><strong>Email: </strong>"+x[6].value+"</li>  <li class='list-group-item'><strong>Tel: </strong>"+x[7].value+"</li><li class='list-group-item'><strong>Ville: </strong>"+x[8].value+"</li> <li class='list-group-item'><strong>Pays: </strong>"+x[9].value+"</li>  <li class='list-group-item'><strong>Domicile: </strong>"+x[10].value+" rue "+x[11].value+" "+x[12].value+"</li></ul></div><div class='col-md-4 py-2'><ul><li class='list-group-item'><strong>Dossier: </strong>"+x[13].value+"</li></ul></div></div>";
-        
-      }
-     
-      else{
-        console.log(x);
-        recap.innerHTML = "<div class='col-md-12 rounded-2 bg-danger'><p class='text-white text-center'>Assurez vous d'avoir rempli tout les champs necéssaires (<strong>*</strong>) du formulaires</p></div>";
-        document.querySelector('.submitting').style.display='none';
-      }
-      
-      
-    })
-    
-    
-    /*function getValues(){
-      if (x[1].value !== "" && x[2].value !== "") {
-        let recap = document.querySelector('.recap');
-        recap.innerHTML = '<tr> <td>Nom</td> <td>'+x[1].value+'</td> <td>Position </td><td>'+x[2].value+'</td></tr>';
-      } else {
-        let recap1 = document.querySelector('.recap');
-        recap1.style.color = 'black';
-        recap1.style.background = 'red';
-    
-        recap1.innerHTML='<h2> Remplissez tout les champs !</h2>';
-      }
-      var x = document.getElementById('name').value;
-      document.getElementById('recap').innerText = x;
-    }*/
 </script>

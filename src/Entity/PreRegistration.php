@@ -16,16 +16,19 @@ class PreRegistration
 
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
-
     
     #[ORM\Column(length: 255)]
     private ?string $status = null;
 
-    #[ORM\OneToOne(mappedBy: 'preRegistration', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(inversedBy: 'preRegistration', cascade: ['persist', 'remove'])]
     private ?Student $student = null;
 
     #[ORM\OneToOne(inversedBy: 'preRegistration', cascade: ['persist', 'remove'])]
     private ?Folder $folder = null;
+
+    #[ORM\ManyToOne(inversedBy: 'preRegistrations')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Speciality $speciality = null;
 
     public function __construct()
     {
@@ -62,6 +65,10 @@ class PreRegistration
         return $this;
     }
 
+    function __toString()
+    {
+        return "Préinscription";
+    }
 
     public function getStudent(): ?Student
     {
@@ -70,16 +77,6 @@ class PreRegistration
 
     public function setStudent(?Student $student): self
     {
-        // unset the owning side of the relation if necessary
-        if ($student === null && $this->student !== null) {
-            $this->student->setPreRegistration(null);
-        }
-
-        // set the owning side of the relation if necessary
-        if ($student !== null && $student->getPreRegistration() !== $this) {
-            $student->setPreRegistration($this);
-        }
-
         $this->student = $student;
 
         return $this;
@@ -96,8 +93,16 @@ class PreRegistration
 
         return $this;
     }
-    function __toString()
+
+    public function getSpeciality(): ?Speciality
     {
-        return "Préinscription";
+        return $this->speciality;
+    }
+
+    public function setSpeciality(?Speciality $speciality): self
+    {
+        $this->speciality = $speciality;
+
+        return $this;
     }
 }

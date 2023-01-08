@@ -49,9 +49,13 @@ class Speciality
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $careers = null;
 
+    #[ORM\OneToMany(mappedBy: 'speciality', targetEntity: PreRegistration::class)]
+    private Collection $preRegistrations;
+
     public function __construct()
     {
         $this->semesters = new ArrayCollection();
+        $this->preRegistrations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -186,6 +190,36 @@ class Speciality
     public function setCareers(?string $careers): self
     {
         $this->careers = $careers;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, PreRegistration>
+     */
+    public function getPreRegistrations(): Collection
+    {
+        return $this->preRegistrations;
+    }
+
+    public function addPreRegistration(PreRegistration $preRegistration): self
+    {
+        if (!$this->preRegistrations->contains($preRegistration)) {
+            $this->preRegistrations->add($preRegistration);
+            $preRegistration->setSpeciality($this);
+        }
+
+        return $this;
+    }
+
+    public function removePreRegistration(PreRegistration $preRegistration): self
+    {
+        if ($this->preRegistrations->removeElement($preRegistration)) {
+            // set the owning side to null (unless already changed)
+            if ($preRegistration->getSpeciality() === $this) {
+                $preRegistration->setSpeciality(null);
+            }
+        }
 
         return $this;
     }

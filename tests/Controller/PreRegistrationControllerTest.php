@@ -46,6 +46,8 @@ class PreRegistrationControllerTest extends WebTestCase
         $this->client->submitForm('Save', [
             'pre_registration[createdAt]' => 'Testing',
             'pre_registration[status]' => 'Testing',
+            'pre_registration[student]' => 'Testing',
+            'pre_registration[folder]' => 'Testing',
         ]);
 
         self::assertResponseRedirects('/pre/registration/');
@@ -59,6 +61,8 @@ class PreRegistrationControllerTest extends WebTestCase
         $fixture = new PreRegistration();
         $fixture->setCreatedAt('My Title');
         $fixture->setStatus('My Title');
+        $fixture->setStudent('My Title');
+        $fixture->setFolder('My Title');
 
         $this->repository->add($fixture, true);
 
@@ -76,6 +80,8 @@ class PreRegistrationControllerTest extends WebTestCase
         $fixture = new PreRegistration();
         $fixture->setCreatedAt('My Title');
         $fixture->setStatus('My Title');
+        $fixture->setStudent('My Title');
+        $fixture->setFolder('My Title');
 
         $this->repository->add($fixture, true);
 
@@ -84,6 +90,8 @@ class PreRegistrationControllerTest extends WebTestCase
         $this->client->submitForm('Update', [
             'pre_registration[createdAt]' => 'Something New',
             'pre_registration[status]' => 'Something New',
+            'pre_registration[student]' => 'Something New',
+            'pre_registration[folder]' => 'Something New',
         ]);
 
         self::assertResponseRedirects('/pre/registration/');
@@ -92,6 +100,8 @@ class PreRegistrationControllerTest extends WebTestCase
 
         self::assertSame('Something New', $fixture[0]->getCreatedAt());
         self::assertSame('Something New', $fixture[0]->getStatus());
+        self::assertSame('Something New', $fixture[0]->getStudent());
+        self::assertSame('Something New', $fixture[0]->getFolder());
     }
 
     public function testRemove(): void
@@ -103,6 +113,8 @@ class PreRegistrationControllerTest extends WebTestCase
         $fixture = new PreRegistration();
         $fixture->setCreatedAt('My Title');
         $fixture->setStatus('My Title');
+        $fixture->setStudent('My Title');
+        $fixture->setFolder('My Title');
 
         $this->repository->add($fixture, true);
 

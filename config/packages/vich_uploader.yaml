@@ -14,7 +14,7 @@ vich_uploader:
             delete_on_update: true
             delete_on_remove: true
 
-        person_avatars:
+        person_pictures:
             uri_prefix: /uploads/images/avatars
             upload_destination: '%kernel.project_dir%/public/uploads/images/avatars'
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
@@ -23,9 +23,9 @@ vich_uploader:
             delete_on_update: true
             delete_on_remove: true
         
-        enrolement_documents:
-            uri_prefix: /uploads/images/enrolements
-            upload_destination: '%kernel.project_dir%/public/uploads/documents/enrolements'
+        enrollment_documents:
+            uri_prefix: /uploads/documents/preinscription
+            upload_destination: '%kernel.project_dir%/public/uploads/documents/preinscription'
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
 
             inject_on_load: false
