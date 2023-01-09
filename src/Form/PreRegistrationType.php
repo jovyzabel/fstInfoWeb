@@ -17,7 +17,7 @@ class PreRegistrationType extends AbstractType
             ->add('student', StudentType::class)
             ->add('speciality', EntityType::class, [
                 'class' => Speciality::class,
-                'choice_label' => 'Spécialité',
+                'preferred_choices' => ['CG']
             ])
             ->add('folder', FolderType::class)
         ;

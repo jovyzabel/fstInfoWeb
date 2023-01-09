@@ -1,0 +1,101 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block main %}
+    
+<div class="">
+    <h2>Details de la préinscription</h2>
+    <div class="row">
+        <div class="mb-3 border-0 shadow-sm card">
+            <div class="card-body">
+                <h5 class="card-title">Informations personnelles</h5>
+                <table class="table table-hover">
+                    <tr >
+                        <td >Nom(s) </td>
+                        <td >{{ pre_registration.student.name }}</td>
+                    </tr>
+                    <tr >
+                        <td>Prénom(s) </td>
+                        <td>{{ pre_registration.student.firstName }}</td>
+                    </tr>
+                    <tr >
+                        <td>Civilité </td>
+                        <td>{{ pre_registration.student.civility }}</td>
+                    </tr>
+                    <tr >
+                        <td>Date de naissance </td>
+                        <td>{{ pre_registration.student.birthDay | date("d-m-Y") }}</td>
+                    </tr>
+                    <tr >
+                        <td>Lieu de naissance </td>
+                        <td>{{ pre_registration.student.birthPlace }}</td>
+                    </tr>
+                    {# <tr >
+                        <td>Nationalité </td>
+                        <td>{{ pre_registration.student.nationality }}</td>
+                    </tr> #}
+                    
+                </table>
+            </div>
+        </div>
+
+        <div class="mb-3 border-0 shadow-sm card">
+            <div class="card-body">
+                <h5 class="card-title">Adresse et modalités contact</h5>
+                <table class="table table-hover">
+                    <tr >
+                        <td >Adresse </td>
+                        <td >{{ pre_registration.student.address }}</td>
+                    </tr>
+                    <tr >
+                        <td>Téléphone </td>
+                        <td>+242066028781</td>
+                    </tr>
+                    <tr >
+                        <td>Email</td>
+                        <td>{{ pre_registration.student.email }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="mb-3 border-0 shadow-sm card">
+            <div class="card-body">
+                <h5 class="card-title">Chox de formation</h5>
+                <table class="table table-hover">
+                    <tr class="">
+                        <td>Cycle de formation</td>
+                        <td>{{ pre_registration.speciality.formationCycle }}</td>
+                    </tr> 
+                    <tr class="">
+                        <td>Spécialité</td>
+                        <td>{{ pre_registration.speciality }}</td>
+                    </tr>          
+                </table>
+            </div>
+        </div>
+
+        <div class="mb-3 border-0 shadow-sm card">
+            <div class="row card-body">
+                <h5 class="card-title mb-3 ">Pièces jointes</h5>
+
+                {# <div class="mb-4 text-center col-12 col-sm-12 col-md-6 col-lg-4">
+                    <p class="card-title">{{document.label}}</p>
+                    <img class="img-fluid" src="{{ document.documentName }}" alt="">
+                </div>          #}
+
+                {% for document in pre_registration.folder.documents %}
+                <table class="table table-hover">
+                    <tr class="">
+                        <td>{{document.label}}</td>
+                        <td><a href="{{asset('/uploads/documents/preinscription/' ~ document.documentName)}}">Afficher</a></td>
+                    </tr> 
+          
+                </table>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}

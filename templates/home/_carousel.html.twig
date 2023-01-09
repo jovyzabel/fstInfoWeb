@@ -1,7 +1,6 @@
 
 <div class="swiper headerCarousel bg-primary">
     <div class="swiper-wrapper">
-        {% if options.isPreEnrollPeriod %}
         <div class="swiper-slide specifical-bg-3-testimonial">
             <div class="mx-auto text-center">
                 <img src="https://via.placeholder.com/1400x580.png" height="580px"> <!-- center this image within the column -->
@@ -16,7 +15,6 @@
                 </div>
             </div>
         </div>
-        {% endif %}
 
         {% for item in carousel_items %}
         <div class="swiper-slide specifical-bg-3-testimonial">
@@ -50,7 +48,6 @@
             </div>
         </div>
 
-        {% if options.displayCISCOOnCarousel %}
         <div class="swiper-slide specifical-bg-3-testimonial">
             <div class="mx-auto text-center">
                 <img src="{{asset('img/cisco_netacad_banner.png')}}" height="580px"> <!-- center this image within the column -->
@@ -65,7 +62,6 @@
                 </div>
             </div>
         </div>           
-        {% endif %}
 
     </div>
     <div class="swiper-button-next"></div>

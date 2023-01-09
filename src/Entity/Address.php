@@ -100,4 +100,9 @@ class Address
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->street_number .', '. $this->street_name .', '. $this->quater_name .', ' . $this->city;
+    }
 }
