@@ -1,0 +1,12 @@
+
+
+{% for document in field.value %}
+{%- set url = ea_url()
+    .setController('App\\Controller\\Admin\\DocumentCrudController')
+    .setAction('detail')
+    .setEntityId(document.id)
+  -%}
+<a href="{{ url }}">
+    {{ document.label }}{% if not loop.last %}, {% endif %}
+</a>
+{% endfor %}

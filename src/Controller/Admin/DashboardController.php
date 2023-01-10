@@ -14,6 +14,7 @@ use App\Entity\Student;
 use App\Entity\Subject;
 use App\Entity\Teacher;
 use App\Entity\Category;
+use App\Entity\Document;
 use App\Entity\Semester;
 use App\Entity\Promotion;
 use App\Entity\Speciality;
@@ -87,6 +88,7 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Candidatures','fa fa-pencil', PreRegistration::class),
             MenuItem::linkToCrud('Etudiants','fa fa-user', Student::class),
             MenuItem::linkToCrud('Dossiers','fa fa-file', Folder::class),
+            MenuItem::linkToCrud('Fichiers joints','fa fa-file', Document::class),
         ]);
 
         yield MenuItem::linkToCrud('Enseignants', 'fa fa-people-roof',Teacher::class);
