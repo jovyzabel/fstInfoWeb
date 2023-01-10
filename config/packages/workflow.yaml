@@ -1,0 +1,34 @@
+framework:
+    workflows:
+        pre_registration_process:
+            type: 'state_machine' # or 'workflow'
+            audit_trail:
+                enabled: true
+            marking_store:
+                type: 'method'
+                property: 'status'
+            supports:
+                - App\Entity\PreRegistration
+            initial_marking: 'Créée'
+            places:
+                - 'Créée'
+                - 'Attente de validation'
+                - 'Validée'
+                - 'Cloturée'
+                - 'Rejetée'
+            transitions:
+                to_validation_pending:
+                    from: 'Créée'
+                    to:   'Attente de validation'
+                to_validation:
+                    from: 'Attente de validation'
+                    to:   'Validée'
+                to_close:
+                    from: 'Validée'
+                    to:   'Cloturée'
+                to_reject:
+                    from: 'Attente de validation'
+                    to:   'Rejetée'
+                edit:
+                    from: 'Rejetée'
+                    to:   'Attente de validation'

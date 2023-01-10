@@ -2,17 +2,26 @@
 
 namespace App\Controller;
 
+use App\Controller\Admin\PreRegistrationCrudController;
 use App\Entity\PreRegistration;
 use App\Form\PreRegistrationType;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Workflow\Registry;
 use App\Repository\PreRegistrationRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use Symfony\Component\Workflow\Exception\LogicException;
+use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/pre/registration')]
 class PreRegistrationController extends AbstractController
 {
+    public function __construct(private Registry $registry, private AdminUrlGenerator $adminUrlGenerator)
+    {
+    }
     #[Route('/', name: 'app_pre_registration_index', methods: ['GET'])]
     public function index(PreRegistrationRepository $preRegistrationRepository): Response
     {
@@ -29,6 +38,13 @@ class PreRegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            try {
+                $workflow = $this->registry->get($preRegistration, 'pre_registration_process');
+                $workflow->apply($preRegistration, 'to_validation_pending');
+            } catch (LogicException $e) {
+                echo $e->getMessage();
+            }
 
             $preRegistrationRepository->save($preRegistration, true);
 
@@ -75,5 +91,27 @@ class PreRegistrationController extends AbstractController
         }
 
         return $this->redirectToRoute('app_pre_registration_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    #[Route('/{id}/{to}', name: 'pre_registration_change_status')]
+    public function changeStatus(Request $request, string $to, PreRegistration $preRegistration, EntityManagerInterface $entityManager): Response
+    {
+        $workflow = $this->registry->get($preRegistration, 'pre_registration_process');
+
+        try {
+            $workflow->apply($preRegistration, $to);
+        } catch (LogicException $e) {
+            echo $e->getMessage();
+        }
+
+        $entityManager->persist($preRegistration);
+        $entityManager->flush();
+
+        $url = $this->adminUrlGenerator
+            ->setController(PreRegistrationCrudController::class)
+            ->setAction(Action::INDEX)
+            ->generateUrl();
+
+        return $this->redirect($url);
     }
 }

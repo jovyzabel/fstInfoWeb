@@ -1,9 +1,37 @@
 {% extends '@EasyAdmin/page/content.html.twig' %}
 
-{% block main %}
-    
+{% block content_title %}Details de la préinscription{% endblock %}
+
+{% block page_actions %}
 <div class="">
-    <h2>Details de la préinscription</h2>
+
+    {% if workflow_can(pre_registration, 'to_validation_pending') %}
+        <a class="btn btn-primary" type="button" 
+            href="{{ path('pre_registration_change_status', {'id': pre_registration.id, 'to': 'to_validation_pending'}) }}"
+        >
+            Editer
+        </a>                              
+    {% endif %}
+    {% if workflow_can(pre_registration, 'to_validation') %}
+        <a class="btn btn-success" type="button" 
+            href="{{ path('pre_registration_change_status', {'id': pre_registration.id, 'to': 'to_validation'}) }}"
+        >
+            Approuver
+        </a>                              
+    {% endif %}
+    {% if workflow_can(pre_registration, 'to_reject') %}
+        <a class="btn btn-danger" type="button" 
+            href="{{ path('pre_registration_change_status', {'id': pre_registration.id, 'to': 'to_reject'}) }}"
+        >
+            Rejeter
+        </a>                              
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block main %}
+
+<div class="">
     <div class="row">
         <div class="mb-3 border-0 shadow-sm card">
             <div class="card-body">
