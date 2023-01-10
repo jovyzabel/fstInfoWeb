@@ -18,32 +18,16 @@ class Student extends Person
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $birthDay = null;
 
-    #[ORM\Column(length: 100)]
-    #[Assert\Length(min: 2,)]
-    #[Assert\Regex([
-        'pattern' => '/\d/',
-        'match' => false,
-        'message' => 'Entrez un lieu exact',
-    ]),]
     private ?string $birthPlace = null;
 
-    #[ORM\Column(length: 40)]
-    #[Assert\Length(
-        min: 9,
-        max: 15,  
-        exactMessage: 'Vous numéro ne doit contenir que {{ limit }} chiffres',
-    )]
     private ?string $telephone = null;
-    #[ORM\Column(length: 255, nullable: true)]
-    #[Assert\Email(
-        message :" la {{ value }} de votre Email n'est pas correct "    
-    )]
+
     private ?string $email = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Address $address = null;
 
-    #[ORM\OneToOne(inversedBy: 'student', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(mappedBy: 'student', cascade: ['persist', 'remove'])]
     private ?PreRegistration $preRegistration = null;
 
     public function getId(): ?int
@@ -118,8 +102,19 @@ class Student extends Person
 
     public function setPreRegistration(?PreRegistration $preRegistration): self
     {
+        // unset the owning side of the relation if necessary
+        if ($preRegistration === null && $this->preRegistration !== null) {
+            $this->preRegistration->setStudent(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($preRegistration !== null && $preRegistration->getStudent() !== $this) {
+            $preRegistration->setStudent($this);
+        }
+
         $this->preRegistration = $preRegistration;
 
         return $this;
     }
+
 }

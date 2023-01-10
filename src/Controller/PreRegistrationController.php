@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/pre-registration')]
+#[Route('/pre/registration')]
 class PreRegistrationController extends AbstractController
 {
     #[Route('/', name: 'app_pre_registration_index', methods: ['GET'])]
@@ -29,8 +29,7 @@ class PreRegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            dd($preRegistration, $form);
-            
+
             $preRegistrationRepository->save($preRegistration, true);
 
             return $this->redirectToRoute('app_pre_registration_index', [], Response::HTTP_SEE_OTHER);
