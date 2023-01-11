@@ -14,7 +14,6 @@ framework:
                 - 'Créée'
                 - 'Attente de validation'
                 - 'Validée'
-                - 'Cloturée'
                 - 'Rejetée'
             transitions:
                 to_validation_pending:
@@ -23,9 +22,6 @@ framework:
                 to_validation:
                     from: 'Attente de validation'
                     to:   'Validée'
-                to_close:
-                    from: 'Validée'
-                    to:   'Cloturée'
                 to_reject:
                     from: 'Attente de validation'
                     to:   'Rejetée'

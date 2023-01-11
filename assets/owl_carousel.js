@@ -64,6 +64,17 @@ const carousel = new Swiper('.headerCarousel', {
   //   crossFade: true
   // },
 })
-
-document.addEventListener("DOMContentLoaded", function(){
+const testimonialcarousel = new Swiper('.testimonialCarousel', {
+  modules: [ Pagination, Autoplay ],
+  slidesPerView: 1,
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: true,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  
 })
