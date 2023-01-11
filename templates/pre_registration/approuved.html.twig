@@ -1,0 +1,144 @@
+{% extends 'base_print.html.twig' %}
+
+{% block title %}Selection{% endblock %}
+
+{% block body %}
+    <style type="text/css">
+
+body {
+    margin: 3rem;
+}
+
+h5 span {
+    border-bottom: 1.4px dashed;
+}
+
+h6 span{
+    border-bottom: 1.5px dotted;
+}
+
+p {
+  margin: 0;
+}
+
+table.content {
+    margin: 1.5rem 0 1rem 0;
+    border-collapse: collapse;
+    border: 1px solid black;
+    width: 100%;
+}
+
+table.content thead {
+    font-weight: bold;
+    border: 1px solid black;
+}
+
+table.content thead th,
+{
+    padding: 5px;
+    border: 1px solid black;
+    text-align: left;
+
+}
+
+table.content thead th.index,
+table.content tbody td.index{
+    text-align: center;
+
+}
+
+table.content td,
+table.content tr {
+    padding-left: 5px;
+    border: 1px solid black;
+}
+
+</style>
+<table width="100%">
+    <tr>
+        <td valign="top" align="left">
+            <div >
+                <h5><span>UNIVERSITE MARIEN NGOUABI</span></h5>
+                <h5><span>FACULTE DES SCIENCES ET TECHNIQUES</span></h5>
+                <h5><span>DEPARTEMENT DES LICENCES</span></h5>
+                <h5><span>LICENCE D'INFORMATIQUE</span></h5>
+            </div>
+        </td>
+        <td></td>
+        <td valign="top" align="right">
+            <div >
+                <h6><span>Travail*Progrès*Humanité</span></h6>
+                <img src="{{ absolute_url(asset('img/logo_fst.jpg')) }}" width="70px"/>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<table width="100%">
+    <tr>
+        <td align="center">
+            <h2 >SELECTION</h2>
+        </td>
+    </tr>
+</table>
+
+<div class="">
+    <p>Les étudiants dont les noms et prénoms suivent sont autorisés à s'inscrire aux semestres 3 et 4 du Parcours d'informatique au titre de l'année academique 2020-2021</p>
+</div>
+
+    <table class="table content">
+        <thead>
+            <tr>
+                <th class="index">N°</th>
+                <th>Noms</th>
+                <th>Prénoms</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pre_registration in pre_registrations %}
+            <tr>
+                <td class="index">
+                    {{loop.index}}
+                </td>
+                <td>{{ pre_registration.student.name }}</td>
+                <td>{{ pre_registration.student.firstName }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="">
+        <p>Arrêté de la présente liste à {{pre_registrations|length }} noms</p>
+    </div>
+
+    <table width="100%">
+        <tr>
+            <td width="50%"></td>
+            <td valign="top" align="right">
+                <p >Fait à brazzaville, le 31 Mars 2021</p>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <p>Responsable du Parcours </p>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%">
+        <tr>
+            <td width="50%"></td>
+            <td valign="top" align="right">
+                <p>Pr Régis Freguin BABINDAMANA </p>
+            </td>
+        </tr>
+    </table>
+
+    
+
+{% endblock %}

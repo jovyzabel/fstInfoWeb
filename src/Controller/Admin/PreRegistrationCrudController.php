@@ -20,6 +20,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 class PreRegistrationCrudController extends AbstractCrudController
 {
     public const SHOW = 'show';
+    public const PRINT = 'print';
 
     public function __construct(private AdminUrlGenerator $adminUrlGenerator)
     {
@@ -39,7 +40,13 @@ class PreRegistrationCrudController extends AbstractCrudController
                     'id' => $preRegistration->getId()
                 ];
         });
+
+        $printAction = Action::new(self::PRINT, 'Imprimer', 'fa fa-file-pdf-o')
+            ->linkToRoute('app_pre_registration_approuved')
+            ->createAsGlobalAction();
+            
         return $actions
+            ->add(Crud::PAGE_INDEX, $printAction)
             ->add(Crud::PAGE_INDEX, $showAction)
             ->remove(Crud::PAGE_INDEX, Action::NEW)
             ->remove(Crud::PAGE_INDEX, Action::EDIT)
