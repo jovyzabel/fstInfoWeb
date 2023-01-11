@@ -15,6 +15,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 
 class AlumniCrudController extends AbstractCrudController
 {
@@ -29,16 +30,20 @@ class AlumniCrudController extends AbstractCrudController
             IdField::new('id')->onlyOnIndex(),
             TextField::new('name'),
             TextField::new('firstName'),
-            TextField::new('avatarFile')->setFormType(VichImageType::class)->onlyOnForms(),
+            ChoiceField::new('civility')->setChoices([
+                'Monsieur' => 'Monsieur',
+                'Madame' => 'Madame',
+            ]),
+            TextField::new('pictureFile')->setFormType(VichImageType::class)->onlyOnForms(),
             AssociationField::new('promotion'),
             TextField::new('profil'),
             TextareaField::new('testimonial'),
-            ImageField::new('avatarName')
+            ImageField::new('pictureName')
                 ->setBasePath('/uploads/images/avatars')
                 ->setUploadDir('/public/uploads/images/avatars')
                 ->hideOnForm(),
-            DateTimeField::new('createdAt')->hideOnForm(),
-            DateTimeField::new('updatedAt')->hideOnForm()
+            DateTimeField::new('createdAt')->onlyOnDetail(),
+            DateTimeField::new('updatedAt')->onlyOnDetail()
         ];
     }
 

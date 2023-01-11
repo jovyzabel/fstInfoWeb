@@ -105,36 +105,15 @@
 
 		<div class="swiper owl-carousel">
 			<div class="swiper-wrapper">
+
+                {% for partner in partners %}
 				<div class="swiper-slide">
 					<div class="card">
-						<img src="{{ asset('img/logo-auf.png') }}" height="60px">
+						<img src="{{asset('uploads/images/partenaires/' ~ partner.logoName)}}" height="60px">
 					</div>
 				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<img src="{{ asset('img/logo-fasuce.png') }}" height="60px">
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<img src="{{ asset('img/logo-unesco.png') }}" height="60px">
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<img src="{{ asset('img/logo-auf.png') }}" height="60px">
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<img src="{{ asset('img/logo-cames.svg') }}" height="60px">
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<img src="{{ asset('img/Logo_UMNG.png') }}" height="60px">
-					</div>
-				</div>
+                {% endfor %}
+                    
 			</div>
 		</div>			
 	</div>

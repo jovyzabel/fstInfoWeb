@@ -21,6 +21,7 @@ use App\Entity\Speciality;
 use App\Entity\SemesterUes;
 use App\Entity\SemesterType;
 use App\Entity\FormationCycle;
+use App\Entity\Partner;
 use App\Entity\PreRegistration;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -96,7 +97,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Promotions', 'fa fa-people-roof',Promotion::class);
 
         yield MenuItem::linkToCrud('Media', 'fa fa-photo-film',Media::class)->setPermission('ROLE_USER');
-        // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
+        yield MenuItem::linkToCrud('Partenaires', 'fa fa-handshake',Partner::class)->setPermission('ROLE_ADMIN');
+
         yield MenuItem::subMenu('Parametres', 'fa fa-gear')->setSubItems([
             MenuItem::linkToCrud('Général', 'fa fa-gear', AppOption::class),
         ])->setPermission('ROLE_ADMIN');
