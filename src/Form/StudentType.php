@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Student;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -28,6 +29,7 @@ class StudentType extends AbstractType
             ])
             ->add('birthPlace')
             ->add('telephone')
+            ->add('nationality', CountryType::class)
             ->add('email')
             ->add('name')
             ->add('firstName')

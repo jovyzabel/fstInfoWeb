@@ -42,7 +42,7 @@ $(document).ready(function() {
             let $documentsRecap = $("#documentsRecap");
             $documentsRecap.empty();
             documentsList.forEach(function(el) {
-                $documentsRecap.append($("<tr>").text(el));
+                $documentsRecap.append($("<tbody>").html(`<tr><td>${el}</td></td>`));
             });
             $("#recap").html(`<div class="mb-3 border-0 shadow-sm card">
             <div class="card-body">
@@ -70,7 +70,7 @@ $(document).ready(function() {
                     </tr>
                     {# <tr >
                         <td>Nationalité </td>
-                        <td>{{ pre_registration.student.nationality }}</td>
+                        <td>${formData.get('pre_registration[student][birthPlace]')}</td>
                     </tr> #}
                     
                 </table>
