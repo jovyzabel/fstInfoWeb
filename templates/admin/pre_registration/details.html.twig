@@ -41,9 +41,12 @@
                         <h5 class="card-title">Informations personnelles</h5>
                     </div>
                     <div class="col text-end">
-                    {% if pre_registration !='Validée' %}
+                    {% if pre_registration.status !='Validée' %}
                         <a class="btn btn-primary" type="button" 
-                            href="{{ path('app_pre_registration_edit', {'id': pre_registration.id}) }}"
+                            href="{{ea_url()
+                                    .setController('App\\Controller\\Admin\\StudentCrudController')
+                                    .setAction('edit')
+                                    .setEntityId(pre_registration.student.id) }}"
                         >
                             Modifier
                         </a>
@@ -87,9 +90,12 @@
                         <h5 class="card-title">Adresse et modalités contact</h5>
                     </div>
                     <div class="col text-end">
-                    {% if pre_registration !='Validée' %}
+                    {% if pre_registration.status !='Validée' %}
                         <a class="btn btn-primary" type="button" 
-                            href="{{ path('app_pre_registration_edit', {'id': pre_registration.id}) }}"
+                            href="{{ ea_url()
+                                    .setController('App\\Controller\\Admin\\StudentCrudController')
+                                    .setAction('edit')
+                                    .setEntityId(pre_registration.student.address.id) }}"
                         >
                             Modifier
                         </a>
@@ -120,7 +126,7 @@
                         <h5 class="card-title">Chox de formation</h5>   
                     </div>
                     <div class="col text-end">
-                    {% if pre_registration !='Validée' %}
+                    {% if pre_registration.status !='Validée' %}
                         <a class="btn btn-primary" type="button" 
                             href="{{ path('app_pre_registration_edit', {'id': pre_registration.id}) }}"
                         >
@@ -157,7 +163,7 @@
                         <td>{{document.label}}</td>
                         <td align="end">
                             <a href="{{asset('/uploads/documents/preinscription/' ~ document.documentName)}}">Afficher</a>
-                            {% if pre_registration !='Validée' %}
+                            {% if pre_registration.status !='Validée' %}
                             <a class="ms-2 text-warning" href="{{ ea_url()
                                     .setController('App\\Controller\\Admin\\DocumentCrudController')
                                     .setAction('edit')

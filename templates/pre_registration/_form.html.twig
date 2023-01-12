@@ -129,10 +129,10 @@
     <div class="progress" id="progress"></div>
     <div
       class="progress-step progress-step-active"
-      data-title="Informations personnelles"
+      data-title="Identité"
     ></div>
     <div class="progress-step" data-title="Adresse"></div>
-    <div class="progress-step" data-title="Choix de formation"></div>
+    <div class="progress-step" data-title="Formation"></div>
     <div class="progress-step" data-title="Récapitulatif"></div>
 </div>
   <!-- Steps -->
@@ -147,7 +147,7 @@
                     </div> 
                 </div>
 
-                <div class="col-md-6 col-lg-8">
+                <div class="col-md-12 col-lg-8">
                     <div class="row">
                         <div class="col-md-6">
                             {{ form_row(form.student.pictureFile) }}
@@ -251,8 +251,18 @@
 <div class="row d-flex justify-content-evenly shadow mb-3">
     <div class="col-md-12">
         <div class="form-step">
-          <div class="" id="recap">
-          </div>
+            <div class="" id="recap">
+            </div>
+            <div class="">
+                <div class="mb-3 border-0 shadow-sm card">
+                    <div class="row card-body">
+                        <h5 class="card-title mb-3 ">Pièces jointes</h5>
+
+                        <table id="documentsRecap" class="table table-hover">         
+                        </table>
+                    </div>
+                </div>
+            </div>
           <div class="btns-group w-20 float-end p-2">
             <a href="#" class="btn btn-prev lprev">Precedent</a>
             <button class="btn specifical-bg-3 text-white submitting">{{ button_label|default('Soumettre') }}</button> 
@@ -265,94 +275,3 @@
 
 {{ form_end(form) }}
 </div>
-<script src=""></script>
-<script>
-
-
-document.addEventListener("DOMContentLoaded", function(){
-
-    const addTagFormDeleteLink = (item) => {
-        const removeFormButton = document.createElement('button');
-        removeFormButton.innerText = 'Delete this tag';
-
-        item.append(removeFormButton);
-
-        removeFormButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            // remove the li for the tag form
-            item.remove();
-        });
-    }
-
-    const addFormToCollection = (e) => {
-        const collectionHolder = document.querySelector('.' + e.currentTarget.dataset.collectionHolderClass);
-
-        const item = document.createElement('li');
-        item.innerHTML = collectionHolder.dataset.prototype.replace(/__name__/g,collectionHolder.dataset.index);
-
-        collectionHolder.appendChild(item);
-        addTagFormDeleteLink(item);
-
-        collectionHolder.dataset.index++;
-    };
-
-    document.querySelectorAll('ul.documents li').forEach((document) => {
-        addTagFormDeleteLink(document)
-    })
-
-    document.querySelectorAll('.add_item_link')
-    .forEach(btn => {
-        btn.addEventListener("click", addFormToCollection)
-    });
-})
-
-const prevBtns = document.querySelectorAll(".btn-prev");
-const nextBtns = document.querySelectorAll(".btn-next");
-const progress = document.getElementById("progress");
-const formSteps = document.querySelectorAll(".form-step");
-const progressSteps = document.querySelectorAll(".progress-step");
-const secondNext = document.querySelector(".secondNext");
-let formStepsNum = 0;
-nextBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-        formStepsNum++;
-        updateFormSteps();
-        updateProgressbar();
-  
-});
-});
-    prevBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-        formStepsNum--;
-        updateFormSteps();
-        updateProgressbar();
-    });
-    });
-    function updateFormSteps() {
-    formSteps.forEach((formStep) => {
-        formStep.classList.contains("form-step-active") &&
-        formStep.classList.remove("form-step-active");
-    });
-    formSteps[formStepsNum].classList.add("form-step-active");
-    }
-    function updateProgressbar() {
-    progressSteps.forEach((progressStep, idx) => {
-        if (idx < formStepsNum + 1) {
-        progressStep.classList.add("progress-step-active");
-        } else {
-        progressStep.classList.remove("progress-step-active");
-        }
-    });
-    const progressActive = document.querySelectorAll(".progress-step-active");
-    progress.style.width =
-        ((progressActive.length - 1) / (progressSteps.length - 1)) * 100 + "%";
-    }
-    function showPreview(event){
-      if(event.target.files.length > 0){
-        var src = URL.createObjectURL(event.target.files[0]);
-        var preview = document.getElementById("file-ip-1-preview");
-        preview.src = src;
-        preview.style.display = "block";
-      }
-    }
-</script-->
