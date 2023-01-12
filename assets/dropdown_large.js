@@ -1,65 +1,46 @@
-document.addEventListener("DOMContentLoaded", function(){
-    // Prevent closing from click inside dropdown
-    document.querySelectorAll('.dropdown-menu').forEach(function(element){
-        element.addEventListener('click', function (e) {
-            e.stopPropagation();
-        });
-    })
-    
+$(document).ready(function(){
+    $('.dropdown-menu').click(function(e){
+        e.stopPropagation();
+    });
+
     const myurl = $('#coursesMenu').attr('href');
-    $.get( { url: myurl, method: "GET", dataType : "json",} )
-    .done(function (response) {
-        licenceSpecialities = findFormationCycle(response,'licence') ? findFormationCycle(response,'licence').specialities : null;
-        masterSpecialities = findFormationCycle(response,'master') ? findFormationCycle(response,'master').specialities : null;
-        doctoratSpecialities = findFormationCycle(response,'doctorat') ? findFormationCycle(response,'doctorat').specialities : null;
+    $.ajax({
+        url: myurl,
+        method: "GET",
+        dataType: "json"
+    }).done(function (response) {
+        let licenceSpecialities = findFormationCycle(response,'licence') ? findFormationCycle(response,'licence').specialities : null;
+        let masterSpecialities = findFormationCycle(response,'master') ? findFormationCycle(response,'master').specialities : null;
+        let doctoratSpecialities = findFormationCycle(response,'doctorat') ? findFormationCycle(response,'doctorat').specialities : null;
 
-        $.each(licenceSpecialities, function(index,licenceSpecialities){
-            parentUrl  = $('#licenceItems').prev().children().eq(0).attr('href');
-            console.log();
-            $('#licenceItems').append(
-                `<li>
-                    <a href="${parentUrl+'/'+licenceSpecialities.slug}" class="text-decoration-none header-link">
-                        ${licenceSpecialities.label}
-                    </a>
-                </li>`
-            );
-        })
-
-        $.each(masterSpecialities, function(index,masterSpecialities){
-            parentUrl  = $('#masterItems').prev().children().eq(0).attr('href');
-            $('#masterItems').append(
-                `<li>
-                    <a href="${parentUrl+'/'+masterSpecialities.slug}" class="text-decoration-none header-link">
-                        ${masterSpecialities.label}
-                    </a>
-                </li>`
-            )
-        })
-
-        $.each(doctoratSpecialities, function(index,doctoratSpecialities){
-            parentUrl  = $('#licenceItems').prev().children().eq(0).attr('href');
-            $('#doctoratItems').append(
-                `<li>
-                    <a href="${parentUrl+'/'+doctoratSpecialities.slug}" class="text-decoration-none header-link">
-                        ${doctoratSpecialities.label}
-                    </a>
-                </li>`
-            )
-        })
-
-    
-    })
+        appendSpecialities('#licenceItems', licenceSpecialities);
+        appendSpecialities('#masterItems', masterSpecialities);
+        appendSpecialities('#doctoratItems', doctoratSpecialities);
+    });
 });
 
-const findFormationCycle = function (formaionCycles, label) {
-    const formationCycleReturned = formaionCycles.find(function(formationCycle, index){
-        return formationCycle.label.toLowerCase() === label.toLowerCase()
+function findFormationCycle(formaionCycles, label) {
+    return formaionCycles.find(function(formationCycle) {
+        return formationCycle.label.toLowerCase() === label.toLowerCase();
     });
-    return formationCycleReturned;
 }
 
-$("#coursesMenu").on('mouseenter',function(event){        
-    event.preventDefault() ;
-    
+function appendSpecialities(selector, specialities) {
+    if(!specialities) return;
+    let parentUrl = $(selector).prev().find('a').attr('href');
+
+    specialities.forEach(function(speciality){
+        $(selector).append(
+            `<li>
+                <a href="${parentUrl}/${speciality.slug}" class="text-decoration-none header-link">
+                    ${speciality.label}
+                </a>
+            </li>`
+        );
+    });
+}
+
+$("#coursesMenu").mouseenter(function(event){        
+    event.preventDefault();
     return false;
 });

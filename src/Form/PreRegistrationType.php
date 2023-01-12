@@ -27,6 +27,7 @@ class PreRegistrationType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => PreRegistration::class,
+            'attr' => ['id' => 'preRegistrationForm']
         ]);
     }
 }

@@ -23,4 +23,5 @@ import './datatable';
 import './dropdown_large';
 import './animations';
 import './owl_carousel';
+import './multisteps_form';
 
