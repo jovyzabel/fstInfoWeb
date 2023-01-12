@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichImageType;
@@ -17,6 +18,8 @@ class StudentType extends AbstractType
     {
         $builder
             ->add('pictureFile', VichImageType::class, [
+                'label' => 'photo identité',
+                'attr' => ['onchange' =>'showPreview(event)'],
                 'required' => false,
             ])
             ->add('civility',ChoiceType::class, [
@@ -27,12 +30,18 @@ class StudentType extends AbstractType
                 "label" => "Date de Naissance",
                 "widget" => "single_text"
             ])
-            ->add('birthPlace')
+            ->add('birthPlace', TextType::class, [
+                'label' => 'Lieu de Naissance'
+            ])
             ->add('telephone')
             ->add('nationality', CountryType::class)
             ->add('email')
-            ->add('name')
-            ->add('firstName')
+            ->add('name', TextType::class, [
+                'label' => 'Nom'
+            ])
+            ->add('firstName', TextType::class, [
+                'label' => 'Prénom'
+            ])
             ->add('address', AddressType::class)
         ;
     }
