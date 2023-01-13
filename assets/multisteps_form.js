@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    
     const addTagFormDeleteLink = (item) => {
         const removeFormButton = $('<button class="btn btn-warnig">').text('Supprimer');
         $(item).append(removeFormButton);
@@ -42,9 +43,9 @@ $(document).ready(function() {
             let $documentsRecap = $("#documentsRecap");
             $documentsRecap.empty();
             documentsList.forEach(function(el) {
-                $documentsRecap.append($("<tr>").text(el));
+                $documentsRecap.append($("<tr>").html(`<td >${el}</td>`));
             });
-            $("#recap").html(`<div class="mb-3 border-0 shadow-sm card">
+            $("#recap").html(`<div class="my-3">
             <div class="card-body">
                 <h5 class="card-title">Informations personnelles</h5>
                 <table class="table table-hover">
@@ -68,10 +69,10 @@ $(document).ready(function() {
                         <td>Lieu de naissance </td>
                         <td>${formData.get('pre_registration[student][birthPlace]')}</td>
                     </tr>
-                    {# <tr >
+                    <tr >
                         <td>Nationalité </td>
                         <td>{{ pre_registration.student.nationality }}</td>
-                    </tr> #}
+                    </tr>
                     
                 </table>
             </div>
@@ -131,11 +132,4 @@ $(document).ready(function() {
         $("#progress").css({ width: (formStepsNum + 1) / $(".progress-step").length * 100 + "%" });
     }
 
-    function showPreview(event) {
-        if (event.target.files.length > 0) {
-            var src = URL.createObjectURL(event.target.files[0]);
-            var preview = $("#file-ip-1-preview");
-            $(preview).attr("src", src).show();
-        }
-    }
 });

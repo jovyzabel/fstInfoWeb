@@ -3,9 +3,14 @@
 {% block title %}New PreRegistration{% endblock %}
 
 {% block body %}
-    <h1>Create new PreRegistration</h1>
 
-    {{ include('pre_registration/_form.html.twig') }}
+<div class="container">
+    <div class="py-5">
+        <h1 class="py-3" >Nouvelle préinscription</h1>
 
-    <a href="{{ path('app_pre_registration_index') }}">back to list</a>
+        {{ include('pre_registration/_form.html.twig') }}
+
+    </div>
+</div>
+
 {% endblock %}

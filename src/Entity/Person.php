@@ -57,13 +57,16 @@ class Person
 
     #[ORM\Column(length: 40)]
     #[Assert\Choice(['Monsieur', 'Madame'])]
-    private ?string $civility = null;
+    protected ?string $civility = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $description = null;
+    protected ?string $description = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $updatedAt = null;
+    protected ?\DateTimeInterface $updatedAt = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    protected ?string $nationality = null;
 
     public function __construct( ){
         $this->createdAt = new DateTimeImmutable();
@@ -183,6 +186,18 @@ class Person
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getNationality(): ?string
+    {
+        return $this->nationality;
+    }
+
+    public function setNationality(?string $nationality): self
+    {
+        $this->nationality = $nationality;
 
         return $this;
     }
