@@ -3,7 +3,10 @@
 namespace App\Controller\Admin;
 
 use App\Entity\AppOption;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 
 class AppOptionCrudController extends AbstractCrudController
 {
@@ -12,14 +15,13 @@ class AppOptionCrudController extends AbstractCrudController
         return AppOption::class;
     }
 
-    /*
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+            BooleanField::new('isPreEnrollPeriod'),
+            BooleanField::new('displayCISCOOnCarousel'),
+            AssociationField::new('currentAcademicYear'),
+            AssociationField::new('courseLeader'),
         ];
     }
-    */
 }

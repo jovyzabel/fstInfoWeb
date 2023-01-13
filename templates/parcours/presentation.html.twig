@@ -150,18 +150,21 @@
                             <h2>Partenaires</h2>
                             <div class="">
                                 <p>La formation en Informatique offre la possiblité de travailler dans plusieurs domaines des TIC</p>
+                                <div class="d-flex">
+                                    {% for partner in partners %}  
+                                    <div class="card border-0 m-3 p-3 shadow-sm">
+                                        <img src="{{asset('uploads/images/partenaires/' ~ partner.logoName)}}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h6 class="card-title">
+                                                <a href="{{partner.url}}" class="text-decoration-none text-dark">
+                                                    {{partner.label}}
+                                                </a>
+                                            </h6>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
                                 
-                                <ul>
-                                    <li>Administration systemes et réseaux</li>
-                                    <li>Administration et architecture de bases de données</li>
-                                    <li>Analyse et conception des Systemes d'informations</li>
-                                    <li>Architecture réseaux</li>
-                                    <li>Développement mobile</li>
-                                    <li>Développement web</li>
-                                    <li>Gestion de projet informatique</li>
-                                    <li>Maitrise d'oeuvre et maitrise d'ouvrage</li>
-                                    <li>Webmaster</li>
-                                </ul>
                             </div>       
                         </div>
                     </div>

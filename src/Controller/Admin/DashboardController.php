@@ -8,26 +8,28 @@ use App\Entity\Media;
 use App\Entity\Alumni;
 use App\Entity\Folder;
 use App\Entity\Account;
-use App\Entity\AppOption;
 use App\Entity\Article;
+use App\Entity\Partner;
 use App\Entity\Student;
 use App\Entity\Subject;
 use App\Entity\Teacher;
 use App\Entity\Category;
 use App\Entity\Document;
 use App\Entity\Semester;
+use App\Entity\AppOption;
 use App\Entity\Promotion;
 use App\Entity\Speciality;
 use App\Entity\SemesterUes;
 use App\Entity\SemesterType;
 use App\Entity\FormationCycle;
-use App\Entity\Partner;
 use App\Entity\PreRegistration;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use App\Controller\Admin\AcademicYearCrudController;
+use App\Entity\AcademicYear;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\UserMenu;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -63,7 +65,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('FstInfoWeb');
+            ->setTitle('Parcours informaatique');
     }
 
     public function configureMenuItems(): iterable
@@ -77,13 +79,14 @@ class DashboardController extends AbstractDashboardController
 
         ])->setPermission('ROLE_USER');
         yield MenuItem::subMenu('Parcours', 'fa fa-file-text')->setSubItems([
+            MenuItem::linkToCrud('Années academiques', 'fa fa-calendar', AcademicYear::class),
             MenuItem::linkToCrud('Cycles de formation', 'fa fa-books',FormationCycle::class),
             MenuItem::linkToCrud('Specialités', 'fa fa-books',Speciality::class),
             MenuItem::linkToCrud('Semestres', 'fa fa-books',Semester::class),
             MenuItem::linkToCrud('Type de semestre', 'fa fa-books',SemesterType::class),
             MenuItem::linkToCrud('UEs', 'fa fa-books',UE::class),
             MenuItem::linkToCrud('Matières', 'fa fa-book',Subject::class),
-            ])->setPermission('ROLE_USER');
+        ])->setPermission('ROLE_USER');
 
         yield MenuItem::subMenu('Préinscriptions', 'fa fa-file')->setSubItems([
             MenuItem::linkToCrud('Candidatures','fa fa-pencil', PreRegistration::class),
