@@ -21,8 +21,11 @@ class AppOption
     #[ORM\Column]
     private ?bool $displayCISCOOnCarousel = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $label = null;
+    #[ORM\OneToOne()]
+    private ?AcademicYear $currentAcademicYear = null;
+
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Teacher $courseLeader = null;
 
     public function getId(): ?int
     {
@@ -53,14 +56,26 @@ class AppOption
         return $this;
     }
 
-    public function getLabel(): ?string
+    public function getCurrentAcademicYear(): ?AcademicYear
     {
-        return $this->label;
+        return $this->currentAcademicYear;
     }
 
-    public function setLabel(?string $label): self
+    public function setCurrentAcademicYear(?AcademicYear $currentAcademicYear): self
     {
-        $this->label = $label;
+        $this->currentAcademicYear = $currentAcademicYear;
+
+        return $this;
+    }
+
+    public function getCourseLeader(): ?Teacher
+    {
+        return $this->courseLeader;
+    }
+
+    public function setCourseLeader(?Teacher $courseLeader): self
+    {
+        $this->courseLeader = $courseLeader;
 
         return $this;
     }

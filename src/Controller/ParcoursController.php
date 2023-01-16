@@ -7,6 +7,7 @@ use App\Entity\Speciality;
 use App\Entity\Teacher;
 use App\Repository\AlumniRepository;
 use App\Repository\FormationCycleRepository;
+use App\Repository\PartnerRepository;
 use App\Repository\TeacherRepository;
 use App\Repository\SemesterRepository;
 use Knp\Component\Pager\PaginatorInterface;
@@ -18,9 +19,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ParcoursController extends AbstractController
 {
     #[Route('/parcours/presentation', name: 'app_parcours_presentation')]
-    public function presentation(): Response
+    public function presentation(PartnerRepository $partnerRepository): Response
     {
         return $this->render('parcours/presentation.html.twig', [
+            'partners' => $partnerRepository->findAll(),
         ]);
     }
 

@@ -22,7 +22,7 @@ p {
 }
 
 table.content {
-    margin: 1.5rem 0 1rem 0;
+    margin: 1rem 0 1rem 0;
     border-collapse: collapse;
     border: 1px solid black;
     width: 100%;
@@ -67,7 +67,7 @@ table.content tr {
         <td></td>
         <td valign="top" align="right">
             <div >
-                <h6><span>Travail*Progrès*Humanité</span></h6>
+                <h5><span>Travail*Progrès*Humanité</span></h5>
                 <img src="{{ absolute_url(asset('img/logo_fst.jpg')) }}" width="70px"/>
             </div>
         </td>
@@ -83,7 +83,7 @@ table.content tr {
 </table>
 
 <div class="">
-    <p>Les étudiants dont les noms et prénoms suivent sont autorisés à s'inscrire aux semestres 3 et 4 du Parcours d'informatique au titre de l'année academique 2020-2021</p>
+    <p>Les étudiants dont les noms et prénoms suivent sont autorisés à s'inscrire aux semestres 3 et 4 du Parcours d'informatique au titre de l'année academique {{options.currentAcademicYear}} </p>
 </div>
 
     <table class="table content">
@@ -119,13 +119,14 @@ table.content tr {
         <tr>
             <td width="50%"></td>
             <td valign="top" align="right">
-                <p >Fait à brazzaville, le 31 Mars 2021</p>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
+                <p>Fait à brazzaville, le {{ "now"|date("d/m/Y", ) }}</p>
                 <p>Responsable du Parcours </p>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
             </td>
         </tr>
     </table>
@@ -134,7 +135,7 @@ table.content tr {
         <tr>
             <td width="50%"></td>
             <td valign="top" align="right">
-                <p>Pr Régis Freguin BABINDAMANA </p>
+                <p> {{options.courseLeader}} </p>
             </td>
         </tr>
     </table>

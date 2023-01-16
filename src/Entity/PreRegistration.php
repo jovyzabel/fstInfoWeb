@@ -30,6 +30,10 @@ class PreRegistration
     #[ORM\JoinColumn(nullable: false)]
     private ?Speciality $speciality = null;
 
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?AcademicYear $academicYear = null;
+
     public function __construct()
     {
         $this->createdAt = new DateTimeImmutable();
@@ -102,6 +106,18 @@ class PreRegistration
     public function setSpeciality(?Speciality $speciality): self
     {
         $this->speciality = $speciality;
+
+        return $this;
+    }
+
+    public function getAcademicYear(): ?AcademicYear
+    {
+        return $this->academicYear;
+    }
+
+    public function setAcademicYear(?AcademicYear $academicYear): self
+    {
+        $this->academicYear = $academicYear;
 
         return $this;
     }

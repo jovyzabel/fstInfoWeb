@@ -5,24 +5,24 @@
                 
             <div class="swiper-slide">
                 <div class="container">
-                    <div class="row flex-lg-row-reverse align-items-center">
-                        <div class="col-md-6 col-sm-8 col-lg-2 text-lg-center">
-                            <img src="{{asset('uploads/images/avatars/' ~ alumni.pictureName)}}" class="d-block rounded-circle float-lg-end img-fluid" alt="illustration temoigneur">
+                    <div class="row flex-lg-row-reverse justify-content-center">
+                        <div class="xs col-md-4 col-sm-6 col-lg-2 float-lg-end">
+                            <img src="{{asset('uploads/images/avatars/' ~ alumni.pictureName)}}" class="d-block rounded-circle img-fluid" alt="avatar temoigneur">
                         </div>
 
                         <div class="col-lg-10">
-                            <div class="py-5">
-                                <i class="fa-solid fa-quote-left text-light"></i>
+                            <div class="">
                                 <figure class="text-lg-end">
                                     <blockquote class="blockquote">
+                                        <i class="fa-solid fa-quote-left text-light"></i>
                                         <p class="text-light">{{alumni.testimonial}} </p>
+                                        <i class="fa-solid fa-quote-right text-light"></i>
                                     </blockquote>
                                     <figcaption class="blockquote-footer">
                                         <p class="h3 fw-bold text-light">{{alumni}}</p>
                                         <cite title="Source Title">{{alumni.profil}}</cite>
                                     </figcaption>
                                 </figure>
-                                <i class="fa-solid fa-quote-right text-light"></i>
                             </div>
         
                         </div>

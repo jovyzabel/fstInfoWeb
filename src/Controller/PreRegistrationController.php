@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Controller\Admin\PreRegistrationCrudController;
 use App\Entity\PreRegistration;
 use App\Form\PreRegistrationType;
+use App\Repository\AppOptionRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Workflow\Registry;
 use App\Repository\PreRegistrationRepository;
@@ -35,10 +36,11 @@ class PreRegistrationController extends AbstractController
     }
 
     #[Route('/preinscription-approuvees', name: 'app_pre_registration_approuved', methods: ['GET'])]
-    public function approuved(PreRegistrationRepository $preRegistrationRepository): Response
+    public function approuved(PreRegistrationRepository $preRegistrationRepository, AppOptionRepository $appOptionRepository): Response
     {
         $html = $this->render('pre_registration/approuved.html.twig', [
             'pre_registrations' => $preRegistrationRepository->findBy(['status' => 'Validée']),
+            'options' => $appOptionRepository->findAll()[0],
         ]);
 
         $pdfOptions = new Options();
@@ -73,8 +75,10 @@ class PreRegistrationController extends AbstractController
     
 
     #[Route('/new', name: 'app_pre_registration_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, PreRegistrationRepository $preRegistrationRepository): Response
+    public function new(Request $request, PreRegistrationRepository $preRegistrationRepository, AppOptionRepository $appOptionRepository): Response
     {
+        $appOptions = $appOptionRepository->findAll()[0];
+
         $preRegistration = new PreRegistration();
         $form = $this->createForm(PreRegistrationType::class, $preRegistration);
         $form->handleRequest($request);
@@ -86,6 +90,11 @@ class PreRegistrationController extends AbstractController
                 $workflow->apply($preRegistration, 'to_validation_pending');
             } catch (LogicException $e) {
                 echo $e->getMessage();
+            }
+            try {
+                $preRegistration->setAcademicYear($appOptions->getCurrentAcademicYear());    
+            } catch (\Throwable $th) {
+                throw $th;
             }
 
             $preRegistrationRepository->save($preRegistration, true);
