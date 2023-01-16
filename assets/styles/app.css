@@ -184,7 +184,6 @@ button.accordion-button:focus, #myTab li a:hover {
 
 .swiper-slide img {
     display: block;
-    width: 100%;
     object-fit: cover;
 }
 
@@ -279,12 +278,18 @@ button.accordion-button:focus, #myTab li a:hover {
 
 @media all and (min-width: 992px) {
     .dropdown-large {
-        min-width: 992px;
+        min-width: 780px;
         right: auto;
         left: 50%;
         -webkit-transform: translate(-50%, 0);
         -o-transform: translate(-50%, 0);
         transform: translate(-50%, 0);
 
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    div.xs {
+        width: 50%;
     }
 }
