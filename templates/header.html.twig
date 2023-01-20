@@ -45,24 +45,26 @@
                             Parcours
                         </a>
                         <div class="dropdown-menu dropdown-large border-0">
-                            <div class="row">
-                                <div class="col-lg-3 mb-md-3">
-                                    <h5 class="title fw-bold"><a href="{{path('app_formation_cycle', {'slug': 'doctorat'})}}" class="text-dark text-decoration-none">Doctorat</a></h5>
-                                    <ul id="doctoratItems" class="list-unstyled"></ul>
-                                </div>
-                                <div class="col-lg-3 mb-md-3">
-                                    <h5 class="title fw-bold"><a href="{{path('app_formation_cycle', {'slug': 'master'})}}" class="text-dark text-decoration-none">Master</a></h5>
-                                    <ul id="masterItems" class="list-unstyled"></ul>
-                                </div>
-                                <div class="col-lg-3 mb-md-3">
-                                    <h5 class="title fw-bold"><a href="{{path('app_formation_cycle', {'slug': 'licence'})}}" class="text-dark text-decoration-none">Licence</a></h5>
-                                    <ul id="licenceItems" class="list-unstyled"></ul>
-                                </div>
-                                <div class="col-lg-3 mb-md-3">
-                                    <h5 class="title fw-bold"><a href="{{path('app_formation_cycle', {'slug': 'certification'})}}" class="text-dark text-decoration-none">Certifications</a></h5>
-                                    <ul id="doctoratItems" class="list-unstyled"></ul>
-                                </div>
-                            </div><!-- end row -->
+                            <div class="">
+                                <div class="row">
+                                    <div class="col-lg-3 mb-md-3">
+                                        <h5 class="title fw-bold"><a href="{{path('app_formation_cycle', {'slug': 'doctorat'})}}" class="text-dark text-decoration-none">Doctorat</a></h5>
+                                        <ul id="doctoratItems" class="list-unstyled"></ul>
+                                    </div>
+                                    <div class="col-lg-3 mb-md-3">
+                                        <h5 class="title fw-bold"><a href="{{path('app_formation_cycle', {'slug': 'master'})}}" class="text-dark text-decoration-none">Master</a></h5>
+                                        <ul id="masterItems" class="list-unstyled"></ul>
+                                    </div>
+                                    <div class="col-lg-3 mb-md-3">
+                                        <h5 class="title fw-bold"><a href="{{path('app_formation_cycle', {'slug': 'licence'})}}" class="text-dark text-decoration-none">Licence</a></h5>
+                                        <ul id="licenceItems" class="list-unstyled"></ul>
+                                    </div>
+                                    <div class="col-lg-3 mb-md-3">
+                                        <h5 class="title fw-bold"><a href="{{path('app_formation_cycle', {'slug': 'certification'})}}" class="text-dark text-decoration-none">Certifications</a></h5>
+                                        <ul id="doctoratItems" class="list-unstyled"></ul>
+                                    </div>
+                                </div><!-- end row -->
+                            </div>
                         </div> <!-- dropdown-large.// -->
                     </li>
                     <li>
@@ -71,7 +73,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ path('app_pre_registration_new') }}"
+                        <a href="{{ path('app_pre_registration_index') }}"
                             class="nav-link px-2 header-link py-3">
                         Préinscription
                         </a>

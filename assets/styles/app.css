@@ -151,9 +151,15 @@ button.accordion-button {
     font-weight: bold;
 }
 
+
 button.accordion-button:focus, #myTab li a:hover {
     color: #2f0f55;
     background-color: #ffffff;
+}
+
+button.ue-accordion.accordion-button::after {
+    flex-shrink: 0;
+    margin-left: 0;
 }
 
 /* Swiper js */

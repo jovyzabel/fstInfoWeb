@@ -11,7 +11,7 @@
 <div class="container">
 	<div class="">
 		{% if speciality.description %}
-		<div class="">
+		<div class="row">
 			<h3>Description</h3>
 			<div>
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id autem commodi modi quaerat neque, aspernatur ad porro sint fugit consectetur doloribus qui odit tempore a, amet, quibusdam corrupti expedita non?</p>
@@ -28,7 +28,7 @@
 		{% endif %}
 
 		{% if speciality.targetedSkills %}
-		<div class="">
+		<div class="row">
 			<h3>Compétences visées</h3>
 			<div>{{speciality.targetedSkills |raw}}</div>
 		</div>
@@ -56,15 +56,15 @@
 										
 										<div class="accordion-item">
 											<h2 class="accordion-header" id="flush-heading-{{ue.code}}">
-												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne{{ue.code}}" aria-expanded="false" aria-controls="flush-collapseOne{{ue.code}}">
-												{{ue.label}}
+												<button class="ue-accordion accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne{{ue.code}}" aria-expanded="false" aria-controls="flush-collapseOne{{ue.code}}">
+												{{ue.label}} <span class="me-1 ms-auto badge text-bg-secondary">{{ue.credits}} crédits</span>
 												</button>
 											</h2>
 											<div id="flush-collapseOne{{ue.code}}" class="accordion-collapse collapse" aria-labelledby="flush-heading-{{ue.code}}" data-bs-parent="#accordionFlushExample">
 												<div class="accordion-body">
 													<ul class="list-unstyled">
 														{% for subject in ue.subjects %}
-															<li>{{subject}}</li>
+															<li class="d-flex">{{subject}}  <span class="me-0 ms-auto badge text-bg-secondary">{{subject.credits}} crédits</span></li>
 														{% endfor %}
 													</ul>
 												</div>

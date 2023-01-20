@@ -1,4 +1,3 @@
-
 <div class="swiper headerCarousel bg-primary">
     <div class="swiper-wrapper">
 
@@ -21,7 +20,9 @@
         {% for item in carousel_items %}
         <div class="swiper-slide specifical-bg-3-testimonial">
             <div class="mx-auto text-center">
+                {% if item.featuredImage %} 
                 <img src="{{asset('uploads/images/news/' ~ item.featuredImage.filename)}}" height="580px"> <!-- center this image within the column -->
+                {% endif %}
                 <div class="container">
                     <div class="carousel-caption text-center">
                         <h3 class="h1">{{item.title}}</h3>
@@ -37,7 +38,7 @@
 
         <div class="swiper-slide specifical-bg-3-testimonial">
             <div class="mx-auto text-center">
-                <img src="https://via.placeholder.com/1600x600.png" height="580px"> <!-- center this image within the column -->
+                <img src="{{asset('img/goals.jpg')}}" height="580px"> <!-- center this image within the column -->
                 <div class="container">
                     <div class="carousel-caption text-start">
                         <h3 class="h1">Missions du parcours</h3>
