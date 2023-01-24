@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 
 class FormationCycleCrudController extends AbstractCrudController
@@ -28,6 +29,7 @@ class FormationCycleCrudController extends AbstractCrudController
                     'Certification' => 'Certification'
                 ]),
             TextField::new('code'),
+            AssociationField::new('featuredImage'),
             SlugField::new('slug')->setTargetFieldName('label'),
         ];
     }

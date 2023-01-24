@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Presentation{% endblock %}
+{% block title %}Présentation{% endblock %}
 
 {% block body %}
 
@@ -43,17 +43,16 @@
                 <div id="collapseOne" class="accordion-collapse collapse show  d-lg-block" aria-labelledby="headingOne" data-bs-parent="#myTabContent">
                     <div class="accordion-body mt-0">
                         <div class="">
-                        <h2>Context de création</h2>
-                        <div class="row">
-                            <div class="col-sm-12 col-md-6 col-lg-8">
-                                <p>Odio officia assumenda doloremque nostrum a laudantium! Ducimus officia impedit, accusamus doloribus magni earum id ipsa libero hic quia! Veritatis ex saepe a. Laborum ad architecto quod repellat facilis debitis. Non magni corrupti sunt esse, tenetur laboriosam fugit odit itaque sequi assumenda adipisci molestiae id porro? Nihil consequatur quisquam nam quos similique quis, perferendis alias fugit.</p>
-                                <p>Molestiae necessitatibus esse eius incidunt voluptates, quod ullam nam rem perferendis corrupti expedita sequi veritatis enim quam? Harum alias deleniti, aliquam ipsum omnis illo, animi neque vero possimus excepturi eligendi aut? Optio impedit molestias recusandae velit eaque fuga, rerum voluptatum repellendus deserunt cumque minima placeat consectetur doloremque reiciendis quam inventore sed harum similique quos dolorem corporis ipsam enim unde! Quae quidem at reprehenderit magni quasi iure animi?</p>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <img src=" {{asset('img/Logo_parcours.png')}} " alt="" class="img-fluid">
+                            <h2>Context de création</h2>
+                            <div class="row justify-content-center my-3">
+                                <div class="col-12 text-center mb-4">
+                                    <img src=" {{asset('img/context.jpg')}} " alt="" class="img-fluid">
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <p>Odio officia assumenda doloremque nostrum a laudantium! Ducimus officia impedit, accusamus doloribus magni earum id ipsa libero hic quia! Veritatis ex saepe a. Laborum ad architecto quod repellat facilis debitis. Non magni corrupti sunt esse, tenetur laboriosam fugit odit itaque sequi assumenda adipisci molestiae id porro? Nihil consequatur quisquam nam quos similique quis, perferendis alias fugit.</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </div>
                 </div>
             </div>
@@ -67,9 +66,13 @@
                     <div class="accordion-body">
                         <div class="">
                             <h2>Objectifs du parcours</h2>
-                            <div class="">
-                                <p>L’objectif du parcours Informatique de la faculté des sciences et Techniques de l’Université Marien NGOUABI est de fournir une solide formation générale en informatique. La spécialisation en informatique se fait progressivement dans le parcours tout en conservant en permanence une place aux enseignements des compétences transversales. La formation se conclut par un stage en entreprise de 3 mois.</p>
-                                <p>Vel voluptates quas porro sint deserunt architecto cum enim minus nobis quasi, at nisi quos velit, voluptas voluptatum fugiat ex consequatur necessitatibus impedit itaque quaerat fugit voluptatibus, maxime ducimus! A, dicta! Dignissimos saepe sed veritatis omnis sapiente voluptate autem corrupti, ullam consequatur deserunt eum voluptatem enim itaque temporibus quasi fugiat doloremque tenetur, voluptates amet. Itaque autem repellat exercitationem, nisi, ad modi minima at ut excepturi mollitia nulla dicta blanditiis veniam tenetur perferendis. Veniam, earum maiores corporis culpa esse accusamus laborum deserunt laudantium!</p>
+                            <div class="row justify-content-center my-3">
+                                <div class="col-12 mb-4">
+                                    <img src=" {{asset('img/objectifs.jpg')}} " alt="" class="img-fluid">
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <p>L’objectif du parcours Informatique de la faculté des sciences et Techniques de l’Université Marien NGOUABI est de fournir une solide formation générale en informatique. La spécialisation en informatique se fait progressivement dans le parcours tout en conservant en permanence une place aux enseignements des compétences transversales. La formation se conclut par un stage en entreprise de 3 mois.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -85,18 +88,20 @@
                     <div class="accordion-body">
                         <div class="">
                             <h2>Missions et valeurs</h2>
-                            <div class="">
-                                <p>L’ensemble des formations du département informatique offre un environnement d’études de qualité pour réussir ses études en informatique :</p>
-                                <ul>
-                                    <li>forte employabilité à l’issue de la formation ;</li>
-                                    <li>forte interaction avec le milieu professionnel : stages, alternance ;</li>
-                                    <li>une formation à la recherche et à l’innovation ;</li>
-                                    <li>750 étudiants dont plus de 100 alternants ;</li>
-                                    <li>un parc de 450 PC récents ;</li>
-                                    <li>des droits d’inscriptions faibles.</li>
-                                </ul>
-
-                                <p>Les 70 enseignants/chercheurs membres du Centre de recherche en Informatique et Automatique de Lille (CRIStAL) et du centre de recherche Inria Lille - Nord Europe forment un corps enseignant hautement qualifié que viennent compléter plus de 25 intervenants issus du monde de l’entreprise.</p>
+                            <div class="row justify-content-center my-3">
+                                <div class="col-12 mb-4">
+                                    <img src=" {{asset('img/missions.jpg')}} " alt="" class="img-fluid">
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <p>L’ensemble des formations du département informatique offre un environnement d’études de qualité pour réussir ses études en informatique :</p>
+                                    <ul>
+                                        <li>forte employabilité à l’issue de la formation ;</li>
+                                        <li>forte interaction avec le milieu professionnel : stages, alternance ;</li>
+                                        <li>une formation à la recherche et à l’innovation ;</li>
+                                        <li>750 étudiants dont plus de 100 alternants ;</li>
+                                        <li>des droits d’inscriptions faibles.</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>

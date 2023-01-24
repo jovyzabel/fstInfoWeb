@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}PreRegistration index{% endblock %}
+{% block title %}Préinscription en ligne{% endblock %}
 
 {% block body %}
 
@@ -9,22 +9,25 @@
 <div class="container">
 
 
-    <div class="row">
-        <div class="col-md-6">
-            <p>
-                La « Préinscription en ligne » a été initié dans le but de faciliter les inscriptions au Parcours d'Informatique de la Faculté des Sciences et Techniques.
-            </p>
-            <p>
-                Tous les étudiants désirant rejoindre le parcours doivent obligatoirement effectuer la préinscription en ligne avant de se présenter au 
-                niveau du parcours pour finaliser leur inscription. 
-            </p>
+    <div class="row flex-lg-row-reverse">
+        <div class="col-md-6" data-sal="slide-left" style="--sal-duration: 2s;">
+            <img src="{{asset('img/preinscription_2.png')}}" class="img-fluid" > <!-- center this image within the column -->
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6" data-sal="slide-right" style="--sal-duration: 2s;">
+            <div class="mb-5">
+                <p>
+                    La « Préinscription en ligne » a été initié dans le but de faciliter les inscriptions au Parcours d'Informatique de la Faculté des Sciences et Techniques.
+                </p>
+                <p>
+                    Tous les étudiants désirant rejoindre le parcours doivent obligatoirement effectuer la préinscription en ligne avant de se présenter au 
+                    niveau du parcours pour finaliser leur inscription. 
+                </p>
+            </div>
+            <a href="{{ path('app_pre_registration_new') }}" class="btn btn-lg text-light specifical-bg-1 shadow">Nouvelle préinscription</a>
         </div>
     </div>
 
     
-    <a href="{{ path('app_pre_registration_new') }}" class="btn btn-large shadow">Nouvelle préinscription</a>
 
 </div>
 {% endblock %}

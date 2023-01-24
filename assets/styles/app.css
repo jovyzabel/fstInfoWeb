@@ -190,6 +190,7 @@ button.ue-accordion.accordion-button::after {
 
 .swiper-slide img {
     display: block;
+    width: 100%;
     object-fit: cover;
 }
 
@@ -280,6 +281,10 @@ button.ue-accordion.accordion-button::after {
 
 .dropdown-large {
     padding: .5rem;
+}
+
+.carousel-box {
+    background-color: rgba(0, 0, 0, .35);
 }
 
 @media all and (min-width: 992px) {

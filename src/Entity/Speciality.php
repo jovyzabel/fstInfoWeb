@@ -52,6 +52,9 @@ class Speciality
     #[ORM\OneToMany(mappedBy: 'speciality', targetEntity: PreRegistration::class)]
     private Collection $preRegistrations;
 
+    #[ORM\ManyToOne]
+    private ?Media $featuredImage = null;
+
     public function __construct()
     {
         $this->semesters = new ArrayCollection();
@@ -220,6 +223,18 @@ class Speciality
                 $preRegistration->setSpeciality(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getFeaturedImage(): ?Media
+    {
+        return $this->featuredImage;
+    }
+
+    public function setFeaturedImage(?Media $featuredImage): self
+    {
+        $this->featuredImage = $featuredImage;
 
         return $this;
     }
