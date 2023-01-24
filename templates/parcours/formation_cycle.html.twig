@@ -10,7 +10,9 @@
 
 	<div class="row flex-lg-row-reverse align-items-center g-5 py-5">
     	<div class="col-10 col-sm-8 col-lg-6" data-sal="slide-left" style="--sal-duration: 2s;">
-			<img src="{{asset('uploads/images/news/' ~ formation_cycle.featuredImage.filename)}}" class="img-fluid"> <!-- center this image within the column -->
+			{% if formation_cycle.featuredImage %}
+			<img src="{{asset('uploads/images/news/' ~ formation_cycle.featuredImage.filename)}}" class="img-fluid rounded"> <!-- center this image within the column -->
+			{% endif %}
     	</div>
     	<div class="col-lg-6" data-sal="slide-right" style="--sal-duration: 2s;">
 			<h1 class="display-5 fw-bold lh-1 mb-3">No spécialités de {{formation_cycle.label}}</h1>
@@ -39,7 +41,9 @@
 				<a type="button" class="btn btn-lg specifical-bg-1 text-light rounded-pill shadow px-4 me-md-2">En savoir plus</a>
 			</div>
 			<div class="col-md-5 order-md-1" data-sal="fade" style="--sal-duration: 2s;">
-				<svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+				{% if speciality.featuredImage %}
+				<img src="{{asset('uploads/images/news/' ~ speciality.featuredImage.filename)}}" class="img-fluid rounded"> <!-- center this image within the column -->
+				{% endif %}
 			</div>
 		</div>	
 		{% endfor %}

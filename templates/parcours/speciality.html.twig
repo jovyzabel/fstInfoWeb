@@ -8,6 +8,10 @@
 
 <div class="container">
 	<div class="">
+		{% if speciality.featuredImage %}
+		<img src="{{asset('uploads/images/news/' ~ speciality.featuredImage.filename)}}" class="img-fluid rounded"> <!-- center this image within the column -->
+		{% endif %}
+
 		{% if speciality.description %}
 		<div class="row">
 			<h3>Description</h3>

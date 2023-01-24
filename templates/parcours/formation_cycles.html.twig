@@ -41,7 +41,9 @@
 				</ul>
 			</div>
 			<div class="col-md-5 col-lg-6 order-md-1" data-sal="slide-in" style="--sal-duration: 2s;">
-                <img src="{{asset('uploads/images/news/' ~ doctorat.featuredImage.filename)}}" class="img-fluid"> <!-- center this image within the column -->
+				{% if doctorat.featuredImage %}
+				<img src="{{asset('uploads/images/news/' ~ doctorat.featuredImage.filename)}}" class="img-fluid rounded"> <!-- center this image within the column -->
+				{% endif %}
 			</div>
 		</div>
 		{% endif %}
@@ -65,8 +67,10 @@
 				
 			</div>
 			<div class="col-md-5 col-lg-6 order-md-1" data-sal="slide-in" style="--sal-duration: 2s;">
-                <img src="{{asset('uploads/images/news/' ~ master.featuredImage.filename)}}" class="img-fluid"> <!-- center this image within the column -->
-			</div>
+				{% if master.featuredImage %}
+				<img src="{{asset('uploads/images/news/' ~ master.featuredImage.filename)}}" class="img-fluid rounded"> <!-- center this image within the column -->
+				{% endif %}
+            </div>
 		</div>
 		{% endif %}
 
@@ -88,8 +92,10 @@
 				{% endif %}
 			</div>
 			<div class="col-md-5 col-lg-6 order-md-1" data-sal="slide-in" style="--sal-duration: 2s;">
-                <img src="{{asset('uploads/images/news/' ~ licence.featuredImage.filename)}}" class="img-fluid"> <!-- center this image within the column -->
-			</div>
+				{% if licence.featuredImage %}
+				<img src="{{asset('uploads/images/news/' ~ licence.featuredImage.filename)}}" class="img-fluid rounded"> <!-- center this image within the column -->
+				{% endif %}
+            </div>
 		</div>
 		{% endif %}
 
@@ -111,7 +117,9 @@
 				{% endif %}
 			</div>
 			<div class="col-md-5 col-lg-6 order-md-1" data-sal="slide-in" style="--sal-duration: 2s;">
-				<img src="{{asset('uploads/images/news/' ~ certification.featuredImage.filename)}}" class="img-fluid"> <!-- center this image within the column -->
+				{% if certification.featuredImage %}
+				<img src="{{asset('uploads/images/news/' ~ certification.featuredImage.filename)}}" class="img-fluid rounded"> <!-- center this image within the column -->
+				{% endif %}
 			</div>
 		</div>
 		{% endif %}
