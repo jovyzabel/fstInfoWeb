@@ -18,10 +18,13 @@ class Student extends Person
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $birthDay = null;
 
+    #[ORM\Column(length: 255)]
     private ?string $birthPlace = null;
 
+    #[ORM\Column(length: 255)]
     private ?string $telephone = null;
 
+    #[ORM\Column(length: 255)]
     private ?string $email = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]

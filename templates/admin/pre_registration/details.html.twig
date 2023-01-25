@@ -74,11 +74,10 @@
                         <td>Lieu de naissance </td>
                         <td>{{ pre_registration.student.birthPlace }}</td>
                     </tr>
-                    {# <tr >
+                    <tr >
                         <td>Nationalité </td>
-                        <td>{{ pre_registration.student.nationality }}</td>
-                    </tr> #}
-                    
+                        <td>{{ pre_registration.student.nationality |country_name('fr') }}</td>
+                    </tr>
                 </table>
             </div>
         </div>
