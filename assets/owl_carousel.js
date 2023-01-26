@@ -44,7 +44,7 @@ const swiper = new Swiper('.owl-carousel', {
 const carousel = new Swiper('.headerCarousel', {
   modules: [ Navigation, Pagination, Autoplay, EffectFade ],
   slidesPerView: 1,
-  // effect: "fade",
+  spaceBetween: 10,
   loop: true,
   grabCursor: true,
   autoplay: {
@@ -59,10 +59,12 @@ const carousel = new Swiper('.headerCarousel', {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
-  // fadeEffect: {
-
-  //   crossFade: true
-  // },
+  breakpoints: {
+    // when window width is >= 320px
+    320: {
+      slidesPerView: 1,
+    },
+  }
 })
 const testimonialcarousel = new Swiper('.testimonialCarousel', {
   modules: [ Pagination, Autoplay ],

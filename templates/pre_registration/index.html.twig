@@ -1,37 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}PreRegistration index{% endblock %}
+{% block title %}Préinscription en ligne{% endblock %}
 
 {% block body %}
-    <h1>PreRegistration index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>CreatedAt</th>
-                <th>Status</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for pre_registration in pre_registrations %}
-            <tr>
-                <td>{{ pre_registration.id }}</td>
-                <td>{{ pre_registration.createdAt ? pre_registration.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ pre_registration.status }}</td>
-                <td>
-                    <a href="{{ path('app_pre_registration_show', {'id': pre_registration.id}) }}">show</a>
-                    <a href="{{ path('app_pre_registration_edit', {'id': pre_registration.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+{% include "pre_registration/_heading.html.twig" %} <br>   
 
-    <a href="{{ path('app_pre_registration_new') }}">Create new</a>
+<div class="container">
+
+
+    <div class="row flex-lg-row-reverse">
+        <div class="col-md-6" data-sal="slide-left" style="--sal-duration: 2s;">
+            <img src="{{asset('img/preinscription_2.png')}}" class="img-fluid" > <!-- center this image within the column -->
+        </div>
+        <div class="col-md-6" data-sal="slide-right" style="--sal-duration: 2s;">
+            <div class="mb-5">
+                <p>
+                    La « Préinscription en ligne » a été initié dans le but de faciliter les inscriptions au Parcours d'Informatique de la Faculté des Sciences et Techniques.
+                </p>
+                <p>
+                    Tous les étudiants désirant rejoindre le parcours doivent obligatoirement effectuer la préinscription en ligne avant de se présenter au 
+                    niveau du parcours pour finaliser leur inscription. 
+                </p>
+            </div>
+            <a href="{{ path('app_pre_registration_new') }}" class="btn btn-lg text-light specifical-bg-1 shadow">Nouvelle préinscription</a>
+        </div>
+    </div>
+
+    
+
+</div>
 {% endblock %}

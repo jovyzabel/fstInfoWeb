@@ -85,6 +85,8 @@ class PreRegistrationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+            $preRegistration->setStatus('Créée');
+
             try {
                 $workflow = $this->registry->get($preRegistration, 'pre_registration_process');
                 $workflow->apply($preRegistration, 'to_validation_pending');

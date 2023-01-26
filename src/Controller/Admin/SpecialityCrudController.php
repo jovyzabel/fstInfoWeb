@@ -25,6 +25,7 @@ class SpecialityCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             TextField::new('label'),
             TextField::new('code'),
+            AssociationField::new('featuredImage'),
             AssociationField::new('formationCycle'),
             TextEditorField::new('goals'),
             TextEditorField::new('targetedSkills'),

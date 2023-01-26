@@ -1,6 +1,8 @@
 import validate from "jquery-validation";
 require('jquery-validation/dist/additional-methods')
 $(document).ready(function() {
+
+    const regionNames = new Intl.DisplayNames(['fr'], {type: 'region'});
     
     $('#preRegistrationForm').validate({
         errorElement: 'span',
@@ -82,7 +84,7 @@ $(document).ready(function() {
         /**Ajout des validateurs pour le label et le cichier du document */
         $.validator.addMethod('filesize', function (value, element, param) {
             return this.optional(element) || (element.files[0].size <= param)
-        }, 'La taille du ficchier doit être inferieur à {0}');
+        }, 'La taille du ficchier doit être inferieur à 2MB');
 
         $.validator.addClassRules({
             document_label: {
@@ -92,7 +94,7 @@ $(document).ready(function() {
             document_file: {
                 required: true,
                 extension: "pdf",
-                filesize: 2000
+                filesize: 2097152
             }
             });
     };
@@ -149,7 +151,7 @@ $(document).ready(function() {
                     </tr>
                     <tr >
                         <td>Nationalité </td>
-                        <td>{{ pre_registration.student.nationality }}</td>
+                        <td>${regionNames.of(formData.get('pre_registration[student][nationality]'))}</td>
                     </tr>
                     
                 </table>
@@ -167,7 +169,7 @@ $(document).ready(function() {
                             ${formData.get('pre_registration[student][address][street_name]')},
                             ${formData.get('pre_registration[student][address][quater_name]')},
                             ${formData.get('pre_registration[student][address][city]')},
-                            ${formData.get('pre_registration[student][address][country]')}
+                            ${regionNames.of(formData.get('pre_registration[student][address][country]'))}
 
                         </td>
                     </tr>

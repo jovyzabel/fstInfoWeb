@@ -1,8 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}
-Presentation
-{% endblock %}
+{% block title %}Admission{% endblock %}
 
 {% block body %}
 
@@ -11,9 +9,9 @@ Presentation
 <div class="container">
     <div>
         <div class="">
-            <h1 class="my-3 py-3">Modalité d'admission / Conditions d'accès</h1>
+            <h1 class="my-3 py-3" data-sal="fade" style="--sal-duration: 3s;">Modalité d'admission / Conditions d'accès</h1>
 			<div class="row my-3">
-				<div class="col-sm-12 col-lg-6">
+				<div class="col-sm-12 col-lg-6" data-sal="slide-left" style="--sal-duration: 2s;">
 					<p>
 						La condition requise pour s'inscrire au parcours Informatique de la 
 						Faculté de Science et Techniques est de valider la première année de 
@@ -34,8 +32,8 @@ Presentation
 					</p>
 				</div>
 
-				<div class="d-none d-md-none d-lg-block col-lg-6">
-					<img src=" {{asset('img/african_students_810x541.jpg')}} " class="img-fluid">
+				<div class="d-none d-md-none d-lg-block col-lg-6" data-sal="slide-right" style="--sal-duration: 2s;">
+					<img src=" {{asset('img/admission.jpg')}} " class="img-fluid">
 				</div>	
 			</div>
         </div>
