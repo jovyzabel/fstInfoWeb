@@ -3,7 +3,7 @@
 
         <div class="swiper-slide bg-white">
             <div class="mx-auto text-center">
-                <img src="{{asset('img/offre_de_formation.jpg')}}" height="580px"> <!-- center this image within the column -->
+                <img src="{{asset('img/offre_de_formation.jpg')}}" height="580px" alt="offre de formation"> <!-- center this image within the column -->
                 <div class="container">
                     <div class="carousel-caption carousel-box text-center p-3">
                         <h3 class="h1">Découvrez notre offre de formation</h3>
@@ -18,7 +18,7 @@
 
         <div class="swiper-slide">
             <div class="mx-auto text-center">
-                <img src="{{asset('img/preinscription.jpg')}}" height="580px"> <!-- center this image within the column -->
+                <img src="{{asset('img/preinscription.jpg')}}" height="580px" alt="Préinscription"> <!-- center this image within the column -->
                 <div class="">
                     <div class="carousel-caption carousel-box text-center p-3">
                         <h3 class="h1">Préinscription en ligne</h3>
@@ -33,11 +33,11 @@
 
         <div class="swiper-slide">
             <div class="mx-auto text-center">
-                <img src="{{asset('img/goals.png')}}" height="580px"> <!-- center this image within the column -->
+                <img src="{{asset('img/goals.png')}}" height="580px" alt="Missions du parcours"> <!-- center this image within the column -->
                 <div class="container">
                     <div class="carousel-caption carousel-box text-start p-3">
                         <h3 class="h1">Missions du parcours</h3>
-                            <p class="text-light lead h1">Nous accompagnons les étudiant.e.s vers la réussite dans le cadre d’une formation qui donne des clés d’orientation et d’insertion professionnelle...</p>
+                            <p class="text-light lead h1">Nous accompagnons les étudiant(e)s vers la réussite dans le cadre d’une formation qui donne des clés d’orientation et d’insertion professionnelle...</p>
                         <p>
                             <a class="btn specifical-bg-1 text-light btn-lg rounded-pill" href="">Decouvrez plus</a>
                         </p>
@@ -51,7 +51,7 @@
         <div class="swiper-slide">
             <div class="mx-auto text-center">
                 {% if item.featuredImage %} 
-                <img src="{{asset('uploads/images/news/' ~ item.featuredImage.filename)}}" height="580px"> <!-- center this image within the column -->
+                <img src="{{asset('uploads/images/news/' ~ item.featuredImage.filename)}}" height="580px" alt="Etudiant(e)s"> 
                 {% endif %}
                 <div class="container">
                     <div class="carousel-caption carousel-box text-center p-3">
