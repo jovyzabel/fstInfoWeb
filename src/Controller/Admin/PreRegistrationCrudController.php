@@ -32,6 +32,11 @@ class PreRegistrationCrudController extends AbstractCrudController
         return PreRegistration::class;
     }
 
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud->setEntityPermission('ROLE_ADMIN');
+    }
+
     public function configureActions(Actions $actions): Actions
     {
         $showAction = Action::new(self::SHOW, 'Détails')

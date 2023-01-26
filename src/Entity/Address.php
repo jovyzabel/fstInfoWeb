@@ -31,9 +31,21 @@ class Address
     private ?string $quater_name = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Length(min: 2,)]
+    #[Assert\Regex([
+        'pattern' => '/\d/',
+        'match' => false,
+        'message' => 'Entrez un lieu exact',
+    ]),]
     private ?string $city = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Length(min: 2,)]
+    #[Assert\Regex([
+        'pattern' => '/\d/',
+        'match' => false,
+        'message' => 'Entrez un lieu exact',
+    ]),]
     private ?string $country = null;
 
     public function getId(): ?int
