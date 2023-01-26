@@ -37,10 +37,9 @@
                 <div class="offset-top-30 row my-3">
                     <div class="col-sm-12 col-lg-6">
                         <div class="text-center">
-                            <a class="btn btn-sm btn-outline-danger me-1" href="#">News</a>
-                            <a class="btn btn-sm btn-outline-danger me-1 text-italic" href="#">Colleges</a>
-                            <a class="btn btn-sm btn-outline-danger me-1 text-italic" href="#">Liberal Arts</a>
-                            <a class="btn btn-sm btn-outline-danger me-1 text-italic" href="#">University</a>
+                            {% for category in article.categories %}
+                            <a class="btn btn-sm btn-outline-danger me-1 text-italic" href="#">{{category.label}}</a>
+                            {% endfor %}
                         </div>
                     </div>
                     <div class="col-sm-12 col-lg-6">

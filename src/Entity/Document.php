@@ -7,6 +7,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\DocumentRepository;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 
@@ -25,6 +26,11 @@ class Document
     #[ORM\Column(length: 255)]
     private ?string $documentName = null;
 
+    #[Assert\File(
+        maxSize: '1024k',
+        mimeTypes: ['application/pdf', 'application/x-pdf'],
+        mimeTypesMessage: 'Please upload a valid PDF',
+    )]
     #[Vich\UploadableField(mapping: 'enrollment_documents', fileNameProperty: 'documentName')]
     private ?File $documentFile = null;
     
