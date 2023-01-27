@@ -104,7 +104,14 @@
             <div class="form-step">
                 <div class="inputs-group row">
                     <div class="col-12">
-                        {{ form_row(form.speciality) }}
+                        <div class="row">
+                            <div class="col-6">
+                            {{ form_row(form.speciality) }}
+                            </div>
+                            <div class="col-6">
+                            {{ form_row(form.preRegistrationType) }}
+                            </div>
+                        </div>
                     </div>
                     <div class="col-12">
                         <ul class="documents list-unstyled", 
