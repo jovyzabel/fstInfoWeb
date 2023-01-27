@@ -63,10 +63,11 @@ class PreRegistrationCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->onlyOnIndex(),
-            TextField::new('status'),
-            DateField::new('createdAt'),
-            AssociationField::new('folder'),
-            AssociationField::new('student')
+            TextField::new('status', 'Statut'),
+            TextField::new('preRegistrationType', 'Type'),
+            DateField::new('createdAt', 'Date'),
+            AssociationField::new('folder', 'Dossier'),
+            AssociationField::new('student', 'Etudiant')
             
         ];
     }

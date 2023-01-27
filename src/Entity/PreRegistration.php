@@ -34,6 +34,9 @@ class PreRegistration
     #[ORM\JoinColumn(nullable: false)]
     private ?AcademicYear $academicYear = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $preRegistrationType = null;
+
     public function __construct()
     {
         $this->createdAt = new DateTimeImmutable();
@@ -118,6 +121,18 @@ class PreRegistration
     public function setAcademicYear(?AcademicYear $academicYear): self
     {
         $this->academicYear = $academicYear;
+
+        return $this;
+    }
+
+    public function getPreRegistrationType(): ?string
+    {
+        return $this->preRegistrationType;
+    }
+
+    public function setPreRegistrationType(?string $preRegistrationType): self
+    {
+        $this->preRegistrationType = $preRegistrationType;
 
         return $this;
     }
