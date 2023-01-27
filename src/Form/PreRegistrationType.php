@@ -15,15 +15,16 @@ class PreRegistrationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('student', StudentType::class)
+            ->add('student', StudentType::class,[
+                'label'=>'Etudiant',
+            ])
             ->add('speciality', EntityType::class, [
                 'class' => Speciality::class,
-                'preferred_choices' => ['CG']
                 ])
             ->add('preRegistrationType', ChoiceType::class, [
                 'choices' => ['Normale' => 'normale', 'Equivalence' => 'equivalence',],
+
             ])
-            ->add('folder', FolderType::class)
         ;
     }
 
