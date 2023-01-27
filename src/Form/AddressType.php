@@ -33,11 +33,12 @@ class AddressType extends AbstractType
                 ->add('city',  TextType::class, [
                     'label' => 'Ville',
                     'attr' => ['class' => 'rounded-0 sumup',
-                        'placeholder' => 'Nom de la ville de résidence'],
-                
-            ])
-            ->add('country', CountryType::class,[
-                'attr'=>['class' => 'rounded-0 sumup']
+                    'placeholder' => 'Nom de la ville de résidence'],
+                    
+                    ])
+                    ->add('country', CountryType::class,[
+                        'label' => 'Ville',
+                        'attr'=>['class' => 'rounded-0 sumup']
             ])
         ;
     }
