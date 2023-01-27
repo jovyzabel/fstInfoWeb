@@ -45,7 +45,9 @@ class StudentType extends AbstractType
             ->add('nationality', CountryType::class, [
                 'label' => 'Nationalité'
             ])
-            ->add('address', AddressType::class)
+            ->add('address', AddressType::class, [
+                'label' => 'Adresse'
+            ])
         ;
     }
 

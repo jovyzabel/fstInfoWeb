@@ -18,18 +18,23 @@ class SearchNewsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('searchText', TextType::class)
-            ->add('categories', EntityType::class, [
-                'class' => Category::class,
-                'multiple' => true, 
-                'expanded' => true
-            ])
-            ->add('tags', EntityType::class, [
-                'class' => Tag::class,
-                'multiple' => true, 
-                'expanded' => true
-            ])
-            ->add('minDate', DateType::class, [
+            ->add('searchText', TextType::class,[
+                'label'=>'Recherche',
+                ])
+                ->add('categories', EntityType::class, [
+                    'class' => Category::class,
+                    'label'=>'Recherche',
+                    'multiple' => true, 
+                    'expanded' => true
+                    ])
+                    ->add('tags', EntityType::class, [
+                        'class' => Tag::class,
+                        'multiple' => true, 
+                        'expanded' => true
+                        ])
+                        ->add('minDate', DateType::class, [
+                            
+                            'label'=>'Date minimum',
             ])
         ;
     }

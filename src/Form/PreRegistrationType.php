@@ -14,12 +14,17 @@ class PreRegistrationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('student', StudentType::class)
+            ->add('student', StudentType::class,[
+                'label'=>'Etudiant',
+            ])
             ->add('speciality', EntityType::class, [
                 'class' => Speciality::class,
-                'preferred_choices' => ['CG']
+                'preferred_choices' => ['CG'],
+                'label'=>'Spécialité',
             ])
-            ->add('folder', FolderType::class)
+            ->add('folder', FolderType::class,[
+                'label'=>'Dossier',
+            ])
         ;
     }
 
