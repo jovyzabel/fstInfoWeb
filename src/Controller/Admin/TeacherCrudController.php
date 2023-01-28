@@ -25,8 +25,8 @@ class TeacherCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->onlyOnIndex(),
-            TextField::new('avatarFile')->setFormType(VichImageType::class)->onlyOnForms(),
-            ImageField::new('avatarName')   
+            TextField::new('pictureFile')->setFormType(VichImageType::class)->onlyOnForms(),
+            ImageField::new('pictureName')   
                 ->setBasePath('/uploads/images/avatars')
                 ->setUploadDir('/public/uploads/images/avatars')
                 ->hideOnForm(),
