@@ -2,13 +2,14 @@
 
 namespace App\Form;
 
-use App\Entity\PreRegistration;
+use App\Form\FolderType;
 use App\Entity\Speciality;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Entity\PreRegistration;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class PreRegistrationType extends AbstractType
 {
@@ -25,6 +26,9 @@ class PreRegistrationType extends AbstractType
                 'choices' => ['Normale' => 'normale', 'Equivalence' => 'equivalence',],
 
             ])
+            ->add('folder', FolderType::class, [
+                
+                ])
         ;
     }
 
