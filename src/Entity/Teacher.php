@@ -19,7 +19,7 @@ class Teacher extends Person
     private ?string $diploma = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $placeOfAcquisition = null;
+    private ?string $grade = null;
 
     #[ORM\OneToMany(mappedBy: 'teacher', targetEntity: Subject::class)]
     private Collection $teachedSubjects;
@@ -46,14 +46,14 @@ class Teacher extends Person
         return $this;
     }
 
-    public function getPlaceOfAcquisition(): ?string
+    public function getGrade(): ?string
     {
-        return $this->placeOfAcquisition;
+        return $this->grade;
     }
 
-    public function setPlaceOfAcquisition(string $placeOfAcquisition): self
+    public function setGrade(string $grade): self
     {
-        $this->placeOfAcquisition = $placeOfAcquisition;
+        $this->grade = $grade;
 
         return $this;
     }

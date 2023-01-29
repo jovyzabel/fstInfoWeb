@@ -21,7 +21,7 @@ class ParcoursController extends AbstractController
     #[Route('/parcours/presentation', name: 'app_parcours_presentation')]
     public function presentation(PartnerRepository $partnerRepository): Response
     {
-        return $this->render('parcours/presentation.html.twig', [
+        return $this->render('parcours/programs.html.twig', [
             'partners' => $partnerRepository->findAll(),
         ]);
     }

@@ -281,8 +281,17 @@ button.ue-accordion.accordion-button::after {
     padding: .5rem;
 }
 
+div.carousel-caption{
+    max-width: 500px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
 .carousel-box {
-    background-color: rgba(0, 0, 0, .35);
+    background-color: rgba(0, 0, 0, 0.608);
 }
 
 @media all and (min-width: 992px) {

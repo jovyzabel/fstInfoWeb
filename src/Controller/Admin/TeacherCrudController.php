@@ -34,7 +34,7 @@ class TeacherCrudController extends AbstractCrudController
             TextField::new('name'),
             TextField::new('firstName'),
             TextField::new('diploma'),
-            TextField::new('placeOfAcquisition'),
+            TextField::new('grade'),
             TextEditorField::new('description')->setFormType(CKEditorType::class),
             AssociationField::new('teachedSubjects'),
 

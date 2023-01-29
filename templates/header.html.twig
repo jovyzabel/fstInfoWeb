@@ -1,18 +1,16 @@
 <header  class="container py-2">
-    <div class="row d-flex justify-content-between">
-        <div class="col-6 col-md-4 col-lg-4 ms-2">
-            <a class="navbar-brand d-flex align-items-center" href=" {{path('app_home')}} ">
-               <img src="{{ asset('logos/2014-05-20.jpg') }}" alt="Facultés des Sciences et Techniques" class="" height="70"/>
-               <span class="text-color-2 fs-6 fw-400 ms-2">Facultés des Sciences Techniques <br> Parcours Informatique</span>
-           </a>
-        </div>
-        <div class="col-6 col-md-4 col-lg-4  ms-5">
-            <a class="navbar-brand d-flex align-items-center" href="#">
-                <span class="text-color-2 fs-6 fw-300 ms-2"> Université <br> Marien Ngouabi</span>
-               <img src="{{ asset('logos/Umng.jpg') }}" alt="Université Marien Ngouabi" class="" height="70"/>
-               
-           </a>
-        </div>
+    <div class="d-flex justify-content-between align-items-center">
+
+        <a class="navbar-brand d-flex align-items-center" href=" {{path('app_home')}} ">
+            <img src="{{ asset('logos/2014-05-20.jpg') }}" alt="Facultés des Sciences et Techniques" class="" height="60"/>
+            <span class="text-color-2 fs-6 fw-bold mx-2 d-none d-md-block">Facultés des Sciences <br> et Techniques</span>
+        </a>
+        <span class="fs-5 fw-bold">Parcours Informatique</span>
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <span class="text-color-2 fs-6 fw-bold mx-2 text-end d-none d-md-block"> UNIVERSITE<br> MARIEN NGOUABI</span>
+            <img src="{{ asset('logos/Umng.jpg') }}" alt="Université Marien Ngouabi" class="" height="60"/>
+            
+        </a>
     </div>
 </header>
 <nav class="navbar navbar-expand-lg specifical-bg-3-testimonial">
@@ -28,25 +26,19 @@
                             role="button"
                             data-bs-toggle="dropdown"
                             aria-expanded="false">
-                        A propos
+                        A PROPOS
                         </a>
                         <ul class="dropdown-menu border-0">
                             <li>
                                 <a class="dropdown-item header-link "
                                     href=" {{ path('app_parcours_presentation') }} ">
-                                Présentation
+                                PRESENTATION
                                 </a>
                             </li>
                             <li>
                                 <a class="dropdown-item header-link"
                                     href=" {{ path('app_parcours_chief_word') }}">
-                                Mot du responsable
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item header-link"
-                                    href="{{ path('app_news') }}">
-                                Actualités
+                                MOT DES RESPONSABLES
                                 </a>
                             </li>
                         </ul>
@@ -54,7 +46,7 @@
                     <li class="nav-item dropdown text-white">
                         <a id="coursesMenu" href="{{path('app_specialities_list')}}" style="display:none"></a>
                         <a class="nav-link dropdown-toggle px-2 py-3 text-white" href="{{path('app_formation_cycles')}}" data-bs-toggle="dropdown">
-                            Parcours
+                            PARCOURS
                         </a>
                         <div class="dropdown-menu dropdown-large border-0">
                             <div class="">
@@ -81,30 +73,36 @@
                     </li>
                     <li>
                         <a href="{{path('app_admission')}}" class="nav-link px-2 py-3 text-white">
-                            Admission
+                            ADMISSION
                         </a>
                     </li>
                     <li>
                         <a href="{{ path('app_pre_registration_index') }}"
                             class="nav-link px-2  py-3 text-white">
-                        Préinscription
+                            PREINSCRIPTION
                         </a>
                     </li>
                     <li>
                         <a href="{{path('app_parcours_teachers')}}" class="nav-link px-2  py-3 text-white">
-                            Enseignants
+                            ENSEIGNANTS
                         </a>
                     </li>
                     <li>
                         <a href="{{path('app_alumni')}}"
                             class="nav-link px-2  py-3 text-white">
-                        Alumni
+                        ALUMNI
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link px-2  py-3 text-white"
+                            href="{{ path('app_news') }}">
+                        ACTUALITES
                         </a>
                     </li>
                     <li>
                         <a href="{{ path('app_contact') }}"
                             class="nav-link px-2  py-3 text-white">
-                        Contact
+                        CONTACT
                         </a>
                     </li>
                     {# <li class="dropdown">

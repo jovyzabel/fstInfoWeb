@@ -4,14 +4,12 @@
         <div class="swiper-slide bg-white">
             <div class="mx-auto text-center">
                 <img src="{{asset('img/offre_de_formation.jpg')}}" height="580px" alt="offre de formation"> <!-- center this image within the column -->
-                <div class="container">
-                    <div class="carousel-caption carousel-box text-center p-3">
-                        <h3 class="h1">Découvrez notre offre de formation</h3>
-                            <p class="text-light lead h1">Accedez  simplement et facilement à notre parcours en vous préinscrivant en ligne</p>
-                        <p>
-                            <a class="btn specifical-bg-1 text-light btn-lg rounded-pill" href="{{path('app_formation_cycles')}}">Découvrir</a>
-                        </p>
-                    </div>
+                <div class="carousel-caption carousel-box text-start p-3">
+                    <h3 class="h1 mb-4">Découvrez notre offre de formation</h3>
+                    <p class="mb-4 text-light lead h1">Accedez  simplement et facilement à notre parcours en vous préinscrivant en ligne</p>
+                    <p class="my-3">
+                        <a class="btn specifical-bg-1 text-light btn-lg rounded-pill" href="{{path('app_formation_cycles')}}">Découvrir</a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -19,14 +17,12 @@
         <div class="swiper-slide">
             <div class="mx-auto text-center">
                 <img src="{{asset('img/preinscription.jpg')}}" height="580px" alt="Préinscription"> <!-- center this image within the column -->
-                <div class="">
-                    <div class="carousel-caption carousel-box text-center p-3">
-                        <h3 class="h1">Préinscription en ligne</h3>
-                            <p class="text-light lead h1">Accedez  simplement et facilement à notre parcours en vous préinscrivant en ligne</p>
-                        <p>
-                            <a class="btn specifical-bg-1 text-light btn-lg rounded-pill" href="">Postuler</a>
-                        </p>
-                    </div>
+                <div class="carousel-caption carousel-box text-start p-3">
+                    <h3 class="h1 mb-4">Préinscription en ligne</h3>
+                    <p class="mb-4 text-light lead h1">Accedez  simplement et facilement à notre parcours en vous préinscrivant en ligne</p>
+                    <p class="my-3">
+                        <a class="btn specifical-bg-1 text-light btn-lg rounded-pill" href="">Postuler</a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -34,15 +30,15 @@
         <div class="swiper-slide">
             <div class="mx-auto text-center">
                 <img src="{{asset('img/goals.png')}}" height="580px" alt="Missions du parcours"> <!-- center this image within the column -->
-                <div class="container">
-                    <div class="carousel-caption carousel-box text-start p-3">
-                        <h3 class="h1">Missions du parcours</h3>
-                            <p class="text-light lead h1">Nous accompagnons les étudiant(e)s vers la réussite dans le cadre d’une formation qui donne des clés d’orientation et d’insertion professionnelle...</p>
-                        <p>
-                            <a class="btn specifical-bg-1 text-light btn-lg rounded-pill" href="">Decouvrez plus</a>
-                        </p>
-                    </div>
+
+                <div class="carousel-caption carousel-box text-start p-3">
+                    <h3 class="mb-4 h1">Missions du parcours</h3>
+                    <p class="mb-4 text-light lead h1">Nous accompagnons les étudiant(e)s vers la réussite dans le cadre d’une formation qui donne des clés d’orientation et d’insertion professionnelle...</p>
+                    <p class="my-3">
+                        <a class="btn specifical-bg-1 text-light btn-lg rounded-pill" href="">Decouvrez plus</a>
+                    </p>
                 </div>
+
             </div>
         </div>
         
@@ -53,14 +49,12 @@
                 {% if item.featuredImage %} 
                 <img src="{{asset('uploads/images/news/' ~ item.featuredImage.filename)}}" height="580px" alt="Etudiant(e)s"> 
                 {% endif %}
-                <div class="container">
-                    <div class="carousel-caption carousel-box text-center p-3">
-                        <h3 class="h1">{{item.title}}</h3>
-                        <p class="text-light lead">{{ item.content|striptags|u.truncate(50, '...', false)|raw }}</p>
-                        <p>
-                            <a class="btn specifical-bg-1 text-light btn-lg rounded-pill" href="{{path('app_news_show',{slug: item.slug})}}">Lire la suite</a>
-                        </p>
-                    </div>
+                <div class="carousel-caption carousel-box text-start p-3">
+                    <h3 class="mb-4 h1">{{item.title}}</h3>
+                    <p class="mb-4 text-light lead">{{ item.content|striptags|u.truncate(50, '...', false)|raw }}</p>
+                    <p class="my-3">
+                        <a class="btn specifical-bg-1 text-light btn-lg rounded-pill" href="{{path('app_news_show',{slug: item.slug})}}">Lire la suite</a>
+                    </p>
                 </div>
             </div>
         </div>
