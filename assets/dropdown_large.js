@@ -60,7 +60,7 @@ function appendSpecialities(selector, specialities) {
         $(selector).remove()
         return;
     } 
-    let parentUrl = $(selector).prev().find('a').attr('href');
+    let parentUrl = $(selector).prev().attr('href');
 
     specialities.forEach(function(speciality){
         $(selector).append(

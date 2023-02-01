@@ -12,25 +12,11 @@
       <div class="col-sm-12 col-md-6 col-lg-4" data-sal="slide-up" style="--sal-duration: 2s; --sal-delay: 0s;">
         <div class="card shadow-sm rounded-0 border-0">
           {% if article.featuredImage %}
-            <img src="{{
-              asset(
-                'uploads/images/news/' ~ article.featuredImage.filename
-              )
-              }}"
-              class="card-img-top rounded-0"
-              alt="..." />
+            <img src="{{asset('uploads/images/news/' ~ article.featuredImage.filename)}}" class="card-img-top rounded-0" alt="..." />
           {% endif %}
           <div class="card-body">
             <h5 class="card-title">
-              <a href="{{
-                path(
-                  'app_news_show',
-                  {
-                    slug: article.slug
-                  }
-                )
-                }}"
-                class="text-decoration-none item-title">
+              <a href="{{path('app_news_show',{slug: article.slug})}}" class="text-decoration-none item-title">
                 {{ article.title }}
               </a>
             </h5>
@@ -53,20 +39,20 @@
 
 <div class="specifical-bg-3-testimonial">
 	<div class="container">
-		<div class="row flex-lg-row-reverse align-items-center g-0">
-			<div class="col-10 col-sm-8 col-lg-6">
-				<img src=" {{asset('img/cisco_netacad_partner.jpg')}}" class="d-block mx-lg-auto img-fluid" alt="Cisco netacad" loading="lazy">
+		<div class="row flex-row-reverse g-2">
+			<h1 class="display-5 my-3 fw-bold lh-1 mb-3 text-white text-center">Academie locale CISCO</h1>
+      <div class="col-12 col-sm-12 col-md-6 mb-3">
+				<img src="{{asset('img/cisco_netacad_partner.jpg')}}" class="d-block mx-lg-auto img-fluid rounded" alt="Cisco netacad" loading="lazy">
 			</div>
 			<div class="col-lg-6">
-				<h1 class="display-5 fw-bold lh-1 mb-3 text-white">Academie locale CISCO Netacad</h1>
 				<p class="lead text-light">
           La Cisco Networking Academy transforme la vie des étudiants, des enseignants et de communautés entières grâce au 
           pouvoir de la technologie, de l'éducation et des opportunités de carrière. Accessible à tous, où que vous soyez. <br>
           Nous sommes là pour vous aider à enseigner et à apprendre à distance.
         </p>
-				<div class="d-grid gap-2 d-md-flex justify-content-md-start">
-					<a class="btn btn-lg px-4 me-md-2 rounded-pill specifical-bg-1 text-light">En apprendre plus</a>
-				</div>
+          <div class="d-grid my-3 gap-2 d-md-flex justify-content-md-start">
+            <a class="btn btn-lg px-4 me-md-2 rounded-pill specifical-bg-1 text-light">En apprendre plus</a>
+          </div>
 			</div>
 		</div>
 	</div>
