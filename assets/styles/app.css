@@ -18,11 +18,15 @@ p, ul>li {
     color: rgb(86,86,86);
 }
 
-.item-title {
+h1, h2, h3, h4, h5,.item-title {
     font-family:'Roboto Slab', serif ;
-    color: #b80924;
-    
+    font-weight: bold;
 }
+
+.item-title {
+    color: #b80924;
+}
+
 .item-title:hover {
     font-family:'Roboto Slab', serif ;
     color: #2f0f55;
@@ -136,10 +140,15 @@ p, ul>li {
 	opacity: .5;
 }
 
-#myTab li a {
-    text-decoration: none;
-    background-color: #fff;
-    color: #191919;
+.tab-pane-content h2 {
+    color: #2f0f55;
+    border-bottom: #2f0f55 solid 1.2px;
+}
+
+#myTab li.active {
+    border: none;
+    color: #dcdcdc;
+    background-color: #2f0f55;
 }
 
 button.accordion-button {
@@ -267,16 +276,6 @@ button.ue-accordion.accordion-button::after {
     margin: 2rem 0;
 }
 
-
-/* @media only screen and (min-width: 992px) {
-
-    li.nav-item.dropdown:hover .dropdown-menu {
-        display: block;
-        color: #b80924;
-        font-weight: bold;
-    }
-} */
-
 .dropdown-large {
     padding: .5rem;
 }
@@ -326,7 +325,6 @@ div.carousel-caption{
         display: block;
     }
 }
-
 /* ============ desktop view .end// ============ */
 
 /* ============ small devices ============ */
@@ -337,5 +335,4 @@ div.carousel-caption{
         margin-bottom: .5rem;
     }
 }
-
 /* ============ small devices .end// ============ */
