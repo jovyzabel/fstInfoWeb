@@ -72,7 +72,7 @@ class AppFixtures extends Fixture
                 ->setCreatedAt(new DateTimeImmutable())
                 ->setCivility('Monsieur')
                 ->setPictureName($faker->imageUrl)
-                ->setPlaceOfAcquisition("FST - UMNG, Brazzaville")
+                ->setGrade("Assistant")
                 ->setName($faker->lastName())
                 ->setFirstName($faker->firstName());
             

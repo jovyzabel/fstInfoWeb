@@ -18,11 +18,15 @@ p, ul>li {
     color: rgb(86,86,86);
 }
 
-.item-title {
+h1, h2, h3, h4, h5,.item-title {
     font-family:'Roboto Slab', serif ;
-    color: #b80924;
-    
+    font-weight: bold;
 }
+
+.item-title {
+    color: #b80924;
+}
+
 .item-title:hover {
     font-family:'Roboto Slab', serif ;
     color: #2f0f55;
@@ -137,10 +141,15 @@ p, ul>li {
 	opacity: .5;
 }
 
-#myTab li a {
-    text-decoration: none;
-    background-color: #fff;
-    color: #191919;
+.tab-pane-content h2 {
+    color: #2f0f55;
+    border-bottom: #2f0f55 solid 1.2px;
+}
+
+#myTab li.active {
+    border: none;
+    color: #dcdcdc;
+    background-color: #2f0f55;
 }
 
 button.accordion-button {
@@ -268,34 +277,21 @@ button.ue-accordion.accordion-button::after {
     margin: 2rem 0;
 }
 
-
-/* @media only screen and (min-width: 992px) {
-
-    li.nav-item.dropdown:hover .dropdown-menu {
-        display: block;
-        color: #b80924;
-        font-weight: bold;
-    }
-} */
-
 .dropdown-large {
     padding: .5rem;
 }
 
-.carousel-box {
-    background-color: rgba(0, 0, 0, .35);
+div.carousel-caption{
+    max-width: 500px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
-@media all and (min-width: 992px) {
-    .dropdown-large {
-        min-width: 780px;
-        right: auto;
-        left: 50%;
-        -webkit-transform: translate(-50%, 0);
-        -o-transform: translate(-50%, 0);
-        transform: translate(-50%, 0);
-
-    }
+.carousel-box {
+    background-color: rgba(0, 0, 0, 0.608);
 }
 
 @media only screen and (max-width: 600px) {
@@ -303,3 +299,41 @@ button.ue-accordion.accordion-button::after {
         width: 50%;
     }
 }
+
+/* ============ desktop view ============ */
+@media all and (min-width: 992px) {
+    .dropdown-menu li {
+        position: relative;
+    }
+
+    .nav-item .submenu {
+        display: none;
+        position: absolute;
+        left: 100%;
+        top: -7px;
+    }
+
+    .nav-item .submenu-left {
+        right: 100%;
+        left: auto;
+    }
+
+    .dropdown-menu>li:hover {
+        background-color: #f1f1f1
+    }
+
+    .dropdown-menu>li:hover>.submenu {
+        display: block;
+    }
+}
+/* ============ desktop view .end// ============ */
+
+/* ============ small devices ============ */
+@media (max-width: 991px) {
+    .dropdown-menu .dropdown-menu {
+        margin-left: 0.7rem;
+        margin-right: 0.7rem;
+        margin-bottom: .5rem;
+    }
+}
+/* ============ small devices .end// ============ */

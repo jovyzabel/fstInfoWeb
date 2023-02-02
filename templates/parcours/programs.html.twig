@@ -1,87 +1,106 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}
-Programmes
-{% endblock %}
+{% block title %}A propos - Parcours informatique FST{% endblock %}
+
+{% block meta %}
+    <meta name="description" content="Le Parcours informatique de la FST de l'UMNG est accessibles pour tout étudiants ayant validé L1 d'un parcours scientifique ou équivalent!">
+{% endblock %} 
 
 {% block body %}
 
-{{ include('parcours/_heading.html.twig',{'sub_link':'Programmes'}) }}
+{{ include('parcours/_heading.html.twig',{'sub_link':'A propos'}) }}
 
 <div class="container">
+    <h1 class="my-5">A propos du parcours informatique</h1>
+    <div class="row align-items-start">
 
-    <div>
-        <div class="">
-            <div class="row">
-                <div class="col-lg-4 col-sm-12">
-            
-                    <h4 class="">
-                        Curriculum / Courses
-                    </h4>
-                    <div class="">
-                        <p>
-                            Le parcours Informatique comporte des unités d'enseignements (UE) communes avec les autres parcours de la licence, ainsi que des UE d'Informatique spécifiques.
-						</p>
+        <ul class="col-lg-3 nav nav-tabs list-group rounded-0" id="myTab" role="tablist" >
+            <li class="nav-item list-group-item active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
+                <span>Présentation</span>
+            </li>
+            <li class="nav-item list-group-item" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
+                <span>Objectifs du parcours</span>
+            </li>
+            <li class="nav-item list-group-item" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">
+                <span>Missions et valeurs</span>
+            </li>
+            <li class="nav-item list-group-item" id="skills-tab" data-bs-toggle="tab" data-bs-target="#skills-tab-pane" type="button" role="tab" aria-controls="skills-tab-pane" aria-selected="false">
+                <span>Chiffres du parcours</span>
+            </li>
+            <li class="nav-item list-group-item" id="careers-tab" data-bs-toggle="tab" data-bs-target="#careers-tab-pane" type="button" role="tab" aria-controls="careers-tab-pane" aria-selected="false">
+                <span>Partenaires</span>
+            </li>
+        </ul>
+
+        <div class="col-lg-9 tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+				<div class="tab-pane-content">
+					<h2>Présentation</h2>
+					<div class="my-3">
+						<P>
+							La création du Parcours d'Informatique s'inscrit dans le cadre de la formation des cadres, l’intégration,.Contribuer activement à développer le niveau de la société. <br>
+							Adopter de nouvelles disciplines scientifiques qui suivent le progrès scientifique et technologique et répondent aux besoins de la société. <br>
+							Créer des modèles de coopération entre l’Université et les autres composantes : économique, sociale et culturelle.
+						</P>
+					</div>
+				</div>
+            </div>
+            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+				<div class="tab-pane-content">
+					<h2>Objectifs du parcours</h2>
+					<div class="my-3">
+						<p>L’objectif du parcours Informatique de la faculté des sciences et Techniques de l’Université Marien NGOUABI est de fournir une solide formation générale en informatique. La spécialisation en informatique se fait progressivement dans le parcours tout en conservant en permanence une place aux enseignements des compétences transversales. La formation se conclut par un stage en entreprise de 3 mois.</p>
+					</div>
+				</div>
+            </div>
+            <div class="tab-pane fade border-0" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+				<div class="tab-pane-content">
+					<h2>Missions et valeurs</h2>
+					<div class="my-3">
+						<p>L’ensemble des formations du département informatique offre un environnement d’études de qualité pour réussir ses études en informatique :</p>
+						<ul>
+							<li>Répondre aux besoins du national en matière de formation, produire et diffuser le savoir et développer les aptitudes dans le domaine d'Informatique;</li>
+							<li>Développer les connaissances, maîtriser la technologie et encourager l’innovation, la création individuelle et collective en Informatique;</li>
+							<li>Participer aux actions de développement du pays, soutenir les différents secteurs de l’activité nationale et préparer les étudiants à la création de projets et d’entreprises économiques;</li>
+							<li>Etablir des liens de partenariat et de coopération avec des organismes et entreprises similaire en vue d’échanger des experts et des expertises et de réaliser des projets communs en rapport avec les priorités du développement.</li>
+						</ul>
+					</div>
+				</div>
+            </div>
+            <div class="tab-pane fade" id="skills-tab-pane" role="tabpanel" aria-labelledby="skills-tab" tabindex="0">
+				<div class="tab-pane-content">
+					<h2>Chiffres du parcours</h2>
+					<div class="my-3">
 						<p>
-							La deuxième année marque l’entrée de l’étudiant dans la mention Informatique. Au cours de cette année, l’enseignement de l’informatique prend une place prédominante, complétée par des connaissances en mathématiques indispensables et les nécessaires compétences en communication. La réalisation d’un projet semestriel favorise la mise en oeuvre des connaissances acquises.
+							L’informatique est une science dont les applications sont nombreuses. L’apprentissage des concepts fondamentaux va donc de pair avec leur mise en pratique et un tiers des enseignements est consacré à des travaux dirigés sur ordinateur. Les thèmes abordés couvrent l’essentiel des champs de l’informatique :
 						</p>
-						<p>
-							En troisième année, des conepts informatiques plus avancé sont abordés . Au second semestre, l’étudiant peut personnaliser son parcours par un choix d’option. Un projet transversal semestriel capitalise sur les connaissances acquises, tout comme le stage de 3 mois qui conclut la licence.
-                        </p>
-                        
-                    </div>
-                </div>
-                <div id="" class="col-lg-8 col-sm-12">
-					<div class="CoursesFeed-posts_wrap">
-						<div class=" mb-3 accordion accordion-flush" id="accordionBusiness">
-
-						{% for semester in semesters %}
-
-							<div class="accordion-item">
-								<h2 class="mb-3 accordion-header" id="heading-{{semester.code}}">
-									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12{{semester.code}}" aria-expanded="false" aria-controls="collapse12">
-									{{semester.label}}
-									</button>
-								</h2>
-								<div id="collapse12{{semester.code}}" class="accordion-collapse collapse" aria-labelledby="heading-{{semester.code}}" data-bs-parent="#accordionBusiness">
-									<div class="accordion-body">
-										<div class="accordion accordion-flush" id="accordionFlushExample">
-										{% for ue in semester.ues %}
-											
-											<div class="accordion-item">
-												<h2 class="accordion-header" id="flush-heading-{{ue.code}}">
-													<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne{{ue.code}}" aria-expanded="false" aria-controls="flush-collapseOne{{ue.code}}">
-													{{ue.label}}
-													</button>
-												</h2>
-												<div id="flush-collapseOne{{ue.code}}" class="accordion-collapse collapse" aria-labelledby="flush-heading-{{ue.code}}" data-bs-parent="#accordionFlushExample">
-													<div class="accordion-body">
-														<ul class="list-unstyled">
-															{% for subject in ue.subjects %}
-																<li>{{subject}}</li>
-															{% endfor %}
-														</ul>
-													</div>
-												</div>
-											</div>
-
-										{% endfor %}
-										</div>
-									</div>
+					</div>
+				</div>
+            </div>
+            <div class="tab-pane fade border-0" id="careers-tab-pane" role="tabpanel" aria-labelledby="careers-tab" tabindex="0">
+				<div class="tab-pane-content">
+					<h2>Partenaires</h2>
+					<div class="">
+						<p>La formation en Informatique offre la possiblité de travailler dans plusieurs domaines des TIC</p>
+						<div class="d-flex">
+							{% for partner in partners %}  
+							<div class="card border-0 m-3 p-3 shadow-sm">
+								<img src="{{asset('uploads/images/partenaires/' ~ partner.logoName)}}" class="card-img-top" alt="...">
+								<div class="card-body">
+									<h6 class="card-title">
+										<a href="{{partner.url}}" class="text-decoration-none text-dark">
+											{{partner.label}}
+										</a>
+									</h6>
 								</div>
 							</div>
-							
-						{% endfor %}
-				
-							{# </div> #}
+							{% endfor %}
 						</div>
-                        
-                    </div>
-
-                </div>
-            </div>
+					</div>       
+				</div>
+            </div> 
         </div>
     </div>
+    
 </div>
-
 {% endblock %}
