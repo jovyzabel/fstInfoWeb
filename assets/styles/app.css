@@ -169,6 +169,18 @@ button.ue-accordion.accordion-button::after {
     margin-left: 0;
 }
 
+/* pagination */
+.page-item.active .page-link {
+    color: #FFF;
+    background: #2f0f55;
+    border-color: #2f0f55;
+}
+
+.page-item .page-link {
+   color: #404040;
+}
+/* pagination */
+
 /* Swiper js */
 .swiper {
     width: 100%;

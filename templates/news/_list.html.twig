@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 {% endfor %}
-                <div class="col">
+                <div class="col-12 d-flex justify-content-center">
                     {{ knp_pagination_render(articles) }}
                 </div>
             </div>
@@ -51,10 +51,9 @@
                         {{ form_start(form, {'action': path('app_news_result')}) }}
                         <div class="input-group mb-3">
                             {{ form_row(form.searchText, {'label':false, 'attr': {'class':'form-control', 'height':'100%'}}) }}
-                            <button class="input-group-text btn specifical-bg-3" type="submit">
+                            <button class="btn specifical-bg-3" type="submit">
                                 <i class="fa-solid fa-search text-white"></i>
                             </button>
-            
                         </div>
                         {{ form_end(form, {render_rest:false}) }}
                     </div>
