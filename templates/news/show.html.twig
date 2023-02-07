@@ -6,10 +6,12 @@
 
 {% block body %}
 
-<div class="mb-4 specifical-bg-3-testimonial p-5">
-    <h1 class="p-5 text-center text-white fs-1">Actualités</h1>
-    <div class="text-center">
-        <p class="text-light"><a href="{{path('app_home')}}" class="text-decoration-none text-white">Accueil</a> / <a href="" class="text-decoration-none text-white">Actualités</a> / <a href="" class="text-decoration-none text-muted">{{article.title}}</a></p>
+<div class="shadow mb-4" style="background-image: url('{{asset("img/banner.jpg")}}'); background-position: center top;background-repeat: no-repeat;">
+    <div class="text-center  p-5" style="background-color: rgba(0, 0, 0, 0.608)">
+        <div class="text-center">
+            <p class="p-5 text-center text-white fs-1 fw-bold">Actualités</p>
+            <p class="text-light"><a href="{{path('app_home')}}" class="text-decoration-none text-white">Accueil</a> / <a href="" class="text-decoration-none text-white">Actualités</a> / <a href="" class="text-decoration-none text-muted">{{article.title}}</a></p>
+        </div>
     </div>
 </div>
 

@@ -108,11 +108,18 @@ $(document).ready(function() {
     let formStepsNum = 0;
 
     $(".btn-prev, .btn-next").on("click", function() {
-        if ($('#preRegistrationForm').valid()) {
-            
-            formStepsNum += $(this).hasClass("btn-next") ? 1 : -1;
+        if ($(this).hasClass("btn-next")) {
+            if ($('#preRegistrationForm').valid()) {
+                formStepsNum += 1;
+                updateFormSteps();
+                updateProgressbar();
+            }
+        }
+        if ($(this).hasClass("btn-prev")) {
+            formStepsNum += -1;
             updateFormSteps();
             updateProgressbar();
+        }
 
         if ($(this).attr("id") === "lastNext") {
             let formData = new FormData($("#preRegistrationForm")[0]);
@@ -125,83 +132,85 @@ $(document).ready(function() {
             documentsList.forEach(function(el) {
                 $documentsRecap.append($("<tr>").html(`<td >${el}</td>`));
             });
+
+            console.log(...formData)
+
             $("#recap").html(`<div class="my-3">
-            <div class="card-body">
-                <h5 class="card-title">Informations personnelles</h5>
-                <table class="table table-hover">
-                    <tr >
-                        <td >Nom(s) </td>
-                        <td >${formData.get('pre_registration[student][name]')}</td>
-                    </tr>
-                    <tr >
-                        <td>Prénom(s) </td>
-                        <td>${formData.get('pre_registration[student][firstName]')}</td>
-                    </tr>
-                    <tr >
-                        <td>Civilité </td>
-                        <td>${formData.get('pre_registration[student][civility]')}</td>
-                    </tr>
-                    <tr >
-                        <td>Date de naissance </td>
-                        <td>${formData.get('pre_registration[student][birthDay]')}</td>
-                    </tr>
-                    <tr >
-                        <td>Lieu de naissance </td>
-                        <td>${formData.get('pre_registration[student][birthPlace]')}</td>
-                    </tr>
-                    <tr >
-                        <td>Nationalité </td>
-                        <td>${regionNames.of(formData.get('pre_registration[student][nationality]'))}</td>
-                    </tr>
-                    
-                </table>
+                <div class="card-body">
+                    <h5 class="card-title">Informations personnelles</h5>
+                    <table class="table table-hover">
+                        <tr >
+                            <td >Nom(s) </td>
+                            <td >${formData.get('pre_registration[student][name]')}</td>
+                        </tr>
+                        <tr >
+                            <td>Prénom(s) </td>
+                            <td>${formData.get('pre_registration[student][firstName]')}</td>
+                        </tr>
+                        <tr >
+                            <td>Civilité </td>
+                            <td>${formData.get('pre_registration[student][civility]')}</td>
+                        </tr>
+                        <tr >
+                            <td>Date de naissance </td>
+                            <td>${formData.get('pre_registration[student][birthDay]')}</td>
+                        </tr>
+                        <tr >
+                            <td>Lieu de naissance </td>
+                            <td>${formData.get('pre_registration[student][birthPlace]')}</td>
+                        </tr>
+                        <tr >
+                            <td>Nationalité </td>
+                            <td>${regionNames.of(formData.get('pre_registration[student][nationality]'))}</td>
+                        </tr>
+                        
+                    </table>
+                </div>
             </div>
-        </div>
 
-        <div class="mb-3 border-0 shadow-sm card">
-            <div class="card-body">
-                <h5 class="card-title">Adresse et modalités contact</h5>
-                <table class="table table-hover">
-                    <tr >
-                        <td >Adresse </td>
-                        <td >
-                            ${formData.get('pre_registration[student][address][street_number]')} 
-                            ${formData.get('pre_registration[student][address][street_name]')},
-                            ${formData.get('pre_registration[student][address][quater_name]')},
-                            ${formData.get('pre_registration[student][address][city]')},
-                            ${regionNames.of(formData.get('pre_registration[student][address][country]'))}
+            <div class="mb-3 border-0 shadow-sm card">
+                <div class="card-body">
+                    <h5 class="card-title">Adresse et modalités contact</h5>
+                    <table class="table table-hover">
+                        <tr >
+                            <td >Adresse </td>
+                            <td >
+                                ${formData.get('pre_registration[student][address][street_number]')} 
+                                ${formData.get('pre_registration[student][address][street_name]')},
+                                ${formData.get('pre_registration[student][address][quater_name]')},
+                                ${formData.get('pre_registration[student][address][city]')},
+                                ${regionNames.of(formData.get('pre_registration[student][address][country]'))}
 
-                        </td>
-                    </tr>
-                    <tr >
-                        <td>Téléphone </td>
-                        <td>${formData.get('pre_registration[student][telephone]')}</td>
-                    </tr>
-                    <tr >
-                        <td>Email</td>
-                        <td>${formData.get('pre_registration[student][email]')}</td>
-                    </tr>
-                </table>
+                            </td>
+                        </tr>
+                        <tr >
+                            <td>Téléphone </td>
+                            <td>${formData.get('pre_registration[student][telephone]')}</td>
+                        </tr>
+                        <tr >
+                            <td>Email</td>
+                            <td>${formData.get('pre_registration[student][email]')}</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
-        </div>
 
-        <div class="mb-3 border-0 shadow-sm card">
-            <div class="card-body">
-                <h5 class="card-title">Chox de formation</h5>
-                <table class="table table-hover">
-                    <tr class="">
-                        <td>Cycle de formation</td>
-                        <td></td>
-                    </tr> 
-                    <tr class="">
-                        <td>Spécialité</td>
-                        <td></td>
-                    </tr>          
-                </table>
-            </div>
-        </div>`);
+            <div class="mb-3 border-0 shadow-sm card">
+                <div class="card-body">
+                    <h5 class="card-title">Chox de formation</h5>
+                    <table class="table table-hover">
+                        <tr class="">
+                            <td>Cycle de formation</td>
+                            <td></td>
+                        </tr> 
+                        <tr class="">
+                            <td>Spécialité</td>
+                            <td></td>
+                        </tr>          
+                    </table>
+                </div>
+            </div>`);
         }
-    }
     });
 
     if ($(this).hasClass("lastNext")) {
@@ -218,3 +227,5 @@ $(document).ready(function() {
     }
 
 });
+
+//<td rowspan="6" ><img class="img-fluid" src="${URL.createObjectURL(formData.get('pre_registration[student][pictureFile][file]'))}" width="170px"></td>
