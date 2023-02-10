@@ -1,3 +1,4 @@
+
 <header  class="container py-2">
     <div class="d-flex justify-content-between align-items-center">
         <a class="navbar-brand d-flex align-items-center" href=" {{path('app_home')}} ">
@@ -12,14 +13,14 @@
         </a>
     </div>
 </header>
-<nav class="navbar navbar-expand-lg specifical-bg-3-testimonial">
+<nav class="navbar navbar-expand-lg specifical-bg-3-testimonial py-0">
     <div class="container">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse d-lg-flex flex-wrap justify-content-center" id="navbarSupportedContent">
             <ul class="navbar-nav">
-                    <li>
+                    <li class="">
                         <a href="{{path('app_parcours_presentation')}}" class="nav-link px-2 py-3 text-white">
                             A PROPOS
                         </a>
@@ -97,3 +98,43 @@
     </div>
 </nav>
 
+<script >
+    /*const currentLocation = Location.href;
+    const menuItem = document.querySelectorAll('ul li');
+    const menuLength = menuItem.length;
+    $(document).on('click', 'ul li', function(){
+        $(this).addClass('active').siblings().removeClass('active');
+    })
+    for(let i = 0; i < menuLength; i++){
+        if (menuItem[i].href === currentLocation){
+            menuItem[i].className == "active";
+        }
+     }*//*
+     const list = document.querySelectorAll('ul li');
+     console.log(list[2].baseURI);
+     switch (list){
+        case "http://127.0.0.1:8000/parcours/presentation" : 
+            console.log("présentation")
+            break;
+        case "http://127.0.0.1:8000/specialites/licence" : 
+            console.log("parcours")
+            break;
+        case "http://127.0.0.1:8000/admission" : 
+            console.log("admission")
+            break;
+        case "http://127.0.0.1:8000/pre/registration/" : 
+            console.log("pre-inscription")
+            break;
+        case "http://127.0.0.1:8000/parcours/enseignants" : 
+            console.log("Teachers")
+            break;
+        case "http://127.0.0.1:8000/alumni" : 
+            console.log("alumni")
+            break;
+        case "http://127.0.0.1:8000/contact" : 
+            console.log("contact")
+            break;
+     }*/
+
+    
+  </script>
