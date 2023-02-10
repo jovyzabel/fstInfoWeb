@@ -1,14 +1,12 @@
 <header  class="container py-2">
     <div class="d-flex justify-content-between align-items-center">
-        <a class="navbar-brand d-flex align-items-center" href=" {{path('app_home')}} ">
-            <img src="{{ asset('logos/2014-05-20.jpg') }}" alt="logo Facultés des Sciences et Techniques" class="" height="60"/>
-            <span class="fs-6 fw-bold mx-2 d-none d-md-block">Facultés des Sciences <br> et Techniques</span>
+        <a class="navbar-brand d-flex align-items-center" href="{{path('app_home')}}">
+            <img src="{{ asset('logos/2014-05-20.jpg') }}" alt="logo Faculté des Sciences et Techniques" class="" height="60"/>
+            <h5 class="fs-5 fw-normal mx-2 my-0 lh-1 d-none d-lg-block">FACULTE DES SCIENCES <br> ET TECHNIQUES</h5>
+            <h5 class="ms-4 fs-5">Parcours Informatique</h5>
         </a>
-        <span class="fs-4 fw-bold">PARCOURS INFORMATIQUE</span>
-        <a class="navbar-brand d-flex align-items-center" href="#">
-            <span class="fs-6 fw-bold mx-2 text-end d-none d-md-block"> UNIVERSITE<br> MARIEN NGOUABI</span>
-            <img src="{{ asset('logos/Umng.jpg') }}" alt="logo Université Marien Ngouabi" class="" height="60"/>
-            
+        <a class="navbar-brand d-flex align-items-center" href="{{path('app_login')}}">
+            <span class="btn mx-2 text-end ">Connexion</span>            
         </a>
     </div>
 </header>
@@ -21,11 +19,11 @@
             <ul class="navbar-nav">
                     <li>
                         <a href="{{path('app_parcours_presentation')}}" class="nav-link px-2 py-3 text-white">
-                            A PROPOS
+                            A propos
                         </a>
                     </li>
                     <li class="nav-item dropdown" id="myDropdown">
-                        <a id="coursesMenu" href="{{path('app_specialities_list')}}" class="nav-link px-2 py-3 text-white dropdown-toggle" href="#" data-bs-toggle="dropdown">PARCOURS</a>
+                        <a id="coursesMenu" href="{{path('app_specialities_list')}}" class="nav-link px-2 py-3 text-white dropdown-toggle" href="#" data-bs-toggle="dropdown">Parcours</a>
                         <ul class="dropdown-menu border-0 rounded-0">
                             <li>
                                 <a class="dropdown-item" href="{{path('app_formation_cycle', {'slug': 'licence'})}}">Licence</a>
@@ -43,36 +41,36 @@
                     </li>
                     <li>
                         <a href="{{path('app_admission')}}" class="nav-link px-2 py-3 text-white">
-                            ADMISSION
+                            Admission
                         </a>
                     </li>
                     <li>
                         <a href="{{ path('app_pre_registration_index') }}"
                             class="nav-link px-2  py-3 text-white">
-                            PREINSCRIPTION
+                            Préinscription
                         </a>
                     </li>
                     <li>
                         <a href="{{path('app_parcours_teachers')}}" class="nav-link px-2  py-3 text-white">
-                            ENSEIGNANTS
+                            Enseignants
                         </a>
                     </li>
                     <li>
                         <a href="{{path('app_alumni')}}"
                             class="nav-link px-2  py-3 text-white">
-                        ALUMNI
+                        Alumni
                         </a>
                     </li>
                     <li>
                         <a class="nav-link px-2  py-3 text-white"
                             href="{{ path('app_news') }}">
-                        ACTUALITES
+                        Actualités
                         </a>
                     </li>
                     <li>
                         <a href="{{ path('app_contact') }}"
                             class="nav-link px-2  py-3 text-white">
-                        CONTACT
+                        Contact
                         </a>
                     </li>
                     {# <li class="dropdown">

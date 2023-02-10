@@ -146,17 +146,18 @@
                         <div class="">
                             <h2>Partenaires</h2>
                             <div class="">
-                                <p>La formation en Informatique offre la possiblité de travailler dans plusieurs domaines des TIC</p>
-                                <div class="d-flex">
-                                    {% for partner in partners %}  
-                                    <div class="card border-0 m-3 p-3 shadow-sm">
-                                        <img src="{{asset('uploads/images/partenaires/' ~ partner.logoName)}}" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h6 class="card-title">
-                                                <a href="{{partner.url}}" class="text-decoration-none text-dark">
-                                                    {{partner.label}}
-                                                </a>
-                                            </h6>
+                                <div class="row">
+                                    {% for partner in partners %}
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="card border-0 m-3 p-3 shadow-sm">
+                                            <img src="{{asset('uploads/images/partenaires/' ~ partner.logoName)}}" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h6 class="card-title">
+                                                    <a href="{{partner.url}}" class="text-decoration-none text-dark">
+                                                        {{partner.label}}
+                                                    </a>
+                                                </h6>
+                                            </div>
                                         </div>
                                     </div>
                                     {% endfor %}

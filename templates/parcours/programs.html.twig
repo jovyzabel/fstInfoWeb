@@ -14,11 +14,14 @@
     <h1 class="my-5">A propos du parcours informatique</h1>
     <div class="row align-items-start">
 
-        <ul class="col-lg-3 nav nav-tabs list-group rounded-0" id="myTab" role="tablist" >
+        <ul class="col-lg-3 mb-sm-5 nav nav-tabs list-group rounded-0" id="myTab" role="tablist" >
             <li class="nav-item list-group-item active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
                 <span>Présentation</span>
             </li>
-            <li class="nav-item list-group-item" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
+            <li class="nav-item list-group-item" id="chief-word-tab" data-bs-toggle="tab" data-bs-target="#chief-word-tab-pane" type="button" role="tab" aria-controls="chief-word-tab-pane" aria-selected="false">
+                <span>Mot des responsables</span>
+            </li>
+			<li class="nav-item list-group-item" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
                 <span>Objectifs du parcours</span>
             </li>
             <li class="nav-item list-group-item" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">
@@ -36,6 +39,7 @@
             <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
 				<div class="tab-pane-content">
 					<h2>Présentation</h2>
+        			<div class="text-subline mb-3"></div>
 					<div class="my-3">
 						<P>
 							La création du Parcours d'Informatique s'inscrit dans le cadre de la formation des cadres, l’intégration,.Contribuer activement à développer le niveau de la société. <br>
@@ -45,24 +49,59 @@
 					</div>
 				</div>
             </div>
-            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+            <div class="tab-pane fade" id="chief-word-tab-pane" role="tabpanel" aria-labelledby="chief-word-tab" tabindex="0">
+				<div class="tab-pane-content">
+					<h2>Mot des responsables</h2>
+					<div class="text-subline mb-3"></div>
+					<div class="row">
+						<h3>Doyen de la faculté</h3>
+						<div class="col-sm-12 col-md-6 col-lg-8 my-2" data-sal="slide-right" style="--sal-duration: 2s;">
+							<div class="text-muted">
+								<div class="">
+									<p>Molestiae necessitatibus esse eius incidunt voluptates, quod ullam nam rem perferendis corrupti expedita sequi veritatis enim quam? Harum alias deleniti, aliquam ipsum omnis illo, animi neque vero possimus excepturi eligendi aut? Optio impedit molestias recusandae velit eaque fuga, rerum voluptatum repellendus deserunt cumque minima placeat consectetur doloremque reiciendis quam inventore sed harum similique quos dolorem corporis ipsam enim unde! Quae quidem at reprehenderit magni quasi iure animi?</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-4 my-3 me-0" data-sal="slide-left" style="--sal-duration: 2s;">
+							<img src=" {{asset('img/m_regis.jpg')}} " alt="" class="img-fluid">   
+						</div>
+					</div>
+					<div class="row">
+						<h3>Responsable du parcours</h3>
+						<div class="col-sm-12 col-md-6 col-lg-8 my-2" data-sal="slide-right" style="--sal-duration: 2s;">
+							<div class="text-muted">
+								<div class="">
+									<p>Odio officia assumenda doloremque nostrum a laudantium! Ducimus officia impedit, accusamus doloribus magni earum id ipsa libero hic quia! Veritatis ex saepe a. Laborum ad architecto quod repellat facilis debitis. Non magni corrupti sunt esse, tenetur laboriosam fugit odit itaque sequi assumenda adipisci molestiae id porro? Nihil consequatur quisquam nam quos similique quis, perferendis alias fugit.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-4 my-3 me-0" data-sal="slide-left" style="--sal-duration: 2s;">
+							<img src=" {{asset('img/m_regis.jpg')}} " alt="" class="img-fluid">   
+						</div>
+					</div>
+				</div>
+            </div>
+			<div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
 				<div class="tab-pane-content">
 					<h2>Objectifs du parcours</h2>
+					<div class="text-subline mb-3"></div>
 					<div class="my-3">
-						<p>L’objectif du parcours Informatique de la faculté des sciences et Techniques de l’Université Marien NGOUABI est de fournir une solide formation générale en informatique. La spécialisation en informatique se fait progressivement dans le parcours tout en conservant en permanence une place aux enseignements des compétences transversales. La formation se conclut par un stage en entreprise de 3 mois.</p>
+						<p>L’objectif du parcours de former des professionnels en Informatioque en adaquation avec les besoins des entreprises.</p>
+
 					</div>
 				</div>
             </div>
             <div class="tab-pane fade border-0" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
 				<div class="tab-pane-content">
 					<h2>Missions et valeurs</h2>
+					<div class="text-subline mb-3"></div>
 					<div class="my-3">
 						<p>L’ensemble des formations du département informatique offre un environnement d’études de qualité pour réussir ses études en informatique :</p>
 						<ul>
-							<li>Répondre aux besoins du national en matière de formation, produire et diffuser le savoir et développer les aptitudes dans le domaine d'Informatique;</li>
-							<li>Développer les connaissances, maîtriser la technologie et encourager l’innovation, la création individuelle et collective en Informatique;</li>
+							<li>Répondre aux besoins du national en matière de formation de de qualité ;</li>
+							<li>Développer les connaissances, promouvoir l’innovation ainsi que la création individuelle et collective ;</li>
 							<li>Participer aux actions de développement du pays, soutenir les différents secteurs de l’activité nationale et préparer les étudiants à la création de projets et d’entreprises économiques;</li>
-							<li>Etablir des liens de partenariat et de coopération avec des organismes et entreprises similaire en vue d’échanger des experts et des expertises et de réaliser des projets communs en rapport avec les priorités du développement.</li>
+							<li>Nouer des liens de partenariat et de coopération avec des entreprises et organismes en vue d’échanger des expertises et de réaliser des projets communs en rapport avec les priorités du développement.</li>
 						</ul>
 					</div>
 				</div>
@@ -70,9 +109,10 @@
             <div class="tab-pane fade" id="skills-tab-pane" role="tabpanel" aria-labelledby="skills-tab" tabindex="0">
 				<div class="tab-pane-content">
 					<h2>Chiffres du parcours</h2>
+					<div class="text-subline mb-3"></div>
 					<div class="my-3">
 						<p>
-							L’informatique est une science dont les applications sont nombreuses. L’apprentissage des concepts fondamentaux va donc de pair avec leur mise en pratique et un tiers des enseignements est consacré à des travaux dirigés sur ordinateur. Les thèmes abordés couvrent l’essentiel des champs de l’informatique :
+							L’informatique est une science dont les applications sont nombreuses. L’apprentissage des concepts fondamentaux va donc de pair avec leur mise en pratique:
 						</p>
 					</div>
 				</div>
@@ -80,21 +120,19 @@
             <div class="tab-pane fade border-0" id="careers-tab-pane" role="tabpanel" aria-labelledby="careers-tab" tabindex="0">
 				<div class="tab-pane-content">
 					<h2>Partenaires</h2>
+					<div class="text-subline mb-3"></div>
 					<div class="">
-						<p>La formation en Informatique offre la possiblité de travailler dans plusieurs domaines des TIC</p>
-						<div class="d-flex">
-							{% for partner in partners %}  
-							<div class="card border-0 m-3 p-3 shadow-sm">
-								<img src="{{asset('uploads/images/partenaires/' ~ partner.logoName)}}" class="card-img-top" alt="...">
-								<div class="card-body">
-									<h6 class="card-title">
+							<div class="row">
+								{% for partner in partners %}
+								<div class="col-6 col-md-6 col-lg-4">
+									<div class="card border-0 m-3 p-3 shadow-sm">
 										<a href="{{partner.url}}" class="text-decoration-none text-dark">
-											{{partner.label}}
+											<img src="{{asset('uploads/images/partenaires/' ~ partner.logoName)}}" class="card-img-top" alt="{{'logo de ' ~ partner.label}}">
 										</a>
-									</h6>
+									</div>
 								</div>
+								{% endfor %}
 							</div>
-							{% endfor %}
 						</div>
 					</div>       
 				</div>
