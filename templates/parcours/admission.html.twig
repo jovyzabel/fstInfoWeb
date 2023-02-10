@@ -10,48 +10,78 @@
     <div>
         <div class="">
             <h1 class="my-3 py-3" data-sal="fade" style="--sal-duration: 3s;">Modalité d'admission / Conditions d'accès</h1>
-			<div class="row my-3">
-				<div class="col-md-6" data-sal="slide-left" style="--sal-duration: 2s;">
-					<h3>Licence</h3>
-					<p>L'entrée se fait en deuxieme année et en plusieurs étapes</p>
-					<h4>Etape 1</h4>
-					<p>L'étudiant doit fournir un dossier de pré-inscription composé <em>d'une lettre de motivation et de l'attestation de validation ou équivalent</em></p>
-					<h4>Etape 2</h4>
-					<p>Une commission mise en place par le doyen se reuni pour selectionner les candidats. <br> Les candidats préselectionnés doivent
-						<em><ul>
-							<li>Passer un entretien</li>
-							<li>Fournir un dossier complet au service de scolarité</li>
-							<li>Attendre la sortie de la liste définitive</li>
-						</ul>
-						</em>
-					</p>
-					<p>La réinscription aux semestres 3,4,5 et 6 se fait en fonction des résultats du candidats et la décision du jury</p>
-					<h3>Master</h3>
-					<em>en cours ...</em>
-					{# <p>
-						La condition requise pour s'inscrire au parcours Informatique de la 
-						Faculté de Science et Techniques est de valider la première année de 
-						licence Scientifique dans l'un des établissements de L'université 
-						Marien NGOUABI
-					</p>
-					<p>
-						Pour les étudiants en provenance d’une autre Université, il faut faire 
-						une demande de validation de vos semestres acquis en licence dans une 
-						autre université au niveau de la Scolarité
-					</p>
-					<p>
-						En cas de manque de ces titres requis pour un accès de droit mais qu'on 
-						fait valoir un autre diplôme, une autre formation et/ou des expériences 
-						personnelles et professionnelles équivalant à un Bac+1 et/ou Bac + 2. Il 
-						faut faire une demande d'equivalence des diplômes à la direction de 
-						l'établissement.
-					</p> #}
-				</div>
+			<div class="accordion accordion-flush" id="admissionAcordian">
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="headingOne">
+						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+							Licence
+						</button>
+					</h2>
+					<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+						<div class="accordion-body">
+							<div class="row my-3">
+								<div class="col-md-6" data-sal="slide-left" style="--sal-duration: 2s;">
+									<p>L'entrée se fait en deuxieme année et en plusieurs étapes</p>
+									<h4>Etape 1 : Constitution du dossier</h4>
+									<p>L'étudiant doit fournir un dossier de pré-inscription composé <em>d'une lettre de motivation et de l'attestation de validation ou équivalent</em></p>
+									<h4>Etape 2 : Selection des canditats</h4>
+									<p>Une commission mise en place par le doyen se reuni pour selectionner les candidats. <br> Les candidats préselectionnés doivent
+										<em><ul>
+											<li>Passer un entretien</li>
+											<li>Fournir un dossier complet au service de scolarité</li>
+											<li>Attendre la sortie de la liste définitive</li>
+										</ul>
+										</em>
+									</p>
+									<p>La réinscription aux semestres 3,4,5 et 6 se fait en fonction des résultats du candidats et la décision du jury</p>
+									{# <p>
+										La condition requise pour s'inscrire au parcours Informatique de la 
+										Faculté de Science et Techniques est de valider la première année de 
+										licence Scientifique dans l'un des établissements de L'université 
+										Marien NGOUABI
+									</p>
+									<p>
+										Pour les étudiants en provenance d’une autre Université, il faut faire 
+										une demande de validation de vos semestres acquis en licence dans une 
+										autre université au niveau de la Scolarité
+									</p>
+									<p>
+										En cas de manque de ces titres requis pour un accès de droit mais qu'on 
+										fait valoir un autre diplôme, une autre formation et/ou des expériences 
+										personnelles et professionnelles équivalant à un Bac+1 et/ou Bac + 2. Il 
+										faut faire une demande d'equivalence des diplômes à la direction de 
+										l'établissement.
+									</p> #}
+								</div>
 
-				<div class="col-md-6" data-sal="slide-right" style="--sal-duration: 2s;">
-					<img src=" {{asset('img/admission.jpg')}} " class="img-fluid rounded">
-				</div>	
+								<div class="col-md-6" data-sal="slide-right" style="--sal-duration: 2s;">
+									<img src=" {{asset('img/admission.jpg')}} " class="img-fluid rounded">
+								</div>	
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="headingTwo">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+							Master
+						</button>
+					</h2>
+					<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+						<div class="accordion-body">
+							<br>
+							<br>
+							<br>
+							<p class="text-center"><em>en cours ...</em></p>
+
+							<br>
+							<br>
+							<br>
+						</div>
+					</div>
+				</div>
 			</div>
+			
         </div>
     </div>
 </div>
