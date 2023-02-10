@@ -17,8 +17,8 @@
                             <p class="card-text">
                                 {{ article.content|striptags|u.truncate(150, '...', false)|raw }}
                             </p>
-                            <p class="text-color-2">
-                                <i class="fa-regular fa-calendar-days"></i><em> Du {{article.createdAt | date('d-m-Y')}}</em>
+                            <p class="">
+                                <i class="fa-regular fa-calendar-days"></i><em> Du {{article.createdAt | date('d/m/Y')}}</em>
                             </p>
                         </div>
                     </div>

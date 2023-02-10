@@ -24,12 +24,12 @@ h1, h2, h3, h4, h5,.item-title {
 }
 
 .item-title {
-    color: #b80924;
+    color: #2f0f55;
 }
 
 .item-title:hover {
     font-family:'Roboto Slab', serif ;
-    color: #2f0f55;
+    color: #b80924;
     
 }
 
@@ -164,7 +164,6 @@ h1, h2, h3, h4, h5,.item-title {
 
 .tab-pane-content h2 {
     color: #2f0f55;
-    border-bottom: #2f0f55 solid 1.2px;
 }
 
 #myTab li.active {
