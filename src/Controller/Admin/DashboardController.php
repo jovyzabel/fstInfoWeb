@@ -30,6 +30,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use App\Controller\Admin\AcademicYearCrudController;
 use App\Entity\AcademicYear;
+use App\Entity\Page;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\UserMenu;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -72,6 +73,7 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Comptes Utilisateur', 'fa fa-users',Account::class)->setPermission('ROLE_ADMIN');
+        yield MenuItem::linkToCrud('Pages', 'fa fa-paper',Page::class)->setPermission('ROLE_ADMIN');
         yield MenuItem::subMenu('Actualités', 'fa fa-file-text')->setSubItems([
             MenuItem::linkToCrud('Articles', 'fa fa-newspaper',Article::class),
             MenuItem::linkToCrud('Tags', 'fa fa-tags',Tag::class),

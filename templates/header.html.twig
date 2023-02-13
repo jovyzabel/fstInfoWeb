@@ -4,11 +4,18 @@
         <a class="navbar-brand d-flex align-items-center" href="{{path('app_home')}}">
             <img src="{{ asset('logos/2014-05-20.jpg') }}" alt="logo Faculté des Sciences et Techniques" class="" height="60"/>
             <h5 class="fs-5 fw-normal mx-2 my-0 lh-1 d-none d-lg-block">FACULTE DES SCIENCES <br> ET TECHNIQUES</h5>
-            <h5 class="ms-4 fs-5">Parcours Informatique</h5>
+            <h5 class="ms-4 fs-5">Parcours <br> Informatique</h5>
         </a>
-        <a class="navbar-brand d-flex align-items-center" href="{{path('app_login')}}">
-            <span class="btn mx-2 text-end ">Connexion</span>            
-        </a>
+        <li class="d-flex align-items-center ms-3">
+            {# <i class="fa-solid fa-magnifying-glass"></i> #}
+            {{ render(controller(
+                'App\\Controller\\HomeController::search'
+            )) }}
+
+            {# <a class="navbar-brand " href="{{path('app_login')}}">
+                <span class="btn mx-2 text-end ">Connexion</span>            
+            </a> #}
+        </li>
     </div>
 </header>
 <nav class="navbar navbar-expand-lg specifical-bg-3-testimonial py-0">

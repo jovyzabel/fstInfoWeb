@@ -74,6 +74,9 @@
     "knplabs/knp-paginator-bundle": {
         "version": "v6.0.0"
     },
+    "lelyfoto/twig-instanceof": {
+        "version": "v1.0"
+    },
     "phpunit/phpunit": {
         "version": "9.5",
         "recipe": {
