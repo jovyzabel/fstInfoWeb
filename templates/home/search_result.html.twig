@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Résultat de recherche{% endblock %}
+
+{% block body %}
+
+<div class="shadow mb-4" style="background-image: url('{{asset("img/banner.jpg")}}'); background-position: center top;background-repeat: no-repeat;">
+    <div class="text-center  p-5" style="background-color: rgba(0, 0, 0, 0.608)">
+        <div class="text-center">
+            <p class="p-5 text-center text-white fs-1 fw-bold">Recherche</p>
+            <p class="text-light"><a href="{{path('app_home')}}" class="text-decoration-none text-white">Accueil</a> / <a href="" class="text-decoration-none text-muted">Résultats de recherche</a></p>
+        </div>
+    </div>
+</div>
+<hr>
+
+<div class="container">
+    <div class="row gy-5 mb-3 justify-content-center">
+        <div class="mb-3">
+        {% if data| length ==0 %}
+            <div class="text-center">
+                <p>Aucun résultat trouvé</p>
+            </div>
+        {% endif %}
+        </div>
+        {% for datum in data %}
+            <div class="col-lg-8 mt-3">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <a class="text-decoration-none" 
+                            href="{{(datum is instanceof('\\App\\Entity\\Page') ) ? datum.link : path('app_news_show', {slug:datum.slug})}}"
+                        >
+                            <h3 class="card-title h2 fw-bold item-title">{{datum.title}}</h3>
+                        </a>
+                        <p class="card-text">{{datum.content|u.truncate(200, '...', false)}}</p>
+                        <p class="">
+                            <a class="btn rounded-pill shadow specifical-bg-3 text-light" 
+                                href="{{(datum is instanceof('\\App\\Entity\\Page') ) ? datum.link : path('app_news_show', {slug:datum.slug})}}"
+                            >
+                            Consulter
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+
+        <div class="col-lg-8 d-flex justify-content-center">
+            {{ knp_pagination_render(data) }}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

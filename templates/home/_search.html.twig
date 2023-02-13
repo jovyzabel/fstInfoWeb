@@ -1,0 +1,3 @@
+{{ form_start(searchForm, {'action': path('app_search')}) }}
+    {{ form_row(searchForm.searchText, {'label':false, 'attr': {'placeholder':'Rechercher','class':'form-control form-control-sm d-flex align-items-center', 'height':'100%'}}) }}
+{{ form_end(searchForm, {render_rest:false}) }} 

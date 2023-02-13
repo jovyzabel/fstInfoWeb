@@ -4,9 +4,9 @@ namespace App\Data;
 
 use DateTime;
 
-class SearchNews {
+class SearchNews extends SearchPage
+{
 
-    public $searchText ;
 
     public $categories;
 
