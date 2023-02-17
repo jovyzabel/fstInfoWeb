@@ -18,13 +18,13 @@
         </button>
         <div class="collapse navbar-collapse d-lg-flex flex-wrap justify-content-center" id="navbarSupportedContent">
             <ul class="navbar-nav">
-                    <li class="">
-                        <a href="{{path('app_parcours_presentation')}}" class="nav-link px-2 py-3 text-white">
+                    <li class="action">
+                        <a href="{{path('app_parcours_presentation')}}" class="nav-link px-2 py-3 text-white ">
                             A propos
                         </a>
                     </li>
-                    <li class="nav-item dropdown" id="myDropdown">
-                        <a id="coursesMenu" href="{{path('app_specialities_list')}}" class="nav-link px-2 py-3 text-white dropdown-toggle" href="#" data-bs-toggle="dropdown">Parcours</a>
+                    <li class="nav-item dropdown action" id="myDropdown">
+                        <a id="coursesMenu" href="{{path('app_specialities_list')}}" class="nav-link px-2 py-3 text-white  dropdown-toggle" href="#" data-bs-toggle="dropdown">Parcours</a>
                         <ul class="dropdown-menu border-0 rounded-0">
                             <li>
                                 <a class="dropdown-item" href="{{path('app_formation_cycle', {'slug': 'licence'})}}">Licence</a>
@@ -40,37 +40,37 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="{{path('app_admission')}}" class="nav-link px-2 py-3 text-white">
+                    <li class="action">
+                        <a href="{{path('app_admission')}}" class="nav-link px-2 py-3 text-white ">
                             Admission
                         </a>
                     </li>
-                    <li>
+                    <li class="action">
                         <a href="{{ path('app_pre_registration_index') }}"
-                            class="nav-link px-2  py-3 text-white">
+                            class="nav-link px-2  py-3 text-white ">
                             Préinscription
                         </a>
                     </li>
-                    <li>
-                        <a href="{{path('app_parcours_teachers')}}" class="nav-link px-2  py-3 text-white">
+                    <li class="action">
+                        <a href="{{path('app_parcours_teachers')}}" class="nav-link px-2  py-3 text-white ">
                             Enseignants
                         </a>
                     </li>
-                    <li>
+                    <li class="action">
                         <a href="{{path('app_alumni')}}"
-                            class="nav-link px-2  py-3 text-white">
+                            class="nav-link px-2  py-3 text-white ">
                         Alumni
                         </a>
                     </li>
-                    <li>
-                        <a class="nav-link px-2  py-3 text-white"
+                    <li class="action"> 
+                        <a class="nav-link px-2  py-3 text-white "
                             href="{{ path('app_news') }}">
                         Actualités
                         </a>
                     </li>
-                    <li>
+                    <li class="action">
                         <a href="{{ path('app_contact') }}"
-                            class="nav-link px-2  py-3 text-white">
+                            class="nav-link px-2  py-3 text-white ">
                         Contact
                         </a>
                     </li>
@@ -95,44 +95,74 @@
         </div>
     </div>
 </nav>
-
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
 <script >
-    /*const currentLocation = Location.href;
-    const menuItem = document.querySelectorAll('ul li');
+    const currentLocation = Location.href;
+    const menuItem = document.querySelectorAll('.action');
     const menuLength = menuItem.length;
-    $(document).on('click', 'ul li', function(){
+    console.log(menuItem);  
+    $(document).on('click', '.action', function(){
         $(this).addClass('active').siblings().removeClass('active');
     })
-    for(let i = 0; i < menuLength; i++){
+    /*for(let i = 0; i < menuLength; i++){
         if (menuItem[i].href === currentLocation){
-            menuItem[i].className == "active";
+            menuItem[i].className = "active";
         }
-     }*//*
-     const list = document.querySelectorAll('ul li');
-     console.log(list[2].baseURI);
-     switch (list){
-        case "http://127.0.0.1:8000/parcours/presentation" : 
-            console.log("présentation")
-            break;
-        case "http://127.0.0.1:8000/specialites/licence" : 
-            console.log("parcours")
-            break;
-        case "http://127.0.0.1:8000/admission" : 
-            console.log("admission")
-            break;
-        case "http://127.0.0.1:8000/pre/registration/" : 
-            console.log("pre-inscription")
-            break;
-        case "http://127.0.0.1:8000/parcours/enseignants" : 
-            console.log("Teachers")
-            break;
-        case "http://127.0.0.1:8000/alumni" : 
-            console.log("alumni")
-            break;
-        case "http://127.0.0.1:8000/contact" : 
-            console.log("contact")
-            break;
      }*/
+     if(menuItem[0].baseURI ==  "http://127.0.0.1:8000/parcours/presentation"){
+        menuItem[0].className = "activeItem";
+     }
+     else if(menuItem[1].baseURI =="http://127.0.0.1:8000/specialites/licence/licence-informatique"){
+        menuItem[1].className = "activeItem";
+     }
+     else if(menuItem[2].baseURI =="http://127.0.0.1:8000/admission"){
+        menuItem[2].className = "activeItem";
+     }
+     else if(menuItem[3].baseURI =="http://127.0.0.1:8000/pre/registration/"){
+        menuItem[3].className = "activeItem";
+     }
+     else if(menuItem[4].baseURI =="http://127.0.0.1:8000/parcours/enseignants"){
+        menuItem[4].className = "activeItem";
+     }
+     else if(menuItem[5].baseURI =="http://127.0.0.1:8000/alumni"){
+        menuItem[5].className = "activeItem";
+     }
+     else if(menuItem[6].baseURI =="http://127.0.0.1:8000/news"){
+        menuItem[6].className = "activeItem";
+     }
+     else if(menuItem[7].baseURI =="http://127.0.0.1:8000/contact"){
+        menuItem[7].className = "activeItem";
+     }
+     
+     //for (i=0; i < 10 ; i++){
+
+        /* switch (menuItem.baseURI){
+            case "http://127.0.0.1:8000/parcours/presentation" : 
+                console.log("présentation");
+                list[2].addEventListener('click', ()=>{
+
+                }) 
+                break;
+            case "http://127.0.0.1:8000/specialites/licence" : 
+                console.log("parcours")
+                break;
+            case "http://127.0.0.1:8000/admission" : 
+                console.log("admission")
+                break;
+            case "http://127.0.0.1:8000/pre/registration/" : 
+                console.log("pre-inscription")
+                break;
+            case "http://127.0.0.1:8000/parcours/enseignants" : 
+                console.log("Teachers")
+                break;
+            case "http://127.0.0.1:8000/alumni" : 
+                console.log("alumni")
+                break;
+            case "http://127.0.0.1:8000/contact" : 
+                console.log("contact")
+                break;
+         }*/
+   //  }
 
     
   </script>
