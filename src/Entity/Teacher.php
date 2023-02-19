@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: TeacherRepository::class)]
+#[ORM\Index(name: 'search_index', columns: ['name', 'first_name'], flags: ['fulltext'])]
 class Teacher extends Person
 {
     #[ORM\Id]

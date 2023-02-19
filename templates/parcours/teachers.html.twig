@@ -1,9 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% set enseignants = 'section-active' %}
+
 {% block title %}Enseignants{% endblock %}
 
 {% block meta %}
-    <meta name="description" content="Nos etudiants sont enseignés par des chercheurs et des professionnels dans le domaine">
+    <meta name="description" content="Nos etudiants sont enseignés par des enseignants chercheurs et des professionnels du domaine">
 {% endblock %}
 
 {% block body %}
@@ -12,30 +14,35 @@
 
 <div class="container">
 
-<div class="row g-5">
-    {% for teacher in teachers %}
-        <div class="col-md-6 col-sm-12">
-            <div class="card border border-0 shadow-sm mb-3">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="{{asset('uploads/images/avatars/' ~ teacher.pictureName)}}" class="img-fluid rounded-start" alt="..." height="170">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">{{teacher}}</h5>
-                            <p class="card-text">{{teacher.diploma}}</p>
-                            <p class="card-text">
-                                <a href="{{path('app_parcours_teacher_show', {'id': teacher.id})}}" class="btn rounded-circle shadow specifical-bg-3 text-white">
-                                    <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </p>
+    <h1 class="text-center">Notre équipe pédagogique</h1>
+    <div class="content-devider" data-sal="slide-up" style="--sal-duration: 2s; --sal-delay: 0s;">
+        <hr class="content-devider-line" style="max-width:100%;width:50px;">
+    </div>
+
+    <div class="row g-5 my-5">
+        {% for teacher in teachers %}
+            <div class="col-md-6 col-sm-12">
+                <div class="card border border-0 shadow-sm mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="{{asset('uploads/images/avatars/' ~ teacher.pictureName)}}" class="img-fluid rounded-start" alt="..." height="170">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{teacher}}</h5>
+                                <p class="card-text">{{teacher.diploma}}</p>
+                                <p class="card-text">
+                                    <a href="{{path('app_parcours_teacher_show', {'id': teacher.id})}}" class="btn rounded-circle shadow specifical-bg-3 text-white">
+                                        <i class="fa fa-arrow-right"></i>
+                                    </a>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    {% endfor %}
-    <div class="col text-color-2"> {{knp_pagination_render(teachers)}}</div>
-</div>
+        {% endfor %}
+        <div class="col text-color-2"> {{knp_pagination_render(teachers)}}</div>
+    </div>
 </div>
 {% endblock %}

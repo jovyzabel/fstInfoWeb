@@ -2,9 +2,10 @@
 
 namespace App\Repository;
 
+use App\Data\SearchPage;
 use App\Entity\FormationCycle;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<FormationCycle>
@@ -37,6 +38,20 @@ class FormationCycleRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    public function findBysearch(SearchPage $searchPage): array
+    {
+    $query = $this->createQueryBuilder('f');
+        if (!empty($searchPage->searchText)) {
+            $query->andWhere('MATCH_AGAINST(f.label, f.description) AGAINST(:searchText boolean)>0')
+                ->setParameter('searchText', $searchPage->searchText);
+
+        }        
+        return $query->getQuery()
+            
+        ->getResult()
+       ;
     }
 
     //    /**

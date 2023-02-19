@@ -3,8 +3,8 @@
     <div class="d-flex justify-content-between align-items-center">
         <a class="navbar-brand d-flex align-items-center" href="{{path('app_home')}}">
             <img src="{{ asset('logos/2014-05-20.jpg') }}" alt="logo Faculté des Sciences et Techniques" class="" height="60"/>
-            <h5 class="fs-5 fw-normal mx-2 my-0 lh-1 d-none d-lg-block">FACULTE DES SCIENCES <br> ET TECHNIQUES</h5>
-            <h5 class="ms-4 fs-5">Parcours <br> Informatique</h5>
+            <h5 class="fs-5 fw-normal mx-2 my-0 lh-1 d-none d-lg-block text-color-2">FACULTE DES SCIENCES <br> ET TECHNIQUES</h5>
+            <h5 class="ms-4 fs-5 text-color-2">Parcours <br> Informatique</h5>
         </a>
         <li class="d-flex align-items-center ms-3">
             {# <i class="fa-solid fa-magnifying-glass"></i> #}
@@ -25,13 +25,20 @@
         </button>
         <div class="collapse navbar-collapse d-lg-flex flex-wrap justify-content-center" id="navbarSupportedContent">
             <ul class="navbar-nav">
-                    <li class="action">
-                        <a href="{{path('app_parcours_presentation')}}" class="nav-link px-2 py-3 text-white ">
+                    <li class="">
+                        <a href="{{path('app_parcours_presentation')}}" 
+                            class="nav-link {{ apropos|default('normal') }} px-2 py-3 text-white"
+                        >
                             A propos
                         </a>
                     </li>
-                    <li class="nav-item dropdown action" id="myDropdown">
-                        <a id="coursesMenu" href="{{path('app_specialities_list')}}" class="nav-link px-2 py-3 text-white  dropdown-toggle" href="#" data-bs-toggle="dropdown">Parcours</a>
+                    <li class="nav-item dropdown" id="myDropdown">
+                        <a id="coursesMenu" href="{{path('app_specialities_list')}}" 
+                            class="nav-link {{ parcours|default('normal') }} px-2 py-3 text-white dropdown-toggle" 
+                            data-bs-toggle="dropdown"
+                        >
+                            Parcours
+                        </a>
                         <ul class="dropdown-menu border-0 rounded-0">
                             <li>
                                 <a class="dropdown-item" href="{{path('app_formation_cycle', {'slug': 'licence'})}}">Licence</a>
@@ -47,37 +54,45 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="action">
-                        <a href="{{path('app_admission')}}" class="nav-link px-2 py-3 text-white ">
+                    <li>
+                        <a href="{{path('app_admission')}}" 
+                            class="nav-link {{ admission|default('normal') }} px-2 py-3 text-white"
+                        >
                             Admission
                         </a>
                     </li>
                     <li class="action">
                         <a href="{{ path('app_pre_registration_index') }}"
-                            class="nav-link px-2  py-3 text-white ">
+                            class="nav-link {{ preinscription|default('normal') }} px-2  py-3 text-white"
+                        >
                             Préinscription
                         </a>
                     </li>
-                    <li class="action">
-                        <a href="{{path('app_parcours_teachers')}}" class="nav-link px-2  py-3 text-white ">
+                    <li>
+                        <a href="{{path('app_parcours_teachers')}}" 
+                            class="nav-link {{ enseignants|default('normal') }} px-2  py-3 text-white"
+                        >
                             Enseignants
                         </a>
                     </li>
                     <li class="action">
                         <a href="{{path('app_alumni')}}"
-                            class="nav-link px-2  py-3 text-white ">
+                            class="nav-link {{ alumni|default('normal') }} px-2  py-3 text-white"
+                        >
                         Alumni
                         </a>
                     </li>
-                    <li class="action"> 
-                        <a class="nav-link px-2  py-3 text-white "
-                            href="{{ path('app_news') }}">
+                    <li>
+                        <a class="nav-link {{ actualites|default('normal') }} px-2  py-3 text-white"
+                            href="{{ path('app_news') }}"
+                        >
                         Actualités
                         </a>
                     </li>
                     <li class="action">
                         <a href="{{ path('app_contact') }}"
-                            class="nav-link px-2  py-3 text-white ">
+                            class="nav-link {{ contact|default('normal') }} px-2  py-3 text-white"
+                        >
                         Contact
                         </a>
                     </li>
@@ -102,74 +117,3 @@
         </div>
     </div>
 </nav>
-<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
-<script >
-    const currentLocation = Location.href;
-    const menuItem = document.querySelectorAll('.action');
-    const menuLength = menuItem.length;
-    console.log(menuItem);  
-    $(document).on('click', '.action', function(){
-        $(this).addClass('active').siblings().removeClass('active');
-    })
-    /*for(let i = 0; i < menuLength; i++){
-        if (menuItem[i].href === currentLocation){
-            menuItem[i].className = "active";
-        }
-     }*/
-     if(menuItem[0].baseURI ==  "http://127.0.0.1:8000/parcours/presentation"){
-        menuItem[0].className = "activeItem";
-     }
-     else if(menuItem[1].baseURI =="http://127.0.0.1:8000/specialites/licence/licence-informatique"){
-        menuItem[1].className = "activeItem";
-     }
-     else if(menuItem[2].baseURI =="http://127.0.0.1:8000/admission"){
-        menuItem[2].className = "activeItem";
-     }
-     else if(menuItem[3].baseURI =="http://127.0.0.1:8000/pre/registration/"){
-        menuItem[3].className = "activeItem";
-     }
-     else if(menuItem[4].baseURI =="http://127.0.0.1:8000/parcours/enseignants"){
-        menuItem[4].className = "activeItem";
-     }
-     else if(menuItem[5].baseURI =="http://127.0.0.1:8000/alumni"){
-        menuItem[5].className = "activeItem";
-     }
-     else if(menuItem[6].baseURI =="http://127.0.0.1:8000/news"){
-        menuItem[6].className = "activeItem";
-     }
-     else if(menuItem[7].baseURI =="http://127.0.0.1:8000/contact"){
-        menuItem[7].className = "activeItem";
-     }
-     
-     //for (i=0; i < 10 ; i++){
-
-        /* switch (menuItem.baseURI){
-            case "http://127.0.0.1:8000/parcours/presentation" : 
-                console.log("présentation");
-                list[2].addEventListener('click', ()=>{
-
-                }) 
-                break;
-            case "http://127.0.0.1:8000/specialites/licence" : 
-                console.log("parcours")
-                break;
-            case "http://127.0.0.1:8000/admission" : 
-                console.log("admission")
-                break;
-            case "http://127.0.0.1:8000/pre/registration/" : 
-                console.log("pre-inscription")
-                break;
-            case "http://127.0.0.1:8000/parcours/enseignants" : 
-                console.log("Teachers")
-                break;
-            case "http://127.0.0.1:8000/alumni" : 
-                console.log("alumni")
-                break;
-            case "http://127.0.0.1:8000/contact" : 
-                console.log("contact")
-                break;
-         }*/
-   //  }
-
-    
-  </script>
