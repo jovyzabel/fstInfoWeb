@@ -24,18 +24,20 @@
         {% endif %}
         </div>
         {% for datum in data %}
+
+            {% if datum is instanceof('\\App\\Entity\\Teacher') %}
             <div class="col-lg-8 mt-3">
                 <div class="card border-0 shadow-sm">
                     <div class="card-body">
                         <a class="text-decoration-none" 
-                            href="{{(datum is instanceof('\\App\\Entity\\Page') ) ? datum.link : path('app_news_show', {slug:datum.slug})}}"
+                            href="{{path('app_parcours_teacher_show', {id:datum.id})}}"
                         >
-                            <h3 class="card-title h2 fw-bold item-title">{{datum.title}}</h3>
+                            <h3 class="card-title h2 fw-bold item-title">{{datum.name ~ ' ' ~ datum.firstName}}</h3>
                         </a>
-                        <p class="card-text">{{datum.content|u.truncate(200, '...', false)}}</p>
+                        <p class="card-text h4">{{datum.diploma}}</p>
                         <p class="">
                             <a class="btn rounded-pill shadow specifical-bg-3 text-light" 
-                                href="{{(datum is instanceof('\\App\\Entity\\Page') ) ? datum.link : path('app_news_show', {slug:datum.slug})}}"
+                                href="{{path('app_parcours_teacher_show', {id:datum.id})}}"
                             >
                             Consulter
                             </a>
@@ -43,6 +45,95 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
+
+            {% if datum is instanceof('\\App\\Entity\\Speciality') %}
+            <div class="col-lg-8 mt-3">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <a class="text-decoration-none" 
+                            href="{{path('app_speciality', {formation_cycle_slug:datum.formationCycle.slug, slug:datum.slug})}}"
+                        >
+                            <h3 class="card-title h2 fw-bold item-title">{{datum.label}}</h3>
+                        </a>
+                        <p class="card-text">{{datum.description|u.truncate(200, '...', false)}}</p>
+                        <p class="">
+                            <a class="btn rounded-pill shadow specifical-bg-3 text-light" 
+                                href="{{path('app_speciality', {formation_cycle_slug:datum.formationCycle.slug, slug:datum.slug})}}"
+                            >
+                            Consulter
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if datum is instanceof('\\App\\Entity\\Article') %}
+            <div class="col-lg-8 mt-3">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <a class="text-decoration-none" 
+                            href="{{path('app_news_show', {slug:datum.slug})}}"
+                        >
+                            <h3 class="card-title h2 fw-bold item-title">{{datum.title}}</h3>
+                        </a>
+                        <p class="card-text">{{datum.content|u.truncate(200, '...', false)}}</p>
+                        <p class="">
+                            <a class="btn rounded-pill shadow specifical-bg-3 text-light" 
+                                href="{{path('app_news_show', {slug:datum.slug})}}"
+                            >
+                            Consulter
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if datum is instanceof('\\App\\Entity\\FormationCycle') %}
+            <div class="col-lg-8 mt-3">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <a class="text-decoration-none" 
+                            href="{{path('app_formation_cycle', {slug:datum.slug})}}"
+                        >
+                            <h3 class="card-title h2 fw-bold item-title">{{datum.label}}</h3>
+                        </a>
+                        <p class="card-text">{{datum.description|u.truncate(200, '...', false)}}</p>
+                        <p class="">
+                            <a class="btn rounded-pill shadow specifical-bg-3 text-light" 
+                                href="{{path('app_formation_cycle', {slug:datum.slug})}}"
+                            >
+                            Consulter
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if datum is instanceof('\\App\\Entity\\Page') %}
+            <div class="col-lg-8 mt-3">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <a class="text-decoration-none" 
+                            href="{{datum.link}}"
+                        >
+                            <h3 class="card-title h2 fw-bold item-title">{{datum.title}}</h3>
+                        </a>
+                        <p class="card-text">{{datum.content|u.truncate(200, '...', false)}}</p>
+                        <p class="">
+                            <a class="btn rounded-pill shadow specifical-bg-3 text-light" 
+                                href="{{datum.link }}"
+                            >
+                            Consulter
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
 
         {% endfor %}
 

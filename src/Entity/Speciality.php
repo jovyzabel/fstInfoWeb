@@ -10,6 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: SpecialityRepository::class)]
+#[ORM\Index(name: 'search_index', columns: ['label', 'description'], flags: ['fulltext'])]
 class Speciality
 {
     #[ORM\Id]

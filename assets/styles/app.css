@@ -70,20 +70,7 @@ h1, h2, h3, h4, h5,.item-title {
 }
 .nav-link:hover{
     color:#2f0f55 !important;
-    text-transform: uppercase;
  }
- /* nav div div ul li.active{
-    background-color: #ffffffec;
-    color:#2f0f55 !important;
-    transition: 5s ease-in-out;
- } */
-
- /* ul li.active .nav-link{
-    background-color: #ffffffec;
-    color:#2f0f55 !important;
-    transition: 5s ease-in-out;
- } */
-
 /*header end part*/
 
 /* footer debut part*/

@@ -41,7 +41,7 @@ class PageRepository extends ServiceEntityRepository
     }
 
     public function findBysearch(SearchPage $searchNews): array
-   {
+    {
     $query = $this->createQueryBuilder('p');
         if (!empty($searchNews->searchText)) {
             $query->andWhere('MATCH_AGAINST(p.title, p.content) AGAINST(:searchText boolean)>0')
@@ -52,7 +52,7 @@ class PageRepository extends ServiceEntityRepository
             
         ->getResult()
        ;
-   }
+    }
 
 //    /**
 //     * @return Page[] Returns an array of Page objects

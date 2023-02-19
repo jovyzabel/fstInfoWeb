@@ -3,8 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\Teacher;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use App\Data\SearchPage;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Teacher>
@@ -37,6 +38,20 @@ class TeacherRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    public function findBysearch(SearchPage $searchPage): array
+    {
+    $query = $this->createQueryBuilder('t');
+        if (!empty($searchPage->searchText)) {
+            $query->andWhere('MATCH_AGAINST(t.name, t.firstName) AGAINST(:searchText boolean)>0')
+                ->setParameter('searchText', $searchPage->searchText);
+
+        }        
+        return $query->getQuery()
+            
+        ->getResult()
+       ;
     }
 
 //    /**

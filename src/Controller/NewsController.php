@@ -20,7 +20,7 @@ class NewsController extends AbstractController
         
     }
 
-    #[Route('/news', name: 'app_news')]
+    #[Route('/news', name: 'app_news', methods:['GET'])]
     public function index(Request $request , PaginatorInterface $paginator): Response
     {
         $dataSearch = new SearchNews();
@@ -40,7 +40,7 @@ class NewsController extends AbstractController
         ]);
     }
     
-    #[Route('/news/result', name: 'app_news_result')]
+    #[Route('/news/result', name: 'app_news_result', methods:['GET', 'POST'])]
     public function searchResult(Request $request , PaginatorInterface $paginator): Response
     {
         $dataSearch = new SearchNews();

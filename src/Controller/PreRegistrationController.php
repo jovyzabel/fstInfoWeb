@@ -118,33 +118,6 @@ class PreRegistrationController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_pre_registration_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, PreRegistration $preRegistration, PreRegistrationRepository $preRegistrationRepository): Response
-    {
-        $form = $this->createForm(PreRegistrationType::class, $preRegistration);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $preRegistrationRepository->save($preRegistration, true);
-
-            return $this->redirectToRoute('app_pre_registration_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->renderForm('pre_registration/edit.html.twig', [
-            'pre_registration' => $preRegistration,
-            'form' => $form,
-        ]);
-    }
-
-    #[Route('/{id}', name: 'app_pre_registration_delete', methods: ['POST'])]
-    public function delete(Request $request, PreRegistration $preRegistration, PreRegistrationRepository $preRegistrationRepository): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$preRegistration->getId(), $request->request->get('_token'))) {
-            $preRegistrationRepository->remove($preRegistration, true);
-        }
-
-        return $this->redirectToRoute('app_pre_registration_index', [], Response::HTTP_SEE_OTHER);
-    }
 
     #[Route('/{id}/{to}', name: 'pre_registration_change_status')]
     public function changeStatus(Request $request, string $to, PreRegistration $preRegistration, EntityManagerInterface $entityManager): Response

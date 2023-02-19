@@ -26,14 +26,14 @@ class ParcoursController extends AbstractController
         ]);
     }
 
-    #[Route('/parcours/mot-du-responsable', name: 'app_parcours_chief_word')]
+    #[Route('/parcours/mot-du-responsable', name: 'app_parcours_chief_word', methods:['GET'])]
     public function chiefWord(): Response
     {
         return $this->render('parcours/chief_word.html.twig', [
         ]);
     }
 
-    #[Route('/parcours/enseignants', name: 'app_parcours_teachers')]
+    #[Route('/parcours/enseignants', name: 'app_parcours_teachers', methods:['GET'])]
     public function teachers(TeacherRepository $teacherRepository, PaginatorInterface $paginator, Request $request): Response
     {
         $data = $teacherRepository->findAll();
@@ -43,7 +43,7 @@ class ParcoursController extends AbstractController
         ]);
     }
 
-    #[Route('/enseignants/{id}', name: 'app_parcours_teacher_show')]
+    #[Route('/enseignants/{id}', name: 'app_parcours_teacher_show', methods:['GET'])]
     public function teacher(Teacher $teacher): Response
     {
         return $this->render('parcours/teacher.html.twig', [
@@ -51,14 +51,14 @@ class ParcoursController extends AbstractController
         ]);
     }    
     
-    #[Route('/admission', name: 'app_admission')]
+    #[Route('/admission', name: 'app_admission', methods:['GET'])]
     public function admission(): Response
     {
         return $this->render('parcours/admission.html.twig', [
         ]);
     }
 
-    #[Route('/cycles-de-formation', name: 'app_formation_cycles')]
+    #[Route('/cycles-de-formation', name: 'app_formation_cycles', methods:['GET'])]
     public function formationCycles(FormationCycleRepository $formationCycleRepository): Response
     {
         $licence = $formationCycleRepository->findOneBy(['label' => 'Licence']);
@@ -73,7 +73,7 @@ class ParcoursController extends AbstractController
         ]);
     }
 
-    #[Route('/specialites/{slug}', name: 'app_formation_cycle')]
+    #[Route('/specialites/{slug}', name: 'app_formation_cycle', methods:['GET'])]
     public function formationCycle(FormationCycle $formationCycle): Response
     {
         return $this->render('parcours/formation_cycle.html.twig', [
@@ -81,7 +81,7 @@ class ParcoursController extends AbstractController
         ]);
     }
     
-    #[Route('/specialites/{formation_cycle_slug}/{slug}', name: 'app_speciality')]
+    #[Route('/specialites/{formation_cycle_slug}/{slug}', name: 'app_speciality', methods:['GET'])]
     public function speciality(Speciality $speciality): Response
     {
         return $this->render('parcours/speciality.html.twig', [

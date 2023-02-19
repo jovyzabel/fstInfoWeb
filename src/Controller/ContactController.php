@@ -15,7 +15,7 @@ use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 
 class ContactController extends AbstractController
 {
-    #[Route('/contact', name: 'app_contact')]
+    #[Route('/contact', name: 'app_contact', methods:['GET', 'POST'])]
     public function index(Request $request, MailerInterface $mailer): Response
     {
         $contact = new Contact();

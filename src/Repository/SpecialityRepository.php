@@ -2,9 +2,10 @@
 
 namespace App\Repository;
 
+use App\Data\SearchPage;
 use App\Entity\Speciality;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Speciality>
@@ -37,6 +38,20 @@ class SpecialityRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    public function findBysearch(SearchPage $searchPage): array
+    {
+    $query = $this->createQueryBuilder('s');
+        if (!empty($searchPage->searchText)) {
+            $query->andWhere('MATCH_AGAINST(s.label, s.description) AGAINST(:searchText boolean)>0')
+                ->setParameter('searchText', $searchPage->searchText);
+
+        }        
+        return $query->getQuery()
+            
+        ->getResult()
+       ;
     }
 
 //    /**

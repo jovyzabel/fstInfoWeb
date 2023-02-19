@@ -13,6 +13,8 @@ use App\Repository\PartnerRepository;
 use App\Repository\AppOptionRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use App\Repository\FormationCycleRepository;
+use App\Repository\SpecialityRepository;
+use App\Repository\TeacherRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -21,27 +23,33 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController
 {
-    public function __construct(private FormationCycleRepository $formationCycleRepository){}
+    public function __construct(
+        private FormationCycleRepository $formationCycleRepository,
+        private ArticleRepository $articleRepository,
+        private SpecialityRepository $specialityRepository,  
+        private PaginatorInterface $paginator,
+        private TeacherRepository $teacherRepository
 
-    #[Route('/', name: 'app_home')]
+    ){}
+
+    #[Route('/', name: 'app_home', methods:['GET'])]
     public function index(
         Request $request, 
-        ArticleRepository $articleRepository, 
-        PartnerRepository $partnerRepository, 
-        AlumniRepository $alumniRepository
+        AlumniRepository $alumniRepository,
+        PartnerRepository $partnerRepository,
     ): Response
     {
         return $this->render('home/index.html.twig', [
-            'articles' => $articleRepository->findBy([], ['createdAt' => 'DESC'], 6),
-            'carousel_items' => $articleRepository->findBy(['isOnCarousel' => true],['createdAt' => 'DESC'], 3),
+            'articles' => $this->articleRepository->findBy([], ['createdAt' => 'DESC'], 6),
+            'carousel_items' => $this->articleRepository->findBy(['isOnCarousel' => true],['createdAt' => 'DESC'], 3),
             'partners' => $partnerRepository->findAll(),
             'alumnis' => $alumniRepository->findBy([], ['createdAt' => 'DESC'], 3),
             
         ]);
     }
 
-    #[Route('/recherche', name: 'app_search')]
-    public function search(Request $request , PaginatorInterface $paginator, ArticleRepository $articleRepository, PageRepository $pageRepository ): Response
+    #[Route('/recherche', name: 'app_search', methods:['GET'])]
+    public function search(Request $request,  PageRepository $pageRepository ): Response
     {
         $dataSearch = new SearchNews();
         $searchForm = $this->createForm(SearchNewsType::class, $dataSearch);
@@ -51,9 +59,12 @@ class HomeController extends AbstractController
         if ($searchForm->isSubmitted() && $searchForm->isValid()){
             
             $pages = $pageRepository->findBysearch($dataSearch);
-            $articles = $articleRepository->findBysearch($dataSearch);
-            $data = array_merge($pages, $articles);
-            $data = $paginator->paginate($data, $request->query->getInt('page', 1),6 );
+            $articles = $this->articleRepository->findBysearch($dataSearch);
+            $specialities = $this->specialityRepository->findBysearch($dataSearch);
+            $formationCycles = $this->formationCycleRepository->findBysearch($dataSearch);
+            $teachers = $this->teacherRepository->findBysearch($dataSearch);
+            $data = array_merge($pages, $articles, $formationCycles, $specialities, $teachers);
+            $data = $this->paginator->paginate($data, $request->query->getInt('page', 1),6 );
             return $this->render('home/search_result.html.twig', [
                 'data' => $data,
             ]);
