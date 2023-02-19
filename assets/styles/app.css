@@ -64,13 +64,15 @@ h1, h2, h3, h4, h5,.item-title {
     color:#2f0f55;
  }
 
- nav>div>div>ul>li:hover{
-   background-color: #ffffffec;
-   font-weight: bold;
+a.nav-link {
+    font-weight: bold;
 }
-.nav-link:hover{
+
+a.nav-link:hover , .section-active{
+    background-color: #fff;
     color:#2f0f55 !important;
- }
+    font-weight: bold;
+}
 /*header end part*/
 
 /* footer debut part*/
