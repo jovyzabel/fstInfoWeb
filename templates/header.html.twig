@@ -54,19 +54,24 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="{{path('app_admission')}}" 
-                            class="nav-link {{ admission|default('normal') }} px-2 py-3 text-white"
+                    <li class="nav-item dropdown" id="myDropdown">
+                        <a id="coursesMenu" href="{{path('app_admission')}}" 
+                            class="nav-link {{ admission|default('normal') }} px-2 py-3 text-white dropdown-toggle" 
+                            data-bs-toggle="dropdown"
                         >
                             Admission
                         </a>
-                    </li>
-                    <li class="action">
-                        <a href="{{ path('app_pre_registration_index') }}"
-                            class="nav-link {{ preinscription|default('normal') }} px-2  py-3 text-white"
-                        >
-                            Préinscription
-                        </a>
+                        <ul class="dropdown-menu border-0 rounded-0">
+                            <li>
+                                <a class="dropdown-item" href="{{path('app_admission')}}">Conditions d'admission</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ path('app_pre_registration_index') }}">Préinscription</a>
+                            </li>
+                            {# <li>
+                                <a class="dropdown-item" href="{{path('app_formation_cycle', {'slug': 'doctorat'})}}">Inscription</a>
+                            </li> #}
+                        </ul>
                     </li>
                     <li>
                         <a href="{{path('app_parcours_teachers')}}" 

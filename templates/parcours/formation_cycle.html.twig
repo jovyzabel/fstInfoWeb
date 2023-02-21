@@ -26,7 +26,7 @@
 				{{ formation_cycle.description ? formation_cycle.description : 'Acquérir des compétences professionnelles et de leadership spécialisées pour faire passer votre carrière au niveau supérieur avec un diplôme supérieur.' }}
 			</p>
 			<div class="d-grid gap-2 d-md-flex justify-content-md-start">
-				<a type="button" class="btn btn-lg specifical-bg-1 text-light rounded-pill shadow px-4 me-md-2">Postuler maintenant</a>
+				<a href="{{ path('app_pre_registration_new') }}" type="button" class="btn btn-lg specifical-bg-1 text-light rounded-pill shadow px-4 me-md-2">Postuler maintenant</a>
 			</div>
     	</div>
     </div>
@@ -44,7 +44,7 @@
 					{{speciality.targetedSkills|raw}}					
 				{% endif %}
 				</div>
-				<a type="button" class="btn btn-lg specifical-bg-1 text-light rounded-pill shadow px-4 me-md-2">En savoir plus</a>
+				<a href="{{path('app_speciality', {'slug': speciality.slug, 'formation_cycle_slug': speciality.formationCycle.slug})}}" type="button" class="btn btn-lg specifical-bg-1 text-light rounded-pill shadow px-4 me-md-2">En savoir plus</a>
 			</div>
 			<div class="col-md-5 order-md-1" data-sal="fade" style="--sal-duration: 2s;">
 				{% if speciality.featuredImage %}
