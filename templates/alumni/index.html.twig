@@ -12,9 +12,13 @@
 
 {{ include('alumni/_heading.html.twig',{'sub_link':'alumni'}) }}
 
-<div class="bg-light">
+<div class="">
     <div class="container">
-        <div class="row g-4">
+        <h1 class="mt-5 text-center">Ce que disent nos anciens étudiants</h1>
+        <div class="content-devider" data-sal="slide-up" style="--sal-duration: 2s; --sal-delay: 0s;">
+            <hr class="content-devider-line" style="max-width:100%;width:50px;">
+        </div>
+        <div class="row g-4 bg-light">
             {% for alumni in alumnies %}
                 <div class="col-md-4 mb-5 mb-md-0">
                     <div class="text-center shadow p-3">

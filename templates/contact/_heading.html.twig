@@ -7,17 +7,21 @@
 
  <br>
     <div class="text-center col justify-content-between typing">
-        <h2 class="p-2">Entrer en contact</h2>
-            <span {{ stimulus_controller('symfony/ux-typed', {
-            strings: ['Ecrivez nous ', 'Géolocalisez nous ', 'Appelez nous '],
-            smartBackspace: true,
-            startDelay: 180,
-            backSpeed: 50,
-            backDelay: 200,
-            loop: true,
-            showCursor: true,
-            cursorChar: '|'
-        }) }}></span>                               
+        <h1 class="p-2">Nous contacter</h1>
+        <div class="content-devider" data-sal="slide-up" style="--sal-duration: 2s; --sal-delay: 0s;">
+            <hr class="content-devider-line" style="max-width:100%;width:50px;">
+        </div>
+        <span {{ stimulus_controller('symfony/ux-typed', {
+                strings: ['Ecrivez nous ', 'Géolocalisez nous ', 'Appelez nous '],
+                smartBackspace: true,
+                startDelay: 180,
+                backSpeed: 50,
+                backDelay: 200,
+                loop: true,
+                showCursor: true,
+                cursorChar: '|'
+            })}}>
+        </span>                               
     </div>
 
    

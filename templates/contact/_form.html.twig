@@ -2,35 +2,46 @@
     <div class="row gx-5 ">
         <div class="col-sm-12 col-md-6">
              <aside class="px-3">
-                <h5>Médias sociaux</h5>
-                <hr class="featurette-divider">
-                <ul class="list-group list-group-horizontal">
-                    <li class="list-group-item"><a href="#" class="text-decoration-none text-dark"><i class="fa-brands fa-facebook rounded"></i></a></li>
-                    <li class="list-group-item"><a href="#" class="text-decoration-none text-dark"><i class="fa-brands fa-youtube"></i></i></a></li>
-                    <li class="list-group-item"><a href="#" class="text-decoration-none text-dark"><i class="fa-brands fa-google"></i></i></a></li>
-                    <li class="list-group-item"><a href="#" class="text-decoration-none text-dark"><i class="fa-brands fa-instagram"></i></i></a></li>
-                </ul>
-                <h5 class="mt-1">Téléphone</h5>
-                <hr class="featurette-divider">
-                <ul class="list-unstyled">
-                    <li><a href="tel:+242066108900"  class="text-decoration-none text-dark"><i class="fa-solid fa-phone"></i> +242 06 610 89 00</a></li>
-                    <li><a href="tel:+242066108900"  class="text-decoration-none text-dark"><i class="fa-solid fa-phone"></i> +242 05 543 33 34</a></li> 
-                </ul>
-                <h5>Email</h5>
-                <hr class="featurette-divider">
-                <ul class="list-unstyled gy-1">
-                    <li><a href="mailto:fst.informatique@umng.cg"  class="text-decoration-none text-dark"><i class="fa-solid fa-message"></i> fst.informatique@umng.cg</a></li>
-                </ul>
-                <h5>Adresse</h5>
-                <hr class="featurette-divider">
-                <ul class="list-unstyled gy-1">
-                    <li><a href="https://goo.gl/maps/LJSRrRj6kZ32smLTA" target="_blank"  class="text-decoration-none text-dark"><i class="fa-solid fa-location"></i> Fst UMNG Brazzaville</a></li>
-                </ul>
-                <h5>Heures d'ouvertures</h5>
-                <hr class="featurette-divider">
-                <ul class="list-unstyled gy-1">
-                    <li><a href="" class="text-decoration-none text-dark"><i class="fa-solid fa-calendar-days"></i> ven 11:00 am à 14:30 pm</a></li>
-                </ul>
+                <div class="mb-4">
+                    <h5 class="">Médias sociaux</h5>
+                    <div class="text-subline mb-3"></div>
+                    <ul class="list-group list-group-horizontal">
+                        <li class="list-group-item"><a href="#" class="text-decoration-none text-dark"><i class="fa-brands fa-facebook rounded"></i></a></li>
+                        <li class="list-group-item"><a href="#" class="text-decoration-none text-dark"><i class="fa-brands fa-youtube"></i></i></a></li>
+                        <li class="list-group-item"><a href="#" class="text-decoration-none text-dark"><i class="fa-brands fa-google"></i></i></a></li>
+                        <li class="list-group-item"><a href="#" class="text-decoration-none text-dark"><i class="fa-brands fa-instagram"></i></i></a></li>
+                    </ul>
+                </div>
+                <div class="mb-4">
+                    <h5 class="mt-1">Téléphone</h5>
+                    <div class="text-subline mb-3"></div>
+                    <ul class="list-unstyled">
+                        <li><a href="tel:+242066108900"  class="text-decoration-none text-dark"><i class="fa-solid fa-phone"></i> +242 06 610 89 00</a></li>
+                        <li><a href="tel:+242066108900"  class="text-decoration-none text-dark"><i class="fa-solid fa-phone"></i> +242 05 543 33 34</a></li> 
+                    </ul>
+                </div>
+                <div class="mb-4">
+                    <h5>Email</h5>
+                    <div class="text-subline mb-3"></div>
+                    <ul class="list-unstyled gy-1">
+                        <li><a href="mailto:fst.informatique@umng.cg"  class="text-decoration-none text-dark"><i class="fa-solid fa-message"></i> fst.informatique@umng.cg</a></li>
+                    </ul>
+                </div>
+                <div class="mb-4">
+                    <h5>Adresse</h5>
+                    <div class="text-subline mb-3"></div>
+                    <ul class="list-unstyled gy-1">
+                        <li><a href="https://goo.gl/maps/LJSRrRj6kZ32smLTA" target="_blank"  class="text-decoration-none text-dark"><i class="fa-solid fa-location"></i> Fst UMNG Brazzaville</a></li>
+                    </ul>
+                </div>
+                <div class="mb-4">
+                    <h5>Heures d'ouvertures</h5>
+                    <div class="text-subline mb-3"></div>
+                    <ul class="list-unstyled gy-1">
+                        <li><a href="" class="text-decoration-none text-dark"><i class="fa-solid fa-calendar-days"></i> ven 11:00 am à 14:30 pm</a></li>
+                    </ul>
+                </div>
+
             </aside>
         </div>
         <div class="col-sm-12 col-md-6">
@@ -40,7 +51,7 @@
                     {{ form_row(form.email, {'attr':{'class':'form-control mb-3'}}) }}
                 </div>
                 
-                <div class="mb-3">
+                <div class="mb-4">
                     {{ form_row(form.object, {'attr':{'class':'form-control mb-3'}}) }}
 
                     

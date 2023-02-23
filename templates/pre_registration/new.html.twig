@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% set preinscription = 'section-active' %}
+{% set admission = 'section-active' %}
 
 {% block title %}Nouvelle préinscription{% endblock %}
 
@@ -9,8 +9,11 @@
 {% include "pre_registration/_heading.html.twig" %} <br>   
 
 <div class="container">
-    <div class="py-5">
-        <h1 class="py-3" >Nouvelle préinscription</h1>
+    <div class="">
+        <h1 class="mt-5" >Nouvelle préinscription</h1>
+        <div class="content-devider mb-5" data-sal="slide-up" style="--sal-duration: 2s; --sal-delay: 0s;">
+            <hr class="content-devider-line" style="max-width:100%;width:50px;">
+        </div>
 
         {{ include('pre_registration/_form.html.twig') }}
 
