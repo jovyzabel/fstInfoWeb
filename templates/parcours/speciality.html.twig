@@ -13,7 +13,11 @@
 {{ include('parcours/_heading.html.twig',{'sub_link':'Speciality'}) }}
 
 <div class="container">
-    <h1 class="my-5">Parcours {{speciality.formationCycle}} {{speciality}}</h1>
+    <h1 class="mt-5 text-center">Parcours {{speciality.formationCycle}} {{speciality}}</h1>
+	<div class="content-devider mb-5" data-sal="slide-up" style="--sal-duration: 2s; --sal-delay: 0s;">
+		<hr class="content-devider-line" style="max-width:100%;width:50px;">
+	</div>
+
     <div class="row align-items-start">
 
         <ul class="col-lg-4 mb-sm-5 nav nav-tabs list-group rounded-0" id="myTab" role="tablist" >

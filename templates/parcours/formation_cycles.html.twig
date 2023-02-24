@@ -31,6 +31,7 @@
 		<div class="row g-5 featurette py-5">
 			<div class="col-md-7 col-lg-6 order-md-2" data-sal="slide-in" style="--sal-duration: 2s;">
 				<h2 class="featurette-heading fw-bold lh-1">Nos spécialités de Doctorat</h2>
+        		<div class="text-subline mb-3"></div>
 				<p class="lead">
 				{{ doctorat.description ? doctorat.description : 'Acquérir des compétences professionnelles et de leadership spécialisées pour faire passer votre carrière au niveau supérieur avec un diplôme supérieur.' }}
 				</p>
@@ -38,7 +39,7 @@
 				{% if doctorat.specialities %}
 					{% for speciality in doctorat.specialities %}
 					<li>
-						<h3><a class="text-decoration-none header-link" href="{{path('app_speciality', {'slug': speciality.slug})}}">{{speciality.label}}</a></h3>
+						<h3><a class="text-decoration-none text-muted" href="{{path('app_speciality', {'slug': speciality.slug})}}">{{speciality.label}}</a></h3>
 					</li>
 					{% endfor %}
 					
@@ -57,6 +58,7 @@
 		<div class="row g-5 flex-lg-row-reverse featurette py-5">
 			<div class="col-md-7 col-lg-6 order-md-2" data-sal="slide-in" style="--sal-duration: 2s;">
 				<h2 class="featurette-heading fw-bold lh-1">Nos spécialités de Master</h2>
+        		<div class="text-subline mb-3"></div>
 				<p class="lead">
 				{{ master.description ? master.description : 'Acquérir des compétences professionnelles et de leadership spécialisées pour faire passer votre carrière au niveau supérieur avec un diplôme supérieur.' }}
 				</p>
@@ -64,7 +66,7 @@
 				{% if master.specialities %}
 					{% for speciality in master.specialities %}
 					<li>
-						<h3><a class="text-decoration-none header-link" href="{{path('app_speciality', {'slug': speciality.slug})}}">{{speciality.label}}</a></h3>
+						<h3><a class="text-decoration-none text-muted" href="{{path('app_speciality', {'slug': speciality.slug})}}">{{speciality.label}}</a></h3>
 					</li>
 					{% endfor %}
 					
@@ -83,14 +85,15 @@
 		<div class="row g-5 featurette py-5">
 			<div class="col-md-7 col-lg-6 order-md-2" data-sal="slide-in" style="--sal-duration: 2s;">
 				<h2 class="featurette-heading fw-bold lh-1">Nos spécialités de Licence</h2>
+        		<div class="text-subline mb-3"></div>
 				<p class="lead">
 				{{ licence.description ? licence.description : 'Acquérir des compétences professionnelles et de leadership spécialisées pour faire passer votre carrière au niveau supérieur avec un diplôme supérieur.' }}
 				</p>
-				<ul class="list-unstyled">
+				<ul class="">
 				{% if licence.specialities %}
 					{% for speciality in licence.specialities %}
 					<li>
-						<h3><a class="text-decoration-none header-link" href="{{path('app_speciality', {'slug': speciality.slug, 'formation_cycle_slug': licence.slug })}}">{{speciality.label}}</a></h3>
+						<h3><a class="text-decoration-none item-title" href="{{path('app_speciality', {'slug': speciality.slug, 'formation_cycle_slug': licence.slug })}}">{{speciality.label}}</a></h3>
 					</li>
 					{% endfor %}
 					
