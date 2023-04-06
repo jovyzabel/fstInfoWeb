@@ -23,8 +23,7 @@ class PreRegistrationType extends AbstractType
                 'class' => Speciality::class,
                 ])
             ->add('preRegistrationType', ChoiceType::class, [
-                'choices' => ['Normale' => 'normale', 'Equivalence' => 'equivalence',],
-
+                'choices' => ['Normale' => 'normale', 'Equivalence' => 'equivalence', 'Dérogation' => 'derogation'],
             ])
             ->add('folder', FolderType::class, [
                 

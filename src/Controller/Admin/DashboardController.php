@@ -100,8 +100,10 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Alumni', 'fa fa-people-roof',Alumni::class)->setPermission('ROLE_ADMIN');
         yield MenuItem::linkToCrud('Promotions', 'fa fa-people-roof',Promotion::class)->setPermission('ROLE_ADMIN');
 
-        yield MenuItem::linkToCrud('Media', 'fa fa-photo-film',Media::class)->setPermission('ROLE_USER');
         yield MenuItem::linkToCrud('Partenaires', 'fa fa-handshake',Partner::class)->setPermission('ROLE_ADMIN');
+
+        yield MenuItem::linkToCrud('Media', 'fa fa-photo-film',Media::class)->setPermission('ROLE_USER');
+        yield MenuItem::linkToUrl('Gestionnaire de fichiers', 'fa fa-folder-open', '/manager/?conf=default')->setLinkTarget('blank')->setPermission('ROLE_USER');
 
         yield MenuItem::subMenu('Parametres', 'fa fa-gear')->setSubItems([
             MenuItem::linkToCrud('Général', 'fa fa-gear', AppOption::class),

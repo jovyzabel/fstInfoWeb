@@ -20,7 +20,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
-#[Route('/pre/registration')]
+#[Route('/preinscription')]
 class PreRegistrationController extends AbstractController
 {
     public function __construct(private Registry $registry, private AdminUrlGenerator $adminUrlGenerator, private Printer $printer)
@@ -74,7 +74,7 @@ class PreRegistrationController extends AbstractController
 
     
 
-    #[Route('/new', name: 'app_pre_registration_new', methods: ['GET', 'POST'])]
+    #[Route('/nouvelle-preinscription', name: 'app_pre_registration_new', methods: ['GET', 'POST'])]
     public function new(Request $request, PreRegistrationRepository $preRegistrationRepository, AppOptionRepository $appOptionRepository): Response
     {
         $appOptions = $appOptionRepository->findAll()[0];

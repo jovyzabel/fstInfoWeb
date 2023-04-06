@@ -25,6 +25,11 @@ class Alumni extends Person
     #[ORM\ManyToOne(inversedBy: 'alumnis')]
     private ?Promotion $promotion = null;
 
+    public function __construct(){
+        parent::__construct();
+        $this->createdAt = new \DateTimeImmutable();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
