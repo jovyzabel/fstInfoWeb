@@ -1,3 +1,6 @@
 {{ form_start(searchForm, {'action': path('app_search')}) }}
-    {{ form_row(searchForm.searchText, {'label':false, 'attr': {'placeholder':'Rechercher','class':'form-control form-control-sm d-flex align-items-center', 'height':'100%'}}) }}
+    <div class="form-group d-flex">
+        {{ form_row(searchForm.searchText, {'label':false, 'attr': {'placeholder':'Rechercher','class':'form-control form-control-sm align-items-center', 'height':'100%'}}) }}
+        <button class="btn btn-sm btn-outline-secondary "><i class="fas fa-search"></i></button>
+    </div>
 {{ form_end(searchForm, {render_rest:false}) }} 

@@ -37,7 +37,7 @@ class AddressType extends AbstractType
                     
                     ])
                     ->add('country', CountryType::class,[
-                        'label' => 'Ville',
+                        'label' => 'Pays de résidence',
                         'attr'=>['class' => 'rounded-0 sumup']
             ])
         ;
