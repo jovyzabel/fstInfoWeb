@@ -9,8 +9,8 @@
     </div>
 
     {% for article in articles %}
-      <div class="col-sm-12 col-md-6 col-lg-4" data-sal="slide-up" style="--sal-duration: 2s; --sal-delay: 0s;">
-        <div class="card shadow-sm rounded-0 border-0">
+      <div class="col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch" data-sal="slide-up" style="--sal-duration: 2s; --sal-delay: 0s;">
+        <div class="card  shadow-sm rounded-0 border-0">
           {% if article.featuredImage %}
             <img src="{{asset('uploads/images/news/' ~ article.featuredImage.filename)}}" class="card-img-top rounded-0" alt="illustration de l'article" />
           {% endif %}

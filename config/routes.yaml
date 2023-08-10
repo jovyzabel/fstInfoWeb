@@ -7,4 +7,4 @@ artgris_bundle_file_manager:
     type:
         annotation
     prefix:
-        /manager
+        /file-manager
