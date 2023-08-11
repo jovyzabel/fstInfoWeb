@@ -19,14 +19,13 @@
 
 <div class="container ">
     <div class="row gx-5">
-        <div class="col-md-12 col-lg-8">
+        <div class="col-md-12 col-lg-9">
             <div class="">
                 <h2 class="text-bold">{{article.title}}</h2>
                 <hr class="text-subline">
                 <div class="">
                     <ul class="list-inline">
                         <li><i class="bi bi-clock-fill"></i><span class="">Publié le {{article.createdAt |date('d/m/Y')}} </span></li>
-                        <li><i class="bi bi-person-fill"></i><span class=""> {{article.account.email}}</span></li>
                     </ul>
                 </div>
                 <div class="offset-top-30">
@@ -40,23 +39,25 @@
 
                 <div class="offset-top-30 row my-3">
                     <div class="col-sm-12 col-lg-6">
-                        <div class="text-center">
+                        <div class="text-md-start">
                             {% for category in article.categories %}
                             <a class="btn btn-sm btn-outline-danger me-1 text-italic" href="#">{{category.label}}</a>
                             {% endfor %}
                         </div>
                     </div>
                     <div class="col-sm-12 col-lg-6">
-                        <div class="text-center">
-                            <a class="me-2" href="#"><i class="bi bi-facebook"></i></a>
-                            <a class="me-2" href="#"><i class="bi bi-twitter"></i></a>
-                            <a class="me-2" href="#"><i class="bi bi-google"></i></a>
-                            <a class="me-2" href="#"><i class="bi bi-whatsapp"></i></a>
+                        <div class="text-md-end">
+
+                            <a class="btn btn-sm btn-outline-primary me-1 text-italic" href="https://www.facebook.com/sharer/sharer.php?u={{absolute_url(path('app_news_show', {slug: article.slug})) }}"><i class="bi bi-facebook"></i> Facebook</a>
+                            <a class="btn btn-sm btn-outline-primary me-1 text-italic" href="https://twitter.com/intent/tweet?text={{ article.title|url_encode }}%20{{ absolute_url(path('app_news_show', {slug: article.slug})) }}%20@parcoursinfo"><i class="bi bi-twitter"></i> Twitter</a>
+                            
+                            {# <a class="me-2" href="#"><i class="bi bi-google"></i></a>
+                            <a class="me-2" href="#"><i class="bi bi-whatsapp"></i></a> #}
                         </div>
                     </div>
                 </div>
 
-                <div class="offset-top-50">
+                {# <div class="offset-top-50">
                     <h6 class="text-bold">Auteur</h6>
                     <div class="text-subline"></div>
                     <div class="py-2">
@@ -70,16 +71,16 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> #}
             </div>
         </div>
 
-        <div class="col-md-12 col-lg-4">
+        <div class="col-md-12 col-lg-3">
             <aside>
                 <div>
                     <h5>Recherche</h5>
                     <div class="text-subline"></div>
-                    <div class="p-3">
+                    <div class="py-2">
                         {# <form action="" method="get">
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" placeholder="barre de recherche" aria-label="barre de recherche" aria-describedby="basic-addon2" width="100%">
@@ -93,8 +94,7 @@
 
                          {{ form_start(form, {'action': path('app_news_result')}) }}
                             <div class="input-group mb-3">
-                            {{ form_row(form.searchText, {'label':false, 'attr': {'class':'form-control', 'height':'100%'}}) }}
-                    
+                                {{ form_row(form.searchText, {'label':false, 'attr':{'class': 'form-control'}}) }}
                                     <button class="input-group-text btn specifical-bg-3" type="submit">
                                         <i class="fa-solid fa-search text-white"></i>
                                     </button>
