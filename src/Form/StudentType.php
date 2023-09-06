@@ -7,12 +7,14 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Symfony\Component\Validator\Constraints\LessThanOrEqual;
 
 class StudentType extends AbstractType
 {
@@ -21,7 +23,7 @@ class StudentType extends AbstractType
         $builder
             ->add('pictureFile', VichImageType::class, [
                 'label' => 'photo identité',
-                'attr' => ['onchange' =>'showPreview(event)'],
+                'attr' => ['onchange' => 'showPreview(event)'],
                 'required' => false,
                 'constraints' => [
                     new File([
@@ -35,14 +37,19 @@ class StudentType extends AbstractType
                     ])
                 ],
             ])
-            ->add('civility',ChoiceType::class, [
-                'label'=> 'Civilité',
-                'choices' => ['Monsieur' => 'M','Madame' => 'F',],
+            ->add('civility', ChoiceType::class, [
+                'label' => 'Civilité',
+                'choices' => ['Monsieur' => 'M', 'Madame' => 'F',],
             ])
             ->add('birthDay', DateType::class, [
                 "label" => "Date de Naissance",
-                "widget" => "single_text"
+                "widget" => "single_text",
+                'constraints' => [
+                    new NotBlank(),
+                    new LessThanOrEqual(['value' => '-15 years',]),
+                ]
             ])
+
             ->add('birthPlace', TextType::class, [
                 'label' => 'Lieu de Naissance'
             ])
@@ -59,8 +66,7 @@ class StudentType extends AbstractType
             ])
             ->add('address', AddressType::class, [
                 'label' => 'Adresse'
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

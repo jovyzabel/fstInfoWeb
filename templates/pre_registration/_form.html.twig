@@ -23,32 +23,32 @@
         <div class="form-step form-step-active">
             <div class="inputs-group row gx-3">
                 <div class="col-md-12 col-lg-4">
-                    <div class="d-flex justify-content-center py-3">
-                        <img src="{{asset('img/user-128.png')}}" id="file-ip-1-preview" width="220px" height="220px" class="bg-light border border-0 rounded-3">
+                    <div class="d-flex py-3">
+                        <img src="{{asset('img/user-128.png')}}" id="file-ip-1-preview" width="160px" height="172px" class="bg-light border border-0 rounded-3">
                     </div> 
-                    <div class="mx-lg-5">
-                        {{ form_row(form.student.pictureFile) }}
+                    <div class="">
+                        {{ form_row(form.student.pictureFile, {'label':false}) }}
                     </div>
                 </div>
 
                 <div class="col-md-12 col-lg-8">
                     <div class="row">
-                        <div class="col-md-6 mb-3 mt-3">
+                        <div class="col-md-6">
                             {{ form_row(form.student.name) }}
                         </div>
-                        <div class="col-md-6 mb-3 mt-3">
+                        <div class="col-md-6">
                             {{ form_row(form.student.firstName) }}
                         </div>
-                        <div class="col-md-6 mb-3 mt-3">
+                        <div class="col-md-6">
                             {{ form_row(form.student.birthDay) }}
                         </div>
-                        <div class="col-md-6 mb-3 mt-3">
+                        <div class="col-md-6">
                             {{ form_row(form.student.birthPlace) }}
                         </div>
-                        <div class="col-md-6 mb-3 mt-2">
+                        <div class="col-md-6">
                             {{ form_row(form.student.civility) }}
                         </div>
-                        <div class="col-md-6 mb-3 mt-2">
+                        <div class="col-md-6">
                             {{ form_row(form.student.nationality) }}
                         </div>
                     </div>
@@ -56,7 +56,7 @@
             </div>
 
             <div class=" w-20 float-end">
-                <a href="#" class="btn specifical-bg-3 rounded-pill text-light btn-next ml-auto firstNext">Suivant</a>
+                <a href="#" type="button" class="btn specifical-bg-3 rounded-pill text-light btn-next ml-auto firstNext">Suivant</a>
             </div>
         </div>
     </div>
@@ -64,7 +64,7 @@
         <div class="">
             <div class="form-step">
                 <div class="inputs-group row gx-3">
-                    <div class="col-lg-4 col-md-6 mb-3 mt-2">
+                    <div class="col-lg-4 col-md-6">
                         <div class="row">
                              <div class="col-3">
                                 {{ form_row(form.student.address.street_number) }} 
@@ -74,19 +74,19 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-3 mt-2">
+                    <div class="col-lg-4 col-md-6">
                         {{ form_row(form.student.address.quater_name) }}
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-3 mt-2">
+                    <div class="col-lg-4 col-md-6">
                         {{ form_row(form.student.address.city) }}
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-3 mt-2">
+                    <div class="col-lg-4 col-md-6">
                         {{ form_row(form.student.address.country) }}
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-3 mt-2">
+                    <div class="col-lg-4 col-md-6">
                         {{ form_row(form.student.telephone) }}
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-3 mt-2">
+                    <div class="col-lg-4 col-md-6">
                         {{ form_row(form.student.email) }}
                     </div>
                 </div>

@@ -18,7 +18,7 @@ class Category
     #[ORM\Column(length: 255)]
     private ?string $label = null;
 
-    #[ORM\ManyToMany(targetEntity: Article::class, mappedBy: 'category')]
+    #[ORM\ManyToMany(targetEntity: Article::class, mappedBy: 'categories')]
     private Collection $articles;
 
     public function __construct()
@@ -70,8 +70,9 @@ class Category
         return $this;
     }
 
-    public function __toString() {
-        
+    public function __toString()
+    {
+
         return $this->label;
     }
 }

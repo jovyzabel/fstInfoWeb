@@ -176,8 +176,8 @@ $(document).ready(function() {
                             <td >Adresse </td>
                             <td >
                                 ${formData.get('pre_registration[student][address][street_number]')} 
-                                ${formData.get('pre_registration[student][address][street_name]')},
-                                ${formData.get('pre_registration[student][address][quater_name]')},
+                                ${formData.get('pre_registration[student][address][street_name]')} 
+                                ${formData.get('pre_registration[student][address][quater_name]')} 
                                 ${formData.get('pre_registration[student][address][city]')},
                                 ${regionNames.of(formData.get('pre_registration[student][address][country]'))}
 

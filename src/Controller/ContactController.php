@@ -15,7 +15,7 @@ use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 
 class ContactController extends AbstractController
 {
-    #[Route('/contact', name: 'app_contact', methods:['GET', 'POST'])]
+    #[Route('/contact', name: 'app_contact', methods: ['GET', 'POST'])]
     public function index(Request $request, MailerInterface $mailer): Response
     {
         $contact = new Contact();
@@ -29,10 +29,10 @@ class ContactController extends AbstractController
                 ->to('secretariat.parcours-info.fst@umng.org')
                 ->subject($contact->getObject())
                 ->html($contact->getContent());
-            try{
+            try {
                 $mailer->send($email);
                 $this->addFlash('succes', 'Votre message a été envoyé avec succès');
-            }catch(TransportExceptionInterface $e){
+            } catch (TransportExceptionInterface $e) {
                 dump($e->getMessage());
             }
 

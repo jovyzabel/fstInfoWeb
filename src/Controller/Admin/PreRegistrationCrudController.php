@@ -24,9 +24,8 @@ class PreRegistrationCrudController extends AbstractCrudController
 
     public function __construct(private AdminUrlGenerator $adminUrlGenerator)
     {
-       
     }
-    
+
     public static function getEntityFqcn(): string
     {
         return PreRegistration::class;
@@ -40,16 +39,16 @@ class PreRegistrationCrudController extends AbstractCrudController
     public function configureActions(Actions $actions): Actions
     {
         $showAction = Action::new(self::SHOW, 'Détails')
-            ->linkToRoute('admin_pre_registration_show', function(PreRegistration $preRegistration){
+            ->linkToRoute('admin_pre_registration_show', function (PreRegistration $preRegistration) {
                 return [
                     'id' => $preRegistration->getId()
                 ];
-        });
+            });
 
         $printAction = Action::new(self::PRINT, 'Imprimer', 'fa fa-file-pdf-o')
             ->linkToRoute('app_pre_registration_approuved')
             ->createAsGlobalAction();
-            
+
         return $actions
             ->add(Crud::PAGE_INDEX, $printAction)
             ->add(Crud::PAGE_INDEX, $showAction)
@@ -68,7 +67,7 @@ class PreRegistrationCrudController extends AbstractCrudController
             DateField::new('createdAt', 'Date'),
             AssociationField::new('folder', 'Dossier'),
             AssociationField::new('student', 'Etudiant')
-            
+
         ];
     }
 
@@ -78,16 +77,12 @@ class PreRegistrationCrudController extends AbstractCrudController
             ->add('createdAt')
             ->add('status');
     }
-    
-    #[Route('/admin/pre-registration/{id}', name:'admin_pre_registration_show')]
-    public function renderPreRegistration(PreRegistration $preRegistration):Response
+
+    #[Route('/admin/pre-registration/{id}', name: 'admin_pre_registration_show')]
+    public function renderPreRegistration(PreRegistration $preRegistration): Response
     {
         return $this->render('admin/pre_registration/details.html.twig', [
             'pre_registration' => $preRegistration,
         ]);
     }
-
-    
-
-
 }

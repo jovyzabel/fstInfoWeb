@@ -40,7 +40,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 
 class DashboardController extends AbstractDashboardController
 {
-    #[Route('/admin', name: 'admin')]
+    #[Route('/app', name: 'admin')]
     #[IsGranted('ROLE_USER')]
     public function index(): Response
     {
@@ -72,38 +72,39 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Comptes Utilisateur', 'fa fa-users',Account::class)->setPermission('ROLE_ADMIN');
-        yield MenuItem::linkToCrud('Pages', 'fa fa-paper',Page::class)->setPermission('ROLE_ADMIN');
+        yield MenuItem::linkToCrud('Comptes Utilisateur', 'fa fa-users', Account::class)->setPermission('ROLE_ADMIN');
+        yield MenuItem::linkToCrud('Pages', 'fa fa-paper', Page::class)->setPermission('ROLE_ADMIN');
         yield MenuItem::subMenu('Actualités', 'fa fa-file-text')->setSubItems([
-            MenuItem::linkToCrud('Articles', 'fa fa-newspaper',Article::class),
-            MenuItem::linkToCrud('Tags', 'fa fa-tags',Tag::class),
-            MenuItem::linkToCrud('Categories', 'fa fa-bars-staggered',Category::class),])
+            MenuItem::linkToCrud('Articles', 'fa fa-newspaper', Article::class),
+            MenuItem::linkToCrud('Tags', 'fa fa-tags', Tag::class),
+            MenuItem::linkToCrud('Categories', 'fa fa-bars-staggered', Category::class),
+        ])
             ->setPermission('ROLE_USER');
         yield MenuItem::subMenu('Parcours', 'fa fa-file-text')->setSubItems([
             MenuItem::linkToCrud('Années academiques', 'fa fa-calendar', AcademicYear::class),
-            MenuItem::linkToCrud('Cycles de formation', 'fa fa-books',FormationCycle::class),
-            MenuItem::linkToCrud('Specialités', 'fa fa-books',Speciality::class),
-            MenuItem::linkToCrud('Semestres', 'fa fa-books',Semester::class),
-            MenuItem::linkToCrud('Type de semestre', 'fa fa-books',SemesterType::class),
-            MenuItem::linkToCrud('UEs', 'fa fa-books',UE::class),
-            MenuItem::linkToCrud('Matières', 'fa fa-book',Subject::class),
+            MenuItem::linkToCrud('Cycles de formation', 'fa fa-books', FormationCycle::class),
+            MenuItem::linkToCrud('Specialités', 'fa fa-books', Speciality::class),
+            MenuItem::linkToCrud('Semestres', 'fa fa-books', Semester::class),
+            MenuItem::linkToCrud('Type de semestre', 'fa fa-books', SemesterType::class),
+            MenuItem::linkToCrud('UEs', 'fa fa-books', UE::class),
+            MenuItem::linkToCrud('Matières', 'fa fa-book', Subject::class),
         ])->setPermission('ROLE_ADMIN');
 
         yield MenuItem::subMenu('Préinscriptions', 'fa fa-file')->setSubItems([
-            MenuItem::linkToCrud('Candidatures','fa fa-pencil', PreRegistration::class),
-            MenuItem::linkToCrud('Etudiants','fa fa-user', Student::class),
-            MenuItem::linkToCrud('Dossiers','fa fa-file', Folder::class),
-            MenuItem::linkToCrud('Fichiers joints','fa fa-file', Document::class),
+            MenuItem::linkToCrud('Candidatures', 'fa fa-pencil', PreRegistration::class),
+            MenuItem::linkToCrud('Etudiants', 'fa fa-user', Student::class),
+            MenuItem::linkToCrud('Dossiers', 'fa fa-file', Folder::class),
+            MenuItem::linkToCrud('Fichiers joints', 'fa fa-file', Document::class),
         ])->setPermission('ROLE_ADMIN');
 
-        yield MenuItem::linkToCrud('Enseignants', 'fa fa-people-roof',Teacher::class)->setPermission('ROLE_ADMIN');
-        yield MenuItem::linkToCrud('Alumni', 'fa fa-people-roof',Alumni::class)->setPermission('ROLE_ADMIN');
-        yield MenuItem::linkToCrud('Promotions', 'fa fa-people-roof',Promotion::class)->setPermission('ROLE_ADMIN');
+        yield MenuItem::linkToCrud('Enseignants', 'fa fa-people-roof', Teacher::class)->setPermission('ROLE_ADMIN');
+        yield MenuItem::linkToCrud('Alumni', 'fa fa-people-roof', Alumni::class)->setPermission('ROLE_ADMIN');
+        yield MenuItem::linkToCrud('Promotions', 'fa fa-people-roof', Promotion::class)->setPermission('ROLE_ADMIN');
 
-        yield MenuItem::linkToCrud('Partenaires', 'fa fa-handshake',Partner::class)->setPermission('ROLE_ADMIN');
+        yield MenuItem::linkToCrud('Partenaires', 'fa fa-handshake', Partner::class)->setPermission('ROLE_ADMIN');
 
-        yield MenuItem::linkToCrud('Media', 'fa fa-photo-film',Media::class)->setPermission('ROLE_USER');
-        yield MenuItem::linkToUrl('Gestionnaire de fichiers', 'fa fa-folder-open', '/manager/?conf=default')->setLinkTarget('blank')->setPermission('ROLE_USER');
+        yield MenuItem::linkToCrud('Media', 'fa fa-photo-film', Media::class)->setPermission('ROLE_USER');
+        yield MenuItem::linkToUrl('Gestionnaire de fichiers', 'fa fa-folder-open', '/file-manager/?conf=default')->setLinkTarget('blank')->setPermission('ROLE_USER');
 
         yield MenuItem::subMenu('Parametres', 'fa fa-gear')->setSubItems([
             MenuItem::linkToCrud('Général', 'fa fa-gear', AppOption::class),
@@ -122,5 +123,4 @@ class DashboardController extends AbstractDashboardController
     {
         return parent::configureActions()->add(Crud::PAGE_INDEX, Action::DETAIL);
     }
-
 }
