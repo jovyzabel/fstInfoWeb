@@ -61,11 +61,37 @@ class StudentType extends AbstractType
             ->add('firstName', TextType::class, [
                 'label' => 'Prénom'
             ])
+            ->add('marriedName', TextType::class, [
+                'label' => 'Nom d\'épouse (pour les femmes mariées)',
+                'required' => false,
+            ])
             ->add('nationality', CountryType::class, [
-                'label' => 'Nationalité'
+                'label' => 'Nationalité',
+                'preferred_choices' => ['CG'],
+            ])
+            ->add('identificationDocument', IdentificationDocumentType::class)
+            ->add('status', ChoiceType::class, [
+                'label' => 'Statut',
+                'choices' => [
+                    'Etudiant' => 'Etudiant',
+                    'Travailleur' => 'Travailleur',
+                ]
+            ])
+            ->add('job', TextType::class, [
+                'label' => 'Nom et adresse de votre entreprise',
+                'required' => false,
+            ])
+            ->add('lastSchool', TextType::class, [
+                'label' => 'Dernier Etablissement'
+            ])
+            ->add('lastDiploma', TextType::class, [
+                'label' => 'Dernier Diplôme'
             ])
             ->add('address', AddressType::class, [
                 'label' => 'Adresse'
+            ])
+            ->add('contactPerson', ContactPersonType::class, [
+                'label' => 'Personne ressource qu\'on peut contacter'
             ]);
     }
 

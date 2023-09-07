@@ -15,20 +15,7 @@ class Address
     private ?int $id = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $street_name = null;
-
-    #[ORM\Column(nullable: true)]
-    #[Assert\Positive]
-    private ?int $street_number = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    #[Assert\Length(min: 2,)]
-    #[Assert\Regex([
-        'pattern' => '/\d/',
-        'match' => false,
-        'message' => 'Entrez un lieu exact',
-    ]),]
-    private ?string $quater_name = null;
+    private ?string $name = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     #[Assert\Length(min: 2,)]
@@ -53,38 +40,14 @@ class Address
         return $this->id;
     }
 
-    public function getStreetName(): ?string
+    public function getName(): ?string
     {
-        return $this->street_name;
+        return $this->name;
     }
 
-    public function setStreetName(?string $street_name): self
+    public function setName(?string $name): self
     {
-        $this->street_name = $street_name;
-
-        return $this;
-    }
-
-    public function getStreetNumber(): ?int
-    {
-        return $this->street_number;
-    }
-
-    public function setStreetNumber(?int $street_number): self
-    {
-        $this->street_number = $street_number;
-
-        return $this;
-    }
-
-    public function getQuaterName(): ?string
-    {
-        return $this->quater_name;
-    }
-
-    public function setQuaterName(?string $quater_name): self
-    {
-        $this->quater_name = $quater_name;
+        $this->name = $name;
 
         return $this;
     }
@@ -115,6 +78,6 @@ class Address
 
     public function __toString()
     {
-        return $this->street_number .', '. $this->street_name .', '. $this->quater_name .', ' . $this->city;
+        return $this->name . ', ' . $this->city;
     }
 }

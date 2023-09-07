@@ -35,6 +35,14 @@ class PreRegistrationController extends AbstractController
         ]);
     }
 
+    #[Route('/preinscription-reussie/{id}', name: 'app_pre_registration_success', methods: ['GET'])]
+    public function success(PreRegistration $preRegistration): Response
+    {
+        return $this->render('pre_registration/success.html.twig', [
+            'pre_registration' => $preRegistration,
+        ]);
+    }
+
     #[Route('/preinscription-approuvees', name: 'app_pre_registration_approuved', methods: ['GET'])]
     public function approuved(PreRegistrationRepository $preRegistrationRepository, AppOptionRepository $appOptionRepository): Response
     {
@@ -68,11 +76,9 @@ class PreRegistrationController extends AbstractController
         ]);
 
         return new Response();
-
-
     }
 
-    
+
 
     #[Route('/nouvelle-preinscription', name: 'app_pre_registration_new', methods: ['GET', 'POST'])]
     public function new(Request $request, PreRegistrationRepository $preRegistrationRepository, AppOptionRepository $appOptionRepository): Response
@@ -94,14 +100,14 @@ class PreRegistrationController extends AbstractController
                 echo $e->getMessage();
             }
             try {
-                $preRegistration->setAcademicYear($appOptions->getCurrentAcademicYear());    
+                $preRegistration->setAcademicYear($appOptions->getCurrentAcademicYear());
             } catch (\Throwable $th) {
                 throw $th;
             }
 
             $preRegistrationRepository->save($preRegistration, true);
 
-            return $this->redirectToRoute('app_pre_registration_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_pre_registration_success', ['id' => $preRegistration->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('pre_registration/new.html.twig', [

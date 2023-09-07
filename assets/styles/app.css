@@ -12,6 +12,11 @@
          url('./fonts/Rufina/Rufina-Regular.ttf') format('ttf');
   }
 
+label.required:after {
+    content: " *";
+    color: rgb(170, 0, 0);
+}
+
 p, ul>li {
     font-family: 'Roboto slab', sans-serif;
     font-size: 17px;

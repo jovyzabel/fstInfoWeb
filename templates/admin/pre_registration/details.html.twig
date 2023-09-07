@@ -92,7 +92,7 @@
                     {% if pre_registration.status !='Validée' %}
                         <a class="btn btn-primary" type="button" 
                             href="{{ ea_url()
-                                    .setController('App\\Controller\\Admin\\StudentCrudController')
+                                    .setController('App\\Controller\\Admin\\AddressCrudController')
                                     .setAction('edit')
                                     .setEntityId(pre_registration.student.address.id) }}"
                         >
