@@ -16,31 +16,26 @@ class AddressType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('street_name', TextType::class,[
-                'label' => 'Rue',
-                'attr' => ['class' => 'rounded-0 sumup',
-                    'placeholder' => 'Nom de la ruelle'],
+            ->add('name', TextType::class, [
+                'label' => 'Adresse',
+                'attr' => [
+                    'class' => 'rounded-0 sumup',
+                    'placeholder' => 'Votre adresse physique'
+                ],
             ])
-            ->add('street_number', IntegerType::class,[
-                'label' => 'Numero',
-                'attr' => ['class' => 'rounded-0 sumup',]
+            ->add('city',  TextType::class, [
+                'label' => 'Ville',
+                'attr' => [
+                    'class' => 'rounded-0 sumup',
+                    'placeholder' => 'Ville de résidence'
+                ],
+
             ])
-            ->add('quater_name', TextType::class, [
-                'label' => 'Quartier',
-                'attr' => ['class' => 'rounded-0 sumup',
-                    'placeholder' => 'Nom du quartier'],
-                ])
-                ->add('city',  TextType::class, [
-                    'label' => 'Ville',
-                    'attr' => ['class' => 'rounded-0 sumup',
-                    'placeholder' => 'Nom de la ville de résidence'],
-                    
-                    ])
-                    ->add('country', CountryType::class,[
-                        'label' => 'Pays de résidence',
-                        'attr'=>['class' => 'rounded-0 sumup']
-            ])
-        ;
+            ->add('country', CountryType::class, [
+                'label' => 'Pays de résidence',
+                'preferred_choices' => ['CG'],
+                'attr' => ['class' => 'rounded-0 sumup']
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

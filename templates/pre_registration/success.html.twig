@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Préinscription réussie{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="py-5">
+        <h1 class="py-3 h2 fw-bold">Félicitations {{pre_registration.student}}, votre demande a été enregistré avec succès !</h1>
+        <div>
+            <p>Votre candidature sera maintenant examinée par notre équipe d'admissions. Veuillez consulter régulièrement votre boîte de réception, car nous vous tiendrons informé(e) de l'état de votre candidature par email.</p>
+            <p>Si vous avez des questions ou avez besoin d'assistance supplémentaire, n'hésitez pas à <a href="">nous contacter</a> à l'adresse email ou au numéro de téléphone indiqué sur notre site. Nous sommes là pour vous aider tout au long du processus d'admission.</p>
+            <p>Merci encore pour votre intérêt pour notre établissement universitaire, et nous vous souhaitons bonne chance pour votre candidature !</p>
+        </div>
+        <div>
+            <a href="{{path('app_state_fiche_pre_inscription_slip', {'id' : pre_registration.id})}}" class="btn">Imprimer la fiche de préinscription</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

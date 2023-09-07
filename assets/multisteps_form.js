@@ -137,47 +137,109 @@ $(document).ready(function() {
 
             $("#recap").html(`<div class="my-3">
                 <div class="card-body">
-                    <h5 class="card-title">Informations personnelles</h5>
-                    <table class="table table-hover">
-                        <tr >
-                            <td >Nom(s) </td>
-                            <td >${formData.get('pre_registration[student][name]')}</td>
-                        </tr>
-                        <tr >
-                            <td>Prénom(s) </td>
-                            <td>${formData.get('pre_registration[student][firstName]')}</td>
-                        </tr>
-                        <tr >
-                            <td>Civilité </td>
-                            <td>${formData.get('pre_registration[student][civility]')}</td>
-                        </tr>
-                        <tr >
-                            <td>Date de naissance </td>
-                            <td>${formData.get('pre_registration[student][birthDay]')}</td>
-                        </tr>
-                        <tr >
-                            <td>Lieu de naissance </td>
-                            <td>${formData.get('pre_registration[student][birthPlace]')}</td>
-                        </tr>
-                        <tr >
-                            <td>Nationalité </td>
-                            <td>${regionNames.of(formData.get('pre_registration[student][nationality]'))}</td>
-                        </tr>
-                        
-                    </table>
+                    <div class="row">
+                        <h5 class="card-title">Informations personnelles</h5>
+                        <div class="col-md-6">
+                            <table class="table table-hover">
+                                <tr >
+                                    <td >Nom(s) et Prénom(s)</td>
+                                    <td >${formData.get('pre_registration[student][name]')} ${formData.get('pre_registration[student][firstName]')}</td>
+                                </tr>
+                                <tr >
+                                    <td>Nom d'épouse </td>
+                                    <td>${formData.get('pre_registration[student][marriedName]')}</td>
+                                </tr>
+                                <tr >
+                                    <td>Date et lieu de naissance </td>
+                                    <td>le ${formData.get('pre_registration[student][birthDay]')} ${formData.get('pre_registration[student][birthPlace]')}</td>
+                                </tr>
+                                <tr >
+                                    <td>Civilité </td>
+                                    <td>${formData.get('pre_registration[student][civility]')}</td>
+                                </tr>
+
+                                <tr >
+                                    <td>Nationalité </td>
+                                    <td>${regionNames.of(formData.get('pre_registration[student][nationality]'))}</td>
+                                </tr>
+                                <tr >
+                                    <td>Type de pièce </td>
+                                    <td>${formData.get('pre_registration[student][identificationDocument][typeOfDocument]')}</td>
+                                </tr>
+                                <tr >
+                                    <td>Numéro </td>
+                                    <td>${formData.get('pre_registration[student][identificationDocument][identificationNumber]')}</td>
+                                </tr>
+                                <tr >
+                                    <td>Date d'émission </td>
+                                    <td>${formData.get('pre_registration[student][identificationDocument][dateOfIssue]')}</td>
+                                </tr>
+                                <tr >
+                                    <td>Lieu d'émission </td>
+                                    <td>${formData.get('pre_registration[student][identificationDocument][placeOfIssue]')}</td>
+                                </tr>
+                                
+                            </table>
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <table class="table table-hover">
+                                <tr >
+                                    <td colspan="2">Personne ressource qu'on peut contacter</td>
+                                </tr>
+                                <tr >
+                                    <td>Nom et prénom </td>
+                                    <td>${formData.get('pre_registration[student][contactPerson][name]')}</td>
+                                </tr>
+                                <tr >
+                                    <td>Adresse</td>
+                                    <td>le ${formData.get('pre_registration[student][contactPerson][address]')} ${formData.get('pre_registration[student][birthPlace]')}</td>
+                                </tr>
+                                <tr >
+                                    <td>Tel</td>
+                                    <td>${formData.get('pre_registration[student][contactPerson][telephone]')}</td>
+                                </tr>
+                                <tr >
+                                    <td>Profession</td>
+                                    <td>${formData.get('pre_registration[student][contactPerson][job]')}</td>
+                                </tr>
+                                <tr >
+                                    <td>Lien</td>
+                                    <td>${formData.get('pre_registration[student][contactPerson][relationLink]')}</td>
+                                </tr>
+                                
+                            </table>
+
+                            <hr>
+
+                            <table class="table table-hover">
+                                <tr >
+                                    <td>Dernier établissement</td>
+                                    <td>${formData.get('pre_registration[student][lastSchool]')}</td>
+                                </tr>
+                                <tr >
+                                    <td>Dernier diplôme</td>
+                                    <td>le ${formData.get('pre_registration[student][lastDiploma]')} </td>
+                                </tr>
+                                
+                                
+                            </table>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
 
             <div class="mb-3 border-0 shadow-sm card">
                 <div class="card-body">
-                    <h5 class="card-title">Adresse et modalités contact</h5>
+                    <h5 class="card-title">modalités de contact</h5>
                     <table class="table table-hover">
                         <tr >
                             <td >Adresse </td>
                             <td >
-                                ${formData.get('pre_registration[student][address][street_number]')} 
-                                ${formData.get('pre_registration[student][address][street_name]')} 
-                                ${formData.get('pre_registration[student][address][quater_name]')} 
+                                ${formData.get('pre_registration[student][address][name]')} 
                                 ${formData.get('pre_registration[student][address][city]')},
                                 ${regionNames.of(formData.get('pre_registration[student][address][country]'))}
 
@@ -197,6 +259,65 @@ $(document).ready(function() {
 
             <div class="mb-3 border-0 shadow-sm card">
                 <div class="card-body">
+                    <h5 class="card-title">Licence : ${formData.get('pre_registration[lastCurriculum][title]')}</h5>
+
+                    <table class="table table-bordered border-dark">                        
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <td>Année de validation</td>
+                                <td>Session ordinaire ou rattrapage</td>
+                                <td>Moyenne (/20)</td>
+                                <td>Etablissement ou Ecole (Ville/Pays)</td>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                            <tr>
+                                <th>S1</th>
+                                <td>${formData.get('pre_registration[lastCurriculum][semesterOneValidationYear]')}</td>
+                                <td>${formData.get('pre_registration[lastCurriculum][semesterOneValidationSession]')}</td>
+                                <td>${formData.get('pre_registration[lastCurriculum][semesterOneAverage]')}</td>
+                                <td>${formData.get('pre_registration[lastCurriculum][school]')}</td>
+                            </tr>
+                            <tr>
+                                <th>S2</th>
+                                <td>${formData.get('pre_registration[lastCurriculum][semesterTwoValidationYear]')}</td>
+                                <td>${formData.get('pre_registration[lastCurriculum][semesterTwoValidationSession]')}</td>
+                                <td>${formData.get('pre_registration[lastCurriculum][semesterTwoAverage]')}</td>
+                                <td>${formData.get('pre_registration[lastCurriculum][school]')}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h5 class="card-title">Baccalauréat</h5>
+
+                    <table class="table table-bordered border-dark">                        
+                        <thead>
+                            <tr>
+                                <td>Série</td>
+                                <td>Intitulé</td>
+                                <td>Année d'obtention</td>
+                                <td>Lycée (Ville/pays)</td>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                            <tr>
+                                <td>${formData.get('pre_registration[baccalaureatDiploma][serie]')}</td>
+                                <td>${formData.get('pre_registration[baccalaureatDiploma][titled]')}</td>
+                                <td>${formData.get('pre_registration[baccalaureatDiploma][year]')}</td>
+                                <td>${formData.get('pre_registration[baccalaureatDiploma][placeOfAcquisition]')}</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+
+            <div class="mb-3 border-0 shadow-sm card">
+                <div class="card-body">
                     <h5 class="card-title">Chox de formation</h5>
                     <table class="table table-hover">
                         <tr class="">
@@ -209,7 +330,9 @@ $(document).ready(function() {
                         </tr>          
                     </table>
                 </div>
-            </div>`);
+            </div>
+            
+            `);
         }
     });
 
@@ -225,6 +348,21 @@ $(document).ready(function() {
         $(".progress-step").removeClass("progress-step-active").slice(0, formStepsNum + 1).addClass("progress-step-active");
         $("#progress").css({ width: (formStepsNum + 1) / $(".progress-step").length * 100 + "%" });
     }
+
+    function toggleEnterpriseField() {
+            if ($('#pre_registration_student_status').val() === 'Etudiant') {
+                $('#pre_registration_student_job').val('')
+                $('#pre_registration_student_job').prop('disabled', true); // Désactiver le champ "enterprise"
+            } else {
+                $('#pre_registration_student_job').prop('disabled', false); // Activer le champ "enterprise"
+            }
+        }
+
+        // Écouteur d'événement pour détecter les changements dans le champ "status"
+        $('#pre_registration_student_status').on('change', toggleEnterpriseField);
+
+        // Assurez-vous de vérifier l'état initial du champ lors du chargement de la page
+        toggleEnterpriseField();
 
 });
 

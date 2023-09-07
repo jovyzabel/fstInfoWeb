@@ -37,6 +37,13 @@ class PreRegistration
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $preRegistrationType = null;
 
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?BaccalaureatDiploma $baccalaureatDiploma = null;
+
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?LastCurriculum $lastCurriculum = null;
+
     public function __construct()
     {
         $this->createdAt = new DateTimeImmutable();
@@ -133,6 +140,30 @@ class PreRegistration
     public function setPreRegistrationType(?string $preRegistrationType): self
     {
         $this->preRegistrationType = $preRegistrationType;
+
+        return $this;
+    }
+
+    public function getBaccalaureatDiploma(): ?BaccalaureatDiploma
+    {
+        return $this->baccalaureatDiploma;
+    }
+
+    public function setBaccalaureatDiploma(BaccalaureatDiploma $baccalaureatDiploma): self
+    {
+        $this->baccalaureatDiploma = $baccalaureatDiploma;
+
+        return $this;
+    }
+
+    public function getLastCurriculum(): ?LastCurriculum
+    {
+        return $this->lastCurriculum;
+    }
+
+    public function setLastCurriculum(?LastCurriculum $lastCurriculum): self
+    {
+        $this->lastCurriculum = $lastCurriculum;
 
         return $this;
     }
