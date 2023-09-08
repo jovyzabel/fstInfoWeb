@@ -8,7 +8,7 @@
                     <h3 class="h1 mb-4">Découvrez notre offre de formation</h3>
                     <p class="mb-4 text-light lead h1">Accedez  simplement et facilement à notre parcours en vous préinscrivant en ligne</p>
                     <p class="my-3">
-                        <a class="btn specifical-bg-1 text-light btn-lg rounded-pill" href="{{path('app_formation_cycles')}}">Découvrir</a>
+                        <a class="btn specifical-bg-1 text-light btn-lg" href="{{path('app_formation_cycles')}}">Découvrir</a>
                     </p>
                 </div>
             </div>
@@ -21,7 +21,7 @@
                     <h3 class="h1 mb-4">Préinscription en ligne</h3>
                     <p class="mb-4 text-light lead h1">Accedez  simplement et facilement à notre parcours en vous préinscrivant en ligne</p>
                     <p class="my-3">
-                        <a class="btn specifical-bg-1 text-light btn-lg rounded-pill" href="">Postuler</a>
+                        <a class="btn specifical-bg-1 text-light btn-lg" href="">Postuler</a>
                     </p>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                     <h3 class="mb-4 h1">Missions du parcours</h3>
                     <p class="mb-4 text-light lead h1">Nous accompagnons les étudiant(e)s vers la réussite dans le cadre d’une formation qui donne des clés d’orientation et d’insertion professionnelle...</p>
                     <p class="my-3">
-                        <a class="btn specifical-bg-1 text-light btn-lg rounded-pill" href="">Decouvrez plus</a>
+                        <a class="btn specifical-bg-1 text-light btn-lg" href="">Decouvrez plus</a>
                     </p>
                 </div>
 
@@ -53,7 +53,7 @@
                     <h3 class="mb-4 h1">{{item.title}}</h3>
                     <p class="mb-4 text-light lead">{{ item.content|striptags|u.truncate(50, '...', false)|raw }}</p>
                     <p class="my-3">
-                        <a class="btn specifical-bg-1 text-light btn-lg rounded-pill" href="{{path('app_news_show',{slug: item.slug})}}">Lire la suite</a>
+                        <a class="btn specifical-bg-1 text-light btn-lg" href="{{path('app_news_show',{slug: item.slug})}}">Lire la suite</a>
                     </p>
                 </div>
             </div>
