@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -14,6 +15,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Validator\Constraints\LessThanOrEqual;
 
 class StudentType extends AbstractType
@@ -46,24 +48,49 @@ class StudentType extends AbstractType
                 "widget" => "single_text",
                 'constraints' => [
                     new NotBlank(),
-                    new LessThanOrEqual(['value' => '-15 years',]),
+                    new LessThanOrEqual(['value' => '-16 years',], null, 'La valeur de l\'âge doit être superieur à 16 ans'),
                 ]
             ])
 
             ->add('birthPlace', TextType::class, [
-                'label' => 'Lieu de Naissance'
+                'label' => 'Lieu de Naissance',
+                'constraints' => [
+                    new NotBlank(null, 'Ce champs ne peux pas être null'),
+                    new Regex('/\d/', 'Ce champs ne doit pas contenir de chiffre')
+                ],
             ])
-            ->add('telephone')
-            ->add('email', EmailType::class)
+            ->add('telephone', TelType::class, [
+                'label' => 'Téléphone',
+                'constraints' => [
+                    new NotBlank(null, 'Ce champs ne peux pas être null'),
+                ],
+            ])
+            ->add('email', EmailType::class, [
+                'label' => 'Téléphone',
+                'constraints' => [
+                    new NotBlank(null, 'Ce champs ne peux pas être null'),
+                ],
+            ])
             ->add('name', TextType::class, [
-                'label' => 'Nom'
+                'label' => 'Nom',
+                'constraints' => [
+                    new NotBlank(null, 'Ce champs ne peux pas être null'),
+                    new Regex('/\d/', 'Ce champs ne doit pas contenir de chiffre')
+                ],
             ])
             ->add('firstName', TextType::class, [
-                'label' => 'Prénom'
+                'label' => 'Prénom',
+                'constraints' => [
+                    new NotBlank(null, 'Ce champs ne peux pas être null'),
+                    new Regex('/\d/', 'Ce champs ne doit pas contenir de chiffre')
+                ],
             ])
             ->add('marriedName', TextType::class, [
                 'label' => 'Nom d\'épouse (pour les femmes mariées)',
                 'required' => false,
+                'constraints' => [
+                    new Regex('/\d/', 'Ce champs ne doit pas contenir de chiffre')
+                ],
             ])
             ->add('nationality', CountryType::class, [
                 'label' => 'Nationalité',
@@ -79,6 +106,10 @@ class StudentType extends AbstractType
             ])
             ->add('job', TextType::class, [
                 'label' => 'Nom et adresse de votre entreprise',
+                'constraints' => [
+                    new NotBlank(null, 'Ce champs ne peux pas être null'),
+                    new Regex('/\d/', 'Ce champs ne doit pas contenir de chiffre')
+                ],
                 'required' => false,
             ])
             ->add('lastSchool', TextType::class, [

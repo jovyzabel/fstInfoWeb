@@ -53,76 +53,184 @@
                     {% endif %}
                     </div>
                 </div>
-                <table class="table table-hover">
-                    <tr >
-                        <td >Nom(s) </td>
-                        <td >{{ pre_registration.student.name }}</td>
-                    </tr>
-                    <tr >
-                        <td>Prénom(s) </td>
-                        <td>{{ pre_registration.student.firstName }}</td>
-                    </tr>
-                    <tr >
-                        <td>Civilité </td>
-                        <td>{{ pre_registration.student.civility }}</td>
-                    </tr>
-                    <tr >
-                        <td>Date de naissance </td>
-                        <td>{{ pre_registration.student.birthDay | date("d-m-Y") }}</td>
-                    </tr>
-                    <tr >
-                        <td>Lieu de naissance </td>
-                        <td>{{ pre_registration.student.birthPlace }}</td>
-                    </tr>
-                    <tr >
-                        <td>Nationalité </td>
-                        <td>{{ pre_registration.student.nationality |country_name('fr') }}</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-        <div class="mb-3 border-0 shadow-sm card">
-            <div class="card-body">
                 <div class="row">
-                    <div class="col">
-                        <h5 class="card-title">Adresse et modalités contact</h5>
+                    <div class="col-md-6">
+                        <table class="table table-hover">
+                            <tr >
+                                <td >Nom(s) et Prénom(s)</td>
+                                <td >{{ pre_registration.student.name }} {{ pre_registration.student.firstName }}</td>
+                            </tr>
+                            <tr >
+                                <td>Nom d'épouse</td>
+                                <td>{{ pre_registration.student.marriedName }} </td>
+                            </tr>
+                            <tr >
+                                <td>Date et lieu de naissance </td>
+                                <td>le {{ pre_registration.student.birthDay | date("d-m-Y") }} à {{ pre_registration.student.birthPlace }}</td>
+                            </tr>
+                            <tr >
+                                <td>Civilité </td>
+                                <td>{{ pre_registration.student.civility }}</td>
+                            </tr>
+                            <tr >
+                                <td>Nationalité </td>
+                                <td>{{ pre_registration.student.nationality |country_name('fr') }}</td>
+                            </tr>
+
+                            <tr >
+                                <td>Type de pièce </td>
+                                <td>{{ pre_registration.student.identificationDocument.typeOfDocument}}</td>
+                            </tr>
+                            <tr >
+                                <td>Numéro </td>
+                                <td>{{ pre_registration.student.identificationDocument.identificationNumber}}</td>
+                            </tr>
+                            <tr >
+                                <td>Date d'émission </td>
+                                <td>{{pre_registration.student.identificationDocument.dateOfIssue |date('d/m/Y')}} </td>
+                            </tr>
+                            <tr >
+                                <td>Lieu d'émission </td>
+                                <td>{{pre_registration.student.identificationDocument.placeOfIssue}}</td>
+                            </tr>
+
+
+                            <tr >
+                                <td>Dernier établissement</td>
+                                <td>{{pre_registration.student.lastSchool}}</td>
+                            </tr>
+                            <tr >
+                                <td>Dernier diplôme</td>
+                                <td>{{pre_registration.student.lastDiploma}} </td>
+                            </tr>
+                            
+                        </table>
                     </div>
-                    <div class="col text-end">
-                    {% if pre_registration.status !='Validée' %}
-                        <a class="btn btn-primary" type="button" 
-                            href="{{ ea_url()
-                                    .setController('App\\Controller\\Admin\\AddressCrudController')
-                                    .setAction('edit')
-                                    .setEntityId(pre_registration.student.address.id) }}"
-                        >
-                            Modifier
-                        </a>
-                    {% endif %}
+                    <div class="col-md-6">
+                        <table class="table table-hover">
+
+                            <tr >
+                                <td>Statut</td>
+                                <td>{{pre_registration.student.status}}</td>
+                            </tr>
+                            <tr >
+                                <td>Employeur</td>
+                                <td>{{pre_registration.student.job}} </td>
+                            </tr>
+                            <tr >
+                                <td >Adresse </td>
+                                <td >{{ pre_registration.student.address }}</td>
+                            </tr>
+                            <tr >
+                                <td>Téléphone </td>
+                                <td>{{pre_registration.student.telephone}}</td>
+                            </tr>
+                            <tr >
+                                <td>Email</td>
+                                <td>{{ pre_registration.student.email }}</td>
+                            </tr>
+
+
+                            <tr >
+                                <td colspan="2">Personne ressource qu'on peut contacter</td>
+                            </tr>
+                            <tr >
+                                <td>Nom et prénom </td>
+                                <td>{{pre_registration.student.contactPerson.name}}</td>
+                            </tr>
+                            <tr >
+                                <td>Adresse</td>
+                                <td>le {{pre_registration.student.contactPerson.address}} {{pre_registration.student.birthPlace}}</td>
+                            </tr>
+                            <tr >
+                                <td>Tel</td>
+                                <td>{{pre_registration.student.contactPerson.telephone}}</td>
+                            </tr>
+                            <tr >
+                                <td>Profession</td>
+                                <td>{{pre_registration.student.contactPerson.job}}</td>
+                            </tr>
+                            <tr >
+                                <td>Lien</td>
+                                <td>{{pre_registration.student.contactPerson.relationLink}}</td>
+                            </tr>
+
+                        </table>
                     </div>
                 </div>
-                <table class="table table-hover">
-                    <tr >
-                        <td >Adresse </td>
-                        <td >{{ pre_registration.student.address }}</td>
-                    </tr>
-                    <tr >
-                        <td>Téléphone </td>
-                        <td>{{pre_registration.student.telephone}}</td>
-                    </tr>
-                    <tr >
-                        <td>Email</td>
-                        <td>{{ pre_registration.student.email }}</td>
-                    </tr>
-                </table>
+                
             </div>
         </div>
 
         <div class="mb-3 border-0 shadow-sm card">
             <div class="card-body">
                 <div class="row">
+                    <div class="col-lg-6">
+                        <h5 class="card-title">Licence : {{pre_registration.lastCurriculum.title}}</h5>
+
+                        <table class="table table-bordered border-secondary">                        
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <td>Année de validation</td>
+                                    <td>Session ordinaire ou rattrapage</td>
+                                    <td>Moyenne (/20)</td>
+                                    <td>Etablissement ou Ecole (Ville/Pays)</td>
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+                                <tr>
+                                    <th>S1</th>
+                                    <td>{{pre_registration.lastCurriculum.semesterOneValidationYear}}</td>
+                                    <td>{{pre_registration.lastCurriculum.semesterOneValidationSession}}</td>
+                                    <td>{{pre_registration.lastCurriculum.semesterOneAverage}}</td>
+                                    <td>{{pre_registration.lastCurriculum.school}}</td>
+                                </tr>
+                                <tr>
+                                    <th>S2</th>
+                                    <td>{{pre_registration.lastCurriculum.semesterTwoValidationYear}}</td>
+                                    <td>{{pre_registration.lastCurriculum.semesterTwoValidationSession}}</td>
+                                    <td>{{pre_registration.lastCurriculum.semesterTwoAverage}}</td>
+                                    <td>{{pre_registration.lastCurriculum.school}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-lg-6">
+                        <h5 class="card-title">Baccalauréat</h5>
+                        <table class="table table-bordered border-secondary">                        
+                            <thead>
+                                <tr>
+                                    <td>Série</td>
+                                    <td>Intitulé</td>
+                                    <td>Année d'obtention</td>
+                                    <td>Lycée (Ville/pays)</td>
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+                                <tr>
+                                    <td>{{pre_registration.baccalaureatDiploma.serie}}</td>
+                                    <td>{{pre_registration.baccalaureatDiploma.titled}}</td>
+                                    <td>{{pre_registration.baccalaureatDiploma.year}}</td>
+                                    <td>{{pre_registration.baccalaureatDiploma.placeOfAcquisition}}</td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+            
+
+        <div class="mb-3 border-0 shadow-sm card">
+            <div class="card-body">
+                <div class="row">
                     <div class="col">
-                        <h5 class="card-title">Choix de formation</h5>   
+                        <h5 class="card-title">Formation</h5>   
                     </div>
                     <div class="col text-end">
                     {# {% if pre_registration.status !='Validée' %}
