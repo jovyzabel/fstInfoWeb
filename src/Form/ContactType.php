@@ -18,7 +18,7 @@ class ContactType extends AbstractType
         $builder
             ->add('fullName', TextType::class, [
                 'label' => false,
-                'attr' => ['placeholder' => 'Entrez votre nom complet'],, TextType::class, [
+                'attr' => ['placeholder' => 'Entrez votre nom complet'], TextType::class, [
                     'label' => 'Série',
                     'constraints' => [
                         new NotBlank(null, 'Ce champs ne peux pas être null'),
@@ -27,7 +27,7 @@ class ContactType extends AbstractType
             ])
             ->add('email', TextType::class, [
                 'label' => false,
-                'attr' => ['placeholder' => 'Votre adresse email'],, TextType::class, [
+                'attr' => ['placeholder' => 'Votre adresse email'], TextType::class, [
                     'label' => 'Série',
                     'constraints' => [
                         new NotBlank(null, 'Ce champs ne peux pas être null'),
@@ -36,7 +36,7 @@ class ContactType extends AbstractType
             ])
             ->add('object', TextType::class, [
                 'label' => false,
-                'attr' => ['placeholder' => 'Objet du message'],, TextType::class, [
+                'attr' => ['placeholder' => 'Objet du message'], TextType::class, [
                     'label' => 'Série',
                     'constraints' => [
                         new NotBlank(null, 'Ce champs ne peux pas être null'),

@@ -36,7 +36,7 @@
                         </a>
                         <p class="card-text h4">{{datum.diploma}}</p>
                         <p class="">
-                            <a class="btn rounded-pill shadow specifical-bg-3 text-light" 
+                            <a class="btn shadow specifical-bg-3 text-light" 
                                 href="{{path('app_parcours_teacher_show', {id:datum.id})}}"
                             >
                             Consulter
@@ -58,7 +58,7 @@
                         </a>
                         <p class="card-text">{{datum.description|u.truncate(200, '...', false)}}</p>
                         <p class="">
-                            <a class="btn rounded-pill shadow specifical-bg-3 text-light" 
+                            <a class="btn shadow specifical-bg-3 text-light" 
                                 href="{{path('app_speciality', {formation_cycle_slug:datum.formationCycle.slug, slug:datum.slug})}}"
                             >
                             Consulter
@@ -80,7 +80,7 @@
                         </a>
                         <p class="card-text">{{datum.content|u.truncate(200, '...', false)}}</p>
                         <p class="">
-                            <a class="btn rounded-pill shadow specifical-bg-3 text-light" 
+                            <a class="btn shadow specifical-bg-3 text-light" 
                                 href="{{path('app_news_show', {slug:datum.slug})}}"
                             >
                             Consulter
@@ -102,7 +102,7 @@
                         </a>
                         <p class="card-text">{{datum.description|u.truncate(200, '...', false)}}</p>
                         <p class="">
-                            <a class="btn rounded-pill shadow specifical-bg-3 text-light" 
+                            <a class="btn shadow specifical-bg-3 text-light" 
                                 href="{{path('app_formation_cycle', {slug:datum.slug})}}"
                             >
                             Consulter
@@ -124,7 +124,7 @@
                         </a>
                         <p class="card-text">{{datum.content|u.truncate(200, '...', false)}}</p>
                         <p class="">
-                            <a class="btn rounded-pill shadow specifical-bg-3 text-light" 
+                            <a class="btn shadow specifical-bg-3 text-light" 
                                 href="{{datum.link }}"
                             >
                             Consulter
