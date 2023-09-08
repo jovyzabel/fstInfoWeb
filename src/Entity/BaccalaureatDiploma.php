@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\BaccalaureatDiplomaRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: BaccalaureatDiplomaRepository::class)]
 class BaccalaureatDiploma
@@ -14,9 +15,20 @@ class BaccalaureatDiploma
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Length(
+        min: 1,
+        max: 4,
+        minMessage: 'Ce champs ne doit pas avoir moins de {{ limit }} caractères',
+        maxMessage: 'Ce champs ne doit pas avoir plus de {{ limit }} caractères',
+    )]
     private ?string $serie = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Regex(
+        pattern: '/\d/',
+        match: false,
+        message: 'Ce champs de doit pas contenir de chiffre ni de caractère spécial',
+    )]
     private ?string $titled = null;
 
     #[ORM\Column(length: 255)]

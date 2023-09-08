@@ -178,6 +178,14 @@ $(document).ready(function() {
                                     <td>Lieu d'émission </td>
                                     <td>${formData.get('pre_registration[student][identificationDocument][placeOfIssue]')}</td>
                                 </tr>
+                                <tr >
+                                    <td>Dernier établissement </td>
+                                    <td>${formData.get('pre_registration[student][lastSchool]')}</td>
+                                </tr>
+                                <tr >
+                                    <td>Dernier diplôme </td>
+                                    <td>${formData.get('pre_registration[student][lastDiploma]')}</td>
+                                </tr>
                                 
                             </table>
                         </div>
@@ -185,6 +193,33 @@ $(document).ready(function() {
                         <div class="col-md-6">
 
                             <table class="table table-hover">
+                                <tr >
+                                    <td>Statut </td>
+                                    <td>${formData.get('pre_registration[student][status]')}</td>
+                                </tr>
+                                <tr >
+                                    <td>Employeur </td>
+                                    <td>${formData.get('pre_registration[student][job]')}</td>
+                                </tr>
+
+                                <tr >
+                                    <td >Adresse </td>
+                                    <td >
+                                        ${formData.get('pre_registration[student][address][name]')} 
+                                        ${formData.get('pre_registration[student][address][city]')},
+                                        ${regionNames.of(formData.get('pre_registration[student][address][country]'))}
+
+                                    </td>
+                                </tr>
+                                <tr >
+                                    <td>Téléphone </td>
+                                    <td>${formData.get('pre_registration[student][telephone]')}</td>
+                                </tr>
+                                <tr >
+                                    <td>Email</td>
+                                    <td>${formData.get('pre_registration[student][email]')}</td>
+                                </tr>
+                                
                                 <tr >
                                     <td colspan="2">Personne ressource qu'on peut contacter</td>
                                 </tr>
@@ -210,21 +245,7 @@ $(document).ready(function() {
                                 </tr>
                                 
                             </table>
-
-                            <hr>
-
-                            <table class="table table-hover">
-                                <tr >
-                                    <td>Dernier établissement</td>
-                                    <td>${formData.get('pre_registration[student][lastSchool]')}</td>
-                                </tr>
-                                <tr >
-                                    <td>Dernier diplôme</td>
-                                    <td>le ${formData.get('pre_registration[student][lastDiploma]')} </td>
-                                </tr>
-                                
-                                
-                            </table>
+                            
                         </div>
                     </div>
 
@@ -234,34 +255,9 @@ $(document).ready(function() {
 
             <div class="mb-3 border-0 shadow-sm card">
                 <div class="card-body">
-                    <h5 class="card-title">modalités de contact</h5>
-                    <table class="table table-hover">
-                        <tr >
-                            <td >Adresse </td>
-                            <td >
-                                ${formData.get('pre_registration[student][address][name]')} 
-                                ${formData.get('pre_registration[student][address][city]')},
-                                ${regionNames.of(formData.get('pre_registration[student][address][country]'))}
-
-                            </td>
-                        </tr>
-                        <tr >
-                            <td>Téléphone </td>
-                            <td>${formData.get('pre_registration[student][telephone]')}</td>
-                        </tr>
-                        <tr >
-                            <td>Email</td>
-                            <td>${formData.get('pre_registration[student][email]')}</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-
-            <div class="mb-3 border-0 shadow-sm card">
-                <div class="card-body">
                     <h5 class="card-title">Licence : ${formData.get('pre_registration[lastCurriculum][title]')}</h5>
 
-                    <table class="table table-bordered border-dark">                        
+                    <table class="table table-bordered border-secondary">                        
                         <thead>
                             <tr>
                                 <th></th>
@@ -292,7 +288,7 @@ $(document).ready(function() {
 
                     <h5 class="card-title">Baccalauréat</h5>
 
-                    <table class="table table-bordered border-dark">                        
+                    <table class="table table-bordered border-secondary">                        
                         <thead>
                             <tr>
                                 <td>Série</td>
@@ -315,10 +311,9 @@ $(document).ready(function() {
                 </div>
             </div>
             
-
             <div class="mb-3 border-0 shadow-sm card">
                 <div class="card-body">
-                    <h5 class="card-title">Chox de formation</h5>
+                    <h5 class="card-title">Formation</h5>
                     <table class="table table-hover">
                         <tr class="">
                             <td>Cycle de formation</td>

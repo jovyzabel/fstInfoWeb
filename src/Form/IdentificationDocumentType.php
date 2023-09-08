@@ -4,11 +4,12 @@ namespace App\Form;
 
 use App\Entity\IdentificationDocument;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class IdentificationDocumentType extends AbstractType
 {
@@ -25,13 +26,22 @@ class IdentificationDocumentType extends AbstractType
             ])
             ->add('identificationNumber', TextType::class, [
                 'label' => 'Numéro de la pièce',
+                'constraints' => [
+                    new NotBlank(null, 'Ce champs ne peux pas être null'),
+                ],
             ])
             ->add('dateOfIssue', DateType::class, [
                 'label' => 'Date d\'émission',
-                'widget' => 'single_text'
+                'widget' => 'single_text',
+                'constraints' => [
+                    new NotBlank(null, 'Ce champs ne peux pas être null'),
+                ],
             ])
             ->add('placeOfIssue', TextType::class, [
                 'label' => 'Lieu d\'émission',
+                'constraints' => [
+                    new NotBlank(null, 'Ce champs ne peux pas être null'),
+                ],
             ]);
     }
 
